@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Articles | Avorelo</title>
+<meta name="description" content="AI coding practices, tooling patterns, and team reporting explained. Articles from Avorelo on context, scope, proof, routing, access, AI waste, and workflow health.">
+<link rel="canonical" href="https://avorelo.com/articles.html">
+<meta property="og:title" content="Articles | Avorelo">
+<meta property="og:description" content="AI coding practices explained from the inside. Notes from real Avorelo development sessions: context, scope, proof, routing, access, and workflow health.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Articles | Avorelo",
+  "description": "AI coding practices, tooling patterns, and team reporting explained.",
+  "url": "https://avorelo.com/articles.html"
+}
+</script>
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--dark-2:#141828;--dark-3:#1C2035;
+  --warm:#EDE9E4;--warm-2:#E5E0D9;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.08);--sh:0 2px 8px rgba(0,0,0,.10);
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+h1{font-size:clamp(1.6rem,3vw,2.3rem)}
+h2{font-size:clamp(1.4rem,2.5vw,1.9rem)}
+p{font-size:1rem;line-height:1.7;color:var(--text-2)}
+.kicker{font-family:var(--sans);font-size:0.70rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--text-3)}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-links a.active{color:var(--indigo);font-weight:600}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px}
+.nav-mob{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(245,244,241,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:10px 24px 20px;z-index:99}
+.nav-mob.open{display:block}
+.nav-mob a{display:block;padding:11px 0;font-size:0.96rem;color:var(--text-2);text-decoration:none;border-bottom:1px solid var(--border);font-weight:500}
+.nav-mob a:last-child{border-bottom:none}
+.nm-cta{display:block;margin-top:12px;text-align:center;background:var(--indigo);color:#fff !important;padding:11px;border-radius:var(--r-sm);font-weight:600;font-family:var(--sans);border:none !important}
+
+.art-hero{padding:40px 0 32px;border-bottom:1px solid var(--border)}
+.art-hero-inner{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.art-hero-copy{max-width:600px}
+.art-hero-copy h1{margin-bottom:8px}
+.art-hero-copy p{font-size:0.96rem;color:var(--text-2);max-width:520px}
+
+.dog-strip{background:var(--warm);border-bottom:1px solid var(--border);padding:12px 0}
+.dog-in{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.dog-badge{background:rgba(23,168,122,.10);border:1px solid rgba(23,168,122,.20);border-radius:var(--r-sm);padding:3px 10px;font-size:0.63rem;font-weight:700;color:var(--teal);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;font-family:var(--sans)}
+.dog-text{font-size:0.82rem;color:var(--text-2)}
+.dog-text strong{color:var(--text);font-weight:600}
+
+.filter-bar{position:sticky;top:56px;z-index:90;background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:14px 0}
+.art-filter{display:flex;flex-wrap:wrap;gap:8px}
+.art-filter-btn{background:var(--card);border:1px solid var(--border);border-radius:40px;padding:7px 14px;font-size:0.8rem;font-weight:600;font-family:var(--sans);color:var(--text-2);cursor:pointer;transition:background .15s,border-color .15s,color .15s;white-space:nowrap}
+.art-filter-btn:hover{border-color:var(--border-2);color:var(--text)}
+.art-filter-btn.active{background:var(--indigo);border-color:var(--indigo);color:#fff}
+.art-filter-btn:focus-visible{outline:2px solid var(--indigo);outline-offset:2px}
+
+.cat-section{padding:28px 0 8px}
+.cat-section:last-child{padding-bottom:56px}
+.cat-section[hidden]{display:none}
+.cat-hdr{display:flex;align-items:baseline;gap:14px;margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.cat-hdr h2{font-size:1.05rem;font-weight:700;font-family:var(--sans);color:var(--text)}
+.cat-hdr span{font-size:0.72rem;color:var(--text-3)}
+
+.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.art-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;display:flex;flex-direction:column;text-decoration:none;transition:box-shadow .15s;color:inherit}
+.art-card:hover{box-shadow:var(--sh)}
+.art-card.warm{background:var(--warm)}
+.art-tag{display:inline-flex;padding:3px 10px;border-radius:20px;font-size:0.62rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-family:var(--sans);margin-bottom:12px}
+.art-tag-context{background:var(--teal-lt);color:var(--teal-dk);border:1px solid rgba(23,168,122,.20)}
+.art-tag-scope{background:rgba(123,63,176,.08);color:#7B3FB0;border:1px solid rgba(123,63,176,.18)}
+.art-tag-proof{background:var(--indigo-lt);color:var(--indigo);border:1px solid rgba(75,80,232,.18)}
+.art-tag-routing{background:rgba(180,83,9,.08);color:#B45309;border:1px solid rgba(180,83,9,.18)}
+.art-tag-access{background:rgba(3,105,161,.08);color:#0369A1;border:1px solid rgba(3,105,161,.18)}
+.art-tag-waste,.art-tag-cost{background:#FBF3EE;color:#A0441A;border:1px solid rgba(160,68,26,.18)}
+.art-tag-safety{background:var(--amber-lt);color:var(--amber);border:1px solid rgba(217,123,26,.20)}
+.art-tag-evidence{background:var(--indigo-lt);color:var(--indigo);border:1px solid rgba(75,80,232,.18)}
+.art-tag-teams{background:rgba(21,101,168,.08);color:#1565A8;border:1px solid rgba(21,101,168,.18)}
+.art-tag-privacy{background:rgba(123,47,190,.08);color:#7B2FBE;border:1px solid rgba(123,47,190,.18)}
+.art-tag-capability{background:var(--teal-lt);color:var(--teal-dk);border:1px solid rgba(23,168,122,.20)}
+.art-tag-workflow{background:#EDF5E0;color:#3A7E1A;border:1px solid rgba(58,126,26,.18)}
+.art-card h3{font-size:0.96rem;font-weight:700;color:var(--text);margin-bottom:8px;line-height:1.35;font-family:var(--sans)}
+.art-card p{font-size:0.84rem;color:var(--text-2);line-height:1.65;flex:1}
+.art-card-link{display:inline-flex;align-items:center;gap:4px;font-size:0.76rem;color:var(--indigo);font-weight:600;text-decoration:none;margin-top:12px}
+.art-card-learn{display:block;font-size:0.72rem;color:var(--text-3);line-height:1.5;margin-top:8px;font-style:italic}
+
+.no-results{display:none;padding:40px 0 56px;color:var(--text-3);font-size:0.9rem}
+
+.footer{background:var(--dark);padding:36px 0 22px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-in{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap;margin-bottom:20px}
+.footer-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:rgba(255,255,255,.88);text-decoration:none;display:block;margin-bottom:6px}
+.footer-brand p{font-size:0.76rem;color:rgba(255,255,255,.28);max-width:200px;line-height:1.5}
+.footer-links{display:flex;gap:30px;flex-wrap:wrap}
+.footer-col h5{font-size:0.60rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:10px;font-family:var(--sans)}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.footer-col a{font-size:0.84rem;color:rgba(255,255,255,.40);text-decoration:none}
+.footer-col a:hover{color:rgba(255,255,255,.80)}
+.footer-btm{border-top:1px solid rgba(255,255,255,.07);padding-top:14px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.footer-btm p{font-size:0.73rem;color:rgba(255,255,255,.20)}
+
+@media(max-width:900px){.art-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){
+  .nav-links{display:none}.nav-ham{display:block}
+  .art-grid{grid-template-columns:1fr}
+  .art-hero{padding:28px 0 22px}
+  .art-hero-inner{flex-direction:column;align-items:flex-start}
+  .filter-bar{position:static}
+}
+@media(max-width:390px){.wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">Avorelo</a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="articles.html" class="active">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" onclick="document.getElementById('navMob').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+<div class="nav-mob" id="navMob">
+  <a href="index.html#how">How it works</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="articles.html">Articles</a>
+  <a href="contact.html">Contact</a>
+  <a href="/activate" class="nm-cta">Explore Community Edition</a>
+</div>
+
+<main>
+
+<div class="art-hero">
+  <div class="wrap">
+    <div class="art-hero-inner">
+      <div class="art-hero-copy">
+        <div class="kicker" style="margin-bottom:9px">Articles</div>
+        <h1>AI coding practices, explained from the inside.</h1>
+        <p style="margin-top:8px">We use Avorelo to build Avorelo. These articles come from real runs, real failures, and real patterns we observed. No invented scenarios. No generic AI productivity advice.</p>
+      </div>
+      <div style="flex-shrink:0">
+        <a href="/activate" style="display:inline-block;background:var(--indigo);color:#fff;padding:10px 20px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)">Explore Community Edition &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="dog-strip">
+  <div class="wrap">
+    <div class="dog-in">
+      <span class="dog-badge">Dogfood</span>
+      <p class="dog-text"><strong>Every Field Note comes from real Avorelo development work.</strong> No invented scenarios. No generic AI productivity advice.</p>
+    </div>
+  </div>
+</div>
+
+<div class="filter-bar">
+  <div class="wrap">
+    <div class="art-filter" role="group" aria-label="Filter articles by category">
+      <button type="button" class="art-filter-btn active" data-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="art-filter-btn" data-filter="field-notes" aria-pressed="false">Field Notes</button>
+      <button type="button" class="art-filter-btn" data-filter="ai-waste-cost" aria-pressed="false">AI Waste &amp; Cost</button>
+      <button type="button" class="art-filter-btn" data-filter="scope-safety-access" aria-pressed="false">Scope, Safety &amp; Access</button>
+      <button type="button" class="art-filter-btn" data-filter="proof-evidence" aria-pressed="false">Proof &amp; Evidence</button>
+      <button type="button" class="art-filter-btn" data-filter="context-continuity" aria-pressed="false">Context &amp; Continuity</button>
+      <button type="button" class="art-filter-btn" data-filter="teams-reporting" aria-pressed="false">Teams &amp; Reporting</button>
+      <button type="button" class="art-filter-btn" data-filter="workflow-health" aria-pressed="false">Workflow Health</button>
+      <button type="button" class="art-filter-btn" data-filter="routing-capability-control" aria-pressed="false">Routing &amp; Capability Control</button>
+    </div>
+  </div>
+</div>
+
+<div style="padding:0 0 20px">
+<div class="wrap">
+
+  <!-- Field Notes -->
+  <section class="cat-section" data-category="field-notes" aria-labelledby="cat-fieldnotes">
+    <div class="cat-hdr">
+      <h2 id="cat-fieldnotes">Field Notes</h2>
+      <span>Observed patterns from real Avorelo sessions</span>
+    </div>
+    <div class="art-grid">
+
+      <a href="article-context.html" class="art-card" data-category="field-notes" data-article-card>
+        <span class="art-tag art-tag-context">Context</span>
+        <h3>Repeated context becomes hidden cost</h3>
+        <p>Across long AI coding sessions, the same task context kept getting reintroduced. Avorelo surfaced the pattern and preserved the useful parts for the next run.</p>
+        <span class="art-card-learn">You will understand: how context repetition accumulates as invisible token overhead.</span>
+        <span class="art-card-link">Read note &rarr;</span>
+      </a>
+
+      <a href="article-scope.html" class="art-card" data-category="field-notes" data-article-card>
+        <span class="art-tag art-tag-scope">Scope</span>
+        <h3>Broad access is the unsafe default</h3>
+        <p>AI coding tools often start with more access than the task requires. Avorelo helped turn task-only access into the default instead of relying on manual cleanup.</p>
+        <span class="art-card-learn">You will understand: why broad access is the real risk pattern and how task-scoped access works.</span>
+        <span class="art-card-link">Read note &rarr;</span>
+      </a>
+
+      <a href="article-proof.html" class="art-card" data-category="field-notes" data-article-card>
+        <span class="art-tag art-tag-proof">Proof</span>
+        <h3>Uncaptured proof cannot guide the next run</h3>
+        <p>When proof lives only in a past session, every review becomes reconstruction. Avorelo keeps evidence attached to the work so it can be reused later.</p>
+        <span class="art-card-learn">You will understand: what a session receipt is and why proof must be structured to be reusable.</span>
+        <span class="art-card-link">Read note &rarr;</span>
+      </a>
+
+      <a href="article-routing.html" class="art-card" data-category="field-notes" data-article-card>
+        <span class="art-tag art-tag-routing">Routing</span>
+        <h3>Most model choices are made too late</h3>
+        <p>Wrong routing often starts as a small context mismatch, not an obvious model mistake. Avorelo uses task signals before more AI spend happens.</p>
+        <span class="art-card-learn">You will understand: how early routing signals cut wasted spend before a run starts.</span>
+        <span class="art-card-link">Read note &rarr;</span>
+      </a>
+
+      <a href="article-access.html" class="art-card" data-category="field-notes" data-article-card>
+        <span class="art-tag art-tag-access">Access</span>
+        <h3>Access should expire with the work</h3>
+        <p>When a run ends, broad access should not remain behind. Avorelo scopes access to the task and removes it when the work is done.</p>
+        <span class="art-card-learn">You will understand: why idle standing access is the unsafe default and how task-expiry works.</span>
+        <span class="art-card-link">Read note &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- AI Waste & Cost -->
+  <section class="cat-section" data-category="ai-waste-cost" aria-labelledby="cat-waste">
+    <div class="cat-hdr">
+      <h2 id="cat-waste">AI Waste &amp; Cost</h2>
+      <span>Where AI spend goes without producing value</span>
+    </div>
+    <div class="art-grid">
+
+      <a href="article-ai-waste.html" class="art-card" data-category="ai-waste-cost" data-article-card>
+        <span class="art-tag art-tag-waste">AI Waste</span>
+        <h3>What is AI waste in software development?</h3>
+        <p>AI waste is the gap between what AI coding tools consume and what they produce. Wasted tokens, repeated context, scope drift, and unsupported findings all add up.</p>
+        <span class="art-card-learn">You will understand: the four categories of AI waste and which produce the highest overhead.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-token-cost.html" class="art-card" data-category="ai-waste-cost" data-article-card>
+        <span class="art-tag art-tag-cost">Cost</span>
+        <h3>Why AI coding costs grow faster than teams expect</h3>
+        <p>Token costs compound through repeated context, long windows, wrong model selection, and calls that could have been avoided. Here is where the growth actually comes from.</p>
+        <span class="art-card-learn">You will understand: how token cost compounds and which compounding factors are preventable.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-productivity-measurement.html" class="art-card" data-category="ai-waste-cost" data-article-card>
+        <span class="art-tag art-tag-cost">Measurement</span>
+        <h3>How to measure AI coding productivity without fooling yourself</h3>
+        <p>Activity metrics are easy to game and easy to misread. Measure validated outcomes, rework avoided, review load reduced, and proof coverage instead.</p>
+        <span class="art-card-learn">You will understand: why outcome metrics with confidence labels beat activity counts.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Scope, Safety & Access -->
+  <section class="cat-section" data-category="scope-safety-access" aria-labelledby="cat-scope">
+    <div class="cat-hdr">
+      <h2 id="cat-scope">Scope, Safety &amp; Access</h2>
+      <span>Why bounded agents are safer agents</span>
+    </div>
+    <div class="art-grid">
+
+      <a href="article-approval-fatigue.html" class="art-card" data-category="scope-safety-access" data-article-card>
+        <span class="art-tag art-tag-safety">Safety</span>
+        <h3>Why AI agent approval fatigue makes teams less safe</h3>
+        <p>When every AI action triggers an approval prompt, teams learn to dismiss them quickly. Too many approvals produce a safety system that is technically present but practically ignored.</p>
+        <span class="art-card-learn">You will understand: how approval volume inverts safety and what scope-first patterns replace it.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-safe-ai-tool-exposure.html" class="art-card" data-category="scope-safety-access" data-article-card>
+        <span class="art-tag art-tag-capability">Capability</span>
+        <h3>Why AI agents should not see every tool by default</h3>
+        <p>Giving AI agents access to every available tool increases risk surface and token cost. Scoped tool exposure matches what is available to what the task actually needs.</p>
+        <span class="art-card-learn">You will understand: how task-scoped capability exposure reduces both risk and token overhead.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-agent-scope-drift.html" class="art-card" data-category="scope-safety-access" data-article-card>
+        <span class="art-tag art-tag-scope">Scope</span>
+        <h3>How to detect AI agent scope drift before it becomes review work</h3>
+        <p>Scope drift turns a small task into a large review. Catch it by comparing planned actions to the request and narrowing before the run continues.</p>
+        <span class="art-card-learn">You will understand: how to detect drift from the plan and respond with narrow, block, or escalate.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-safe-ai-coding-agents.html" class="art-card" data-category="scope-safety-access" data-article-card>
+        <span class="art-tag art-tag-safety">Safety</span>
+        <h3>How to let AI coding agents work safely without babysitting them</h3>
+        <p>Safe autonomy comes from scoped access, proof receipts, and cheap rollback, not from supervising every action an agent takes.</p>
+        <span class="art-card-learn">You will understand: the safe autonomy model that replaces constant supervision.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-skill-governance-ai-agents.html" class="art-card" data-category="scope-safety-access" data-article-card>
+        <span class="art-tag art-tag-safety">Safety</span>
+        <h3>Skill governance for AI agents</h3>
+        <p>As AI agents gain skills and tools, governing which ones each task can use becomes a safety question. What skill governance is and why task-scoped access matters.</p>
+        <span class="art-card-learn">You will understand: why capability should be granted per task and revoked when the work ends.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-skill-supply-chain-security.html" class="art-card" data-category="scope-safety-access" data-article-card>
+        <span class="art-tag art-tag-safety">Safety</span>
+        <h3>AI skill supply chain security</h3>
+        <p>Third-party AI agent skills and plugins are a supply chain. Why unvetted skills are a security risk and how scoping and provenance reduce the exposure.</p>
+        <span class="art-card-learn">You will understand: why a skill is an active dependency and how scope contains the risk.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Proof & Evidence -->
+  <section class="cat-section" data-category="proof-evidence" aria-labelledby="cat-proof">
+    <div class="cat-hdr">
+      <h2 id="cat-proof">Proof &amp; Evidence</h2>
+      <span>What makes AI output trustworthy</span>
+    </div>
+    <div class="art-grid">
+
+      <a href="article-ai-security-findings-need-evidence.html" class="art-card" data-category="proof-evidence" data-article-card>
+        <span class="art-tag art-tag-evidence">Evidence</span>
+        <h3>Why AI security findings need evidence</h3>
+        <p>AI tools surface potential security issues. But plausible findings without evidence create work, not safety. How to tell the difference and what to require before acting.</p>
+        <span class="art-card-learn">You will understand: how to distinguish actionable findings from plausible-but-unsupported alerts.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-generated-bug-reports-waste-time.html" class="art-card" data-category="proof-evidence" data-article-card>
+        <span class="art-tag art-tag-evidence">Evidence</span>
+        <h3>How AI-generated bug reports waste engineering time</h3>
+        <p>AI-generated bug reports often lack reproduction, impact, and a proof path. Why that creates false alarms and how evidence-backed reporting fixes it.</p>
+        <span class="art-card-learn">You will understand: what a bug report needs before it earns engineering attention.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-what-is-ai-slop-in-software-security.html" class="art-card" data-category="proof-evidence" data-article-card>
+        <span class="art-tag art-tag-evidence">Evidence</span>
+        <h3>What is AI slop in software security?</h3>
+        <p>AI slop in security is plausible-but-unsupported output: noisy findings, vague risk language, and missing evidence. How to define it and require proof contracts instead.</p>
+        <span class="art-card-learn">You will understand: how to name AI slop and replace it with a proof contract.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-reduce-noise-ai-code-reviews.html" class="art-card" data-category="proof-evidence" data-article-card>
+        <span class="art-tag art-tag-evidence">Evidence</span>
+        <h3>How to reduce noise from AI code reviews</h3>
+        <p>AI code reviews produce many suggestions but few decisions. How to separate suggestions from evidence-backed findings, filter unsupported claims, and route low-risk work.</p>
+        <span class="art-card-learn">You will understand: how to turn a wall of AI suggestions into a short list of decisions.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-evidence-backed-ai-coding.html" class="art-card" data-category="proof-evidence" data-article-card>
+        <span class="art-tag art-tag-evidence">Evidence</span>
+        <h3>Why evidence-backed AI coding matters</h3>
+        <p>Evidence-backed AI coding attaches tests, receipts, diffs, and validation to outputs. Why a proof layer reduces review load and makes future sessions faster.</p>
+        <span class="art-card-learn">You will understand: what evidence to attach so AI output can be trusted without re-checking.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-proof-receipts.html" class="art-card warm" data-category="proof-evidence" data-article-card>
+        <span class="art-tag art-tag-proof">Proof</span>
+        <h3>What is an AI coding proof receipt?</h3>
+        <p>A proof receipt records what an AI coding run changed, what it validated, what evidence exists, and what remains uncertain. Why it is reusable context, not a log.</p>
+        <span class="art-card-learn">You will understand: what a proof receipt contains and why it beats a commit log.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-work-intelligence.html" class="art-card warm" data-category="proof-evidence" data-article-card>
+        <span class="art-tag art-tag-workflow">Workflow</span>
+        <h3>What happened, what was proven, and what to do next: Avorelo Work Intelligence</h3>
+        <p>A local-first explanation layer around AI coding work: what happened, what was proved, what is still open, and what the next session should know.</p>
+        <span class="art-card-learn">You will understand: why proof, memory, and next-step clarity belong around every AI coding session.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Context & Continuity -->
+  <section class="cat-section" data-category="context-continuity" aria-labelledby="cat-context">
+    <div class="cat-hdr">
+      <h2 id="cat-context">Context &amp; Continuity</h2>
+      <span>Keeping sessions informed without re-explaining everything</span>
+    </div>
+    <div class="art-grid">
+
+      <a href="article-context-engineering-ai-coding.html" class="art-card" data-category="context-continuity" data-article-card>
+        <span class="art-tag art-tag-context">Context</span>
+        <h3>What is context engineering in AI coding?</h3>
+        <p>Context engineering is selecting, filtering, and structuring the right information for an AI coding session. It is not about bigger windows or more context. It is about the right context.</p>
+        <span class="art-card-learn">You will understand: the five-step context compiler and why selection beats stuffing.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-stop-reexplaining.html" class="art-card warm" data-category="context-continuity" data-article-card>
+        <span class="art-tag art-tag-teams">Teams</span>
+        <h3>Stop re-explaining your project to AI</h3>
+        <p>A lot of AI waste comes from rediscovery. How to build reusable context so future sessions start faster instead of from zero.</p>
+        <span class="art-card-learn">You will understand: how proof receipts carry context forward so you stop starting from scratch.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-rag-vs-memory-vs-project-knowledge.html" class="art-card" data-category="context-continuity" data-article-card>
+        <span class="art-tag art-tag-context">Context</span>
+        <h3>RAG vs memory vs project knowledge in AI coding</h3>
+        <p>Retrieval, memory, and a project knowledge layer solve different problems. How they differ, where each fits, and why AI coding needs structured project knowledge most.</p>
+        <span class="art-card-learn">You will understand: which context mechanism fits which problem, and why they are not interchangeable.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-stale-ai-memory-risk.html" class="art-card" data-category="context-continuity" data-article-card>
+        <span class="art-tag art-tag-context">Context</span>
+        <h3>The risk of stale AI memory</h3>
+        <p>AI memory records what was true when written, but code changes. How stale memory creates confident-but-wrong output and why verification matters more than recall.</p>
+        <span class="art-card-learn">You will understand: why a confident-but-stale memory is worse than none, and how to keep it honest.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-project-knowledge-layer.html" class="art-card" data-category="context-continuity" data-article-card>
+        <span class="art-tag art-tag-context">Context</span>
+        <h3>Why AI coding needs a project knowledge layer</h3>
+        <p>A project knowledge layer is the validated, reusable account of how a codebase works. Why AI sessions need it and how it differs from docs, memory, and retrieval.</p>
+        <span class="art-card-learn">You will understand: why a kept-true knowledge layer compounds while a bigger context window does not.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Teams & Reporting -->
+  <section class="cat-section" data-category="teams-reporting" aria-labelledby="cat-teams">
+    <div class="cat-hdr">
+      <h2 id="cat-teams">Teams &amp; Reporting</h2>
+      <span>Measuring AI value without tracking people</span>
+    </div>
+    <div class="art-grid">
+
+      <a href="article-privacy-safe-ai-team-reporting.html" class="art-card" data-category="teams-reporting" data-article-card>
+        <span class="art-tag art-tag-privacy">Privacy</span>
+        <h3>How to report AI coding value without tracking people</h3>
+        <p>Measuring AI coding outcomes for a team does not require tracking individual developers. Aggregate by workflow, repo, tool, and capability to get useful signals without surveillance.</p>
+        <span class="art-card-learn">You will understand: which aggregation levels give signal without exposing individual contributors.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-spend-proof.html" class="art-card warm" data-category="teams-reporting" data-article-card>
+        <span class="art-tag art-tag-teams">Teams</span>
+        <h3>From AI spend to AI proof: how to know what your AI budget actually produced</h3>
+        <p>Prompt counts and token bills do not tell you what AI work actually produced. Here is how to connect spend to evidence-backed outcomes.</p>
+        <span class="art-card-learn">You will understand: how to read the AI Spend + Proof report and what validated workflow means.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-activity-productivity.html" class="art-card warm" data-category="teams-reporting" data-article-card>
+        <span class="art-tag art-tag-teams">Teams</span>
+        <h3>AI activity is not productivity: measuring what actually got done</h3>
+        <p>High agent activity and high output are not the same thing. How to separate AI runs that produced value from runs that produced noise.</p>
+        <span class="art-card-learn">You will understand: how the What Got Done report separates signal from AI churn.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-scope-repair-before-approval.html" class="art-card warm" data-category="teams-reporting" data-article-card>
+        <span class="art-tag art-tag-teams">Teams</span>
+        <h3>Scope repair before approval: how to stop babysitting AI agents</h3>
+        <p>Review fatigue happens when every small drift becomes an approval. Avorelo narrows scope first and asks only when real authority is needed.</p>
+        <span class="art-card-learn">You will understand: how scope repair reduces approval load without reducing oversight.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-team-ai-value-reports.html" class="art-card" data-category="teams-reporting" data-article-card>
+        <span class="art-tag art-tag-teams">Teams</span>
+        <h3>What a team AI value report should actually show</h3>
+        <p>Most AI reporting shows spend and activity. What a team AI value report should show instead: validated outcomes, scope safety, and proof, without tracking individuals.</p>
+        <span class="art-card-learn">You will understand: why a value report should show outcomes, not effort, aggregated by work not by person.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-review-load-reduced.html" class="art-card" data-category="teams-reporting" data-article-card>
+        <span class="art-tag art-tag-teams">Teams</span>
+        <h3>How AI review load gets reduced</h3>
+        <p>AI coding can flood reviewers with changes and findings. How review load actually drops: declared scope, evidence-backed findings, and proof captured before review.</p>
+        <span class="art-card-learn">You will understand: why moving scope and proof earlier shrinks the review queue.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-team-reports-for-engineering-leaders.html" class="art-card" data-category="teams-reporting" data-article-card>
+        <span class="art-tag art-tag-teams">Teams</span>
+        <h3>AI team reports for engineering leaders</h3>
+        <p>Engineering leaders need to know what AI coding is producing across a team. Which reports answer that, what each one shows, and how to read them without surveilling people.</p>
+        <span class="art-card-learn">You will understand: the five reports that answer a leader's real questions without per-person scoreboards.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-native-engineering-team.html" class="art-card" data-category="teams-reporting" data-article-card>
+        <span class="art-tag art-tag-teams">Teams</span>
+        <h3>What an AI-native engineering team looks like</h3>
+        <p>An AI-native team is not one that uses AI the most. It is one that has built scope, proof, and context discipline around AI so the work stays trustworthy at volume.</p>
+        <span class="art-card-learn">You will understand: why AI-native means disciplined, not maximal, and which habits define it.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Workflow Health -->
+  <section class="cat-section" data-category="workflow-health" aria-labelledby="cat-workflow">
+    <div class="cat-hdr">
+      <h2 id="cat-workflow">Workflow Health</h2>
+      <span>Keeping AI workflows clean as they accumulate</span>
+    </div>
+    <div class="art-grid">
+
+      <a href="article-workflow-health.html" class="art-card warm" data-category="workflow-health" data-article-card>
+        <span class="art-tag art-tag-workflow">Workflow</span>
+        <h3>Why AI workflows get messy and how to keep them clean</h3>
+        <p>Accumulated instructions, overlapping tools, and stale context make AI work slower and riskier over time. How to track and fix it.</p>
+        <span class="art-card-learn">You will understand: the five workflow health signals and which ones predict future drift.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-workflow-hygiene.html" class="art-card" data-category="workflow-health" data-article-card>
+        <span class="art-tag art-tag-workflow">Workflow</span>
+        <h3>AI workflow hygiene: keeping agent setups clean</h3>
+        <p>AI coding setups accumulate instructions, tools, and stale context over time. What workflow hygiene means, the signals that predict drift, and how to keep it clean.</p>
+        <span class="art-card-learn">You will understand: why good hygiene is subtraction, and which signals to trim first.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-agents-repeat-mistakes.html" class="art-card" data-category="workflow-health" data-article-card>
+        <span class="art-tag art-tag-workflow">Workflow</span>
+        <h3>Why AI agents repeat the same mistakes</h3>
+        <p>AI agents make the same mistakes across sessions because corrections are not captured. Why feedback evaporates and how durable receipts stop the repetition.</p>
+        <span class="art-card-learn">You will understand: why capturing the why, not just the what, ends the repetition loop.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-code-accumulation.html" class="art-card" data-category="workflow-health" data-article-card>
+        <span class="art-tag art-tag-workflow">Workflow</span>
+        <h3>The hidden cost of AI code accumulation</h3>
+        <p>AI makes adding code cheap, so codebases accumulate faster than they are pruned. Why volume becomes a cost and how to keep AI-assisted growth healthy.</p>
+        <span class="art-card-learn">You will understand: why cheap writing makes scope discipline more important, not less.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-delete-ai-generated-code.html" class="art-card" data-category="workflow-health" data-article-card>
+        <span class="art-tag art-tag-workflow">Workflow</span>
+        <h3>When to delete AI-generated code</h3>
+        <p>Not all AI-generated code is worth keeping. Signals that code should be deleted rather than maintained, and why pruning is part of healthy AI-assisted work.</p>
+        <span class="art-card-learn">You will understand: the signals that say delete, and why keeping code is a decision, not a default.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Routing & Capability Control -->
+  <section class="cat-section" data-category="routing-capability-control" aria-labelledby="cat-routing">
+    <div class="cat-hdr">
+      <h2 id="cat-routing">Routing &amp; Capability Control</h2>
+      <span>Matching tasks to the right model and capability set</span>
+    </div>
+    <div class="art-grid">
+
+      <a href="article-model-routing-vs-workflow-routing.html" class="art-card" data-category="routing-capability-control" data-article-card>
+        <span class="art-tag art-tag-routing">Routing</span>
+        <h3>Model routing vs workflow routing: what AI coding teams actually need</h3>
+        <p>Model routing selects which model handles a task. Workflow routing decides the full task path: context, tools, policies, proof requirements, and only then, which model.</p>
+        <span class="art-card-learn">You will understand: why model selection is the last routing decision, not the first.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-cheaper-ai-models-not-enough.html" class="art-card" data-category="routing-capability-control" data-article-card>
+        <span class="art-tag art-tag-routing">Routing</span>
+        <h3>Why cheaper AI models are not enough to cut coding costs</h3>
+        <p>Switching to a cheaper AI model lowers the per-token price but not the waste. Why routing, scope, and reuse cut cost more than model price alone.</p>
+        <span class="art-card-learn">You will understand: why model price is one lever, not the lever, for AI coding cost.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-ai-gateway-vs-workflow-router.html" class="art-card" data-category="routing-capability-control" data-article-card>
+        <span class="art-tag art-tag-routing">Routing</span>
+        <h3>AI gateway vs workflow router: what is the difference?</h3>
+        <p>An AI gateway routes API traffic by cost and availability. A workflow router decides the full task path: context, tools, policy, proof, and model. How they differ.</p>
+        <span class="art-card-learn">You will understand: why a gateway optimizes the call while a workflow router optimizes the work.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+      <a href="article-route-ai-coding-workflows-safely.html" class="art-card" data-category="routing-capability-control" data-article-card>
+        <span class="art-tag art-tag-routing">Routing</span>
+        <h3>How to route AI coding workflows safely</h3>
+        <p>Routing an AI coding task is more than picking a model. How to route by scope, risk, and prior receipts so low-risk work flows and high-risk work gets depth.</p>
+        <span class="art-card-learn">You will understand: why safe routing is proportional to scope, boundary, and prior receipts.</span>
+        <span class="art-card-link">Read article &rarr;</span>
+      </a>
+
+    </div>
+  </section>
+
+  <p class="no-results" id="noResults">No articles in this category yet.</p>
+
+</div>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-in">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Avorelo</a>
+        <p>Local-first AI coding overhead reducer.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="index.html#how">How it works</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="articles.html">Articles</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Community Edition</h5>
+          <ul>
+            <li><a href="/activate">Explore Community Edition</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <p>&copy; 2026 Avorelo. Built with Avorelo.</p>
+      <p>Every note from real work.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btns = document.querySelectorAll('.art-filter-btn');
+  var sections = document.querySelectorAll('.cat-section');
+  var noResults = document.getElementById('noResults');
+  function apply(f){
+    var shown = 0;
+    sections.forEach(function(s){
+      var match = (f === 'all') || (s.getAttribute('data-category') === f);
+      s.hidden = !match;
+      if (match) shown++;
+    });
+    btns.forEach(function(b){
+      var on = b.getAttribute('data-filter') === f;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    if (noResults) noResults.style.display = shown ? 'none' : 'block';
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click', function(){ apply(b.getAttribute('data-filter')); });
+  });
+})();
+</script>
+
+</body>
+</html>

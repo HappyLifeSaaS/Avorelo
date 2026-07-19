@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Package Release | Avorelo Capabilities</title>
+<meta name="description" content="Package Release in Avorelo: tarball inspection, package checks, and explicit human publish boundaries.">
+<link rel="canonical" href="https://avorelo.com/capability-package-release.html">
+<meta property="og:title" content="Package Release | Avorelo Capabilities">
+<meta property="og:description" content="Package Release in Avorelo: tarball inspection, package checks, and explicit human publish boundaries.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/capability-package-release.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Package Release | Avorelo Capabilities">
+<link rel="stylesheet" href="capability-styles.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="breadcrumb"><a href="capabilities.html">Capabilities</a><span>&rsaquo;</span>Package Release</div>
+    <div class="badge-row"><span class="badge partial">Partial execution</span></div>
+    <h1>Package Release</h1>
+    <p>Package Release covers the local checks around npm distribution: build, package safety, tarball contents, and explicit proof about what would ship. It is designed to stop short of the publish button.</p>
+    <div class="meta-grid">
+      <div class="meta"><h4>Current truth</h4><p><code>PARTIAL_EXECUTION</code></p></div>
+      <div class="meta"><h4>Primary evidence</h4><p><code>package.json</code>, <code>src/avorelo/dogfood/package-safety.ts</code></p></div>
+      <div class="meta"><h4>Runtime surface</h4><p>Package checks, tarball validation, and blocked publish boundaries.</p></div>
+      <div class="meta"><h4>Tests</h4><p><code>npm run package:check</code>, <code>npm pack --dry-run</code>, package-safety dogfood</p></div>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="detail-block">
+      <h2>What exists today</h2>
+      <p>Avorelo can verify bundled files, ensure test and artifact leakage stays out of the tarball, and produce a local report about package readiness.</p>
+    </div>
+    <div class="detail-block">
+      <h2>Claim boundary</h2>
+      <div class="callout warning"><p>Package Release does not execute <code>npm publish</code> and does not change npm <code>latest</code>. Those steps remain human-approved, deliberate release actions.</p></div>
+    </div>
+    <div class="detail-block">
+      <h2>What it does not do</h2>
+      <p>It does not claim public distribution already happened, and it does not bypass publish approval, billing approval, or legal review gates.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>

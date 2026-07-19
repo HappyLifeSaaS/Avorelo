@@ -1,0 +1,119 @@
+[
+  {
+    "name": "docs-low-risk",
+    "taskType": "docs",
+    "riskClass": "low",
+    "expectedProfile": "none",
+    "expectedPrimitive": "no_action",
+    "expectedGate": "allow",
+    "frame": { "deterministicEvidenceAvailable": false }
+  },
+  {
+    "name": "deterministic-test-run",
+    "taskType": "code",
+    "riskClass": "low",
+    "expectedProfile": "none",
+    "expectedPrimitive": "deterministic_local_script",
+    "expectedGate": "allow",
+    "frame": { "deterministicEvidenceAvailable": true }
+  },
+  {
+    "name": "codegen-standard",
+    "taskType": "code_generation",
+    "riskClass": "low",
+    "expectedProfile": "code_generation",
+    "expectedGate": "allow",
+    "frame": {}
+  },
+  {
+    "name": "auth-change",
+    "taskType": "code",
+    "riskClass": "high",
+    "expectedProfile": "security_sensitive_review",
+    "expectedGate": "require_approval",
+    "frame": { "authTouched": true, "secretsPossible": true }
+  },
+  {
+    "name": "billing-change",
+    "taskType": "code",
+    "riskClass": "high",
+    "expectedProfile": "security_sensitive_review",
+    "expectedGate": "require_approval",
+    "frame": { "paymentTouched": true, "secretsPossible": true }
+  },
+  {
+    "name": "secret-detected",
+    "taskType": "code",
+    "riskClass": "high",
+    "expectedGate": "require_approval",
+    "frame": { "secretsPossible": true }
+  },
+  {
+    "name": "public-copy-claim",
+    "taskType": "code",
+    "riskClass": "low",
+    "expectedGate": "allow",
+    "frame": { "publicCopyTouched": true }
+  },
+  {
+    "name": "ui-browser-available",
+    "taskType": "code",
+    "riskClass": "low",
+    "expectedPrimitive": "browser_workflow",
+    "expectedGate": "allow",
+    "frame": { "dashboardTouched": true, "browserAvailable": true }
+  },
+  {
+    "name": "ui-no-browser",
+    "taskType": "code",
+    "riskClass": "low",
+    "expectedPrimitive": "manual_checklist",
+    "expectedGate": "allow",
+    "frame": { "dashboardTouched": true, "browserAvailable": false }
+  },
+  {
+    "name": "external-write",
+    "taskType": "code",
+    "riskClass": "low",
+    "expectedGate": "require_approval",
+    "frame": { "externalWriteRequested": true }
+  },
+  {
+    "name": "production-deploy",
+    "taskType": "code",
+    "riskClass": "low",
+    "expectedPrimitive": "stop_blocked",
+    "expectedGate": "stop_blocked",
+    "frame": { "productionImpactPossible": true }
+  },
+  {
+    "name": "sensitive-data",
+    "taskType": "code",
+    "riskClass": "low",
+    "expectedProfile": "privacy_sensitive_summary",
+    "expectedGate": "allow",
+    "frame": { "dataSensitivity": "high" }
+  },
+  {
+    "name": "high-risk-deep",
+    "taskType": "code",
+    "riskClass": "low",
+    "expectedGate": "allow",
+    "frame": { "deepMode": true }
+  },
+  {
+    "name": "mcp-governance",
+    "taskType": "code",
+    "riskClass": "low",
+    "expectedGate": "allow",
+    "frame": { "mcpTouched": true }
+  },
+  {
+    "name": "offline-no-connect",
+    "taskType": "offline",
+    "riskClass": "low",
+    "expectedPrimitive": "no_connect",
+    "expectedGate": "allow",
+    "frame": {}
+  }
+]

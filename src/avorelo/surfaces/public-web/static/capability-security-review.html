@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Security Review Support | Avorelo Capabilities</title>
+<meta name="description" content="Security Review Support in Avorelo: secret-boundary enforcement, redaction, prompt-injection checks, and bounded security proof support.">
+<link rel="canonical" href="https://avorelo.com/capability-security-review.html">
+<meta property="og:title" content="Security Review Support | Avorelo Capabilities">
+<meta property="og:description" content="Security Review Support in Avorelo: secret-boundary enforcement, redaction, prompt-injection checks, and bounded security proof support.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/capability-security-review.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Security Review Support | Avorelo Capabilities">
+<link rel="stylesheet" href="capability-styles.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="breadcrumb"><a href="capabilities.html">Capabilities</a><span>&rsaquo;</span>Security Review Support</div>
+    <div class="badge-row"><span class="badge partial">Partial execution</span></div>
+    <h1>Security Review Support</h1>
+    <p>Security Review Support builds on Avorelo's secret boundary, redaction policy, prompt-injection defenses, and proof adapters for security-oriented review tasks. It is real and test-backed, but it remains intentionally bounded.</p>
+    <div class="meta-grid">
+      <div class="meta"><h4>Current truth</h4><p><code>PARTIAL_EXECUTION</code></p></div>
+      <div class="meta"><h4>Primary evidence</h4><p><code>src/avorelo/capabilities/secret-boundary/index.ts</code> and <code>src/avorelo/kernel/tool-adapters/adapters/semgrep.ts</code></p></div>
+      <div class="meta"><h4>Runtime surface</h4><p>Redacted receipts, runtime-session proof metadata, blocked unsafe actions, semgrep proof summaries where supported.</p></div>
+      <div class="meta"><h4>Tests</h4><p><code>tests/secret-boundary.test.ts</code>, <code>tests/proof-adapter-pack.test.ts</code>, <code>tests/real-tool-execution.test.ts</code></p></div>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="detail-block">
+      <h2>What exists today</h2>
+      <p>Avorelo detects fake secrets, redacts raw values before persistence, blocks unsafe runs, records proof metadata for security-scan flows, and routes high-risk auth or security tasks away from casual delegated execution.</p>
+    </div>
+    <div class="detail-block">
+      <h2>Claim boundary</h2>
+      <div class="callout warning"><p>This is not a penetration testing service and not a full professional security audit. Avorelo flags patterns, protects boundaries, and produces bounded proof. It does not guarantee zero leaks or zero vulnerabilities.</p></div>
+    </div>
+    <div class="detail-block">
+      <h2>What it does not do</h2>
+      <p>It does not replace a human security reviewer, does not silently run destructive security tooling, and does not claim live external-system validation without an explicit, separately approved execution path.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>

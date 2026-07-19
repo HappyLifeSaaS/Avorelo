@@ -1,0 +1,8 @@
+{
+  "description": "Release readiness — CI workflow edit",
+  "changedFiles": [".github/workflows/ci.yml", "netlify.toml"],
+  "expectedWorkType": "release_readiness",
+  "expectedCriticalProof": ["artifact_guard", "clean_worktree", "product_surface"],
+  "expectedSafeToClose": false,
+  "expectedBlockingReason": "dirty worktree or missing product surface check"
+}

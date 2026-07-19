@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Specification | Avorelo Capabilities</title>
+<meta name="description" content="Product Specification in Avorelo: structured work contracts, scope boundaries, and acceptance criteria for downstream execution.">
+<link rel="canonical" href="https://avorelo.com/capability-product-specification.html">
+<meta property="og:title" content="Product Specification | Avorelo Capabilities">
+<meta property="og:description" content="Product Specification in Avorelo: structured work contracts, scope boundaries, and acceptance criteria for downstream execution.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/capability-product-specification.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Product Specification | Avorelo Capabilities">
+<link rel="stylesheet" href="capability-styles.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="breadcrumb"><a href="capabilities.html">Capabilities</a><span>&rsaquo;</span>Product Specification</div>
+    <div class="badge-row"><span class="badge partial">Partial execution</span></div>
+    <h1>Product Specification</h1>
+    <p>Avorelo already structures work into contracts with scope, proof tier, approval policy, and safety boundaries. That means there is real product-specification behavior in the kernel today, even though it is not a standalone PRD authoring system.</p>
+    <div class="meta-grid">
+      <div class="meta"><h4>Current truth</h4><p><code>PARTIAL_EXECUTION</code></p></div>
+      <div class="meta"><h4>Primary evidence</h4><p><code>src/avorelo/kernel/work-contract/</code></p></div>
+      <div class="meta"><h4>Runtime surface</h4><p>Structured work contracts, scope boundaries, acceptance-oriented routing, and runtime session references.</p></div>
+      <div class="meta"><h4>Tests</h4><p><code>tests/workcontract-routing.test.ts</code>, <code>tests/context-check.test.ts</code></p></div>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="detail-block">
+      <h2>What exists today</h2>
+      <p>Tasks are converted into work contracts before the rest of the system runs. Those contracts define route, risk, proof tier, approval policy, and safety boundaries that downstream capabilities must respect.</p>
+    </div>
+    <div class="detail-block">
+      <h2>Claim boundary</h2>
+      <div class="callout"><p>Product Specification structures work intent and scope boundaries. It does not replace a full product management suite and does not claim to generate complete PRDs automatically.</p></div>
+    </div>
+    <div class="detail-block">
+      <h2>What it does not do</h2>
+      <p>There is no dedicated visual editor, backlog system, or shipping roadmap engine here. The capability is the contract layer that keeps execution and review aligned to the task.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>

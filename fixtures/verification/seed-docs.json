@@ -1,0 +1,7 @@
+{
+  "description": "Documentation change — markdown files",
+  "changedFiles": ["docs/guide.md", "README.md"],
+  "expectedWorkType": "docs_marketing",
+  "expectedCriticalProof": ["artifact_guard", "claims_check"],
+  "expectedSafeToClose": true
+}

@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/HappyLifeSaaS/Avorelo/blob/main/SECURITY.md
+    about: Do not open a public issue for a vulnerability. Follow the security policy.
+  - name: Support and services
+    url: https://github.com/HappyLifeSaaS/Avorelo/blob/main/SUPPORT.md
+    about: Questions, support, and optional paid services.

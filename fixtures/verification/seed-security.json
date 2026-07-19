@@ -1,0 +1,8 @@
+{
+  "description": "Security-sensitive change — auth module edit",
+  "changedFiles": ["src/auth/login.ts", "src/security/tokens.ts"],
+  "expectedWorkType": "security_sensitive",
+  "expectedCriticalProof": ["artifact_guard", "secret_scan", "no_raw_secrets"],
+  "expectedSafeToClose": false,
+  "expectedBlockingReason": "secret_scan required"
+}

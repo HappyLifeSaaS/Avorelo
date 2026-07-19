@@ -1,0 +1,14 @@
+.avorelo/
+.avorelo-demo/
+**/.avorelo/site/
+.claude/launch.json
+.github/copilot-instructions.md
+seed-demo.tmp.*
+node_modules/
+dist/
+*.tgz
+.npm-cache/
+.env
+.env.local
+.env.production
+.netlify/

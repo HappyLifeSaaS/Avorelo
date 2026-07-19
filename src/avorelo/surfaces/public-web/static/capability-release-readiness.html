@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Release Readiness | Avorelo Capabilities</title>
+<meta name="description" content="Release Readiness in Avorelo: readiness checks, package safety, and manual gates for publish and deploy preparation.">
+<link rel="canonical" href="https://avorelo.com/capability-release-readiness.html">
+<meta property="og:title" content="Release Readiness | Avorelo Capabilities">
+<meta property="og:description" content="Release Readiness in Avorelo: readiness checks, package safety, and manual gates for publish and deploy preparation.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/capability-release-readiness.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Release Readiness | Avorelo Capabilities">
+<link rel="stylesheet" href="capability-styles.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="breadcrumb"><a href="capabilities.html">Capabilities</a><span>&rsaquo;</span>Release Readiness</div>
+    <div class="badge-row"><span class="badge partial">Partial execution</span></div>
+    <h1>Release Readiness</h1>
+    <p>Release Readiness combines readiness checks, canonical truth reports, package safety, and explicit approval gates so release work can be prepared locally without pretending the irreversible step already happened.</p>
+    <div class="meta-grid">
+      <div class="meta"><h4>Current truth</h4><p><code>PARTIAL_EXECUTION</code></p></div>
+      <div class="meta"><h4>Primary evidence</h4><p><code>src/avorelo/capabilities/canonical-readiness/index.ts</code>, <code>src/avorelo/dogfood/package-safety.ts</code></p></div>
+      <div class="meta"><h4>Runtime surface</h4><p>Readiness summaries, package checks, manual gates, and proof of blocked irreversible actions.</p></div>
+      <div class="meta"><h4>Tests</h4><p><code>tests/canonical-readiness.test.ts</code>, <code>tests/tool-adapter-orchestration.test.ts</code></p></div>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="detail-block">
+      <h2>What exists today</h2>
+      <p>Canonical readiness reports, package safety dogfood, naming checks, build gates, and manual release boundaries already exist in the current repo. They can prove local readiness state and stop unsafe transitions.</p>
+    </div>
+    <div class="detail-block">
+      <h2>Claim boundary</h2>
+      <div class="callout"><p>Release Readiness does not deploy production and does not push or merge protected branches. It prepares evidence and blocks unsafe movement until a human explicitly approves the irreversible step.</p></div>
+    </div>
+    <div class="detail-block">
+      <h2>What it does not do</h2>
+      <p>It does not auto-publish, auto-deploy, or auto-announce a release. Any copy implying autonomous production execution would be an overclaim against the current canonical system.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>

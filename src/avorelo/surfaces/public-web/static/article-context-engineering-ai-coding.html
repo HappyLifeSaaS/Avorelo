@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What is context engineering in AI coding? | Avorelo</title>
+<meta name="description" content="Context engineering is selecting, filtering, and structuring the right information for an AI coding session. It is not about bigger windows or more context. It is about the right context.">
+<link rel="canonical" href="https://avorelo.com/article-context-engineering-ai-coding.html">
+<meta property="og:title" content="What is context engineering in AI coding?">
+<meta property="og:description" content="Context engineering is selecting, filtering, and structuring the right information for an AI coding session. Not bigger windows. The right context.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://avorelo.com/article-context-engineering-ai-coding.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What is context engineering in AI coding?">
+<meta name="twitter:description" content="Context engineering is selecting, filtering, and structuring the right information for an AI coding session. Not bigger windows. The right context.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is context engineering in AI coding?","description":"Context engineering is selecting, filtering, and structuring the right information for an AI coding session. It is not about bigger windows or more context. It is about the right context.","publisher":{"@type":"Organization","name":"Avorelo"},"url":"https://avorelo.com/article-context-engineering-ai-coding.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Articles","item":"https://avorelo.com/articles.html"},{"@type":"ListItem","position":2,"name":"What is context engineering in AI coding?","item":"https://avorelo.com/article-context-engineering-ai-coding.html"}]}</script>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--warm:#EDE9E4;--warm-2:#E5E0D9;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.08);
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+  --accent:var(--teal);--accent-lt:var(--teal-lt);--accent-dk:var(--teal-dk)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.art-wrap{max-width:720px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:700;line-height:1.25;letter-spacing:-0.02em}
+h1{font-size:clamp(1.65rem,3vw,2.2rem)}
+h2{font-size:1.4rem;margin:36px 0 14px}
+h3{font-size:1.1rem;margin:24px 0 10px}
+p{font-size:1rem;line-height:1.8;color:var(--text-2);margin-bottom:18px}
+p:last-child{margin-bottom:0}
+ul,ol{padding-left:20px;margin-bottom:18px}
+li{font-size:1rem;line-height:1.75;color:var(--text-2);margin-bottom:4px}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px}
+.nav-mob{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(245,244,241,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:14px;z-index:99}
+.nav-mob.open{display:flex}
+.nav-mob a{font-size:1rem;color:var(--text-2);text-decoration:none;font-weight:500;padding:6px 0;border-bottom:1px solid var(--border)}
+.nm-cta{background:var(--indigo);color:#fff!important;text-align:center;border-radius:var(--r-sm);padding:12px!important;font-weight:600!important;border-bottom:none!important;font-family:var(--sans)}
+
+.art-header{padding:40px 0 28px}
+.art-back{font-size:0.8rem;color:var(--text-3);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px;margin-bottom:14px}
+.art-back:hover{color:var(--text-2)}
+.art-tag{display:inline-block;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:40px;margin-bottom:14px}
+.art-tag-context{background:var(--teal-lt);color:var(--teal-dk)}
+.art-tag-scope,.art-tag-safety{background:var(--amber-lt);color:var(--amber)}
+.art-tag-proof,.art-tag-evidence{background:var(--indigo-lt);color:var(--indigo)}
+.art-tag-routing{background:#F0EBF8;color:#6B4FB0}
+.art-tag-access{background:#FFF3E0;color:#C55A11}
+.art-tag-waste,.art-tag-cost{background:#FBF3EE;color:#A0441A}
+.art-tag-teams,.art-tag-reporting{background:#E8F4FE;color:#1565A8}
+.art-tag-workflow{background:#EDF5E0;color:#3A7E1A}
+.art-tag-privacy{background:#F3E8FF;color:#7B2FBE}
+.art-tag-capability{background:#E8F7F1;color:#12916A}
+.art-h1{margin-top:0;margin-bottom:14px}
+.art-lead{font-size:1.1rem;line-height:1.75;color:var(--text-2);margin-bottom:0}
+.art-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
+.art-meta span{font-size:0.78rem;color:var(--text-3);font-weight:500}
+
+.art-body{padding:8px 0 48px}
+.callout{background:var(--warm);border-left:3px solid var(--indigo);border-radius:0 var(--r) var(--r) 0;padding:16px 20px;margin:28px 0}
+.callout p{color:var(--text-2);font-size:0.95rem;margin-bottom:0}
+.callout strong{color:var(--text)}
+
+.viz{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;margin:28px 0}
+.viz-title{font-family:var(--sans);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:16px}
+.viz-flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.viz-step{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:10px 16px;font-size:0.85rem;font-weight:600;color:var(--text);font-family:var(--sans);text-align:center;flex:1;min-width:100px}
+.viz-step.good{background:var(--teal-lt);border-color:rgba(23,168,122,.25);color:var(--teal-dk)}
+.viz-step.bad{background:#FFF5F0;border-color:rgba(217,123,26,.20);color:var(--amber)}
+.viz-step.neutral{background:var(--indigo-lt);border-color:rgba(75,80,232,.20);color:var(--indigo)}
+.viz-arrow{color:var(--text-3);font-size:1rem;flex-shrink:0}
+.viz-label{font-size:0.75rem;color:var(--text-3);text-align:center;margin-top:8px}
+
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center}
+.stat-val{font-family:var(--sans);font-size:1.8rem;font-weight:700;color:var(--text);line-height:1}
+.stat-val.teal{color:var(--teal)}
+.stat-val.indigo{color:var(--indigo)}
+.stat-val.amber{color:var(--amber)}
+.stat-lbl{font-size:0.75rem;color:var(--text-3);margin-top:6px;line-height:1.4}
+
+.check-list{list-style:none;padding:0;margin:0 0 18px}
+.check-list li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.95rem;color:var(--text-2);line-height:1.6}
+.check-list li:last-child{border-bottom:none}
+.check-list li::before{content:"";width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:0.7rem;font-weight:700}
+.check-list li.yes::before{content:"Y";background:var(--teal-lt);color:var(--teal-dk)}
+.check-list li.no::before{content:"N";background:#FFF5F0;color:var(--amber)}
+
+.art-nav{display:flex;justify-content:space-between;gap:20px;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap}
+.art-nav a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.art-nav a:hover{color:var(--text)}
+
+.art-related{background:var(--warm);padding:40px 0}
+.art-related h3{font-size:1.1rem;margin:0 0 20px;font-family:var(--sans)}
+.art-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.art-related-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;text-decoration:none;display:block;transition:box-shadow .15s}
+.art-related-card:hover{box-shadow:var(--sh-sm)}
+.arc-tag{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:8px}
+.arc-title{font-family:var(--sans);font-size:0.9rem;font-weight:700;color:var(--text);line-height:1.3}
+
+.art-cta{background:var(--dark);padding:52px 24px;text-align:center}
+.art-cta h3{font-family:var(--sans);font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:12px}
+.art-cta p{font-size:0.95rem;color:rgba(255,255,255,.60);max-width:480px;margin:0 auto 24px;line-height:1.7}
+.art-cta a{display:inline-block;background:var(--teal);color:#fff;padding:11px 24px;border-radius:var(--r-sm);font-size:0.9rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+
+.footer{background:var(--dark);padding:24px 0;border-top:1px solid rgba(255,255,255,.06)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.footer-btm p{font-size:0.8rem;color:rgba(255,255,255,.35)}
+
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-ham{display:block}
+  .art-related-grid{grid-template-columns:1fr 1fr}
+  .stat-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .art-related-grid{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:1fr}
+  .viz-flow{flex-direction:column;gap:8px}
+  .viz-arrow{transform:rotate(90deg)}
+}
+@media(max-width:390px){.wrap{padding:0 16px}.art-wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">Avorelo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" onclick="document.getElementById('nm').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+<div class="nav-mob" id="nm">
+  <a href="index.html#how">How it works</a><a href="index.html#pricing">Pricing</a>
+  <a href="articles.html">Articles</a><a href="contact.html">Contact</a><a href="/activate" class="nm-cta">Explore Community Edition</a>
+</div>
+
+<main>
+<div class="art-wrap">
+  <div class="art-header">
+    <a href="articles.html" class="art-back">&larr; Articles</a>
+    <div class="art-tag art-tag-context">Context</div>
+    <h1 class="art-h1">What is context engineering in AI coding?</h1>
+    <p class="art-lead">Context engineering is the practice of selecting, filtering, and structuring the information an AI model receives for a given task. It is not the same as prompt engineering. And it is not solved by using larger context windows.</p>
+    <div class="art-meta">
+      <span>Avorelo</span>
+      <span>Topic: Context engineering</span>
+      <span>Topic: Context continuity</span>
+      <span>Topic: Token cost</span>
+    <span class="art-reading-time">4 min read</span>
+  </div>
+  </div>
+
+  <div class="art-body">
+
+    <h2>Why context matters more than model capability</h2>
+    <p>A highly capable model working with poor context will produce poor results. It will miss project-specific patterns, repeat mistakes that were already addressed in previous sessions, and spend tokens on reasoning that could have been avoided with the right information upfront.</p>
+
+    <p>Context engineering addresses this by treating context as a decision rather than a default. Instead of dumping everything available into the prompt, context engineering asks: what does the model need to know to do this specific task, and what can be left out?</p>
+
+    <div class="callout">
+      <p><strong>More context is not always better.</strong> Long prompts with irrelevant context dilute the signal, increase cost, and sometimes lead models toward correct-looking but wrong outputs because they are attending to the wrong parts of the input.</p>
+    </div>
+
+    <h2>The four decisions of context engineering</h2>
+    <p>Context engineering for AI coding involves four types of decisions:</p>
+
+    <ol>
+      <li><strong>Select:</strong> What information is relevant to this task? File structure, recent changes, working agreements, task history, dependency context. Not all of this is relevant to every task.</li>
+      <li><strong>Filter:</strong> What should be excluded? Stale context, unrelated modules, resolved issues, information the model already has from the session state.</li>
+      <li><strong>Structure:</strong> How should the context be presented? Order matters. Priority matters. What appears early in the context has more influence than what appears late.</li>
+      <li><strong>Validate:</strong> Is the context current? Context based on an old version of a file, a resolved issue, or a superseded decision can cause more harm than no context at all.</li>
+    </ol>
+
+    <div class="viz" role="img" aria-label="Context compiler pipeline: five steps from raw input to reusable session context: Select, Filter, Structure, Validate, Carry forward">
+      <div class="viz-title">Context compiler: from raw input to reusable session context</div>
+      <div class="viz-flow">
+        <div class="viz-step neutral">
+          <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:5px;font-family:var(--sans);font-weight:700">Step 1</div>
+          <div style="font-weight:700;font-family:var(--sans);font-size:0.9rem">Select</div>
+          <div class="viz-label">What does this task need?</div>
+        </div>
+        <div class="viz-arrow" aria-hidden="true">&#8594;</div>
+        <div class="viz-step neutral">
+          <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:5px;font-family:var(--sans);font-weight:700">Step 2</div>
+          <div style="font-weight:700;font-family:var(--sans);font-size:0.9rem">Filter</div>
+          <div class="viz-label">Remove stale and irrelevant</div>
+        </div>
+        <div class="viz-arrow" aria-hidden="true">&#8594;</div>
+        <div class="viz-step neutral">
+          <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:5px;font-family:var(--sans);font-weight:700">Step 3</div>
+          <div style="font-weight:700;font-family:var(--sans);font-size:0.9rem">Structure</div>
+          <div class="viz-label">Order by relevance</div>
+        </div>
+        <div class="viz-arrow" aria-hidden="true">&#8594;</div>
+        <div class="viz-step neutral">
+          <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:5px;font-family:var(--sans);font-weight:700">Step 4</div>
+          <div style="font-weight:700;font-family:var(--sans);font-size:0.9rem">Validate</div>
+          <div class="viz-label">Is this context current?</div>
+        </div>
+        <div class="viz-arrow" aria-hidden="true">&#8594;</div>
+        <div class="viz-step good">
+          <div style="font-size:0.62rem;text-transform:uppercase;letter-spacing:.07em;color:var(--teal-dk);margin-bottom:5px;font-family:var(--sans);font-weight:700">Result</div>
+          <div style="font-weight:700;font-family:var(--sans);font-size:0.9rem">Carry forward</div>
+          <div class="viz-label">Compact reusable context</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Stale context: the silent problem</h2>
+    <p>Stale context is information that was accurate at the time it was created but no longer reflects the current state of the project. Architectural decisions that were revisited. APIs that changed. Working agreements that evolved. File structures that were reorganized.</p>
+
+    <p>Stale context is harmful because it is still plausible-looking. A model that receives stale context does not know it is stale. It reasons from it as if it were current. The output may look coherent while being based on incorrect assumptions.</p>
+
+    <p>This is one reason why context engineering is not a one-time setup task. It requires maintenance. Context needs to be validated and updated as the project evolves.</p>
+
+    <h2>Context windows are not a substitute for context engineering</h2>
+    <p>One response to context management challenges is to use larger context windows: just include everything and let the model sort it out. This approach has limits.</p>
+
+    <p>First, larger windows cost more. Including 200,000 tokens of context when 5,000 tokens would have been sufficient is expensive. Second, models do not process all context equally well. Evidence suggests that information at the very beginning and very end of a long context window receives more attention than information in the middle, a pattern sometimes called the "lost in the middle" problem. Third, a larger window does not fix stale context. It just buries it deeper.</p>
+
+    <p>Context engineering produces better results with smaller, more precise context packages than large windows with everything included.</p>
+
+    <h2>Reusable context and session continuity</h2>
+    <p>One of the highest-value opportunities in context engineering is making context reusable across sessions. If the project setup, working agreements, and task history are re-explained from scratch at the start of every session, the cost and quality of those sessions is capped at "start from zero."</p>
+
+    <p>Reusable context packages, validated and updated as the project changes, allow subsequent sessions to start closer to the actual task. The model begins with the right orientation instead of spending the first portion of the session reconstructing it.</p>
+
+    <p>This requires that reusable context be treated as an artifact: created deliberately, validated against the current state of the project, and updated when the project changes. It is not something that happens automatically.</p>
+
+    <h2>How Avorelo helps</h2>
+    <p>Avorelo acts as a context compiler for AI coding sessions. It selects task-relevant context, filters stale or irrelevant information, and structures the context package for each run. Context is matched against the current task, not just carried forward from the previous session.</p>
+
+    <p>It also maintains reusable context packages that persist across sessions. These packages are validated against the current project state and updated when relevant changes occur. The result is that sessions start with accurate, compact context instead of a repeated full explanation.</p>
+
+    <div class="art-nav">
+      <a href="articles.html">&larr; All articles</a>
+    </div>
+
+  </div>
+</div>
+</main>
+
+<div class="art-related">
+  <div class="art-wrap">
+    <h3>Related articles</h3>
+    <div class="art-related-grid">
+
+      <a href="article-context.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Context</div>
+        <div class="arc-title">Why AI coding agents keep asking for the same context</div>
+      </a>
+
+      <a href="article-stop-reexplaining.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Teams</div>
+        <div class="arc-title">Stop Re-Explaining Your Project to AI</div>
+      </a>
+
+      <a href="article-ai-token-cost.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Cost</div>
+        <div class="arc-title">Why AI coding costs grow faster than teams expect</div>
+      </a>
+
+      <a href="article-ai-waste.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">AI Waste</div>
+        <div class="arc-title">What is AI waste in software development?</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="art-cta">
+  <h3>Context that is task-relevant, not just available.</h3>
+  <p>Avorelo prepares compact, validated context for each AI coding session. No repeated setup. No stale information. Local-first.</p>
+  <a href="/activate">Explore Community Edition</a>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-btm">
+      <p>&copy; 2026 Avorelo. Local-first. Built with Avorelo.</p>
+      <p><a href="articles.html" style="color:rgba(255,255,255,.40);text-decoration:none">Articles</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

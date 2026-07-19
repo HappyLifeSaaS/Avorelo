@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What happened, what was proven, and what to do next: Avorelo Work Intelligence | Avorelo</title>
+<meta name="description" content="Work Intelligence is Avorelo's local-first explanation layer around AI coding work: what happened, what was proven, what is still open, and what the next session needs.">
+<link rel="canonical" href="https://avorelo.com/article-work-intelligence.html">
+<meta property="og:title" content="What happened, what was proven, and what to do next: Avorelo Work Intelligence">
+<meta property="og:description" content="A local-first explanation layer for AI coding work: what happened, what was proven, what is open, and what the next session should know.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://avorelo.com/article-work-intelligence.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What happened, what was proven, and what to do next: Avorelo Work Intelligence">
+<meta name="twitter:description" content="A local-first explanation layer for AI coding work: what happened, what was proven, what is open, and what the next session should know.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What happened, what was proven, and what to do next: Avorelo Work Intelligence","description":"Work Intelligence is Avorelo's local-first explanation layer around AI coding work: what happened, what was proven, what is still open, and what the next session needs.","publisher":{"@type":"Organization","name":"Avorelo"},"url":"https://avorelo.com/article-work-intelligence.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Articles","item":"https://avorelo.com/articles.html"},{"@type":"ListItem","position":2,"name":"What happened, what was proven, and what to do next: Avorelo Work Intelligence","item":"https://avorelo.com/article-work-intelligence.html"}]}</script>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--warm:#EDE9E4;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--r-sm:6px;--r:10px;--r-lg:16px;
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.art-wrap{max-width:720px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--sans);font-weight:700;line-height:1.25;letter-spacing:-0.02em}
+h1{font-size:clamp(1.7rem,3vw,2.3rem)}
+h2{font-size:1.35rem;margin:34px 0 14px}
+h3{font-size:1.05rem;margin:22px 0 10px}
+p{font-size:1rem;line-height:1.8;color:var(--text-2);margin-bottom:18px}
+ul{padding-left:20px;margin-bottom:18px}
+li{font-size:1rem;line-height:1.75;color:var(--text-2);margin-bottom:4px}
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.art-header{padding:40px 0 28px}
+.art-back{font-size:0.8rem;color:var(--text-3);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px;margin-bottom:14px}
+.art-tag{display:inline-block;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:40px;margin-bottom:14px}
+.art-tag-workflow{background:#EDF5E0;color:#3A7E1A}
+.art-tag-proof{background:var(--indigo-lt);color:var(--indigo)}
+.art-tag-context{background:var(--teal-lt);color:var(--teal-dk)}
+.art-h1{margin-bottom:14px}
+.art-lead{font-size:1.1rem;line-height:1.75;color:var(--text-2);margin-bottom:0}
+.art-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
+.art-meta span{font-size:0.78rem;color:var(--text-3);font-weight:500}
+.art-body{padding:8px 0 48px}
+.callout{background:var(--warm);border-left:3px solid var(--indigo);border-radius:0 var(--r) var(--r) 0;padding:16px 20px;margin:28px 0}
+.callout p{margin-bottom:0}
+.viz{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;margin:28px 0}
+.viz-title{font-family:var(--sans);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:16px}
+.viz-flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.viz-step{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:10px 16px;font-size:0.85rem;font-weight:600;color:var(--text);text-align:center;flex:1;min-width:120px}
+.viz-step.good{background:var(--teal-lt);border-color:rgba(23,168,122,.25);color:var(--teal-dk)}
+.viz-step.warn{background:#FFF5F0;border-color:rgba(217,123,26,.20);color:var(--amber)}
+.viz-arrow{color:var(--text-3);font-size:1rem}
+.proof-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;margin:28px 0}
+.pc-row{display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border);font-size:0.9rem}
+.pc-row:last-child{border-bottom:none}
+.pc-k{font-family:var(--sans);font-weight:700;color:var(--text-3);min-width:130px;font-size:0.72rem;text-transform:uppercase;letter-spacing:.06em;padding-top:2px}
+.pc-v{color:var(--text-2);flex:1}
+.art-related{background:var(--warm);padding:40px 0}
+.art-related h3{font-size:1.1rem;margin:0 0 20px}
+.art-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.art-related-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;text-decoration:none;display:block}
+.arc-tag{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:8px}
+.arc-title{font-family:var(--sans);font-size:0.9rem;font-weight:700;color:var(--text);line-height:1.3}
+.art-cta{background:var(--dark);padding:52px 24px;text-align:center}
+.art-cta h3{font-family:var(--sans);font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:12px}
+.art-cta p{font-size:0.95rem;color:rgba(255,255,255,.60);max-width:520px;margin:0 auto 24px}
+.art-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.art-cta a{display:inline-block;background:var(--teal);color:#fff;padding:11px 24px;border-radius:var(--r-sm);font-size:0.9rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.art-cta a.secondary{background:transparent;border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.85)}
+.footer{background:var(--dark);padding:24px 0;border-top:1px solid rgba(255,255,255,.06)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.footer-btm p{font-size:0.8rem;color:rgba(255,255,255,.35)}
+@media(max-width:768px){.nav-links,.nav-cta{display:none}.art-related-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.art-related-grid{grid-template-columns:1fr}.viz-flow{flex-direction:column}.viz-arrow{transform:rotate(90deg)}.pc-row{flex-direction:column;gap:2px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">Avorelo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+  </div>
+</nav>
+
+<main>
+<div class="art-wrap">
+  <div class="art-header">
+    <a href="articles.html" class="art-back">&larr; Articles</a>
+    <div class="art-tag art-tag-workflow">Workflow</div>
+    <h1 class="art-h1">What happened, what was proven, and what to do next: Avorelo Work Intelligence</h1>
+    <p class="art-lead">Most AI coding sessions end with a fuzzy handoff. Something changed, something was tested, something is still uncertain, and the next session has to reconstruct the truth. Work Intelligence is Avorelo's local-first answer to that gap.</p>
+    <div class="art-meta">
+      <span>Avorelo</span>
+      <span>Topic: Workflow health</span>
+      <span>Topic: Proof</span>
+      <span>Topic: Continuity</span>
+      <span class="art-reading-time">4 min read</span>
+    </div>
+  </div>
+
+  <div class="art-body">
+    <h2>The problem is not only output</h2>
+    <p>When an AI session ends, the hardest question is usually not "did it write code." The harder question is "what state is this work actually in." Was it proved, blocked, partially prepared, or left open? Which references mattered? Which ones were stale? What should the next session know so it does not start from zero?</p>
+
+    <p>Without that layer, teams fall back to rediscovery. They re-open files, re-read old threads, repeat setup, and overclaim progress because the proof and the memory are scattered.</p>
+
+    <div class="viz">
+      <div class="viz-title">What Work Intelligence adds</div>
+      <div class="viz-flow">
+        <div class="viz-step">Runtime session</div>
+        <div class="viz-arrow">&rarr;</div>
+        <div class="viz-step">Receipts + proof</div>
+        <div class="viz-arrow">&rarr;</div>
+        <div class="viz-step good">Work Intelligence summary</div>
+        <div class="viz-arrow">&rarr;</div>
+        <div class="viz-step warn">Next safe action</div>
+      </div>
+    </div>
+
+    <h2>What the layer actually answers</h2>
+    <p>Avorelo's Work Intelligence layer is a local summary built after the session from existing receipts, proof, continuity, and routing artifacts. It answers the questions that matter after the run:</p>
+
+    <ul>
+      <li>What was the work?</li>
+      <li>What changed or was attempted?</li>
+      <li>What evidence exists?</li>
+      <li>What remains open?</li>
+      <li>What should the next session know?</li>
+      <li>What context looked stale, noisy, or wasteful?</li>
+      <li>What should not be claimed?</li>
+    </ul>
+
+    <div class="proof-card">
+      <div class="pc-row"><div class="pc-k">Outcome</div><div class="pc-v">Open, proved, or blocked</div></div>
+      <div class="pc-row"><div class="pc-k">Proof</div><div class="pc-v">What evidence was verified and what gaps remain</div></div>
+      <div class="pc-row"><div class="pc-k">Resume</div><div class="pc-v">Safe next actions and provider-neutral handoff</div></div>
+      <div class="pc-row"><div class="pc-k">Context</div><div class="pc-v">Useful references, stale references, missing obvious references</div></div>
+      <div class="pc-row"><div class="pc-k">Claims</div><div class="pc-v">What should not be said when proof is partial or unavailable</div></div>
+    </div>
+
+    <h2>Why this is not another dashboard</h2>
+    <p>This is not a surveillance layer and not generic AI analytics. It does not try to turn every session into management telemetry. It is closer to memory and proof around the work itself: a compact local explanation for the person who just ran the session and the person or agent who picks it up next.</p>
+
+    <div class="callout">
+      <p><strong>The important shift is from "what did the AI do" to "what state is this work in."</strong> That is the information future sessions need, and it is the information most AI workflows fail to preserve cleanly.</p>
+    </div>
+
+    <h2>What stays local</h2>
+    <p>Work Intelligence stores safe metadata only. No raw prompts, source dumps, diffs, terminal output, env values, or secrets. If aggregate telemetry is enabled, the events are counts and statuses, not raw session content.</p>
+
+    <h2>What it helps reduce</h2>
+    <p>The most practical value is not hype. It is fewer repeated setup steps, fewer unsupported "done" claims, less stale context carried forward, and clearer next action after a blocked or unfinished session.</p>
+
+    <h2>What it does not claim</h2>
+    <p>It does not claim exact ROI, exact token savings, or that every session ends in proof. Open and blocked states are part of the product, not edge cases hidden to make the story cleaner.</p>
+  </div>
+</div>
+</main>
+
+<div class="art-related">
+  <div class="art-wrap">
+    <h3>Related articles</h3>
+    <div class="art-related-grid">
+      <a href="article-proof-receipts.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Proof</div>
+        <div class="arc-title">What is an AI coding proof receipt?</div>
+      </a>
+      <a href="article-stop-reexplaining.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Continuity</div>
+        <div class="arc-title">Stop re-explaining your project to AI</div>
+      </a>
+      <a href="article-ai-workflow-hygiene.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Workflow</div>
+        <div class="arc-title">What good AI workflow hygiene looks like</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="art-cta">
+  <h3>Keep the next AI session grounded in truth.</h3>
+  <p>Avorelo keeps the proof, memory, and next-step clarity around your AI coding work local, compact, and reusable.</p>
+  <div class="art-cta-row">
+    <a href="/activate">Explore Community Edition</a>
+    <a href="index.html#how" class="secondary">See how it works</a>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-btm">
+      <p>&copy; 2026 Avorelo. Local-first. Built with Avorelo.</p>
+      <p><a href="articles.html" style="color:rgba(255,255,255,.40);text-decoration:none">Articles</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

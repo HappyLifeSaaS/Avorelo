@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | Avorelo</title>
+<meta name="description" content="What this website does and does not do. There is no account, no billing, no hosted API, and no analytics. Avorelo's CLI keeps your data on your machine.">
+<link rel="canonical" href="https://avorelo.com/privacy-policy.html">
+<meta property="og:title" content="Privacy Policy | Avorelo">
+<meta property="og:description" content="What this website does and does not do. There is no account, no billing, no hosted API, and no analytics. Avorelo's CLI keeps your data on your machine.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/privacy-policy.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Privacy Policy | Avorelo">
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--warm:#EDE9E4;--warm-2:#E5E0D9;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sh:0 2px 8px rgba(0,0,0,.10);--sh-lg:0 4px 24px rgba(0,0,0,.13);
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3{font-family:var(--sans);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+h1{font-size:clamp(1.6rem,3vw,2.2rem)}
+p{font-size:0.9rem;line-height:1.7;color:var(--text-2)}
+code{font-family:var(--mono);font-size:0.85em;background:rgba(10,14,28,.06);padding:2px 5px;border-radius:3px}
+
+.nav{background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px}
+.nav-mob{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(245,244,241,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:10px 24px 20px;z-index:99}
+.nav-mob.open{display:block}
+.nav-mob a{display:block;padding:11px 0;font-size:0.96rem;color:var(--text-2);text-decoration:none;border-bottom:1px solid var(--border);font-weight:500}
+.nav-mob a:last-child{border-bottom:none}
+.nm-cta{display:block;margin-top:12px;text-align:center;background:var(--indigo);color:#fff !important;padding:11px;border-radius:var(--r-sm);font-weight:600;font-family:var(--sans);border:none !important}
+
+.page-body{flex:1;padding:52px 24px 72px}
+.legal-wrap{max-width:720px;margin:0 auto}
+.legal-header{margin-bottom:24px}
+.legal-header h1{margin-bottom:8px}
+.legal-updated{font-size:0.78rem;color:var(--text-3);margin-bottom:4px}
+.summary{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--teal);border-radius:var(--r);padding:16px 18px;margin-bottom:8px}
+.summary p{font-size:0.86rem;margin:0}
+.legal-body h2{font-size:1.15rem;font-family:var(--sans);font-weight:700;margin:32px 0 10px;color:var(--text);letter-spacing:-0.01em}
+.legal-body h3{font-size:0.95rem;font-family:var(--sans);font-weight:600;margin:20px 0 8px;color:var(--text)}
+.legal-body p{font-size:0.88rem;line-height:1.75;color:var(--text-2);margin-bottom:12px}
+.legal-body ul{padding-left:20px;margin-bottom:12px}
+.legal-body li{font-size:0.88rem;line-height:1.75;color:var(--text-2);margin-bottom:4px}
+.legal-body a{color:var(--indigo);text-decoration:underline}
+.legal-body table{width:100%;border-collapse:collapse;margin-bottom:12px;font-size:0.84rem}
+.legal-body th,.legal-body td{border:1px solid var(--border);padding:8px 10px;text-align:left;vertical-align:top}
+.legal-body th{background:var(--warm);font-family:var(--sans);font-weight:600;font-size:0.8rem}
+.tbl-scroll{overflow-x:auto}
+
+.footer-min{border-top:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-min p{font-size:0.74rem;color:var(--text-3)}
+.footer-min a{font-size:0.74rem;color:var(--text-3);text-decoration:none}
+
+@media(max-width:640px){.page-body{padding:28px 16px 48px}.nav-links{display:none}.nav-ham{display:block}}
+</style>
+</head>
+<body>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo" aria-label="Avorelo home">Avorelo</a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="capabilities.html">Capabilities</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" onclick="document.getElementById('nm').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+<div class="nav-mob" id="nm" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html#how">How it works</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="capabilities.html">Capabilities</a>
+  <a href="articles.html">Articles</a>
+  <a href="contact.html">Contact</a>
+  <a href="/activate" class="nm-cta">Explore Community Edition</a>
+</div>
+
+<main>
+<div class="page-body">
+  <div class="legal-wrap">
+    <div class="legal-header">
+      <h1>Privacy Policy</h1>
+      <p class="legal-updated">Last updated: 16 July 2026</p>
+    </div>
+
+    <div class="summary">
+      <p><strong>The short version.</strong> This is a static informational website. It has no account, no billing, no hosted API, and no analytics. It collects nothing from you. The one thing your browser does fetch from a third party is the web fonts, described in section 3. Avorelo's command-line tool runs on your machine and keeps your data there.</p>
+    </div>
+
+    <div class="legal-body">
+
+      <h2>1. Scope</h2>
+      <p>This policy covers two separate things: this website, and the Avorelo command-line tool that runs on your own computer. It does not describe the previous hosted Avorelo service, which has been discontinued along with its accounts, billing and cloud storage.</p>
+
+      <h2>2. What this website collects</h2>
+      <p><strong>Nothing.</strong> This site is static HTML and CSS. Specifically, it has:</p>
+      <ul>
+        <li>no account, sign-up, or login;</li>
+        <li>no forms and no submission of any kind &mdash; nothing you type reaches us, because there is nowhere for it to go;</li>
+        <li>no billing, checkout, or customer portal;</li>
+        <li>no hosted API behind the pages;</li>
+        <li>no analytics, product-usage events, or click tracking. The article CTA analytics script that previously existed (<code>article-analytics.js</code>) has been removed from the site entirely, along with the CTA data attributes it read;</li>
+        <li>no cookies set by this site;</li>
+        <li>no <code>localStorage</code> or <code>sessionStorage</code> use;</li>
+        <li>no advertising, remarketing, or third-party trackers;</li>
+        <li>no remote scripts, remote images, or embedded frames.</li>
+      </ul>
+
+      <h2>3. Third-party requests your browser makes</h2>
+      <p>This site does contact third parties, and it would be dishonest to imply otherwise. The pages use two web-font services, so your browser requests stylesheets and font files from them when you load a page that uses them:</p>
+      <div class="tbl-scroll">
+      <table>
+        <thead><tr><th>Host</th><th>What is requested</th><th>Pages affected</th></tr></thead>
+        <tbody>
+          <tr><td><code>fonts.googleapis.com</code></td><td>Stylesheet for the DM Sans and JetBrains Mono fonts</td><td>53 of 76</td></tr>
+          <tr><td><code>fonts.gstatic.com</code></td><td>The font files referenced by that stylesheet</td><td>53 of 76</td></tr>
+          <tr><td><code>api.fontshare.com</code></td><td>Stylesheet and font files for the Satoshi font</td><td>53 of 76</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>As with any request your browser makes, those providers can see your IP address, user agent, and the page that referred the request. We do not control their handling of that data, and we receive nothing back from them. Their own terms and privacy policies apply to those requests.</p>
+      <p>The remaining 23 pages &mdash; including the discontinued-service pages and several article and capability pages &mdash; make no external request at all.</p>
+      <p>These are the only third-party hosts the site contacts. There is no analytics provider, no CDN for scripts, and no payment provider, because there is nothing to pay for.</p>
+
+      <h2>4. The Avorelo command-line tool</h2>
+      <p>The tool is local-first. What it produces &mdash; receipts, evidence, session state, workspace detection results &mdash; is written to files on your machine and stays there. It is not uploaded, and there is no cloud service to upload it to.</p>
+      <p>Specifically, the tool does <strong>not</strong>:</p>
+      <ul>
+        <li>send your source code, prompts, diffs, environment values, or secrets anywhere;</li>
+        <li>upload receipts or evidence;</li>
+        <li>synchronise anything to a cloud;</li>
+        <li>send automatic telemetry or usage analytics;</li>
+        <li>contact an activation, licensing, or entitlement server. <code>avorelo activate</code> writes local state and performs no online check;</li>
+        <li>open your browser by itself.</li>
+      </ul>
+
+      <h3>When the tool does use the network</h3>
+      <p>There are exactly two cases, and you trigger both deliberately:</p>
+      <ul>
+        <li><strong><code>avorelo update-check</code></strong> makes a single bounded request to the public npm registry to ask whether a newer version exists. It sends no project data. If you never run it, the tool makes no outbound request.</li>
+        <li><strong>Browser QA</strong>, when you run it, requests the target address you give it. It goes where you point it and nowhere else.</li>
+      </ul>
+      <p>Where the tool prints a link, it prints it as text. Following it is your choice.</p>
+
+      <h3>Support bundles</h3>
+      <p>Running <code>avorelo support bundle</code> creates an allowlisted diagnostic artifact as a local file. Nothing is uploaded. You decide whether to share it and with whom, and you can inspect it first.</p>
+
+      <h2>5. Licensing and privacy</h2>
+      <p>Avorelo is Open Source under the Apache License 2.0. It does not rely on telemetry, online activation, or an account-based license check, and the tool contains no such mechanism.</p>
+      <p>Optional paid services are discussed by email at <a href="mailto:support@avorelo.com?subject=Avorelo%20services%20inquiry">support@avorelo.com</a>. That is a normal email address: clicking it opens your own mail client. This static website does not receive, process, or store your message — it has no contact form and no server. Any email you send is delivered and stored by the configured email/forwarding providers for that address, under their terms, not by this website.</p>
+
+      <h2>6. Data we hold about you</h2>
+      <p>None. There is no account database, no billing records, no usage analytics, and no contact list, because the hosted service that had them was discontinued and this website collects nothing.</p>
+      <p>Rights such as access, correction, export, or deletion are meaningful only where data is held. If you believe we hold something about you from the discontinued hosted service, email <a href="mailto:support@avorelo.com?subject=Avorelo%20support">support@avorelo.com</a>.</p>
+
+      <h2>7. Children</h2>
+      <p>This site is a technical information site and is not directed at children. It collects nothing from anyone, including children.</p>
+
+      <h2>8. Changes to this policy</h2>
+      <p>If the site's behaviour changes &mdash; for example if the fonts are self-hosted, or a licensing contact channel is added &mdash; this page will be updated to match what the site actually does. This policy describes the site as it is, not as it is planned to be.</p>
+
+      <h2>9. Contact</h2>
+      <p>There is no contact <em>form</em> on this site and nothing you type into any page is submitted anywhere. Enquiries are by email to <a href="mailto:support@avorelo.com?subject=Avorelo%20support">support@avorelo.com</a>, which opens your own mail client; the website neither sees nor stores the message. See the <a href="contact.html">Contact</a> page for how to reach us about licensing, support, and security.</p>
+
+    </div>
+  </div>
+</div>
+</main>
+
+<footer class="footer-min">
+  <p>&copy; 2026 Avorelo. Local-first.</p>
+  <div style="display:flex;gap:16px"><a href="capabilities.html">Capabilities</a><a href="privacy-policy.html">Privacy</a><a href="terms-of-service.html">Terms</a><a href="contact.html">Contact</a></div>
+</footer>
+</body>
+</html>

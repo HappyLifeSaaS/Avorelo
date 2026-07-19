@@ -1,0 +1,217 @@
+{
+  "article-access.html": {
+    "wordCount": 512,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-ai-activity-productivity.html": {
+    "wordCount": 442,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-ai-agent-scope-drift.html": {
+    "wordCount": 714,
+    "readingMinutes": 4,
+    "renderedLabel": "4 min read"
+  },
+  "article-ai-agents-repeat-mistakes.html": {
+    "wordCount": 339,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-ai-code-accumulation.html": {
+    "wordCount": 310,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-ai-gateway-vs-workflow-router.html": {
+    "wordCount": 366,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-ai-generated-bug-reports-waste-time.html": {
+    "wordCount": 615,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-ai-native-engineering-team.html": {
+    "wordCount": 350,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-ai-productivity-measurement.html": {
+    "wordCount": 709,
+    "readingMinutes": 4,
+    "renderedLabel": "4 min read"
+  },
+  "article-ai-review-load-reduced.html": {
+    "wordCount": 326,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-ai-security-findings-need-evidence.html": {
+    "wordCount": 796,
+    "readingMinutes": 4,
+    "renderedLabel": "4 min read"
+  },
+  "article-ai-skill-supply-chain-security.html": {
+    "wordCount": 337,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-ai-spend-proof.html": {
+    "wordCount": 418,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-ai-team-reports-for-engineering-leaders.html": {
+    "wordCount": 331,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-ai-token-cost.html": {
+    "wordCount": 917,
+    "readingMinutes": 5,
+    "renderedLabel": "5 min read"
+  },
+  "article-ai-waste.html": {
+    "wordCount": 1006,
+    "readingMinutes": 5,
+    "renderedLabel": "5 min read"
+  },
+  "article-ai-workflow-hygiene.html": {
+    "wordCount": 310,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-approval-fatigue.html": {
+    "wordCount": 755,
+    "readingMinutes": 4,
+    "renderedLabel": "4 min read"
+  },
+  "article-cheaper-ai-models-not-enough.html": {
+    "wordCount": 401,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-context-engineering-ai-coding.html": {
+    "wordCount": 787,
+    "readingMinutes": 4,
+    "renderedLabel": "4 min read"
+  },
+  "article-context.html": {
+    "wordCount": 632,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-delete-ai-generated-code.html": {
+    "wordCount": 304,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-evidence-backed-ai-coding.html": {
+    "wordCount": 483,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-model-routing-vs-workflow-routing.html": {
+    "wordCount": 692,
+    "readingMinutes": 4,
+    "renderedLabel": "4 min read"
+  },
+  "article-privacy-safe-ai-team-reporting.html": {
+    "wordCount": 695,
+    "readingMinutes": 4,
+    "renderedLabel": "4 min read"
+  },
+  "article-project-knowledge-layer.html": {
+    "wordCount": 430,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-proof-receipts.html": {
+    "wordCount": 523,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-work-intelligence.html": {
+    "wordCount": 678,
+    "readingMinutes": 4,
+    "renderedLabel": "4 min read"
+  },
+  "article-proof.html": {
+    "wordCount": 601,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-rag-vs-memory-vs-project-knowledge.html": {
+    "wordCount": 493,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-reduce-noise-ai-code-reviews.html": {
+    "wordCount": 522,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-route-ai-coding-workflows-safely.html": {
+    "wordCount": 370,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-routing.html": {
+    "wordCount": 503,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-safe-ai-coding-agents.html": {
+    "wordCount": 682,
+    "readingMinutes": 4,
+    "renderedLabel": "4 min read"
+  },
+  "article-safe-ai-tool-exposure.html": {
+    "wordCount": 766,
+    "readingMinutes": 4,
+    "renderedLabel": "4 min read"
+  },
+  "article-scope-repair-before-approval.html": {
+    "wordCount": 471,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-scope.html": {
+    "wordCount": 515,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-skill-governance-ai-agents.html": {
+    "wordCount": 345,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-stale-ai-memory-risk.html": {
+    "wordCount": 360,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-stop-reexplaining.html": {
+    "wordCount": 521,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-team-ai-value-reports.html": {
+    "wordCount": 319,
+    "readingMinutes": 2,
+    "renderedLabel": "2 min read"
+  },
+  "article-what-is-ai-slop-in-software-security.html": {
+    "wordCount": 552,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  },
+  "article-workflow-health.html": {
+    "wordCount": 516,
+    "readingMinutes": 3,
+    "renderedLabel": "3 min read"
+  }
+}

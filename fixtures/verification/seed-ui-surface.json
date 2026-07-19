@@ -1,0 +1,7 @@
+{
+  "description": "UI product surface change — React component edit",
+  "changedFiles": ["src/components/Header.tsx", "src/pages/Dashboard.tsx"],
+  "expectedWorkType": "ui_product_surface",
+  "expectedCriticalProof": ["artifact_guard", "product_surface"],
+  "expectedSafeToClose": true
+}

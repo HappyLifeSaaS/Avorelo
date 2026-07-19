@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Local viewer | Avorelo</title>
+<meta name="description" content="An illustration of Avorelo's local viewer. The real viewer runs on your machine and reads local files. This page is a static explanation and loads no data.">
+<link rel="canonical" href="https://avorelo.com/dashboard.html">
+<meta property="og:title" content="Local viewer | Avorelo">
+<meta property="og:description" content="An illustration of Avorelo's local viewer. The real viewer runs on your machine and reads local files. This page is a static explanation and loads no data.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/dashboard.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Local viewer | Avorelo">
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--dark-2:#141828;--warm:#EDE9E4;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3{font-family:var(--sans);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+h1{font-size:clamp(1.6rem,3vw,2.2rem)}
+p{font-size:0.9rem;line-height:1.7;color:var(--text-2)}
+
+.nav{background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px}
+.nav-mob{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(245,244,241,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:10px 24px 20px;z-index:99}
+.nav-mob.open{display:block}
+.nav-mob a{display:block;padding:11px 0;font-size:0.96rem;color:var(--text-2);text-decoration:none;border-bottom:1px solid var(--border);font-weight:500}
+.nav-mob a:last-child{border-bottom:none}
+.nm-cta{display:block;margin-top:12px;text-align:center;background:var(--indigo);color:#fff !important;padding:11px;border-radius:var(--r-sm);font-weight:600;font-family:var(--sans);border:none !important}
+
+.page-body{flex:1;padding:52px 24px 72px}
+.wrap{max-width:960px;margin:0 auto}
+.hdr{margin-bottom:28px}
+.hdr h1{margin-bottom:10px}
+.hdr p{max-width:640px}
+
+/* The boundary notice is the most important element on this page. */
+.boundary{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:var(--r);padding:16px 18px;margin-bottom:36px}
+.boundary h2{font-size:0.95rem;margin-bottom:8px}
+.boundary ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.boundary li{font-size:0.85rem;color:var(--text-2);line-height:1.6;display:flex;gap:8px;align-items:flex-start}
+.boundary li::before{content:"\2014";color:var(--text-3);flex-shrink:0}
+
+.illus-label{display:inline-flex;align-items:center;background:var(--amber-lt);border:1px solid rgba(217,123,26,.28);color:#8A4D0B;border-radius:20px;padding:4px 11px;font-size:0.68rem;font-weight:700;font-family:var(--sans);letter-spacing:.03em;margin-bottom:12px}
+
+.section{margin-bottom:36px}
+.section > h2{font-size:1.15rem;margin-bottom:6px}
+.section > p.lede{font-size:0.88rem;margin-bottom:14px;max-width:660px}
+
+/* Static mock of the local viewer. Deliberately inert: no controls, no live state. */
+.viewer{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden}
+.viewer-bar{background:var(--warm);border-bottom:1px solid var(--border);padding:9px 14px;display:flex;align-items:center;gap:7px}
+.vb-dot{width:9px;height:9px;border-radius:50%;background:var(--border-2)}
+.vb-path{font-family:var(--mono);font-size:0.72rem;color:var(--text-3);margin-left:6px}
+.viewer-body{padding:20px}
+.viewer-body h3{font-size:0.95rem;margin-bottom:12px}
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}
+.stat{border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;background:var(--bg)}
+.stat-lbl{font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);font-family:var(--sans);margin-bottom:5px}
+.stat-val{font-size:1.5rem;font-weight:700;font-family:var(--sans);color:var(--text);letter-spacing:-0.02em}
+.stat-sub{font-size:0.72rem;color:var(--text-3);margin-top:2px}
+
+.rcpt{border:1px solid var(--border);border-radius:var(--r);overflow:hidden}
+.rcpt-hd{background:var(--bg);border-bottom:1px solid var(--border);padding:9px 14px;font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);font-family:var(--sans)}
+.rcpt-row{display:flex;align-items:center;gap:12px;padding:11px 14px;border-bottom:1px solid var(--border);font-size:0.82rem}
+.rcpt-row:last-child{border-bottom:none}
+.rcpt-icon{width:18px;height:18px;border-radius:4px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.6rem;font-weight:700;color:#fff;font-family:var(--sans)}
+.ri-ok{background:var(--teal)}
+.ri-info{background:var(--text-3)}
+.rcpt-txt{flex:1;color:var(--text-2)}
+.rcpt-time{font-family:var(--mono);font-size:0.7rem;color:var(--text-3);flex-shrink:0}
+
+.concepts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.concept{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 18px}
+.concept h3{font-size:0.92rem;margin-bottom:6px}
+.concept p{font-size:0.82rem;line-height:1.65}
+
+.howto{background:var(--dark);border-radius:var(--r-lg);padding:24px}
+.howto h2{color:#fff;font-size:1.05rem;margin-bottom:8px}
+.howto p{color:rgba(255,255,255,.68);font-size:0.86rem;margin-bottom:14px}
+.cmd{font-family:var(--mono);font-size:0.82rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-sm);padding:11px 14px;color:#fff;margin-bottom:8px}
+.cmd-note{font-size:0.75rem;color:rgba(255,255,255,.55);margin-bottom:16px}
+
+.footer-min{border-top:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-min p{font-size:0.74rem;color:var(--text-3)}
+.footer-min a{font-size:0.74rem;color:var(--text-3);text-decoration:none}
+
+@media(max-width:760px){
+  .nav-links{display:none}.nav-ham{display:block}
+  .page-body{padding:28px 16px 48px}
+  .stat-row{grid-template-columns:1fr}
+  .concepts{grid-template-columns:1fr}
+  .rcpt-row{flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo" aria-label="Avorelo home"><img src="/favicon-256.png" alt="" width="28" height="28" style="border-radius:6px">Avorelo</a>
+    <ul class="nav-links" role="list">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="capabilities.html">Capabilities</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" onclick="document.getElementById('nm').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+<div class="nav-mob" id="nm" role="navigation" aria-label="Mobile navigation">
+  <a href="index.html#how">How it works</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="capabilities.html">Capabilities</a>
+  <a href="articles.html">Articles</a>
+  <a href="contact.html">Contact</a>
+  <a href="/activate" class="nm-cta">Explore Community Edition</a>
+</div>
+
+<main>
+<div class="page-body">
+  <div class="wrap">
+
+    <div class="hdr">
+      <h1>The local viewer</h1>
+      <p>Avorelo's viewer runs on your own machine and reads files that Avorelo wrote there. This page is a static explanation of what that viewer shows. It is not the viewer, and it is not connected to anything.</p>
+    </div>
+
+    <div class="boundary">
+      <h2>What this page is, and what it is not</h2>
+      <ul>
+        <li>The real viewer reads files generated on your machine, from your own work.</li>
+        <li>This website does not load your data. There is no account and no service to load it from.</li>
+        <li>No information is fetched from Avorelo. This page requests no data at all.</li>
+        <li>Everything below is an illustration. The numbers and rows are fixed examples written into the page.</li>
+        <li>You reach the actual viewer through the local command-line workflow, shown at the bottom of this page.</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>Local status</h2>
+      <p class="lede">The viewer opens on a summary of what Avorelo did in the current project, read from local files rather than from a server.</p>
+      <span class="illus-label">Illustrative local example &mdash; data is not live</span>
+      <div class="viewer">
+        <div class="viewer-bar">
+          <span class="vb-dot"></span><span class="vb-dot"></span><span class="vb-dot"></span>
+          <span class="vb-path">~/your-project/.avorelo/receipts</span>
+        </div>
+        <div class="viewer-body">
+          <h3>Overview</h3>
+          <div class="stat-row">
+            <div class="stat">
+              <div class="stat-lbl">Sessions recorded</div>
+              <div class="stat-val">12</div>
+              <div class="stat-sub">Example value</div>
+            </div>
+            <div class="stat">
+              <div class="stat-lbl">Receipts written</div>
+              <div class="stat-val">37</div>
+              <div class="stat-sub">Example value</div>
+            </div>
+            <div class="stat">
+              <div class="stat-lbl">Checks run</div>
+              <div class="stat-val">8</div>
+              <div class="stat-sub">Example value</div>
+            </div>
+          </div>
+          <div class="rcpt">
+            <div class="rcpt-hd">Recent local receipts &mdash; example rows</div>
+            <div class="rcpt-row">
+              <span class="rcpt-icon ri-ok" aria-hidden="true">&#10003;</span>
+              <span class="rcpt-txt">Scope checked before edit &mdash; 3 files in scope</span>
+              <span class="rcpt-time">example</span>
+            </div>
+            <div class="rcpt-row">
+              <span class="rcpt-icon ri-ok" aria-hidden="true">&#10003;</span>
+              <span class="rcpt-txt">Evidence recorded for a test run &mdash; 41 tests</span>
+              <span class="rcpt-time">example</span>
+            </div>
+            <div class="rcpt-row">
+              <span class="rcpt-icon ri-info" aria-hidden="true">i</span>
+              <span class="rcpt-txt">Context prepared for session &mdash; stale instructions removed</span>
+              <span class="rcpt-time">example</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>What the viewer actually shows</h2>
+      <p class="lede">Each area maps to something Avorelo writes to disk while you work.</p>
+      <div class="concepts">
+        <div class="concept">
+          <h3>Local receipts</h3>
+          <p>A record of what Avorelo did during a session: what it prepared, what it checked, and what it changed. Written as files in your project.</p>
+        </div>
+        <div class="concept">
+          <h3>Local evidence</h3>
+          <p>The artifacts behind a claim &mdash; command output, check results, validator output &mdash; kept alongside the receipt that refers to them.</p>
+        </div>
+        <div class="concept">
+          <h3>Current local work</h3>
+          <p>What the current session is doing, and the context carried into it, visible while you work and without sending the session anywhere.</p>
+        </div>
+        <div class="concept">
+          <h3>Local history</h3>
+          <p>Earlier sessions in the same project, so you can see what happened before and what carried forward.</p>
+        </div>
+        <div class="concept">
+          <h3>Local status</h3>
+          <p>Whether Avorelo is active in this project, what it detected, and what it will and will not touch.</p>
+        </div>
+        <div class="concept">
+          <h3>Control Center</h3>
+          <p>The local surface that ties these together, served from your own machine when you run the CLI.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="howto">
+        <h2>How to open the real viewer</h2>
+        <p>The viewer is part of the local command-line workflow. It is served from your machine, reads your local files, and needs no account.</p>
+        <div class="cmd">avorelo status</div>
+        <div class="cmd-note">Shows whether Avorelo is active in the current project, and what it detected.</div>
+        <div class="cmd">avorelo open</div>
+        <div class="cmd-note">Opens the local receipts viewer for the current project, from local files only.</div>
+        <p style="margin-bottom:0">Public installation instructions will be published when the Community Edition is released. Until then this page describes the workflow rather than pointing at a package or repository that is not available yet.</p>
+      </div>
+    </div>
+
+  </div>
+</div>
+</main>
+
+<footer class="footer-min">
+  <p>&copy; 2026 Avorelo. Local-first.</p>
+  <div style="display:flex;gap:16px"><a href="capabilities.html">Capabilities</a><a href="privacy-policy.html">Privacy</a><a href="terms-of-service.html">Terms</a><a href="contact.html">Contact</a></div>
+</footer>
+</body>
+</html>

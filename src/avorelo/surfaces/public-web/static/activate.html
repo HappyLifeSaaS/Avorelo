@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Activate | Avorelo</title>
+<meta name="description" content="How Avorelo activates in a project: a local command that detects your workspace, applies safe fixes and writes local state. No account, no activation server, no licence check.">
+<link rel="canonical" href="https://avorelo.com/activate.html">
+<meta property="og:title" content="Activate | Avorelo">
+<meta property="og:description" content="How Avorelo activates in a project: a local command that detects your workspace, applies safe fixes and writes local state. No account, no activation server, no licence check.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/activate.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Activate | Avorelo">
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F5F4F1;--dark:#0A0E1C;--card:#FFFFFF;--indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);--teal:#17A87A;--teal-lt:#E8F7F1;--amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);--text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;--border:rgba(10,14,28,.10);--r:10px;--r-sm:6px;--r-lg:16px;--sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+.nav{background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+h1,h2,h3{font-family:var(--sans);font-weight:700;letter-spacing:-0.02em}
+.page{flex:1;max-width:720px;margin:0 auto;padding:48px 24px 72px}
+.page h1{font-size:1.8rem;margin-bottom:12px}
+.page h2{font-size:1.15rem;margin:28px 0 12px}
+.page p{color:var(--text-2);font-size:0.92rem;line-height:1.7;margin-bottom:16px}
+.cmd-box{background:var(--dark);color:#e0e0e0;border-radius:var(--r);padding:14px 18px;font-family:var(--mono);font-size:0.86rem;margin:14px 0}
+.cmd-note{font-size:0.82rem;color:var(--text-3);margin:-6px 0 18px;line-height:1.6}
+.steps{list-style:none;counter-reset:step}
+.steps li{counter-increment:step;display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;font-size:0.9rem;color:var(--text-2)}
+.steps li::before{content:counter(step);display:flex;align-items:center;justify-content:center;min-width:28px;height:28px;background:var(--teal-lt);color:var(--teal);border-radius:50%;font-family:var(--sans);font-weight:700;font-size:0.78rem;flex-shrink:0}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px;margin:20px 0}
+.card h3{font-size:1rem;margin-bottom:8px}
+.card p{margin-bottom:0}
+.notice{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:var(--r);padding:16px 18px;margin:20px 0}
+.notice h3{font-size:0.95rem;margin-bottom:7px}
+.notice p{font-size:0.86rem;margin-bottom:8px}
+.notice p:last-child{margin-bottom:0}
+.links{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px}
+.links a{display:inline-block;padding:10px 20px;border-radius:var(--r-sm);font-family:var(--sans);font-weight:600;font-size:0.88rem;text-decoration:none}
+.links .primary{background:var(--indigo);color:#fff}
+.links .secondary{background:var(--card);color:var(--indigo);border:1px solid var(--border)}
+footer{border-top:1px solid var(--border);color:var(--text-3);font-size:0.78rem;padding:1.5rem 24px;text-align:center}
+@media(max-width:640px){.page{padding:28px 16px 48px}.cmd-box{font-size:0.78rem;overflow-x:auto}}
+</style>
+</head>
+<body>
+<nav class="nav" role="navigation" aria-label="Main navigation"><div class="nav-in">
+  <a href="index.html" class="nav-logo" aria-label="Avorelo home"><img src="/favicon-256.png" alt="" width="28" height="28" style="border-radius:6px">Avorelo</a>
+  <ul class="nav-links" role="list">
+    <li><a href="capabilities.html">Capabilities</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="dashboard.html">Local viewer</a></li>
+  </ul>
+</div></nav>
+
+<main class="page">
+  <h1>Activate Avorelo</h1>
+  <p>Activation is a local command. It looks at the project you run it in, detects the AI coding tools and models you already use, applies safe setup fixes, writes run-entry guidance for future sessions, and records local state so you do not have to configure everything by hand.</p>
+
+  <div class="notice">
+    <h3>What activation is not</h3>
+    <p><strong>It is not account activation.</strong> There is no account, no sign-up, and no activation server. Nothing is registered anywhere.</p>
+    <p><strong>It is not licence activation.</strong> Activation contacts no licensing server and performs no online licence check. Your rights come from the Apache License 2.0, not from running this command — see the licensing note below.</p>
+  </div>
+
+  <h2>What activation does</h2>
+  <ol class="steps">
+    <li><span><strong>Detects your workspace</strong> &mdash; git repo, package manager, framework, scripts, tests.</span></li>
+    <li><span><strong>Detects AI coding tools</strong> &mdash; Claude Code, Cursor, Codex, AGENTS.md, CLAUDE.md, and more.</span></li>
+    <li><span><strong>Detects capabilities</strong> &mdash; skills registry, model routing, scanners, local browser proof.</span></li>
+    <li><span><strong>Applies safe fixes</strong> &mdash; creates local Avorelo directories, adds a .gitignore block, writes the activation contract.</span></li>
+    <li><span><strong>Installs run-entry guidance</strong> &mdash; adds a marker-managed Avorelo block to CLAUDE.md, AGENTS.md and supported instruction surfaces. Your own content is preserved.</span></li>
+    <li><span><strong>Shows first value</strong> &mdash; what was found, what was fixed, what is ready, what needs attention, and what to do next.</span></li>
+  </ol>
+
+  <h2>The local commands</h2>
+  <p>These are the commands the workflow is built around. They all run locally against the project directory you are in.</p>
+
+  <div class="cmd-box"><code>avorelo activate</code></div>
+  <p class="cmd-note">Detects the workspace, applies safe fixes and writes local activation state. Use <code>--scope</code> to control how widely it applies.</p>
+
+  <div class="cmd-box"><code>avorelo status</code></div>
+  <p class="cmd-note">Shows activation and session status for the current project.</p>
+
+  <div class="cmd-box"><code>avorelo open</code></div>
+  <p class="cmd-note">Opens the local receipts viewer, reading local files only. See the <a href="dashboard.html" style="color:var(--indigo)">local viewer</a> page for what it shows.</p>
+
+  <div class="cmd-box"><code>avorelo doctor</code></div>
+  <p class="cmd-note">Health check across adapters, hooks and session state.</p>
+
+  <div class="cmd-box"><code>avorelo update-check</code></div>
+  <p class="cmd-note">The one command that deliberately reaches the network: it makes a bounded request to the npm registry to see whether a newer version exists. Nothing else in the workflow contacts a network service on its own. The command is <code>update-check</code>, written with a hyphen.</p>
+
+  <div class="card">
+    <h3>No account required</h3>
+    <p>Activation is local-first. Everything runs on your machine, there is no sign-up and no cloud service, and your project data does not leave it.</p>
+  </div>
+
+  <div class="notice">
+    <h3>Installation and licensing status</h3>
+    <p>Avorelo is Open Source under the Apache License 2.0. Install the release candidate with <code>npm install -g avorelo@next</code>, or build from source.</p>
+    <p>Older Avorelo versions published to npm under an earlier hosted product are <strong>not</strong> this local-first Apache-2.0 release; use <code>avorelo@next</code>.</p>
+    <p>Apache-2.0 permits personal, internal, organizational, and commercial use, including modification and redistribution, subject to the license terms. No fee and no separate license are required. See the <a href="license.html" style="color:var(--indigo)">license page</a>.</p>
+  </div>
+
+  <div class="links">
+    <a href="dashboard.html" class="primary">See the local viewer</a>
+    <a href="capabilities.html" class="secondary">Capabilities</a>
+    <a href="index.html" class="secondary">Back to home</a>
+  </div>
+</main>
+
+<footer>Avorelo &mdash; local-first AI work control. No fake metrics. No production claims.</footer>
+</body>
+</html>

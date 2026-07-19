@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QA &amp; Proof Review | Avorelo Capabilities</title>
+<meta name="description" content="QA &amp; Proof Review in Avorelo: proof grading, validation summaries, and bounded execution support where current canonical evidence exists.">
+<link rel="canonical" href="https://avorelo.com/capability-qa-proof-review.html">
+<meta property="og:title" content="QA &amp;amp; Proof Review | Avorelo Capabilities">
+<meta property="og:description" content="QA &amp;amp; Proof Review in Avorelo: proof grading, validation summaries, and bounded execution support where current canonical evidence exists.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/capability-qa-proof-review.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QA &amp;amp; Proof Review | Avorelo Capabilities">
+<link rel="stylesheet" href="capability-styles.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="breadcrumb"><a href="capabilities.html">Capabilities</a><span>&rsaquo;</span>QA &amp; Proof Review</div>
+    <div class="badge-row"><span class="badge partial">Partial execution</span></div>
+    <h1>QA &amp; Proof Review</h1>
+    <p>Avorelo can grade proof, preserve redacted runtime evidence, and carry adapter-backed validation summaries into the runtime session and control center. In 0.3.0 this is a real, test-backed execution path with limitations, not a blanket claim that every verification mode is fully automated.</p>
+    <div class="meta-grid">
+      <div class="meta"><h4>Current truth</h4><p><code>PARTIAL_EXECUTION</code></p></div>
+      <div class="meta"><h4>Primary evidence</h4><p><code>src/avorelo/capabilities/proof-report/index.ts</code></p></div>
+      <div class="meta"><h4>Runtime surface</h4><p>Runtime session proof summary, control-center proof metadata, Pro validation gate model.</p></div>
+      <div class="meta"><h4>Tests</h4><p><code>tests/proof-report.test.ts</code>, <code>tests/proof-adapter-pack.test.ts</code>, <code>tests/runtime-flow.test.ts</code></p></div>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="detail-block">
+      <h2>What exists today</h2>
+      <p>Proof reports are built from local evidence, savings claims are refused unless comparative evidence exists, and tool-adapter proof metadata can be summarized for browser proof, CI proof, and security scan proof where those adapters are available.</p>
+    </div>
+    <div class="detail-block">
+      <h2>Claim boundary</h2>
+      <div class="callout"><p>Avorelo does not claim tests passed without proof. If proof is missing, the result stays incomplete, skipped, blocked, or limited instead of being upgraded to done.</p></div>
+    </div>
+    <div class="detail-block">
+      <h2>What it does not do</h2>
+      <p>It is not a universal external test observer, and it does not mean every QA flow already has full end-to-end coverage. The current canonical path proves graded proof summaries and adapter-backed evidence where supported.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>

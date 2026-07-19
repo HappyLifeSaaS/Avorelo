@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://avorelo.com/sitemap.xml

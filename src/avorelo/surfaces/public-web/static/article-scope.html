@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Broad access is the unsafe default | Avorelo Field Notes</title>
+<meta name="description" content="When an AI agent touches 31 files to do a 2-file job, something went wrong before the first line ran. How scope discipline prevents approval surprises.">
+<link rel="canonical" href="https://avorelo.com/article-scope.html">
+<meta property="og:title" content="Broad access is the unsafe default | Avorelo Field Notes">
+<meta property="og:description" content="When an AI agent touches 31 files to do a 2-file job, something went wrong before the first line ran.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://avorelo.com/article-scope.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Broad access is the unsafe default | Avorelo Field Notes">
+<meta name="twitter:description" content="When an AI agent touches 31 files to do a 2-file job, something went wrong before the first line ran.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Broad access is the unsafe default","description":"When an AI agent touches 31 files to do a 2-file job, something went wrong before the first line ran.","publisher":{"@type":"Organization","name":"Avorelo","url":"https://avorelo.com"},"url":"https://avorelo.com/article-scope.html","datePublished":"2026-05-15","dateModified":"2026-05-15","author":{"@type":"Organization","name":"Avorelo"}}
+</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Articles","item":"https://avorelo.com/articles.html"},{"@type":"ListItem","position":2,"name":"Why AI coding agents drift out of scope","item":"https://avorelo.com/article-scope.html"}]}</script>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--dark-2:#141828;--dark-3:#1C2035;
+  --warm:#EDE9E4;--warm-2:#E5E0D9;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.08);--sh:0 2px 8px rgba(0,0,0,.10);--sh-lg:0 4px 24px rgba(0,0,0,.13);
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+  --accent:#7B3FB0
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3{font-family:var(--sans);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+p{font-size:0.925rem;line-height:1.75;color:var(--text-2)}
+
+.nav{background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px}
+.nav-mob{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(245,244,241,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:10px 24px 20px;z-index:99}
+.nav-mob.open{display:block}
+.nav-mob a{display:block;padding:11px 0;font-size:0.96rem;color:var(--text-2);text-decoration:none;border-bottom:1px solid var(--border);font-weight:500}
+.nav-mob a:last-child{border-bottom:none}
+.nm-cta{display:block;margin-top:12px;text-align:center;background:var(--indigo);color:#fff !important;padding:11px;border-radius:var(--r-sm);font-weight:600;font-family:var(--sans);border:none !important}
+
+.art-hero{padding:48px 24px 36px;max-width:720px;margin:0 auto}
+.art-tag{display:inline-block;font-size:0.72rem;font-weight:700;font-family:var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:rgba(123,63,176,.10);padding:4px 10px;border-radius:20px;margin-bottom:14px}
+.art-hero h1{font-size:clamp(1.6rem,3.5vw,2.4rem);margin-bottom:14px}
+.art-hero .art-lede{font-size:1.05rem;color:var(--text-2);line-height:1.7;margin-bottom:20px}
+.art-meta{display:flex;gap:20px;font-size:0.78rem;color:var(--text-3);font-family:var(--sans)}
+.art-meta span{display:flex;align-items:center;gap:5px}
+
+.art-body{max-width:720px;margin:0 auto;padding:0 24px 64px}
+.art-body h2{font-size:1.2rem;margin:36px 0 12px;color:var(--text)}
+.art-body h3{font-size:1rem;margin:24px 0 8px;color:var(--text)}
+.art-body p{margin-bottom:16px}
+.art-body ul{padding-left:20px;margin-bottom:16px}
+.art-body ul li{font-size:0.925rem;color:var(--text-2);line-height:1.7;margin-bottom:6px}
+
+.callout{background:var(--warm);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--r);padding:16px 18px;margin:24px 0}
+.callout p{margin-bottom:0;font-size:0.875rem}
+
+.viz-block{background:var(--card);border:1px solid var(--border-2);border-radius:var(--r-lg);padding:28px;margin:28px 0;box-shadow:var(--sh)}
+.viz-block h3{font-size:0.85rem;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:20px;margin-top:0}
+.viz-flow{display:flex;align-items:stretch;gap:0;flex-wrap:wrap}
+.viz-step{flex:1;min-width:120px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;text-align:center}
+.viz-step.before{border-top:3px solid var(--amber)}
+.viz-step.mid{border-top:3px solid var(--accent)}
+.viz-step.highlight{background:rgba(123,63,176,.06);border-color:rgba(123,63,176,.25);border-top:3px solid var(--accent)}
+.viz-step .vs-label{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);margin-bottom:4px;font-family:var(--sans)}
+.viz-step .vs-val{font-size:0.9rem;font-weight:600;color:var(--text);font-family:var(--sans);line-height:1.3}
+.viz-step .vs-sub{font-size:0.72rem;color:var(--text-3);margin-top:3px}
+.viz-arrow{display:flex;align-items:center;padding:0 8px;color:var(--text-3);font-size:1rem;flex-shrink:0}
+
+.art-related{background:var(--warm);border-top:1px solid var(--border);padding:40px 24px}
+.art-related-in{max-width:720px;margin:0 auto}
+.art-related h2{font-size:1rem;font-weight:700;font-family:var(--sans);margin-bottom:16px;color:var(--text-3)}
+.art-related-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.art-related-card{background:var(--card);border:1px solid var(--border-2);border-radius:var(--r);padding:16px 18px;text-decoration:none;display:block;transition:box-shadow .15s}
+.art-related-card:hover{box-shadow:var(--sh)}
+.art-related-card .arc-tag{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);margin-bottom:5px;font-family:var(--sans)}
+.art-related-card h3{font-size:0.9rem;color:var(--text);font-family:var(--sans);line-height:1.35}
+
+.art-nav{max-width:720px;margin:0 auto;padding:20px 24px 32px;display:flex;justify-content:space-between;align-items:center;font-size:0.84rem}
+.art-nav a{color:var(--text-2);text-decoration:none;font-weight:500;display:flex;align-items:center;gap:6px}
+.art-nav a:hover{color:var(--text)}
+
+.art-cta{background:var(--dark);padding:52px 24px;text-align:center}
+.art-cta h2{font-size:1.4rem;color:#fff;margin-bottom:10px}
+.art-cta p{color:rgba(255,255,255,.65);max-width:480px;margin:0 auto 24px;font-size:0.9rem}
+.art-cta a{display:inline-block;background:var(--indigo);color:#fff;padding:12px 28px;border-radius:var(--r-sm);font-weight:600;text-decoration:none;font-family:var(--sans);font-size:0.9rem}
+
+.footer-min{border-top:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-min p{font-size:0.74rem;color:var(--text-3)}
+.footer-min a{font-size:0.74rem;color:var(--text-3);text-decoration:none}
+
+@media(max-width:640px){
+  .art-hero{padding:32px 16px 24px}
+  .art-body{padding:0 16px 48px}
+  .art-related-grid{grid-template-columns:1fr}
+  .viz-flow{flex-direction:column}
+  .viz-arrow{transform:rotate(90deg);justify-content:center}
+  .nav-links{display:none}.nav-ham{display:block}
+}
+</style>
+</head>
+<body>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">Avorelo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" onclick="document.getElementById('nm').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+<div class="nav-mob" id="nm">
+  <a href="index.html#how">How it works</a>
+  <a href="index.html#pricing">Pricing</a>
+  <a href="articles.html">Articles</a>
+  <a href="contact.html">Contact</a>
+  <a href="/activate" class="nm-cta">Explore Community Edition</a>
+</div>
+
+<main role="main">
+<div class="art-hero">
+  <div class="art-tag">Scope</div>
+  <h1>Broad access is the unsafe default</h1>
+  <p class="art-lede">When an AI agent touches 31 files to do a 2-file job, something went wrong before the first line ran. Scope discipline prevents approval surprises, not after them.</p>
+  <div class="art-meta">
+    <span>Field Notes</span>
+    <span>May 2026</span>
+    <span class="art-reading-time">3 min read</span>
+  </div>
+</div>
+
+<div class="art-body">
+  <h2>What we observed</h2>
+  <p>A routine task: update the API response format for one endpoint. The instruction was clear. The agent had access to the whole repo. It completed the task correctly. It also touched 29 other files on the way there.</p>
+  <p>Not maliciously. Not randomly. The agent used what it could see to gather confidence. It read widely, confirmed widely, and left traces widely. From the agent's perspective, thoroughness looked like good behavior. From a review perspective, it looked like an audit event.</p>
+  <p>The task was 2 files. The review surface was 31.</p>
+
+  <div class="viz-block" aria-label="Scope discipline visualization">
+    <h3>What changed when scope was enforced</h3>
+    <div class="viz-flow">
+      <div class="viz-step before">
+        <div class="vs-label">Requested</div>
+        <div class="vs-val">31 files touched</div>
+        <div class="vs-sub">broad access, high review surface</div>
+      </div>
+      <div class="viz-arrow" aria-hidden="true">&#8594;</div>
+      <div class="viz-step mid">
+        <div class="vs-label">Narrowed to</div>
+        <div class="vs-val">2 files</div>
+        <div class="vs-sub">task-relevant only</div>
+      </div>
+      <div class="viz-arrow" aria-hidden="true">&#8594;</div>
+      <div class="viz-step highlight">
+        <div class="vs-label">Result</div>
+        <div class="vs-val">Approval avoided</div>
+        <div class="vs-sub">no review needed, no drift caught</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Why broad access feels safe</h2>
+  <p>Context helps agents work. The more an agent can see, the better it can reason about edge cases, naming conventions, related behavior. Giving broad access feels like giving good tools.</p>
+  <p>The problem is that access and scope are not the same thing. An agent can have read access to 200 files to inform its reasoning while only writing to 2. Without that separation, the default is that writing follows wherever reading went.</p>
+
+  <div class="callout">
+    <p>Access is what you can reach. Scope is what you are supposed to touch. Conflating the two turns every task into a surface area problem.</p>
+  </div>
+
+  <h2>What Avorelo does differently</h2>
+  <p>Avorelo sets task scope at the start of each run, not at review time. When a task is routed, it carries a file boundary declaration: the set of files this task is expected to write, and the set of files it is allowed to read for context.</p>
+  <p>If the agent's planned changes fall outside the write boundary, Avorelo flags it before the run continues. The agent is not stopped from doing good work. It is stopped from expanding scope without acknowledgment.</p>
+  <p>This prevents the common failure mode where a scope drift is discovered at review time, after the work is done, when the cost of catching it is highest.</p>
+
+  <h2>The outcome in practice</h2>
+  <p>In the observed case, scope narrowing reduced the write surface from 31 files to 2. The work was correct in both cases. But the 2-file version required no approval escalation, no cross-team coordination, and no line-by-line audit of unrelated changes.</p>
+  <p>The 31-file version was not wrong. It was expensive in a way that does not show up in correctness metrics.</p>
+
+  <div class="callout">
+    <p>Scope discipline is not about limiting agents. It is about making the review surface match the task surface, so the cost of verification stays proportional to the work done.</p>
+  </div>
+
+  <h2>What to watch for in your own work</h2>
+  <ul>
+    <li>Tasks that complete correctly but leave changes in unrelated files</li>
+    <li>Review requests that cover files nobody expected to be in scope</li>
+    <li>Agents that read configuration or shared utilities and then modify them</li>
+    <li>PR descriptions that accurately describe the intent but not the full diff</li>
+  </ul>
+  <p>Each of these is a sign that scope was not set before the run started. The task completed, but the boundary was never drawn.</p>
+</div>
+
+<div class="art-related">
+  <div class="art-related-in">
+    <h2>Related Field Notes</h2>
+    <div class="art-related-grid">
+      <a href="article-proof.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Proof</div>
+        <h3>A completed task is not a verified task</h3>
+      </a>
+      <a href="article-context.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Context</div>
+        <h3>The AI that kept re-reading the same files</h3>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="art-nav">
+  <a href="article-context.html">&#8592; The AI that kept re-reading the same files</a>
+  <a href="article-proof.html">A completed task is not a verified task &#8594;</a>
+</div>
+
+<div class="art-cta">
+  <h2>Set scope before the run starts.</h2>
+  <p>Avorelo enforces task boundaries automatically. Your review surface stays proportional to the work done.</p>
+  <a href="/activate">Explore Community Edition</a>
+</div>
+</main>
+
+<footer class="footer-min">
+  <p>&copy; 2026 Avorelo. Local-first.</p>
+  <div style="display:flex;gap:16px"><a href="privacy-policy.html">Privacy</a><a href="terms-of-service.html">Terms</a><a href="contact.html">Contact</a></div>
+</footer>
+</body>
+</html>

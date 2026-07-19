@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What is AI waste in software development? | Avorelo</title>
+<meta name="description" content="AI waste is the gap between what AI coding tools consume and what they produce. Wasted tokens, repeated context, wrong routes, and unsupported findings all add up.">
+<link rel="canonical" href="https://avorelo.com/article-ai-waste.html">
+<meta property="og:title" content="What is AI waste in software development?">
+<meta property="og:description" content="AI waste is the gap between what AI tools consume and what they produce. Wasted tokens, repeated context, wrong routes, and unsupported findings all add up.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://avorelo.com/article-ai-waste.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="What is AI waste in software development?">
+<meta name="twitter:description" content="AI waste is the gap between what AI tools consume and what they produce. Wasted tokens, repeated context, wrong routes, and unsupported findings all add up.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"What is AI waste in software development?","description":"AI waste is the gap between what AI coding tools consume and what they produce. Wasted tokens, repeated context, wrong routes, and unsupported findings all add up.","publisher":{"@type":"Organization","name":"Avorelo"},"url":"https://avorelo.com/article-ai-waste.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Articles","item":"https://avorelo.com/articles.html"},{"@type":"ListItem","position":2,"name":"What is AI waste in software development?","item":"https://avorelo.com/article-ai-waste.html"}]}</script>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--warm:#EDE9E4;--warm-2:#E5E0D9;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.08);
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+  --accent:var(--teal);--accent-lt:var(--teal-lt);--accent-dk:var(--teal-dk)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.art-wrap{max-width:720px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:700;line-height:1.25;letter-spacing:-0.02em}
+h1{font-size:clamp(1.65rem,3vw,2.2rem)}
+h2{font-size:1.4rem;margin:36px 0 14px}
+h3{font-size:1.1rem;margin:24px 0 10px}
+p{font-size:1rem;line-height:1.8;color:var(--text-2);margin-bottom:18px}
+p:last-child{margin-bottom:0}
+ul,ol{padding-left:20px;margin-bottom:18px}
+li{font-size:1rem;line-height:1.75;color:var(--text-2);margin-bottom:4px}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px}
+.nav-mob{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(245,244,241,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:14px;z-index:99}
+.nav-mob.open{display:flex}
+.nav-mob a{font-size:1rem;color:var(--text-2);text-decoration:none;font-weight:500;padding:6px 0;border-bottom:1px solid var(--border)}
+.nm-cta{background:var(--indigo);color:#fff!important;text-align:center;border-radius:var(--r-sm);padding:12px!important;font-weight:600!important;border-bottom:none!important;font-family:var(--sans)}
+
+.art-header{padding:40px 0 28px}
+.art-back{font-size:0.8rem;color:var(--text-3);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px;margin-bottom:14px}
+.art-back:hover{color:var(--text-2)}
+.art-tag{display:inline-block;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:40px;margin-bottom:14px}
+.art-tag-context{background:var(--teal-lt);color:var(--teal-dk)}
+.art-tag-scope,.art-tag-safety{background:var(--amber-lt);color:var(--amber)}
+.art-tag-proof,.art-tag-evidence{background:var(--indigo-lt);color:var(--indigo)}
+.art-tag-routing{background:#F0EBF8;color:#6B4FB0}
+.art-tag-access{background:#FFF3E0;color:#C55A11}
+.art-tag-waste,.art-tag-cost{background:#FBF3EE;color:#A0441A}
+.art-tag-teams,.art-tag-reporting{background:#E8F4FE;color:#1565A8}
+.art-tag-workflow{background:#EDF5E0;color:#3A7E1A}
+.art-tag-privacy{background:#F3E8FF;color:#7B2FBE}
+.art-tag-capability{background:#E8F7F1;color:#12916A}
+.art-h1{margin-top:0;margin-bottom:14px}
+.art-lead{font-size:1.1rem;line-height:1.75;color:var(--text-2);margin-bottom:0}
+.art-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
+.art-meta span{font-size:0.78rem;color:var(--text-3);font-weight:500}
+
+.art-body{padding:8px 0 48px}
+.callout{background:var(--warm);border-left:3px solid var(--indigo);border-radius:0 var(--r) var(--r) 0;padding:16px 20px;margin:28px 0}
+.callout p{color:var(--text-2);font-size:0.95rem;margin-bottom:0}
+.callout strong{color:var(--text)}
+
+.viz{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;margin:28px 0}
+.viz-title{font-family:var(--sans);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:16px}
+.viz-flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.viz-step{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:10px 16px;font-size:0.85rem;font-weight:600;color:var(--text);font-family:var(--sans);text-align:center;flex:1;min-width:100px}
+.viz-step.good{background:var(--teal-lt);border-color:rgba(23,168,122,.25);color:var(--teal-dk)}
+.viz-step.bad{background:#FFF5F0;border-color:rgba(217,123,26,.20);color:var(--amber)}
+.viz-step.neutral{background:var(--indigo-lt);border-color:rgba(75,80,232,.20);color:var(--indigo)}
+.viz-arrow{color:var(--text-3);font-size:1rem;flex-shrink:0}
+.viz-label{font-size:0.75rem;color:var(--text-3);text-align:center;margin-top:8px}
+
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center}
+.stat-val{font-family:var(--sans);font-size:1.8rem;font-weight:700;color:var(--text);line-height:1}
+.stat-val.teal{color:var(--teal)}
+.stat-val.indigo{color:var(--indigo)}
+.stat-val.amber{color:var(--amber)}
+.stat-lbl{font-size:0.75rem;color:var(--text-3);margin-top:6px;line-height:1.4}
+
+.check-list{list-style:none;padding:0;margin:0 0 18px}
+.check-list li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.95rem;color:var(--text-2);line-height:1.6}
+.check-list li:last-child{border-bottom:none}
+.check-list li::before{content:"";width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:0.7rem;font-weight:700}
+.check-list li.yes::before{content:"Y";background:var(--teal-lt);color:var(--teal-dk)}
+.check-list li.no::before{content:"N";background:#FFF5F0;color:var(--amber)}
+
+.art-nav{display:flex;justify-content:space-between;gap:20px;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap}
+.art-nav a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.art-nav a:hover{color:var(--text)}
+
+.art-related{background:var(--warm);padding:40px 0}
+.art-related h3{font-size:1.1rem;margin:0 0 20px;font-family:var(--sans)}
+.art-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.art-related-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;text-decoration:none;display:block;transition:box-shadow .15s}
+.art-related-card:hover{box-shadow:var(--sh-sm)}
+.arc-tag{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:8px}
+.arc-title{font-family:var(--sans);font-size:0.9rem;font-weight:700;color:var(--text);line-height:1.3}
+
+.art-cta{background:var(--dark);padding:52px 24px;text-align:center}
+.art-cta h3{font-family:var(--sans);font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:12px}
+.art-cta p{font-size:0.95rem;color:rgba(255,255,255,.60);max-width:480px;margin:0 auto 24px;line-height:1.7}
+.art-cta a{display:inline-block;background:var(--teal);color:#fff;padding:11px 24px;border-radius:var(--r-sm);font-size:0.9rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+
+.footer{background:var(--dark);padding:24px 0;border-top:1px solid rgba(255,255,255,.06)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.footer-btm p{font-size:0.8rem;color:rgba(255,255,255,.35)}
+
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-ham{display:block}
+  .art-related-grid{grid-template-columns:1fr 1fr}
+  .stat-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .art-related-grid{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:1fr}
+  .viz-flow{flex-direction:column;gap:8px}
+  .viz-arrow{transform:rotate(90deg)}
+}
+@media(max-width:390px){.wrap{padding:0 16px}.art-wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">Avorelo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" onclick="document.getElementById('nm').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+<div class="nav-mob" id="nm">
+  <a href="index.html#how">How it works</a><a href="index.html#pricing">Pricing</a>
+  <a href="articles.html">Articles</a><a href="contact.html">Contact</a><a href="/activate" class="nm-cta">Explore Community Edition</a>
+</div>
+
+<main>
+<div class="art-wrap">
+  <div class="art-header">
+    <a href="articles.html" class="art-back">&larr; Articles</a>
+    <div class="art-tag art-tag-waste">AI Waste</div>
+    <h1 class="art-h1">What is AI waste in software development?</h1>
+    <p class="art-lead">AI coding tools spend tokens and time. The question is whether that spend produces something useful. AI waste is everything that gets consumed without producing a validated outcome.</p>
+    <div class="art-meta">
+      <span>Avorelo</span>
+      <span>Topic: AI waste</span>
+      <span>Topic: Cost</span>
+      <span>Topic: Context</span>
+    <span class="art-reading-time">5 min read</span>
+  </div>
+  </div>
+
+  <div class="art-body">
+
+    <h2>The gap between AI spend and AI value</h2>
+    <p>When teams adopt AI coding tools, the first question is often: does this make us faster? The more useful question is: does what we are spending produce something trustworthy?</p>
+
+    <p>AI waste is the gap between the two. It is not just about money. Wasted tokens cost money, but the bigger costs are time, attention, and rework. When an AI agent does the wrong work, or does the right work in a way that cannot be trusted, the human still has to redo it.</p>
+
+    <div class="viz">
+      <div class="viz-title">Types of AI waste</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div class="viz-step bad">Repeated context</div>
+        <div class="viz-step bad">Wrong model route</div>
+        <div class="viz-step bad">Scope drift</div>
+        <div class="viz-step bad">Unsupported findings</div>
+        <div class="viz-step bad">Review fatigue</div>
+        <div class="viz-step bad">Unvalidated output</div>
+      </div>
+    </div>
+
+    <h2>Wasted tokens: not the whole story</h2>
+    <p>Token cost is the most visible form of AI waste. Long prompts, repeated context, large code dumps, and high-capability models on simple tasks all increase the bill without increasing the value.</p>
+
+    <p>But token cost is also the easiest form of waste to misread. A cheap run that produces wrong or unsupported output is more wasteful than an expensive run with clear, evidence-backed results. Cost per token is only a proxy metric.</p>
+
+    <p>The real measure is: cost per validated outcome. How much did it cost to produce a result that someone can actually trust and use?</p>
+
+    <h2>Repeated context: the hidden accumulator</h2>
+    <p>One of the most consistent forms of waste in AI coding work is repeated context. Every session begins with a context load: project background, coding standards, task history, file structure. When this context is not preserved from the previous session, it gets re-explained from scratch.</p>
+
+    <p>Each repetition feels small. Two minutes here. Three minutes there. But across a team using AI tools daily, the cumulative cost is not small. The problem compounds when the context being re-explained includes context that has already changed, is stale, or was only partially accurate to begin with.</p>
+
+    <div class="callout">
+      <p><strong>The pattern is easy to miss</strong> because it happens at session boundaries, not during the work itself. Teams notice the slow start but often attribute it to the tool, not to a context management problem that can be fixed.</p>
+    </div>
+
+    <h2>Scope drift: doing more than was asked</h2>
+    <p>AI agents often take a broader path than the task requires. A 2-file change becomes a 12-file change. A focused fix becomes a refactor. A targeted search becomes a full audit. Each of these expands the scope of what a human needs to review, verify, and accept or reject.</p>
+
+    <p>Scope drift is waste in at least two ways. First, the AI spent context and tokens on work that was not requested. Second, the human now has to spend time reviewing that work, deciding what to keep, and determining whether the broader changes are safe.</p>
+
+    <p>The answer is not to reject AI agents. The answer is to narrow scope before the run rather than cleaning it up afterward.</p>
+
+    <h2>Unsupported findings: review load that adds no value</h2>
+    <p>AI tools produce findings: potential bugs, security issues, optimization suggestions, test gaps. Many of these findings are plausible. Some are accurate. Some are not, or are missing the evidence that would let a developer quickly assess them.</p>
+
+    <p>When a finding lacks reproduction steps, file references, or a clear confidence indicator, a developer has to do the investigation work themselves. If the finding was wrong, they just spent time on a false alarm. If it was right but poorly explained, they still wasted time reconstructing the evidence.</p>
+
+    <p>Unsupported findings are waste because they transfer work from the AI to the human without reducing the total work. The goal should be: findings that are either clearly actionable or clearly marked as low confidence, so developers can triage quickly.</p>
+
+    <h2>Rework: the most expensive waste</h2>
+    <p>Rework is what happens when AI output cannot be trusted and has to be redone. A patch that introduces a regression. A refactor that missed a dependency. A summary that was based on stale context. An output that looked correct but was not validated.</p>
+
+    <p>Rework is expensive because it is invisible until it appears. Teams do not always track how much of their time is spent redoing AI-assisted work versus doing new work. But the pattern is consistent: unvalidated AI output tends to produce more rework than validated output.</p>
+
+    <p>The way to reduce rework is not to trust AI output less. It is to attach evidence to outcomes and run validation at the right points so problems surface early.</p>
+
+    <h2>Why more AI usage is not the goal</h2>
+    <p>A common proxy metric for AI adoption is usage: sessions per week, tokens consumed, tools installed. More AI usage is treated as a sign of adoption success.</p>
+
+    <p>But usage is not value. An agent that runs constantly on low-value tasks is expensive and noisy. An agent that runs selectively on the right tasks, with the right context, and produces validated outputs, is valuable even if it runs less often.</p>
+
+    <p>The goal is not to maximize AI usage. The goal is to maximize the ratio of validated outcomes to total AI spend. Teams that focus on this ratio tend to reduce AI waste naturally, because they start asking whether each AI run was justified and whether its output was trusted.</p>
+
+    <h2>How Avorelo helps</h2>
+    <p>Avorelo addresses AI waste across several of the patterns above. It prepares context before the run starts so sessions do not begin from zero. It narrows scope based on the intended task so agents do not drift. It attaches evidence to outputs so findings are either actionable or clearly marked as estimated. It routes work to the right capability level so expensive models are used for work that requires them.</p>
+
+    <p>None of these eliminate AI waste entirely. But they reduce the most common accumulation patterns: repeated context, scope drift, unsupported findings, and unnecessary model cost. The result is not fewer AI runs. It is runs that produce more per token spent.</p>
+
+    <div class="art-nav">
+      <a href="articles.html">&larr; All articles</a>
+    </div>
+
+  </div>
+</div>
+</main>
+
+<div class="art-related">
+  <div class="art-wrap">
+    <h3>Related articles</h3>
+    <div class="art-related-grid">
+
+      <a href="article-ai-token-cost.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Cost</div>
+        <div class="arc-title">Why AI coding costs grow faster than teams expect</div>
+      </a>
+
+      <a href="article-context.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Context</div>
+        <div class="arc-title">Why AI coding agents keep asking for the same context</div>
+      </a>
+
+      <a href="article-scope.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Scope</div>
+        <div class="arc-title">Why AI coding agents drift out of scope</div>
+      </a>
+
+      <a href="article-proof.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Proof</div>
+        <div class="arc-title">Why AI coding work needs proof, not just output</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="art-cta">
+  <h3>Reduce AI waste where it actually accumulates.</h3>
+  <p>Avorelo prepares context, narrows scope, validates outputs, and routes work to the right capability. Local-first. Works in the background.</p>
+  <a href="/activate">Explore Community Edition</a>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-btm">
+      <p>&copy; 2026 Avorelo. Local-first. Built with Avorelo.</p>
+      <p><a href="articles.html" style="color:rgba(255,255,255,.40);text-decoration:none">Articles</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

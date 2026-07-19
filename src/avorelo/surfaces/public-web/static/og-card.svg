@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Avorelo">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#183d32" />
+      <stop offset="100%" stop-color="#406a5b" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="40" />
+  <circle cx="980" cy="122" r="160" fill="rgba(255,255,255,0.08)" />
+  <circle cx="140" cy="518" r="200" fill="rgba(255,255,255,0.06)" />
+  <text x="96" y="206" fill="#f7f4eb" font-family="Georgia, serif" font-size="90" font-weight="700">Avorelo</text>
+  <text x="96" y="286" fill="#e7efe9" font-family="Arial, sans-serif" font-size="34">
+    Start Avorelo in your project
+  </text>
+  <text x="96" y="352" fill="#e7efe9" font-family="Arial, sans-serif" font-size="28">
+    Local-first activation and control for AI coding workflows
+  </text>
+  <rect x="96" y="412" width="520" height="86" rx="22" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.25)" />
+  <text x="132" y="460" fill="#f7f4eb" font-family="monospace" font-size="34">npx avorelo@latest activate</text>
+  <text x="132" y="490" fill="#c2d0c6" font-family="Arial, sans-serif" font-size="18">Available soon — npm publication pending</text>
+</svg>

@@ -1,0 +1,30 @@
+name: dco
+
+# Verifies DCO 1.1 sign-off on every commit in a pull request.
+# Safety: pull_request (NOT pull_request_target), read-only token, no secrets, standard runner.
+
+on:
+  pull_request:
+
+concurrency:
+  group: dco-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  dco:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: DCO sign-off check
+        env:
+          DCO_RANGE: ${{ github.event.pull_request.base.sha }}..${{ github.event.pull_request.head.sha }}
+        run: node tools/check-dco.ts "$DCO_RANGE"

@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+import { routePrimitive } from "../src/avorelo/validation/model-routing/index.ts";
+// Default: medium-risk code change
+const r = routePrimitive({ taskType: "code", riskClass: "medium", touchedLayers: ["Kernel"], browserAvailable: false, externalToolsAllowed: false, scannerAvailable: true, mcpTouched: false, paymentTouched: false, authTouched: false, cloudTouched: false, dashboardTouched: false, publicCopyTouched: false, proofRequired: true, deterministicEvidenceAvailable: true, dataSensitivity: "low", externalWriteRequested: false, secretsPossible: false, productionImpactPossible: false, deepMode: false });
+process.stdout.write(`PRIMITIVE ROUTING\n  primitive: ${r.selectedPrimitive}\n  model: ${r.selectedModelProfile}\n  scanners: ${r.selectedScanners.join(",") || "none"}\n  approval: ${r.approvalRequired}\n  evidence: ${r.requiredEvidence.join(",") || "none"}\n  forbidden: ${r.forbiddenActions.join(",") || "none"}\n  latency: ${r.estimatedLatencyMs}ms\n  cost: ${r.estimatedContextCost}\n  kernel: ${r.kernelDecisionOwner}\n`);

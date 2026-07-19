@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Page not found | Avorelo</title>
+<meta name="description" content="That page does not exist on avorelo.com. Here is where the current pages are.">
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--warm:#EDE9E4;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+h1,h2{font-family:var(--sans);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+h1{font-size:clamp(1.6rem,3vw,2.2rem)}
+p{font-size:0.9rem;line-height:1.7;color:var(--text-2)}
+
+.nav{background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+
+.page-body{flex:1;padding:72px 24px;display:flex;align-items:center;justify-content:center}
+.wrap{max-width:600px;width:100%}
+.code{font-family:var(--sans);font-size:0.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3);margin-bottom:10px}
+.lede{margin-bottom:24px}
+.routes{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:8px 4px}
+.routes a{display:flex;align-items:baseline;gap:12px;padding:11px 18px;text-decoration:none;border-radius:var(--r-sm)}
+.routes a:hover{background:var(--bg)}
+.r-name{font-family:var(--sans);font-weight:600;font-size:0.9rem;color:var(--text);min-width:120px}
+.r-desc{font-size:0.8rem;color:var(--text-3);line-height:1.5}
+.back{margin-top:24px}
+.back a{display:inline-block;background:var(--indigo);color:#fff;padding:10px 20px;border-radius:var(--r-sm);font-family:var(--sans);font-weight:600;font-size:0.88rem;text-decoration:none}
+.back a:hover{background:var(--indigo-dk)}
+
+.footer-min{border-top:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-min p{font-size:0.74rem;color:var(--text-3)}
+.footer-min a{font-size:0.74rem;color:var(--text-3);text-decoration:none}
+
+@media(max-width:640px){
+  .nav-links{display:none}
+  .page-body{padding:40px 16px}
+  .routes a{flex-direction:column;gap:2px}
+  .r-name{min-width:0}
+}
+</style>
+</head>
+<body>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="/" class="nav-logo" aria-label="Avorelo home"><img src="/favicon-256.png" alt="" width="28" height="28" style="border-radius:6px">Avorelo</a>
+    <ul class="nav-links" role="list">
+      <li><a href="/capabilities">Capabilities</a></li>
+      <li><a href="/articles.html">Articles</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+  </div>
+</nav>
+
+<main>
+<div class="page-body">
+  <div class="wrap">
+    <div class="code">Error 404</div>
+    <h1>That page does not exist</h1>
+    <p class="lede">The address you followed is not a page on this site. Some pages from the previous hosted service were removed when it was discontinued. Here is what is here now.</p>
+
+    <nav class="routes" aria-label="Site pages">
+      <a href="/activate"><span class="r-name">Activate</span><span class="r-desc">What the local activation command actually does</span></a>
+      <a href="/capabilities"><span class="r-name">Capabilities</span><span class="r-desc">What Avorelo can do, and what it cannot</span></a>
+      <a href="/dashboard"><span class="r-name">Local viewer</span><span class="r-desc">An illustration of the viewer that runs on your machine</span></a>
+      <a href="/pricing"><span class="r-name">Licensing</span><span class="r-desc">Personal use, commercial use, and what is still pending</span></a>
+      <a href="/articles.html"><span class="r-name">Articles</span><span class="r-desc">Notes on AI coding overhead</span></a>
+      <a href="/contact"><span class="r-name">Contact</span><span class="r-desc">Licensing, support and security enquiries</span></a>
+    </nav>
+
+    <div class="back"><a href="/">Back to home</a></div>
+  </div>
+</div>
+</main>
+
+<footer class="footer-min">
+  <p>&copy; 2026 Avorelo. Local-first.</p>
+  <div style="display:flex;gap:16px"><a href="/capabilities">Capabilities</a><a href="/privacy-policy.html">Privacy</a><a href="/terms-of-service.html">Terms</a><a href="/contact">Contact</a></div>
+</footer>
+</body>
+</html>

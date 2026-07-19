@@ -1,0 +1,7 @@
+{
+  "description": "Dependency update — package.json changed",
+  "changedFiles": ["package.json", "package-lock.json"],
+  "expectedWorkType": "dependency_package",
+  "expectedCriticalProof": ["artifact_guard", "dep_audit"],
+  "expectedSafeToClose": true
+}

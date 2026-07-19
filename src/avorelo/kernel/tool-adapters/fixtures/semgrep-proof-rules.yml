@@ -1,0 +1,11 @@
+rules:
+  - id: avorelo-no-eval
+    languages: [javascript, typescript]
+    message: Avoid eval in application code
+    severity: ERROR
+    pattern: eval(...)
+  - id: avorelo-no-child-process-exec
+    languages: [javascript, typescript]
+    message: Review child_process.exec usage
+    severity: WARNING
+    pattern: exec(...)

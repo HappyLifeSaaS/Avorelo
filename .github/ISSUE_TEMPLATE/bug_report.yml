@@ -1,0 +1,38 @@
+name: Bug report
+description: Report a defect in Avorelo
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Do **not** report security vulnerabilities here — follow
+        [SECURITY.md](https://github.com/HappyLifeSaaS/Avorelo/blob/main/SECURITY.md). Never include
+        secrets, credentials, or personal data.
+  - type: input
+    id: version
+    attributes:
+      label: Avorelo version
+      description: Output of `avorelo --version`
+      placeholder: "1.0.0-rc.1"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: OS and Node version
+      placeholder: "Windows 11 / Node 24.x"
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: The exact commands and what happened.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected vs actual behavior
+    validations:
+      required: true

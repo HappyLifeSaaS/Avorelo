@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Repeated context becomes hidden cost | Field Notes | Avorelo</title>
+<meta name="description" content="Across long AI coding sessions, the same task context kept getting reintroduced. Avorelo surfaced the pattern and preserved the useful parts for the next run.">
+<link rel="canonical" href="https://avorelo.com/article-context.html">
+<meta property="og:title" content="Repeated context becomes hidden cost | Field Notes | Avorelo">
+<meta property="og:description" content="Across long AI coding sessions, the same task context kept getting reintroduced. Here is what we observed and how Avorelo handles it.">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Repeated context becomes hidden cost | Field Notes | Avorelo">
+<meta name="twitter:description" content="Across long AI coding sessions, the same task context kept getting reintroduced. Avorelo surfaced the pattern and preserved the useful parts for the next run.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Repeated context becomes hidden cost","description":"Across long AI coding sessions, the same task context kept getting reintroduced. Avorelo surfaced the pattern and preserved the useful parts for the next run.","publisher":{"@type":"Organization","name":"Avorelo"},"url":"https://avorelo.com/article-context.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Articles","item":"https://avorelo.com/articles.html"},{"@type":"ListItem","position":2,"name":"Why AI coding agents keep asking for the same context","item":"https://avorelo.com/article-context.html"}]}</script>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--warm:#EDE9E4;--warm-2:#E5E0D9;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.08);
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+  --accent:var(--teal);--accent-lt:var(--teal-lt);--accent-dk:var(--teal-dk)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.art-wrap{max-width:720px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:700;line-height:1.25;letter-spacing:-0.02em}
+h1{font-size:clamp(1.65rem,3vw,2.2rem)}
+h2{font-size:1.4rem;margin:36px 0 14px}
+h3{font-size:1.1rem;margin:24px 0 10px}
+p{font-size:1rem;line-height:1.8;color:var(--text-2);margin-bottom:18px}
+p:last-child{margin-bottom:0}
+ul,ol{padding-left:20px;margin-bottom:18px}
+li{font-size:1rem;line-height:1.75;color:var(--text-2);margin-bottom:4px}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px}
+.nav-mob{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(245,244,241,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:10px 24px 20px;z-index:99}
+.nav-mob.open{display:block}
+.nav-mob a{display:block;padding:11px 0;font-size:0.96rem;color:var(--text-2);text-decoration:none;border-bottom:1px solid var(--border);font-weight:500}
+.nav-mob a:last-child{border-bottom:none}
+.nm-cta{display:block;margin-top:12px;text-align:center;background:var(--indigo);color:#fff !important;padding:11px;border-radius:var(--r-sm);font-weight:600;font-family:var(--sans);border:none !important}
+
+/* Article layout */
+.art-header{padding:40px 0 0}
+.art-back{display:inline-flex;align-items:center;gap:6px;font-size:0.80rem;color:var(--text-3);text-decoration:none;font-weight:600;margin-bottom:20px;font-family:var(--sans)}
+.art-back:hover{color:var(--text)}
+.art-tag{display:inline-flex;padding:3px 11px;border-radius:20px;font-size:0.62rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;font-family:var(--sans);margin-bottom:14px;background:var(--accent-lt);color:var(--accent-dk);border:1px solid rgba(23,168,122,.20)}
+.art-h1{margin-bottom:14px}
+.art-lead{font-size:1.08rem;color:var(--text-2);line-height:1.75;margin-bottom:18px;font-weight:500}
+.art-meta{display:flex;gap:16px;font-size:0.75rem;color:var(--text-3);padding:12px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);margin-bottom:32px;flex-wrap:wrap}
+
+/* Article body */
+.art-body{padding-bottom:60px}
+
+/* Visualization block */
+.viz-block{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;margin:28px 0;overflow:hidden}
+.viz-title{font-family:var(--sans);font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text-3);margin-bottom:18px}
+.viz-flow{display:flex;align-items:center;gap:0;flex-wrap:wrap}
+.viz-step{flex:1;min-width:140px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;position:relative}
+.viz-step-label{font-size:0.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-family:var(--sans);margin-bottom:5px}
+.viz-step-label.before{color:var(--amber)}
+.viz-step-label.after{color:var(--teal)}
+.viz-step-val{font-family:var(--sans);font-size:0.94rem;font-weight:700;color:var(--text);line-height:1.3}
+.viz-step-sub{font-size:0.72rem;color:var(--text-3);margin-top:3px;line-height:1.4}
+.viz-arrow{flex-shrink:0;font-size:1.1rem;color:var(--text-3);padding:0 10px;align-self:center}
+.viz-step.highlight{background:var(--accent-lt);border-color:rgba(23,168,122,.22)}
+.viz-step.highlight .viz-step-val{color:var(--accent-dk)}
+
+/* Callout */
+.callout{background:var(--accent-lt);border-left:3px solid var(--accent);border-radius:0 var(--r-sm) var(--r-sm) 0;padding:14px 18px;margin:22px 0}
+.callout p{font-size:0.875rem;color:var(--text);margin-bottom:0;line-height:1.65}
+.callout p strong{color:var(--accent-dk)}
+
+/* Related / nav */
+.art-related{background:var(--warm);border-top:1px solid var(--border);padding:36px 0}
+.art-related h3{font-size:0.70rem;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--text-3);margin-bottom:16px}
+.art-related-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.art-related-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px;text-decoration:none;transition:box-shadow .15s}
+.art-related-card:hover{box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.arc-tag{font-size:0.60rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-family:var(--sans);color:var(--text-3);margin-bottom:6px}
+.arc-title{font-family:var(--sans);font-size:0.92rem;font-weight:700;color:var(--text);line-height:1.35}
+.art-nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0;border-top:1px solid var(--border);margin-top:8px;flex-wrap:wrap;gap:12px}
+.art-nav a{font-size:0.80rem;color:var(--indigo);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.art-nav a:hover{text-decoration:underline}
+
+/* CTA */
+.art-cta{background:var(--dark);padding:44px 0;text-align:center}
+.art-cta h3{color:#fff;font-size:1.3rem;margin-bottom:10px}
+.art-cta p{color:rgba(255,255,255,.60);font-size:0.88rem;margin-bottom:20px}
+.art-cta a{display:inline-block;background:var(--teal);color:#fff;padding:11px 24px;border-radius:var(--r-sm);font-size:0.9rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+
+/* Footer */
+.footer{background:var(--dark);padding:32px 0 20px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.footer-btm p{font-size:0.73rem;color:rgba(255,255,255,.20)}
+.footer-logo{font-family:var(--sans);font-size:1.0rem;font-weight:700;color:rgba(255,255,255,.88);text-decoration:none;display:block;margin-bottom:6px}
+
+@media(max-width:640px){
+  .nav-links{display:none}.nav-ham{display:block}
+  .viz-flow{flex-direction:column;gap:8px}
+  .viz-arrow{transform:rotate(90deg)}
+  .art-related-grid{grid-template-columns:1fr}
+}
+@media(max-width:390px){.wrap{padding:0 16px}.art-wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">Avorelo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" onclick="document.getElementById('nm').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+<div class="nav-mob" id="nm">
+  <a href="index.html#how">How it works</a><a href="index.html#pricing">Pricing</a>
+  <a href="articles.html">Articles</a><a href="contact.html">Contact</a><a href="/activate" class="nm-cta">Explore Community Edition</a>
+</div>
+
+<main>
+<div class="art-wrap">
+  <div class="art-header">
+    <a href="articles.html" class="art-back">&larr; Articles</a>
+    <div class="art-tag">Context</div>
+    <h1 class="art-h1">Repeated context becomes hidden cost.</h1>
+    <p class="art-lead">Across long AI coding sessions, the same task context kept getting reintroduced. Avorelo surfaced the pattern and preserved the useful parts for the next run.</p>
+    <div class="art-meta">
+      <span>Field Notes from Avorelo development</span>
+      <span>Topic: Context management</span>
+      <span>Related: Proof, Routing</span>
+    <span class="art-reading-time">3 min read</span>
+  </div>
+  </div>
+
+  <div class="art-body">
+
+    <h2>What we observed</h2>
+    <p>When building Avorelo, we noticed a pattern: the same project context got re-explained at the start of almost every AI coding session. File locations. Task history. Working agreements. Coding standards. All of it got re-typed or re-pasted because the previous session had no way to persist what was actually useful.</p>
+
+    <p>The overhead was not obvious at first. Each repetition felt like two or three minutes. Over a week of development, the pattern compounded. Context explanations that were useful on day one became routine on day five and wasteful by day ten.</p>
+
+    <div class="callout">
+      <p><strong>The problem is not just time.</strong> Repeated context inflates every run's token usage before the useful work even starts. It pushes the model toward stale assumptions, crowds out relevant new context, and makes every session start from a worse position than it should.</p>
+    </div>
+
+    <h2>The visualization: from repetition to reuse</h2>
+    <p>Here is what the pattern looked like before and after Avorelo handled it:</p>
+
+    <div class="viz-block" role="img" aria-label="Context flow: from repeated explanation to filtered context to reusable handoff">
+      <div class="viz-title">Context flow: before and after Avorelo</div>
+      <div class="viz-flow">
+        <div class="viz-step">
+          <div class="viz-step-label before">Before</div>
+          <div class="viz-step-val">Repeated explanation</div>
+          <div class="viz-step-sub">Same context re-typed at start of each session. Useful patterns lost.</div>
+        </div>
+        <div class="viz-arrow">&#8594;</div>
+        <div class="viz-step">
+          <div class="viz-step-label after">Avorelo</div>
+          <div class="viz-step-val">Filtered context</div>
+          <div class="viz-step-sub">Avorelo identifies which parts were useful, removes stale items, and filters the rest.</div>
+        </div>
+        <div class="viz-arrow">&#8594;</div>
+        <div class="viz-step highlight">
+          <div class="viz-step-label after">Result</div>
+          <div class="viz-step-val">Reusable handoff</div>
+          <div class="viz-step-sub">The next session starts with evidence-backed context, not a blank prompt.</div>
+        </div>
+      </div>
+    </div>
+
+    <h2>Why this matters more than it looks</h2>
+    <p>Context repetition is invisible waste. It does not show up as a failed run or a broken build. It just quietly inflates every session's cost, compresses the window available for real work, and trains the agent to start from an unnecessarily low baseline.</p>
+
+    <p>For teams, the scale multiplies. If five developers each re-explain the same project context in every session, the waste is proportional. And because it is spread across every run, it never appears as a single obvious problem to fix.</p>
+
+    <h2>What Avorelo does differently</h2>
+    <p>Avorelo tracks which context elements were actually used and which were ignored during a session. At the end of the run, it builds a handoff that carries the useful parts forward and drops what was stale. The next session starts with a context package prepared from real usage signals, not a manually assembled prompt.</p>
+
+    <p>This is not just caching. Avorelo filters context against the task, not against a fixed template. If the task changes, the context package adapts. If something in the previous context was wrong or outdated, Avorelo surfaces the mismatch instead of carrying it forward.</p>
+
+    <h2>What to watch for in your own work</h2>
+    <ul>
+      <li>Sessions that always start with the same three or four context explanations</li>
+      <li>Agents that ask clarifying questions you already answered in a previous session</li>
+      <li>Token usage that spikes at the start of every run before useful work begins</li>
+      <li>Handoffs that feel like starting fresh even though you just finished a related task</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>The pattern is easy to miss</strong> because each individual repetition is small. The cost only becomes visible when you measure across sessions, not within them. Avorelo makes this visible by tracking context usage over time and surfacing where repetition is accumulating.</p>
+    </div>
+
+    <h2>The outcome in practice</h2>
+    <p>During our internal development of Avorelo, handling repeated context reduced the token overhead at session start by a measurable amount across extended development periods. The bigger gain was qualitative: sessions started closer to the actual task instead of requiring warm-up time before useful work began.</p>
+
+    <p>We do not publish specific numbers from internal sessions because context patterns vary by project, team, and AI tool. What we can say is that the pattern is consistent: repeated context is hidden waste, and filtering it produces a real difference in how sessions start.</p>
+
+    <div class="art-nav">
+      <a href="articles.html">&larr; All articles</a>
+      <a href="article-scope.html">Next: Broad access is the unsafe default &rarr;</a>
+    </div>
+
+  </div>
+</div>
+</main>
+
+<div class="art-related">
+  <div class="art-wrap">
+    <h3>Related notes</h3>
+    <div class="art-related-grid">
+      <a href="article-proof.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Proof</div>
+        <div class="arc-title">Uncaptured proof cannot guide the next run</div>
+      </a>
+      <a href="article-scope.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Scope</div>
+        <div class="arc-title">Broad access is the unsafe default</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="art-cta">
+  <h3>See how Avorelo handles context automatically.</h3>
+  <p>Install once. Avorelo tracks what is useful and carries it forward so the next session starts ready.</p>
+  <a href="/activate">Explore Community Edition</a>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-btm">
+      <p>&copy; 2026 Avorelo. Local-first. Built with Avorelo.</p>
+      <p><a href="articles.html" style="color:rgba(255,255,255,.40);text-decoration:none">Articles</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Launch Readiness | Avorelo Capabilities</title>
+<meta name="description" content="Launch Readiness in Avorelo: cross-domain launch coordination support with explicit approvals still required for customer and production actions.">
+<link rel="canonical" href="https://avorelo.com/capability-launch-readiness.html">
+<meta property="og:title" content="Launch Readiness | Avorelo Capabilities">
+<meta property="og:description" content="Launch Readiness in Avorelo: cross-domain launch coordination support with explicit approvals still required for customer and production actions.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/capability-launch-readiness.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Launch Readiness | Avorelo Capabilities">
+<link rel="stylesheet" href="capability-styles.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="hero">
+    <div class="breadcrumb"><a href="capabilities.html">Capabilities</a><span>&rsaquo;</span>Launch Readiness</div>
+    <div class="badge-row"><span class="badge route">Routing only</span></div>
+    <h1>Launch Readiness</h1>
+    <p>Launch Readiness is currently a coordination and truth layer. Avorelo can surface the blockers and the supporting signals, but it does not currently ship a dedicated launch execution engine that can complete the launch on your behalf.</p>
+    <div class="meta-grid">
+      <div class="meta"><h4>Current truth</h4><p><code>ROUTING_ONLY</code></p></div>
+      <div class="meta"><h4>Primary evidence</h4><p>Launch review docs, production-confidence signals, and review helpers.</p></div>
+      <div class="meta"><h4>Runtime surface</h4><p>Readiness and blocker reporting only.</p></div>
+      <div class="meta"><h4>Tests</h4><p>Indirectly covered by readiness, public-surface, and release-boundary suites.</p></div>
+    </div>
+  </section>
+  <section class="panel">
+    <div class="detail-block">
+      <h2>What exists today</h2>
+      <p>Avorelo can keep launch blockers explicit across packaging, proof, and public-copy truth so a founder or reviewer is not working from guesswork.</p>
+    </div>
+    <div class="detail-block">
+      <h2>Claim boundary</h2>
+      <div class="callout warning"><p>Launch Readiness does not onboard customers, does not send launch emails, and does not perform a production deploy. Those are explicit human actions outside the current canonical execution boundary.</p></div>
+    </div>
+    <div class="detail-block">
+      <h2>What it does not do</h2>
+      <p>It does not imply public launch is already approved, and it does not remove the need for pricing, legal, billing, or founder decisions before launch.</p>
+    </div>
+  </section>
+</main>
+</body>
+</html>

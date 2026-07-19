@@ -1,0 +1,100 @@
+name: ci
+
+# CI Cost Policy
+#
+# GitHub Actions budget is a release resource. This is a private repo —
+# every minute is billed to the owner.
+#
+# Automatic triggers: main and release/** only.
+# Feature sessions (planning/**, impl/**, chore/**, fix/**, feat/**, codex/**)
+# must validate locally: npm run build && npm run test:local && npm run readiness:local
+#
+# workflow_dispatch is retained for explicit owner-approved runs only.
+# Agents must not use workflow_dispatch or rerun jobs without owner approval.
+#
+# Community Edition is local-first: no database, no hosted backend, no credentials.
+# Tier 1 (push to main/release): clean install, build, naming, hosted-language, unit tests,
+#   package safety, readiness, static-site build/check, npm pack dry-run.
+# Tier 2 (push to main/release OR manual dispatch): full local dogfood suite.
+
+on:
+  push:
+    branches: ["main", "release/**"]
+    paths-ignore:
+      - 'docs/**'
+      - '**/*.md'
+      - '.github/ISSUE_TEMPLATE/**'
+      - 'LICENSE'
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  canonical:
+    # Tier 1 — reliable fast signal. No DB, no network, no credentials.
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Clean install (esbuild + tsx only; no hosted deps)
+        run: npm ci
+      - name: Build (esbuild bundle)
+        run: npm run build
+      - name: Naming invariant (Avorelo-only)
+        run: npm run naming-check
+      - name: Hosted-language guard (active surfaces clean)
+        run: npm run check:hosted-language
+      - name: Documentation-truth guard (active docs match the architecture)
+        run: npm run check:docs-truth
+      - name: Public secret-literal guard (no complete credential literals ship)
+        run: npm run check:secret-literals
+      - name: Apache-2.0 licensing + contribution truth
+        run: npm run check:license-truth
+      - name: Contact-truth guard (single approved public contact)
+        run: npm run check:contact-truth
+      - name: Zero-cost boundary
+        run: npm run check:zero-cost
+      - name: Local tests (node --test, no DB/network)
+        run: npm run test:local
+      - name: Package safety gate
+        run: npm run package:check
+      - name: Canonical readiness gate
+        run: npm run readiness:local
+      - name: Static site build
+        run: npm run build:site
+      - name: Static site check
+        run: npm run site:check
+      - name: Site truth gate
+        run: npm run site:truth
+      - name: Site accessibility gate
+        run: npm run site:a11y
+      - name: Package tarball dry-run
+        run: npm pack --dry-run
+
+  full-dogfood:
+    # Tier 2 — complete local dogfood suite. Only on push to main/release or manual dispatch.
+    if: github.event_name == 'push' || github.event_name == 'workflow_dispatch'
+    needs: canonical
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+      - name: Clean install
+        run: npm ci
+      - name: Build (required by dogfood suites)
+        run: npm run build
+      - name: All canonical dogfoods (local, synthetic, redacted)
+        run: npm run dogfood:all

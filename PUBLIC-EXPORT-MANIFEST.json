@@ -1,0 +1,2880 @@
+{
+  "canonicalCommit": "0fd7ba02db367ae759d76a1c62ccb74a3bb5f219",
+  "mode": "final",
+  "generatorVersion": "1.0.0",
+  "fileCount": 572,
+  "paths": [
+    ".github/CODEOWNERS",
+    ".github/ISSUE_TEMPLATE/bug_report.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
+    ".github/ISSUE_TEMPLATE/feature_request.yml",
+    ".github/pull_request_template.md",
+    ".github/workflows/ci.yml",
+    ".github/workflows/dco.yml",
+    ".gitignore",
+    ".node-version",
+    "CHANGELOG.md",
+    "CODE_OF_CONDUCT.md",
+    "COMMERCIAL-SERVICES.md",
+    "CONTRIBUTING.md",
+    "DCO",
+    "GOVERNANCE.md",
+    "LICENSE",
+    "LICENSE",
+    "MAINTAINERS.md",
+    "NOTICE",
+    "README.md",
+    "SECURITY.md",
+    "SUPPORT.md",
+    "bin/avorelo.mjs",
+    "docs/architecture/20-canonical-architecture.md",
+    "docs/architecture/21-runtime-product-flows.md",
+    "docs/architecture/22-state-data-ledger-model.md",
+    "docs/architecture/40-governed-skills-routing-optimization.md",
+    "docs/architecture/61-feature-location-map.md",
+    "docs/architecture/70-local-cloud-activation-model.md",
+    "docs/architecture/80-efficiency-performance-cost.md",
+    "docs/architecture/81-performance-budgets.md",
+    "docs/architecture/canonical-activation-slice.md",
+    "docs/architecture/context-control-full-vision-baseline.md",
+    "docs/architecture/core-architecture-conformance-report.md",
+    "docs/architecture/model-and-primitive-routing.md",
+    "docs/architecture/ownership-map.md",
+    "docs/architecture/repository-identity-gate.md",
+    "docs/architecture/routing-execution-ownership-contract.md",
+    "docs/architecture/skill-repo-adoption-process.md",
+    "docs/architecture/trusted-context-control-layer.md",
+    "docs/architecture/work-intelligence-layer.md",
+    "docs/architecture/work-intelligence-reconciliation.md",
+    "docs/contributing/dco-guide.md",
+    "docs/development/ci-cost-controls.md",
+    "docs/development/context-efficiency.md",
+    "docs/development/model-routing-input.md",
+    "docs/development/provider-neutral-hooks.md",
+    "docs/development/session-continuity.md",
+    "docs/development/workflow-radar.md",
+    "docs/getting-started.md",
+    "docs/install.md",
+    "docs/licensing/provenance-audit.md",
+    "docs/privacy-and-learning.md",
+    "docs/project-history.md",
+    "docs/public/security-and-privacy.md",
+    "docs/security/50-security-domain.md",
+    "docs/security/51-threat-model.md",
+    "docs/security/privacy-measurement-contract.md",
+    "docs/security/security-and-trust.md",
+    "docs/security/work-intelligence-privacy-review.md",
+    "docs/support/bug-report-template.md",
+    "docs/support/work-intelligence-support-readiness.md",
+    "docs/troubleshooting.md",
+    "docs/uninstall.md",
+    "docs/update.md",
+    "docs/usage/trusted-work-brief.md",
+    "fixtures/browser-visual-qa/console-error/index.html",
+    "fixtures/browser-visual-qa/disabled-form/index.html",
+    "fixtures/browser-visual-qa/good/activate.html",
+    "fixtures/browser-visual-qa/good/contact.html",
+    "fixtures/browser-visual-qa/good/dashboard.html",
+    "fixtures/browser-visual-qa/good/favicon.svg",
+    "fixtures/browser-visual-qa/good/index.html",
+    "fixtures/browser-visual-qa/good/pricing.html",
+    "fixtures/browser-visual-qa/missing-favicon/index.html",
+    "fixtures/browser-visual-qa/overflow/index.html",
+    "fixtures/browser-visual-qa/placeholder/index.html",
+    "fixtures/browser-visual-qa/private/index.html",
+    "fixtures/routing/scenarios.json",
+    "fixtures/verification/seed-dependency.json",
+    "fixtures/verification/seed-docs.json",
+    "fixtures/verification/seed-quick-fix.json",
+    "fixtures/verification/seed-release.json",
+    "fixtures/verification/seed-security.json",
+    "fixtures/verification/seed-ui-surface.json",
+    "netlify.toml",
+    "package-lock.json",
+    "package.json",
+    "src/avorelo/adapters/adapter-interface.ts",
+    "src/avorelo/adapters/claude-code/adapter.ts",
+    "src/avorelo/adapters/claude-code/index.ts",
+    "src/avorelo/adapters/claude-code/loop-adapter.ts",
+    "src/avorelo/adapters/codex/index.ts",
+    "src/avorelo/adapters/copilot/index.ts",
+    "src/avorelo/adapters/cursor/index.ts",
+    "src/avorelo/adapters/generic/index.ts",
+    "src/avorelo/adapters/loop-adapter.ts",
+    "src/avorelo/adapters/registry.ts",
+    "src/avorelo/capabilities/activation/activation-detector.ts",
+    "src/avorelo/capabilities/activation/activation-preflight.ts",
+    "src/avorelo/capabilities/activation/activation-repair.ts",
+    "src/avorelo/capabilities/activation/activation-run-entry.ts",
+    "src/avorelo/capabilities/activation/activation-runner.ts",
+    "src/avorelo/capabilities/activation/activation-state.ts",
+    "src/avorelo/capabilities/activation/dogfood-check.ts",
+    "src/avorelo/capabilities/activation/index.ts",
+    "src/avorelo/capabilities/activation/init.ts",
+    "src/avorelo/capabilities/browser-visual-qa/index.ts",
+    "src/avorelo/capabilities/browser-visual-qa/persistence.ts",
+    "src/avorelo/capabilities/browser-visual-qa/policy.ts",
+    "src/avorelo/capabilities/browser-visual-qa/render.ts",
+    "src/avorelo/capabilities/browser-visual-qa/runner.ts",
+    "src/avorelo/capabilities/browser-visual-qa/types.ts",
+    "src/avorelo/capabilities/canonical-readiness/index.ts",
+    "src/avorelo/capabilities/capability-discovery/index.ts",
+    "src/avorelo/capabilities/company-loop/index.ts",
+    "src/avorelo/capabilities/company-loop/persona-contracts.ts",
+    "src/avorelo/capabilities/company-loop/persona-runner.ts",
+    "src/avorelo/capabilities/context-budget/index.ts",
+    "src/avorelo/capabilities/context-check/classifier.ts",
+    "src/avorelo/capabilities/context-check/evidence.ts",
+    "src/avorelo/capabilities/context-check/index.ts",
+    "src/avorelo/capabilities/context-check/receipt.ts",
+    "src/avorelo/capabilities/context-check/renderers/human.ts",
+    "src/avorelo/capabilities/context-check/renderers/json.ts",
+    "src/avorelo/capabilities/context-check/renderers/receipt.ts",
+    "src/avorelo/capabilities/context-check/scanner.ts",
+    "src/avorelo/capabilities/context-check/types.ts",
+    "src/avorelo/capabilities/context-compiler/index.ts",
+    "src/avorelo/capabilities/context-efficiency/context-budget.ts",
+    "src/avorelo/capabilities/context-efficiency/index.ts",
+    "src/avorelo/capabilities/context-efficiency/persistence.ts",
+    "src/avorelo/capabilities/context-efficiency/render.ts",
+    "src/avorelo/capabilities/context-efficiency/types.ts",
+    "src/avorelo/capabilities/context-efficiency/work-brief.ts",
+    "src/avorelo/capabilities/context-efficiency/work-type.ts",
+    "src/avorelo/capabilities/context-efficiency/workspace-map-compat.ts",
+    "src/avorelo/capabilities/continuity/index.ts",
+    "src/avorelo/capabilities/control-center/index.ts",
+    "src/avorelo/capabilities/core-readiness/index.ts",
+    "src/avorelo/capabilities/efficiency-sync/index.ts",
+    "src/avorelo/capabilities/feedback/bundle.ts",
+    "src/avorelo/capabilities/feedback/config.ts",
+    "src/avorelo/capabilities/feedback/index.ts",
+    "src/avorelo/capabilities/guided-work-modes/index.ts",
+    "src/avorelo/capabilities/instruction-management/managed-blocks.ts",
+    "src/avorelo/capabilities/local-dashboard/index.ts",
+    "src/avorelo/capabilities/loop-control/check-detection.ts",
+    "src/avorelo/capabilities/loop-control/checks-runner.ts",
+    "src/avorelo/capabilities/loop-control/git-observer.ts",
+    "src/avorelo/capabilities/loop-control/iteration-drift.ts",
+    "src/avorelo/capabilities/loop-control/loop-metadata.ts",
+    "src/avorelo/capabilities/loop-control/orchestrator.ts",
+    "src/avorelo/capabilities/loop-control/policy-builder.ts",
+    "src/avorelo/capabilities/loop-control/readiness.ts",
+    "src/avorelo/capabilities/migration-scorecard/index.ts",
+    "src/avorelo/capabilities/model-routing-input/index.ts",
+    "src/avorelo/capabilities/model-routing-input/persistence.ts",
+    "src/avorelo/capabilities/model-routing-input/render.ts",
+    "src/avorelo/capabilities/model-routing-input/route-profile.ts",
+    "src/avorelo/capabilities/model-routing-input/types.ts",
+    "src/avorelo/capabilities/production-confidence/index.ts",
+    "src/avorelo/capabilities/proof-report/index.ts",
+    "src/avorelo/capabilities/registry-freshness/index.ts",
+    "src/avorelo/capabilities/runtime-flow/index.ts",
+    "src/avorelo/capabilities/secret-boundary/detector.ts",
+    "src/avorelo/capabilities/secret-boundary/handoff.ts",
+    "src/avorelo/capabilities/secret-boundary/index.ts",
+    "src/avorelo/capabilities/secret-boundary/instruction-risk.ts",
+    "src/avorelo/capabilities/secret-boundary/intake-risk.ts",
+    "src/avorelo/capabilities/secret-boundary/receipt.ts",
+    "src/avorelo/capabilities/secret-boundary/redactor.ts",
+    "src/avorelo/capabilities/secret-boundary/remediation.ts",
+    "src/avorelo/capabilities/secret-boundary/runtime-gate.ts",
+    "src/avorelo/capabilities/secret-boundary/safe-run.ts",
+    "src/avorelo/capabilities/secret-boundary/source-trust.ts",
+    "src/avorelo/capabilities/secret-protection/index.ts",
+    "src/avorelo/capabilities/session-continuity/handoff.ts",
+    "src/avorelo/capabilities/session-continuity/index.ts",
+    "src/avorelo/capabilities/session-continuity/persistence.ts",
+    "src/avorelo/capabilities/session-continuity/policy.ts",
+    "src/avorelo/capabilities/session-continuity/render.ts",
+    "src/avorelo/capabilities/session-continuity/signals.ts",
+    "src/avorelo/capabilities/session-continuity/types.ts",
+    "src/avorelo/capabilities/session/drift-detector.ts",
+    "src/avorelo/capabilities/session/index.ts",
+    "src/avorelo/capabilities/session/intervention.ts",
+    "src/avorelo/capabilities/session/resume-packet.ts",
+    "src/avorelo/capabilities/session/session-store.ts",
+    "src/avorelo/capabilities/session/watcher.ts",
+    "src/avorelo/capabilities/settings/index.ts",
+    "src/avorelo/capabilities/token-cost-evidence/index.ts",
+    "src/avorelo/capabilities/tool-governance/index.ts",
+    "src/avorelo/capabilities/value-ledger/index.ts",
+    "src/avorelo/capabilities/work-intelligence/index.ts",
+    "src/avorelo/capabilities/workflow-radar/assessment.ts",
+    "src/avorelo/capabilities/workflow-radar/index.ts",
+    "src/avorelo/capabilities/workflow-radar/persistence.ts",
+    "src/avorelo/capabilities/workflow-radar/policy.ts",
+    "src/avorelo/capabilities/workflow-radar/render.ts",
+    "src/avorelo/capabilities/workflow-radar/signals.ts",
+    "src/avorelo/capabilities/workflow-radar/types.ts",
+    "src/avorelo/capabilities/workspace/monorepo.ts",
+    "src/avorelo/control-router/index.ts",
+    "src/avorelo/dogfood/activation.ts",
+    "src/avorelo/dogfood/adapter-secret-boundary.ts",
+    "src/avorelo/dogfood/architecture-invariants.ts",
+    "src/avorelo/dogfood/avorelo-orchestration-e2e.ts",
+    "src/avorelo/dogfood/avorelo-real-execution-e2e.ts",
+    "src/avorelo/dogfood/browser-visual-qa.ts",
+    "src/avorelo/dogfood/canonical-readiness.ts",
+    "src/avorelo/dogfood/claude-code-adapter.ts",
+    "src/avorelo/dogfood/codex-adapter.ts",
+    "src/avorelo/dogfood/company-loop.ts",
+    "src/avorelo/dogfood/context-check.ts",
+    "src/avorelo/dogfood/context-compiler.ts",
+    "src/avorelo/dogfood/context-efficiency.ts",
+    "src/avorelo/dogfood/context-engineering.ts",
+    "src/avorelo/dogfood/continuity.ts",
+    "src/avorelo/dogfood/control-center.ts",
+    "src/avorelo/dogfood/control-router-alignment.ts",
+    "src/avorelo/dogfood/control-router.ts",
+    "src/avorelo/dogfood/core-readiness.ts",
+    "src/avorelo/dogfood/core.ts",
+    "src/avorelo/dogfood/cost-benchmarking.ts",
+    "src/avorelo/dogfood/efficiency-sync.ts",
+    "src/avorelo/dogfood/execution-verifier.ts",
+    "src/avorelo/dogfood/future-executor-adapters.ts",
+    "src/avorelo/dogfood/generic-delegated-execution.ts",
+    "src/avorelo/dogfood/github-actions-proof-adapter.ts",
+    "src/avorelo/dogfood/kernel-model-routing.ts",
+    "src/avorelo/dogfood/loop-control.ts",
+    "src/avorelo/dogfood/migration.ts",
+    "src/avorelo/dogfood/model-routing-input.ts",
+    "src/avorelo/dogfood/model-routing-usage.ts",
+    "src/avorelo/dogfood/model-routing.ts",
+    "src/avorelo/dogfood/multi-agent-efficiency.ts",
+    "src/avorelo/dogfood/multi-agent-review.ts",
+    "src/avorelo/dogfood/package-safety.ts",
+    "src/avorelo/dogfood/persistent-adapter-health.ts",
+    "src/avorelo/dogfood/phase1-foundation.ts",
+    "src/avorelo/dogfood/playwright-proof-adapter.ts",
+    "src/avorelo/dogfood/product-control.ts",
+    "src/avorelo/dogfood/proof-report.ts",
+    "src/avorelo/dogfood/real-tool-execution.ts",
+    "src/avorelo/dogfood/roadmap-closure.ts",
+    "src/avorelo/dogfood/routing-efficiency.ts",
+    "src/avorelo/dogfood/runtime-flow.ts",
+    "src/avorelo/dogfood/scanners.ts",
+    "src/avorelo/dogfood/seamless-ux.ts",
+    "src/avorelo/dogfood/secret-boundary.ts",
+    "src/avorelo/dogfood/semgrep-adapter.ts",
+    "src/avorelo/dogfood/session-continuity.ts",
+    "src/avorelo/dogfood/settings.ts",
+    "src/avorelo/dogfood/skill-adoption.ts",
+    "src/avorelo/dogfood/skills-layer.ts",
+    "src/avorelo/dogfood/skills-os.ts",
+    "src/avorelo/dogfood/slice1.ts",
+    "src/avorelo/dogfood/slice2.ts",
+    "src/avorelo/dogfood/slice3.ts",
+    "src/avorelo/dogfood/slice4.ts",
+    "src/avorelo/dogfood/task-queue.ts",
+    "src/avorelo/dogfood/team-policy.ts",
+    "src/avorelo/dogfood/token-cost.ts",
+    "src/avorelo/dogfood/tool-adapter-orchestration.ts",
+    "src/avorelo/dogfood/tool-adapter-usage.ts",
+    "src/avorelo/dogfood/tool-adapters-local.ts",
+    "src/avorelo/dogfood/value-ledger.ts",
+    "src/avorelo/dogfood/work-controls.ts",
+    "src/avorelo/dogfood/work-intelligence.ts",
+    "src/avorelo/dogfood/workcontract-routing.ts",
+    "src/avorelo/dogfood/workflow-radar.ts",
+    "src/avorelo/kernel/context-control/agent-guard.ts",
+    "src/avorelo/kernel/context-control/brief-compiler.ts",
+    "src/avorelo/kernel/context-control/budget.ts",
+    "src/avorelo/kernel/context-control/conflicts.ts",
+    "src/avorelo/kernel/context-control/discovery.ts",
+    "src/avorelo/kernel/context-control/index.ts",
+    "src/avorelo/kernel/context-control/mode-detection.ts",
+    "src/avorelo/kernel/context-control/normalization.ts",
+    "src/avorelo/kernel/context-control/promote-forget.ts",
+    "src/avorelo/kernel/context-control/promotion.ts",
+    "src/avorelo/kernel/context-control/receipts.ts",
+    "src/avorelo/kernel/context-control/redaction.ts",
+    "src/avorelo/kernel/context-control/repo-preflight.ts",
+    "src/avorelo/kernel/context-control/storage.ts",
+    "src/avorelo/kernel/context-control/trust.ts",
+    "src/avorelo/kernel/context-control/types.ts",
+    "src/avorelo/kernel/drift-guard/index.ts",
+    "src/avorelo/kernel/evidence-gate/index.ts",
+    "src/avorelo/kernel/evidence/foundation.ts",
+    "src/avorelo/kernel/evidence/index.ts",
+    "src/avorelo/kernel/model-routing/cascade.ts",
+    "src/avorelo/kernel/model-routing/index.ts",
+    "src/avorelo/kernel/model-routing/model-registry.ts",
+    "src/avorelo/kernel/model-routing/provider-registry.ts",
+    "src/avorelo/kernel/model-routing/receipt.ts",
+    "src/avorelo/kernel/model-routing/resolver.ts",
+    "src/avorelo/kernel/model-routing/session-memory.ts",
+    "src/avorelo/kernel/model-routing/types.ts",
+    "src/avorelo/kernel/model-routing/verifier.ts",
+    "src/avorelo/kernel/policy/index.ts",
+    "src/avorelo/kernel/pretooluse-gate/index.ts",
+    "src/avorelo/kernel/proof-adapters/api-contract.ts",
+    "src/avorelo/kernel/proof-adapters/build-test.ts",
+    "src/avorelo/kernel/proof-adapters/index.ts",
+    "src/avorelo/kernel/proof-adapters/product-surface.ts",
+    "src/avorelo/kernel/proof-adapters/security-secrets.ts",
+    "src/avorelo/kernel/proof-adapters/types.ts",
+    "src/avorelo/kernel/proof-adapters/ui-browser.ts",
+    "src/avorelo/kernel/proof-contract/index.ts",
+    "src/avorelo/kernel/receipts/eligibility.ts",
+    "src/avorelo/kernel/receipts/index.ts",
+    "src/avorelo/kernel/receipts/sanitize.ts",
+    "src/avorelo/kernel/receipts/validation.ts",
+    "src/avorelo/kernel/registry/index.ts",
+    "src/avorelo/kernel/run.ts",
+    "src/avorelo/kernel/runtime-boundary/index.ts",
+    "src/avorelo/kernel/skills/index.ts",
+    "src/avorelo/kernel/state-ledger/index.ts",
+    "src/avorelo/kernel/stop-continue-gate/index.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/aider.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/claude-code.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/codex.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/cursor.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/deterministic-local.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/gemini-cli.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/github-actions.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/manual-gate.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/playwright-proof.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/scanner.ts",
+    "src/avorelo/kernel/tool-adapters/adapters/semgrep.ts",
+    "src/avorelo/kernel/tool-adapters/cost-benchmarking.ts",
+    "src/avorelo/kernel/tool-adapters/detect.ts",
+    "src/avorelo/kernel/tool-adapters/executor.ts",
+    "src/avorelo/kernel/tool-adapters/fixtures/playwright-proof-fixture.html",
+    "src/avorelo/kernel/tool-adapters/fixtures/semgrep-proof-rules.yml",
+    "src/avorelo/kernel/tool-adapters/health-persistence.ts",
+    "src/avorelo/kernel/tool-adapters/index.ts",
+    "src/avorelo/kernel/tool-adapters/multi-agent-review.ts",
+    "src/avorelo/kernel/tool-adapters/planner.ts",
+    "src/avorelo/kernel/tool-adapters/playwright-proof-runner.mjs",
+    "src/avorelo/kernel/tool-adapters/policies.ts",
+    "src/avorelo/kernel/tool-adapters/receipt.ts",
+    "src/avorelo/kernel/tool-adapters/registry.ts",
+    "src/avorelo/kernel/tool-adapters/sandbox.ts",
+    "src/avorelo/kernel/tool-adapters/task-queue.ts",
+    "src/avorelo/kernel/tool-adapters/team-policy.ts",
+    "src/avorelo/kernel/tool-adapters/testing/fakes.ts",
+    "src/avorelo/kernel/tool-adapters/types.ts",
+    "src/avorelo/kernel/verification-receipt/index.ts",
+    "src/avorelo/kernel/work-contract/index.ts",
+    "src/avorelo/kernel/work-contract/routing.ts",
+    "src/avorelo/kernel/work-contract/task-parser.ts",
+    "src/avorelo/kernel/work-controls/index.ts",
+    "src/avorelo/shared/redaction/index.ts",
+    "src/avorelo/shared/redaction/policy.ts",
+    "src/avorelo/shared/safe-reference/index.ts",
+    "src/avorelo/shared/schemas/index.ts",
+    "src/avorelo/skills/skill-output-collector.ts",
+    "src/avorelo/skills/skill-output-contract.ts",
+    "src/avorelo/surfaces/cli/avorelo.ts",
+    "src/avorelo/surfaces/preview-server/index.ts",
+    "src/avorelo/surfaces/public-web/index.ts",
+    "src/avorelo/surfaces/public-web/static/404.html",
+    "src/avorelo/surfaces/public-web/static/_headers",
+    "src/avorelo/surfaces/public-web/static/_redirects",
+    "src/avorelo/surfaces/public-web/static/activate-cta.js",
+    "src/avorelo/surfaces/public-web/static/activate.html",
+    "src/avorelo/surfaces/public-web/static/api-discontinued.html",
+    "src/avorelo/surfaces/public-web/static/apple-touch-icon.png",
+    "src/avorelo/surfaces/public-web/static/article-access.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-activity-productivity.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-agent-scope-drift.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-agents-repeat-mistakes.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-code-accumulation.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-gateway-vs-workflow-router.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-generated-bug-reports-waste-time.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-native-engineering-team.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-productivity-measurement.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-review-load-reduced.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-security-findings-need-evidence.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-skill-supply-chain-security.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-spend-proof.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-team-reports-for-engineering-leaders.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-token-cost.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-waste.html",
+    "src/avorelo/surfaces/public-web/static/article-ai-workflow-hygiene.html",
+    "src/avorelo/surfaces/public-web/static/article-approval-fatigue.html",
+    "src/avorelo/surfaces/public-web/static/article-cheaper-ai-models-not-enough.html",
+    "src/avorelo/surfaces/public-web/static/article-context-engineering-ai-coding.html",
+    "src/avorelo/surfaces/public-web/static/article-context.html",
+    "src/avorelo/surfaces/public-web/static/article-delete-ai-generated-code.html",
+    "src/avorelo/surfaces/public-web/static/article-evidence-backed-ai-coding.html",
+    "src/avorelo/surfaces/public-web/static/article-model-routing-vs-workflow-routing.html",
+    "src/avorelo/surfaces/public-web/static/article-privacy-safe-ai-team-reporting.html",
+    "src/avorelo/surfaces/public-web/static/article-project-knowledge-layer.html",
+    "src/avorelo/surfaces/public-web/static/article-proof-receipts.html",
+    "src/avorelo/surfaces/public-web/static/article-proof.html",
+    "src/avorelo/surfaces/public-web/static/article-rag-vs-memory-vs-project-knowledge.html",
+    "src/avorelo/surfaces/public-web/static/article-reading-times.json",
+    "src/avorelo/surfaces/public-web/static/article-reduce-noise-ai-code-reviews.html",
+    "src/avorelo/surfaces/public-web/static/article-route-ai-coding-workflows-safely.html",
+    "src/avorelo/surfaces/public-web/static/article-routing.html",
+    "src/avorelo/surfaces/public-web/static/article-safe-ai-coding-agents.html",
+    "src/avorelo/surfaces/public-web/static/article-safe-ai-tool-exposure.html",
+    "src/avorelo/surfaces/public-web/static/article-scope-repair-before-approval.html",
+    "src/avorelo/surfaces/public-web/static/article-scope.html",
+    "src/avorelo/surfaces/public-web/static/article-skill-governance-ai-agents.html",
+    "src/avorelo/surfaces/public-web/static/article-stale-ai-memory-risk.html",
+    "src/avorelo/surfaces/public-web/static/article-stop-reexplaining.html",
+    "src/avorelo/surfaces/public-web/static/article-team-ai-value-reports.html",
+    "src/avorelo/surfaces/public-web/static/article-what-is-ai-slop-in-software-security.html",
+    "src/avorelo/surfaces/public-web/static/article-work-intelligence.html",
+    "src/avorelo/surfaces/public-web/static/article-workflow-health.html",
+    "src/avorelo/surfaces/public-web/static/articles.html",
+    "src/avorelo/surfaces/public-web/static/capabilities.html",
+    "src/avorelo/surfaces/public-web/static/capability-documentation-pmm-review.html",
+    "src/avorelo/surfaces/public-web/static/capability-launch-readiness.html",
+    "src/avorelo/surfaces/public-web/static/capability-legal-compliance.html",
+    "src/avorelo/surfaces/public-web/static/capability-package-release.html",
+    "src/avorelo/surfaces/public-web/static/capability-product-specification.html",
+    "src/avorelo/surfaces/public-web/static/capability-qa-proof-review.html",
+    "src/avorelo/surfaces/public-web/static/capability-release-readiness.html",
+    "src/avorelo/surfaces/public-web/static/capability-security-review.html",
+    "src/avorelo/surfaces/public-web/static/capability-styles.css",
+    "src/avorelo/surfaces/public-web/static/contact.html",
+    "src/avorelo/surfaces/public-web/static/dashboard.html",
+    "src/avorelo/surfaces/public-web/static/favicon-256.png",
+    "src/avorelo/surfaces/public-web/static/index.html",
+    "src/avorelo/surfaces/public-web/static/learn-more.html",
+    "src/avorelo/surfaces/public-web/static/license.html",
+    "src/avorelo/surfaces/public-web/static/og-card.svg",
+    "src/avorelo/surfaces/public-web/static/pricing.html",
+    "src/avorelo/surfaces/public-web/static/privacy-policy.html",
+    "src/avorelo/surfaces/public-web/static/refund-discontinued.html",
+    "src/avorelo/surfaces/public-web/static/robots.txt",
+    "src/avorelo/surfaces/public-web/static/site.webmanifest",
+    "src/avorelo/surfaces/public-web/static/terms-of-service.html",
+    "src/avorelo/validation/model-routing/index.ts",
+    "src/avorelo/validation/reference-skills/index.ts",
+    "src/avorelo/validation/review-skills/index.ts",
+    "src/avorelo/validation/scanners/index.ts",
+    "src/avorelo/validation/skill-adoption/baseline-candidates.ts",
+    "src/avorelo/validation/skill-adoption/index.ts",
+    "src/avorelo/validation/skill-operating-system/registry.ts",
+    "src/avorelo/validation/skill-operating-system/router.ts",
+    "src/avorelo/value/ai-work-economics.ts",
+    "tests/activation-cli-boundary.test.ts",
+    "tests/activation-init.test.ts",
+    "tests/activation-linking.test.ts",
+    "tests/activation-preflight.test.ts",
+    "tests/browser-visual-qa-cli.test.ts",
+    "tests/browser-visual-qa.test.ts",
+    "tests/canonical-activation.test.ts",
+    "tests/capability-discovery.test.ts",
+    "tests/commercial-readiness-absence.test.ts",
+    "tests/community-open-model.test.ts",
+    "tests/community-package-boundary.test.ts",
+    "tests/contact-truth.test.ts",
+    "tests/context-check.test.ts",
+    "tests/context-compiler.test.ts",
+    "tests/context-control-v2.test.ts",
+    "tests/context-control.test.ts",
+    "tests/context-efficiency-cli.test.ts",
+    "tests/context-efficiency.test.ts",
+    "tests/context-pack.test.ts",
+    "tests/continuity.test.ts",
+    "tests/control-center.test.ts",
+    "tests/cost-benchmarking.test.ts",
+    "tests/dashboard-open-readiness.test.ts",
+    "tests/dco.test.ts",
+    "tests/dogfood-check.test.ts",
+    "tests/efficiency-sync.test.ts",
+    "tests/evidence-gate-scenarios.test.ts",
+    "tests/evidence-gate.test.ts",
+    "tests/full-activation.test.ts",
+    "tests/future-executor-adapters.test.ts",
+    "tests/generic-adapter-orchestration.test.ts",
+    "tests/helpers/net-trap.mjs",
+    "tests/legacy-entitlement-tolerance.test.ts",
+    "tests/legacy-settings-tolerance.test.ts",
+    "tests/legal-boundary.test.ts",
+    "tests/license-truth.test.ts",
+    "tests/live-runner.test.ts",
+    "tests/local-support-flow.test.ts",
+    "tests/loop-control.test.ts",
+    "tests/model-routing-input-cli.test.ts",
+    "tests/model-routing-input.test.ts",
+    "tests/model-routing-kernel.test.ts",
+    "tests/model-routing-usage.test.ts",
+    "tests/multi-agent-review.test.ts",
+    "tests/outbound-boundary.test.ts",
+    "tests/persistent-adapter-health.test.ts",
+    "tests/phase1-foundation.test.ts",
+    "tests/product-journey-e2e.test.ts",
+    "tests/proof-adapter-pack.test.ts",
+    "tests/proof-adapters.test.ts",
+    "tests/proof-contract.test.ts",
+    "tests/proof-report.test.ts",
+    "tests/public-export.test.ts",
+    "tests/public-secret-literals.test.ts",
+    "tests/real-tool-execution.test.ts",
+    "tests/receipt-eligibility.test.ts",
+    "tests/receipt-sanitize.test.ts",
+    "tests/registry-freshness.test.ts",
+    "tests/repository-boundary.test.ts",
+    "tests/runtime-flow.test.ts",
+    "tests/secret-boundary.test.ts",
+    "tests/seed-fixtures.test.ts",
+    "tests/self-validation.test.ts",
+    "tests/session-continuity-cli.test.ts",
+    "tests/session-continuity.test.ts",
+    "tests/site-accessibility.test.ts",
+    "tests/site-inclusion-boundary.test.ts",
+    "tests/site-licensing-truth.test.ts",
+    "tests/site-navigation-contract.test.ts",
+    "tests/site-seo-assets.test.ts",
+    "tests/slice1.test.ts",
+    "tests/slice2.test.ts",
+    "tests/slice3.test.ts",
+    "tests/slice4-5.test.ts",
+    "tests/slice4.test.ts",
+    "tests/static-egress-boundary.test.ts",
+    "tests/task-queue.test.ts",
+    "tests/team-policy.test.ts",
+    "tests/telemetry-final-state.test.ts",
+    "tests/telemetry-no-egress.test.ts",
+    "tests/token-cost-evidence.test.ts",
+    "tests/tool-adapter-orchestration.test.ts",
+    "tests/update-boundary.test.ts",
+    "tests/value-ledger.test.ts",
+    "tests/verification-receipt.test.ts",
+    "tests/work-controls.test.ts",
+    "tests/work-intelligence-cli.test.ts",
+    "tests/work-intelligence.test.ts",
+    "tests/workcontract-routing.test.ts",
+    "tests/workflow-radar-cli.test.ts",
+    "tests/workflow-radar.test.ts",
+    "tests/zero-cost-boundary.test.ts",
+    "tools/adopt-skill-batch.ts",
+    "tools/apply-release-values.ts",
+    "tools/audit-old-core-parity.ts",
+    "tools/check-contact-truth.ts",
+    "tools/check-dco.ts",
+    "tools/check-docs-truth.ts",
+    "tools/check-hosted-language.ts",
+    "tools/check-legal-boundary.ts",
+    "tools/check-license-truth.ts",
+    "tools/check-public-secret-literals.ts",
+    "tools/check-zero-cost.ts",
+    "tools/collect-skill-outputs.ts",
+    "tools/connected-preview-check.ts",
+    "tools/create-public-export.ts",
+    "tools/evaluate-routing-fixtures.ts",
+    "tools/generate-founder.ts",
+    "tools/legacy-reference-map.ts",
+    "tools/live-activation-dogfood-runner.ts",
+    "tools/measure-core.ts",
+    "tools/measure-skills-os.ts",
+    "tools/measure-value.ts",
+    "tools/naming-check.ts",
+    "tools/old-repo-candidate-audit.ts",
+    "tools/review-architecture-deep.ts",
+    "tools/review-core.ts",
+    "tools/review-references.ts",
+    "tools/route-primitive.ts",
+    "tools/scanners-run.ts",
+    "tools/site-check.ts",
+    "tools/site-truth.ts",
+    "tools/skills-registry.ts",
+    "tools/skills-route.ts"
+  ],
+  "files": [
+    {
+      "path": ".github/CODEOWNERS",
+      "sha256": "e541e9ce972f61356b671bfb8edcc5902e1d8b7bf4901160d79da7159c9cfe1b"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "sha256": "9ce9c1dfff1ddb1b05703032f44c077e42e634ea26309b6b40469debe100bbb7"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "sha256": "72f80006690e2c92f53910d94a773dd2f8d209a6ac4218fa51afa8359f6521f7"
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+      "sha256": "ad4fef154f945dc44467344cd6ab2413b4a7a83534cb6cb394064b542d4e44b1"
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "sha256": "39b687a043bb8eef2deecb03ecfa3bd23c8f8f79a4834f6054493689c31ef546"
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "sha256": "18fcfbb35f1afc5be979356bffce71fd5c838e1da94f86ae23491b82e26c719a"
+    },
+    {
+      "path": ".github/workflows/dco.yml",
+      "sha256": "71038f408d4ec1daf79c436b1ed7f64f00d574810ccfd01c93f2d5c574b804ec"
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "03f49afa2c35f3b9a9b97ccd6175c09b5de4ff2329fb64ff6be6593f5ae79f2b"
+    },
+    {
+      "path": ".node-version",
+      "sha256": "f6bca0e7f46a94bd3349fdb86511cbec4a9091e409b62dd2d6b8c1fdb9a3ce00"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "52b0d66fbadc14f9f236e8ef04a908dd736798a4a2587f6a80ef2e9bffb2b85f"
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "sha256": "0c7d09791c8cce544dc65b4d5994cc3d85a24fe6dfdbff66a170e1dedab48275"
+    },
+    {
+      "path": "COMMERCIAL-SERVICES.md",
+      "sha256": "bb0e65c4a8baec56f651527ff50330999133125062f2dcfd3693a93edfc9f77f"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "sha256": "b7f043da267e77597e565bc5219ced07f4e156e9f2fa1a771ba56c1ac0d57b47"
+    },
+    {
+      "path": "DCO",
+      "sha256": "f7ac75b443f4ca16b503241344b41aeff9503b0c30bedc2b119551d83cb0fa90"
+    },
+    {
+      "path": "GOVERNANCE.md",
+      "sha256": "95f745159253e132dde08b21bd54a236bd295bb9e51e7ac530ce878f90253e7a"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "MAINTAINERS.md",
+      "sha256": "e0f177d35d2dc73f2f46ebea7f195e3b1f0bfcdf3e020c44ab7530e140a7655d"
+    },
+    {
+      "path": "NOTICE",
+      "sha256": "ae2686d721e1b5374f79aa116c6283a5b7198af0e575dd6bf0ea7de6b75da16b"
+    },
+    {
+      "path": "README.md",
+      "sha256": "d430d2d04ebcc1b64d1974819e67b6d6fe115a1f422f5d034a3c00af637a8791"
+    },
+    {
+      "path": "SECURITY.md",
+      "sha256": "d2366e847fc2af4d600bca9676269264876c18b96bd9d097cbc93d20410f83e1"
+    },
+    {
+      "path": "SUPPORT.md",
+      "sha256": "faddcf357e2678549e62f0c091f704cce2833e3e3045d35d0686c863c580e3f8"
+    },
+    {
+      "path": "bin/avorelo.mjs",
+      "sha256": "845f4ee81915a1501705f7ce2f21f136636ed3e17e426fc6a9b0dfd7094a28be"
+    },
+    {
+      "path": "docs/architecture/20-canonical-architecture.md",
+      "sha256": "150a215f3537ca37c1b45c7847edf1bbe68708f0ea19c1bba9c3abd5cd0e685f"
+    },
+    {
+      "path": "docs/architecture/21-runtime-product-flows.md",
+      "sha256": "2d135c7f8e18594462a94a95f41ae992732430e7e74d56733645a38f0af6ed9c"
+    },
+    {
+      "path": "docs/architecture/22-state-data-ledger-model.md",
+      "sha256": "a4d79d51309859af0fbdc5fdca6172d9d15b5860675fadfaaa508b7e93bdda13"
+    },
+    {
+      "path": "docs/architecture/40-governed-skills-routing-optimization.md",
+      "sha256": "b83f44d67f8b8740bfdc5e265b2dffc109605de770c6ce485589aa4da6e65143"
+    },
+    {
+      "path": "docs/architecture/61-feature-location-map.md",
+      "sha256": "e80615c88e996c1c9303217261d1199e38f0839f9d3cc3729e77002a14d656e3"
+    },
+    {
+      "path": "docs/architecture/70-local-cloud-activation-model.md",
+      "sha256": "076c599ac0774112b56e73ce10e0045309c2a41d8c6713dbca1bc960c60670b0"
+    },
+    {
+      "path": "docs/architecture/80-efficiency-performance-cost.md",
+      "sha256": "ae519964732972745f7c176f1fea1da1b9ff364fcdb289cb1d5169469e4d41b5"
+    },
+    {
+      "path": "docs/architecture/81-performance-budgets.md",
+      "sha256": "7a190dfae07d01bada7fbf625c59656c0f06d3337b3fe734bf8c8cf435228d14"
+    },
+    {
+      "path": "docs/architecture/canonical-activation-slice.md",
+      "sha256": "bddf37962fd94582b31b98f181581be059303c34cb4e27198895507812f526d8"
+    },
+    {
+      "path": "docs/architecture/context-control-full-vision-baseline.md",
+      "sha256": "d7ea33846046b2411fe696956b6538a09271694e85d3cc9790c315f28350fd5d"
+    },
+    {
+      "path": "docs/architecture/core-architecture-conformance-report.md",
+      "sha256": "255da9c00fed64fa9b8be0ed5c03e04873efcb3d318548837217bb8d85e401b9"
+    },
+    {
+      "path": "docs/architecture/model-and-primitive-routing.md",
+      "sha256": "16992f082a92de5faf85c2105faf220ef3ea623c25855e16c5d0dfb35266747b"
+    },
+    {
+      "path": "docs/architecture/ownership-map.md",
+      "sha256": "029b231ef9d88fdeefaccf1ee7014fe8e43a25923b0a574e3f6e7c9945f33fec"
+    },
+    {
+      "path": "docs/architecture/repository-identity-gate.md",
+      "sha256": "b0a6136eb3e326a3414ee81bb050df19ec1356399a1a087bdc32c363c31f29a4"
+    },
+    {
+      "path": "docs/architecture/routing-execution-ownership-contract.md",
+      "sha256": "05783c75dc70539d4f438a18a5ec5c310c7ef471fc51ae3c9b4d8e18e3771b84"
+    },
+    {
+      "path": "docs/architecture/skill-repo-adoption-process.md",
+      "sha256": "990696e8fcbec556a80272864b31a7fd08f4b27111e8187aa14acb52c46b3e47"
+    },
+    {
+      "path": "docs/architecture/trusted-context-control-layer.md",
+      "sha256": "0a6423cdb4716d2a4dd92ea75beed39c83f3a458f4b42ebd6f2bcc217b78cb40"
+    },
+    {
+      "path": "docs/architecture/work-intelligence-layer.md",
+      "sha256": "10ccb20befb8190633dbb11895b4bfbb1dbe314cf092010c15d5386358c47c1a"
+    },
+    {
+      "path": "docs/architecture/work-intelligence-reconciliation.md",
+      "sha256": "702c357536bb5ad1630ca448fc88ef5eb8fb85de0177bd396f76e2d3843f5183"
+    },
+    {
+      "path": "docs/contributing/dco-guide.md",
+      "sha256": "e0d5a71c4c510001e922eae84e5a64b1641f8b2882d37572155df31f5614e281"
+    },
+    {
+      "path": "docs/development/ci-cost-controls.md",
+      "sha256": "3a3c5fdd9dd86d036bff05c95eff89d341f0762788f1bd92cf5dfaf9829e393b"
+    },
+    {
+      "path": "docs/development/context-efficiency.md",
+      "sha256": "dd83b691ff3b2dc595d793baf842fa7069ba4ad90e959491f41b4a43267f3e3b"
+    },
+    {
+      "path": "docs/development/model-routing-input.md",
+      "sha256": "131e75889fd83534df2666aa651882af8716e08f246941b00a33a923640a2fd3"
+    },
+    {
+      "path": "docs/development/provider-neutral-hooks.md",
+      "sha256": "5ec02b56fabc8668b71763bed2f2c6cb7109cad1d179bef31213aa38738c917f"
+    },
+    {
+      "path": "docs/development/session-continuity.md",
+      "sha256": "fd5f60575e6f72e49fb236943a819243468fcb485b1093e101d5dc2701dc2d8b"
+    },
+    {
+      "path": "docs/development/workflow-radar.md",
+      "sha256": "cf38950b43a95ec34393b38873eea46cba05eb66d8c673b2749023c411577afe"
+    },
+    {
+      "path": "docs/getting-started.md",
+      "sha256": "509d1fe8913e761ec48f84f4dc97282a0f10245029cc52bb779ff416925a1a52"
+    },
+    {
+      "path": "docs/install.md",
+      "sha256": "60847f49bcf9298afb4befe0820b3c7af4c6b77441debd86063ca9f6f1e95b83"
+    },
+    {
+      "path": "docs/licensing/provenance-audit.md",
+      "sha256": "8acd106b41662665d6b77ab8f7ffc1a7212e1a74eb11efe550c8917800cf122a"
+    },
+    {
+      "path": "docs/privacy-and-learning.md",
+      "sha256": "828fdbc9a1dbc57b775361a35a3d85db6a716570be613fd50f501810404c1f7f"
+    },
+    {
+      "path": "docs/project-history.md",
+      "sha256": "5eb77a5ab42e5f4d380216151f9f80e4b2db44f8c0b850f5b4b9d9c995e68984"
+    },
+    {
+      "path": "docs/public/security-and-privacy.md",
+      "sha256": "4e1f001434ea010140aea471f04ead735497371085a75f57bab3603992aefa82"
+    },
+    {
+      "path": "docs/security/50-security-domain.md",
+      "sha256": "6dbbc27de0e85dab9f83896ddb854549335c854a29fcaf230b67a41a4abb905f"
+    },
+    {
+      "path": "docs/security/51-threat-model.md",
+      "sha256": "e7b188affeb2ac06de7165ac7e7616cbf4553aca65cc1cfd7c3caa893db41f6a"
+    },
+    {
+      "path": "docs/security/privacy-measurement-contract.md",
+      "sha256": "06cda3205d1a300053d040e6ac13183403864488d5ce4576886b5d4e627649d5"
+    },
+    {
+      "path": "docs/security/security-and-trust.md",
+      "sha256": "2591158e6c8376e3cfec65132e6756afaa3cd2371cafd4c12d8ddf396aafc6a7"
+    },
+    {
+      "path": "docs/security/work-intelligence-privacy-review.md",
+      "sha256": "237326cb883ca8dcb601e091b73f8aa3d4691f31ea3f14eb449c54606720d579"
+    },
+    {
+      "path": "docs/support/bug-report-template.md",
+      "sha256": "16a69157532445453f5704e34369520d57908ecbdb98e07e090a2f05435d6b0d"
+    },
+    {
+      "path": "docs/support/work-intelligence-support-readiness.md",
+      "sha256": "1431f5b2228012cd820cfddaaba7b81968a417516735a4bffea9cd7422009a2a"
+    },
+    {
+      "path": "docs/troubleshooting.md",
+      "sha256": "49071550dab5d4bfe7c3e96807538b656ec795b78355adb0c6fffaa2f8db9d54"
+    },
+    {
+      "path": "docs/uninstall.md",
+      "sha256": "32873cd1e43d5e17a272ac893d2b315007feee2e7c008b6ffffa8bf74f2e33de"
+    },
+    {
+      "path": "docs/update.md",
+      "sha256": "bc0ff6d476c64ce5ce2e2600f7378b1578945b2bd2b58731f9962cb8e4b22d39"
+    },
+    {
+      "path": "docs/usage/trusted-work-brief.md",
+      "sha256": "634b86f4cf11cc477b019c1fc393ecd219303f3a3408d7759e9fdf1c948977d2"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/console-error/index.html",
+      "sha256": "fbf5af151439fb4ecfa247ef4735c1e0e2677c7f247932b0cdf332c77cb228af"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/disabled-form/index.html",
+      "sha256": "a45c6fedf36c9d9f290eb06eff3ee26b47b45918f20307e6d01e0d2d073cf974"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/good/activate.html",
+      "sha256": "e83c1173e3b380845739149f415acf225e75ca61bbf7db84b5592c5b0ddf01ad"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/good/contact.html",
+      "sha256": "24b452aa11346f723070dd99f8d21fe7583d995f62912edf760887c3442cb060"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/good/dashboard.html",
+      "sha256": "c05ba697c98f541fe110bb5f0dd36d1f9e25ea95ae92a9fcafc9bd59a4109697"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/good/favicon.svg",
+      "sha256": "06672c41c2c41aa774ad9af294724021fead0b6e0e948cb475b6280cf48adb0a"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/good/index.html",
+      "sha256": "baba82bcf81feb4e189d6e8884fcd79a006705b597b9c561dd59078abc71f3b1"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/good/pricing.html",
+      "sha256": "9c9bf2c09821f796744283337fad8f9c85af4773fbd1bb100c6c522ca5ecc0f8"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/missing-favicon/index.html",
+      "sha256": "9e5697e32342a39d9beb925efc7b249b6c2e6e9cdb56fb167a5df0b3122c7da2"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/overflow/index.html",
+      "sha256": "06b19d0b4c59c12ced3c082b7823774ed97e99c7e59ce3c860cf12834a2d5b3b"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/placeholder/index.html",
+      "sha256": "abd7bb08c55223a9bafa6a3633581a44813ebcd2ca27914b3e14941bfcf78064"
+    },
+    {
+      "path": "fixtures/browser-visual-qa/private/index.html",
+      "sha256": "273421e5f2a53b4da8920890775d963c03bf9623edb41758e60ac45d65fac9c6"
+    },
+    {
+      "path": "fixtures/routing/scenarios.json",
+      "sha256": "197cfa79f522c0cd63e36346e745a98b89c22c6477f9864e8a668baf567feeb0"
+    },
+    {
+      "path": "fixtures/verification/seed-dependency.json",
+      "sha256": "1c27a94815ecaedc9875913183e52bb20e5ea450b431aa16ca6cccbd69fd6ba4"
+    },
+    {
+      "path": "fixtures/verification/seed-docs.json",
+      "sha256": "eec4335225a6e6363555c3ebc3571743be1be94a5aa525f58b170eaaefb2db2d"
+    },
+    {
+      "path": "fixtures/verification/seed-quick-fix.json",
+      "sha256": "a63346e073a7f26288892888b677cbc07b63c1c1f64ecfcf3d1474e1a40f12f9"
+    },
+    {
+      "path": "fixtures/verification/seed-release.json",
+      "sha256": "107c9dedbd5b309aa71d4ed5b5a518740da4aa0e3d688fdfcf1b974664366e1d"
+    },
+    {
+      "path": "fixtures/verification/seed-security.json",
+      "sha256": "00e3ae87822069f93567c61e1766b8c9ef82d9de7556362ecc9db83eaf544759"
+    },
+    {
+      "path": "fixtures/verification/seed-ui-surface.json",
+      "sha256": "8444f302bb86e5fefa3aabacfcd61e66f316b5c5d5fdd2365083b4492839251a"
+    },
+    {
+      "path": "netlify.toml",
+      "sha256": "15d1a04bf222b4348a0f9a99583ba10bed9af589d5e8798fa5e5bddb4e124c2a"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "2b02181c0ef942a15a03711182af388a4626478d9d7c31859957689002fc614c"
+    },
+    {
+      "path": "package.json",
+      "sha256": "2e1b29000d4568670a5aa123cc8b28befab689059dce72b92fa014a72ed9fbe6"
+    },
+    {
+      "path": "src/avorelo/adapters/adapter-interface.ts",
+      "sha256": "a18332025258dc57e9503ad4b0b2e5a03231f5316e5468b8fd429f4fbefc9563"
+    },
+    {
+      "path": "src/avorelo/adapters/claude-code/adapter.ts",
+      "sha256": "acb34b563816c3ddd65bc53f36482f021d3582042c225a712e16f7554f1529da"
+    },
+    {
+      "path": "src/avorelo/adapters/claude-code/index.ts",
+      "sha256": "a3e5da9a7ee8403905d8ba9cdb5b43b5d00920161495a41813eb1ab37bd77021"
+    },
+    {
+      "path": "src/avorelo/adapters/claude-code/loop-adapter.ts",
+      "sha256": "cdca2e7b991be9e0c83bb931820bce6bcfc72f464e57128c6c611c9a1311c36c"
+    },
+    {
+      "path": "src/avorelo/adapters/codex/index.ts",
+      "sha256": "30f28b4de87195ec364cb7eeee74d658c91ecb9a25838f955ef403bb6a7a13bc"
+    },
+    {
+      "path": "src/avorelo/adapters/copilot/index.ts",
+      "sha256": "4e5654713b971032044ee72a13932151ab5a494b65a6c418987cca1de399c001"
+    },
+    {
+      "path": "src/avorelo/adapters/cursor/index.ts",
+      "sha256": "0604c5516f84f2489aba4984d0b504d7626f4a72daf6569026fe65b8024d8ec5"
+    },
+    {
+      "path": "src/avorelo/adapters/generic/index.ts",
+      "sha256": "dca1c079bfe9dbf7db6b823b9d968ea64f613f8dbf6fbeb7d5bf120e429f4ed7"
+    },
+    {
+      "path": "src/avorelo/adapters/loop-adapter.ts",
+      "sha256": "a3549e2b34b0916287f84ba358f97719012372393490c03c1866b05b6ed1c2bf"
+    },
+    {
+      "path": "src/avorelo/adapters/registry.ts",
+      "sha256": "0ec4f92734bad6c51fdb74ab50b2de496513c3d95139d496729b944ad515b03a"
+    },
+    {
+      "path": "src/avorelo/capabilities/activation/activation-detector.ts",
+      "sha256": "ba37f5aeb1dd67ab37468b592c616db53528a3e3184624833f3025f5cf4023ab"
+    },
+    {
+      "path": "src/avorelo/capabilities/activation/activation-preflight.ts",
+      "sha256": "c7b5338f60ed29eaa1093c15ec106bd0e53ae4b84276e1b063f98c190519dc52"
+    },
+    {
+      "path": "src/avorelo/capabilities/activation/activation-repair.ts",
+      "sha256": "3e7f5eb94b37e0e737f2557fd2b931f116c667bad75a4f9f7de26445393e2f51"
+    },
+    {
+      "path": "src/avorelo/capabilities/activation/activation-run-entry.ts",
+      "sha256": "8431743c7448e91fe61c2b232dd924f2ad0775a87e058965f7d43df976924044"
+    },
+    {
+      "path": "src/avorelo/capabilities/activation/activation-runner.ts",
+      "sha256": "fcd8bca1a4f2df7817601dc6afdc29d891f77bde2cc8355ed2d79e21920a217d"
+    },
+    {
+      "path": "src/avorelo/capabilities/activation/activation-state.ts",
+      "sha256": "add7485f95228faedd289bbd547bb092773aa1a66a2a3798fda7e63c256dd7e7"
+    },
+    {
+      "path": "src/avorelo/capabilities/activation/dogfood-check.ts",
+      "sha256": "bbf2f47381c137a70be40fa2cf65e4da2069fc41d57b1e70b8219717619ea8a9"
+    },
+    {
+      "path": "src/avorelo/capabilities/activation/index.ts",
+      "sha256": "a80b749c892555bab81f64824fc046b6c4f4fe7b717674fd27ed436cfc93751b"
+    },
+    {
+      "path": "src/avorelo/capabilities/activation/init.ts",
+      "sha256": "bdaae244eebdf5babce17709d76e0fc4b9708b99ced2c16444a54bf7e7934b98"
+    },
+    {
+      "path": "src/avorelo/capabilities/browser-visual-qa/index.ts",
+      "sha256": "1b32afd1f3aa7248fd6616c3554ca02da70b6f38a011d9d8220c4a4d37f56cea"
+    },
+    {
+      "path": "src/avorelo/capabilities/browser-visual-qa/persistence.ts",
+      "sha256": "0164a42dee55024307efc1d732a9809c68b83046c856c363b6c83f64046495e1"
+    },
+    {
+      "path": "src/avorelo/capabilities/browser-visual-qa/policy.ts",
+      "sha256": "dcadb013a16e27e600f5b8122adf01fc4dec313993e444ffe16852cc69339219"
+    },
+    {
+      "path": "src/avorelo/capabilities/browser-visual-qa/render.ts",
+      "sha256": "63d46fea5de7aa80f4771db2e0e23010a8f4d23c89dd9b2f2fd48688875e8eb1"
+    },
+    {
+      "path": "src/avorelo/capabilities/browser-visual-qa/runner.ts",
+      "sha256": "36e948652c2f0d31da23a11094cc808eb83015c296f823e5104a81bcd93f910e"
+    },
+    {
+      "path": "src/avorelo/capabilities/browser-visual-qa/types.ts",
+      "sha256": "1e97a46bcbb84f51509e16eff7da08aab5ef0df0f62e814a09718d913b69059f"
+    },
+    {
+      "path": "src/avorelo/capabilities/canonical-readiness/index.ts",
+      "sha256": "6fa5f05bc2cae1837312ee77f275dacf05005659fcc452f16f51bd9a43a9df11"
+    },
+    {
+      "path": "src/avorelo/capabilities/capability-discovery/index.ts",
+      "sha256": "4e51b8441a70d9f2a0d155dae5015dda67dc2f040a7af9798d0dae73b74c6d00"
+    },
+    {
+      "path": "src/avorelo/capabilities/company-loop/index.ts",
+      "sha256": "b7c259d493db013970e53b7edbd112be665b3bf724bac2ef9f25225cf59ac2dd"
+    },
+    {
+      "path": "src/avorelo/capabilities/company-loop/persona-contracts.ts",
+      "sha256": "d6a273333108779f0b927ad23fab87c1ec07237bb94b0b9b10f064e287e353a2"
+    },
+    {
+      "path": "src/avorelo/capabilities/company-loop/persona-runner.ts",
+      "sha256": "99d296307ebc85ac927d6f604e9ce82b71d2e666b935857011aac534512285ca"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-budget/index.ts",
+      "sha256": "8a482488afc75199a072548e6125b686abf6d6c503999dddb23cec1bb3f90e06"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-check/classifier.ts",
+      "sha256": "1f6a039774501083a952a8b6ccd0522d15e483390c7fe4fc985f276187fde42b"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-check/evidence.ts",
+      "sha256": "1b26e532d0aef66c76825bfda45cb749300b320f49ebf0788eba6ea98f681717"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-check/index.ts",
+      "sha256": "bf2d75bc002ae1bbe44cb6f20c8fb6731d9255c9861e5b9521c3f64de8fa1643"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-check/receipt.ts",
+      "sha256": "ea761b1363ddd1657618008bdb254a64b479ce36ff34eeb39ee33442aebbb5ac"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-check/renderers/human.ts",
+      "sha256": "165232ba7dd7ec3609800006199c919b88bd99c6951897cbea1fff59dfdb83ec"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-check/renderers/json.ts",
+      "sha256": "f49e4d079f28c955929e0b907162517d225ca02d1629b6deb854cf28f2fd44f0"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-check/renderers/receipt.ts",
+      "sha256": "1741971eca9268217176818b9ec3c061d19c2eca76236b55dce8c61c6ac5a79e"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-check/scanner.ts",
+      "sha256": "9ce369ff04d399d77c5823f03988b3c1f71d9b8df7a2473d7aaf70fcf5c60658"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-check/types.ts",
+      "sha256": "bcf3c284b4e82995f10ba7f1b564829ca5eda5b77f32581fe5e937b09cb5f691"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-compiler/index.ts",
+      "sha256": "b951e864f2bc12a062710ee811ff3ce304b1c3a12246e7009735cd49e7f4f2df"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-efficiency/context-budget.ts",
+      "sha256": "d571a0eab06fa7a91401216c8a70b9af6c2ca1a18928f73ec9406139111545e0"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-efficiency/index.ts",
+      "sha256": "c1fbf667a42524d9ee8956539b82dc3f3385ecf5e6b8d0bf9e0bca299b34d98f"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-efficiency/persistence.ts",
+      "sha256": "cbca05fc1a01ecbbb9f91b8412cd0c6aaa78a0298d853d84b8768aa614c32f0a"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-efficiency/render.ts",
+      "sha256": "8f7fbfe17351259c28c0b734daeddc6d8373fdf02289a5002a39388fcec6487d"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-efficiency/types.ts",
+      "sha256": "8ef07356409c6bff3f0097fdd955e39c9bc0c805c781b3b6cb20400d42a6392b"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-efficiency/work-brief.ts",
+      "sha256": "287348980238bf5aa07ed11c26c60341ddfecfd9d5e42e0186dd218873fdf4f1"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-efficiency/work-type.ts",
+      "sha256": "6e1625c07be95e10f424c5ea86eb1c8e60733831f4e6df8ae8f8b65336917da6"
+    },
+    {
+      "path": "src/avorelo/capabilities/context-efficiency/workspace-map-compat.ts",
+      "sha256": "d4749507cbb7f29359eb37b8dec03c400c8f3e6a444282a9b5a2d52434887670"
+    },
+    {
+      "path": "src/avorelo/capabilities/continuity/index.ts",
+      "sha256": "394c5ed63e3ee06fd822ea7d6461435e42b3a9fa8e0d95406cfb3e344121fe7f"
+    },
+    {
+      "path": "src/avorelo/capabilities/control-center/index.ts",
+      "sha256": "f79bc44722ec63f155903a6d297971aea59b433ca6a0dad7a90e9918a73a2f46"
+    },
+    {
+      "path": "src/avorelo/capabilities/core-readiness/index.ts",
+      "sha256": "1247b4806baaeb9139e1350a1aa41e984d7e2c3e5336a3e1f51672b2ba2d7693"
+    },
+    {
+      "path": "src/avorelo/capabilities/efficiency-sync/index.ts",
+      "sha256": "798a9a237f12f9ace8843dac15d3719efb427f9a11cfbec46fa8985daf591e0f"
+    },
+    {
+      "path": "src/avorelo/capabilities/feedback/bundle.ts",
+      "sha256": "9d129fafdd23eeed0055464cc54bc57c1770a521ffb4ea0c0c16ec1e4714c304"
+    },
+    {
+      "path": "src/avorelo/capabilities/feedback/config.ts",
+      "sha256": "cd0f068d96343111741cde8875a8bc8a0a6be35d0eaff40afa595c7ce290346f"
+    },
+    {
+      "path": "src/avorelo/capabilities/feedback/index.ts",
+      "sha256": "a1a97029df25d4a53314808d528e2802d0b5f8a844f01829eac11130ae5bcbdc"
+    },
+    {
+      "path": "src/avorelo/capabilities/guided-work-modes/index.ts",
+      "sha256": "9f4e88743cdcd966237f8e90f012b18c30d943eb0031213a21b57c1d83c2d950"
+    },
+    {
+      "path": "src/avorelo/capabilities/instruction-management/managed-blocks.ts",
+      "sha256": "76ea61fee34701da58e0bf8eb18cf60c82733ddf0a62082f638f38c7abb5e092"
+    },
+    {
+      "path": "src/avorelo/capabilities/local-dashboard/index.ts",
+      "sha256": "8e512afafd8f60e904415c64d15a1bb60ea0ead33248bcb902d023661bfb93d7"
+    },
+    {
+      "path": "src/avorelo/capabilities/loop-control/check-detection.ts",
+      "sha256": "877aa474a5a4eb225cd28544977237076299a89b62f6866588f1cc06479ce404"
+    },
+    {
+      "path": "src/avorelo/capabilities/loop-control/checks-runner.ts",
+      "sha256": "940305bbe7648db7554f6b583ad1e66dbed2b8e4a318ae72c920513eb8abb632"
+    },
+    {
+      "path": "src/avorelo/capabilities/loop-control/git-observer.ts",
+      "sha256": "972ee2f8a91cd6190a808a9bd1c7dd3904e413fa17b3ff5424e6a1fc78a96b54"
+    },
+    {
+      "path": "src/avorelo/capabilities/loop-control/iteration-drift.ts",
+      "sha256": "fa3008861d25af76de5ca66b000672999648c17131587f4ae029759b77bb3f85"
+    },
+    {
+      "path": "src/avorelo/capabilities/loop-control/loop-metadata.ts",
+      "sha256": "67b062bede97481d71a34e47a4db69a8c451c371a4bb18f1f0d64c88de2ebe82"
+    },
+    {
+      "path": "src/avorelo/capabilities/loop-control/orchestrator.ts",
+      "sha256": "d8afeaedd6072b89877142871908f9c779f88f440daf2034069a0811e223cb62"
+    },
+    {
+      "path": "src/avorelo/capabilities/loop-control/policy-builder.ts",
+      "sha256": "0bfb9a830b931014be439c254b77a05cf5c217d2a7f79273e21b08dd1643a88f"
+    },
+    {
+      "path": "src/avorelo/capabilities/loop-control/readiness.ts",
+      "sha256": "40c0f60f0f152e455454a52453dfde330ba4203e7b110eeb0e82b4659483e071"
+    },
+    {
+      "path": "src/avorelo/capabilities/migration-scorecard/index.ts",
+      "sha256": "2503c770eb746986cde9e43bbd8691504d654e08aca212b1920d552e40cd1001"
+    },
+    {
+      "path": "src/avorelo/capabilities/model-routing-input/index.ts",
+      "sha256": "ab7e3137d310147da358ae9d883843ce6d8c662fa1c049c06ae09d3a355993c1"
+    },
+    {
+      "path": "src/avorelo/capabilities/model-routing-input/persistence.ts",
+      "sha256": "31f02467a8e2aaa4fffccec1c2179ebd1b974e8ee6dc12ac9228f23af39b8129"
+    },
+    {
+      "path": "src/avorelo/capabilities/model-routing-input/render.ts",
+      "sha256": "b7f238eac63fc2689e10111e0f96065cf95c67849e6431b238e8bd85d598838e"
+    },
+    {
+      "path": "src/avorelo/capabilities/model-routing-input/route-profile.ts",
+      "sha256": "4766e503b5a8325ba27ea154f29692b1e19cc3c72304d651bf691609a5f9097d"
+    },
+    {
+      "path": "src/avorelo/capabilities/model-routing-input/types.ts",
+      "sha256": "c1ad317332ab1d110fe100d3e4b34329b9a34416725a909e58d0416740be27b7"
+    },
+    {
+      "path": "src/avorelo/capabilities/production-confidence/index.ts",
+      "sha256": "8821eb6f01603d0b7529f7215de992cf1e18a8ab8db874ee1b9bd339b33af235"
+    },
+    {
+      "path": "src/avorelo/capabilities/proof-report/index.ts",
+      "sha256": "67b564cb8ea672745b978b19dccf9f9e2b4e8e3ee3dc2353a3b8fc801fa6c359"
+    },
+    {
+      "path": "src/avorelo/capabilities/registry-freshness/index.ts",
+      "sha256": "73e3e82cdc9ad48702824df587e4fdc2e1bff51e15fafd1eec9832f5546af9a6"
+    },
+    {
+      "path": "src/avorelo/capabilities/runtime-flow/index.ts",
+      "sha256": "b569750013ddfbcf1a9e7f95dff079ad1d3fe40af6a46e9b103e95821bcdd4bd"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/detector.ts",
+      "sha256": "f7b5a541d340649f48695a14e7ccd0a58d84d1d81c3fc846a2810b88ffbf137a"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/handoff.ts",
+      "sha256": "a71009451d30fa04a4af90e710eaf95a21d7213dd9a3095638c74f59f2cbb9ed"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/index.ts",
+      "sha256": "33a4bf29cb8a4635d0013316e7b57f14ba82e10703cd3c0338009c23f3d69f79"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/instruction-risk.ts",
+      "sha256": "75a38300f86503f59ee40ed3104862a13dafd1b06d6f47fca5e6014780b13c00"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/intake-risk.ts",
+      "sha256": "eb3aec642df36681bcb8ae46bc3fc071bb49d0d7cf67bf25e37db2e94f680312"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/receipt.ts",
+      "sha256": "ad350e22c8a9ff5bfcca6a9787aea4444cfc8f94c8886429b4dffac340d69427"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/redactor.ts",
+      "sha256": "b811872c94bc5a905aaa955536beaf5431edb331ec4ec507b1ed4b918a3cd827"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/remediation.ts",
+      "sha256": "2a2c2ec18da86b5c893b5df4efac47111095d53ff8cc59bb60ca36869c261685"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/runtime-gate.ts",
+      "sha256": "d4c19fa977f1c672c2e7217d4fb9d6f8ece1269263158c913572cc5c84443619"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/safe-run.ts",
+      "sha256": "98e0e90ebd6da31fd0d60f6b602b87521fe841534d52e1fa120fdff1d4d71777"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-boundary/source-trust.ts",
+      "sha256": "a742baa473fb56f1ae2304f2109705226374c44676333571e1a4dd370d223956"
+    },
+    {
+      "path": "src/avorelo/capabilities/secret-protection/index.ts",
+      "sha256": "ad4bb05015a79e17db8a072ba1270c0e1a6e9663df1aab689e00488b09dfb942"
+    },
+    {
+      "path": "src/avorelo/capabilities/session-continuity/handoff.ts",
+      "sha256": "d4c5e5336dc5f54bfdc367bfbb24b8c66511c991745afe453237ab93770a84d8"
+    },
+    {
+      "path": "src/avorelo/capabilities/session-continuity/index.ts",
+      "sha256": "2c3d5feaaa85646faa7124e942197571902daf504adb6564abaea251ea7d7f9b"
+    },
+    {
+      "path": "src/avorelo/capabilities/session-continuity/persistence.ts",
+      "sha256": "dfc4ae7004fb9cfe41e7b78b783ebdef231eaa68f1e8db96499c5fd0f570a078"
+    },
+    {
+      "path": "src/avorelo/capabilities/session-continuity/policy.ts",
+      "sha256": "6e21181b52e72853e16d5a3eebcfd6aa5beb73611335c83e410fd7288ae4e739"
+    },
+    {
+      "path": "src/avorelo/capabilities/session-continuity/render.ts",
+      "sha256": "2f947355faf852fa8abd6f28b7b1c6e3b72a842b2f7ce773fbf74f30e817202e"
+    },
+    {
+      "path": "src/avorelo/capabilities/session-continuity/signals.ts",
+      "sha256": "0f617f88954c4c1c23751cafb5f45010ce3a813314f0a415918850f8c3f4c396"
+    },
+    {
+      "path": "src/avorelo/capabilities/session-continuity/types.ts",
+      "sha256": "8147222ad69e86bb3803d1fcb59efab5d96f2e42cb675492a9fa3695a2ca4fd7"
+    },
+    {
+      "path": "src/avorelo/capabilities/session/drift-detector.ts",
+      "sha256": "a874cdaa50da2f9baa76fc77e9c2c08fae442b2282fb6bd601fc153a3e1ed470"
+    },
+    {
+      "path": "src/avorelo/capabilities/session/index.ts",
+      "sha256": "f945a8f954f935e9222289698e9a0d21a06106cbd52a078bca3e6f3b3ebb572c"
+    },
+    {
+      "path": "src/avorelo/capabilities/session/intervention.ts",
+      "sha256": "5de7cf3d9db3d91c0447b7fe68ff76bd7dfa761ec7cffbb1b8e23cf0b8e6f659"
+    },
+    {
+      "path": "src/avorelo/capabilities/session/resume-packet.ts",
+      "sha256": "e814d348f7f5b91584474bb73e05171a307ce09fdc54b1226f671b19b221b99e"
+    },
+    {
+      "path": "src/avorelo/capabilities/session/session-store.ts",
+      "sha256": "705510e323e9a72c80cebb45bc93ab0480d68ab70d6d339f4ec09a5d1ee1db9a"
+    },
+    {
+      "path": "src/avorelo/capabilities/session/watcher.ts",
+      "sha256": "cc6df1e7cec545a5a19af476df871ddac5a70e6b56b32ed4a9385be8df0bb478"
+    },
+    {
+      "path": "src/avorelo/capabilities/settings/index.ts",
+      "sha256": "e5025e7e10ed52a95699abd26e5fcc4e181d744cdacda15ce375bff829cd01a6"
+    },
+    {
+      "path": "src/avorelo/capabilities/token-cost-evidence/index.ts",
+      "sha256": "a34d3289cffbd3d8549eaea0bc7e5fd5006bb00573794a472123ef197863634a"
+    },
+    {
+      "path": "src/avorelo/capabilities/tool-governance/index.ts",
+      "sha256": "224dafea78b96fe64df6c3cd945c4e9e170057035068e6559759a3a35ec6e839"
+    },
+    {
+      "path": "src/avorelo/capabilities/value-ledger/index.ts",
+      "sha256": "cde58b181fc797c621cd919e22c1307cb19e724f64f8333806483eedd505ff5e"
+    },
+    {
+      "path": "src/avorelo/capabilities/work-intelligence/index.ts",
+      "sha256": "cb7fcd9ce1541f1a13f0fe82a1bfaa66a447b4e7f06377c4b9664f191db930ca"
+    },
+    {
+      "path": "src/avorelo/capabilities/workflow-radar/assessment.ts",
+      "sha256": "47e36f861e0ffec0b94455a5e9e7fd99ca8c64c903612600cca5ef7d04f6b2a9"
+    },
+    {
+      "path": "src/avorelo/capabilities/workflow-radar/index.ts",
+      "sha256": "776b05205e93c318799e8649aae06d69c6302674f0c86bf7831b7f47ea7d4d4a"
+    },
+    {
+      "path": "src/avorelo/capabilities/workflow-radar/persistence.ts",
+      "sha256": "4f332ae577e13be2cc3dedd41c629011eb125c5a805ecc2ebc4c20dbb8ee58c9"
+    },
+    {
+      "path": "src/avorelo/capabilities/workflow-radar/policy.ts",
+      "sha256": "d2600710fb7cc2b1dccf4e9df22a8218b13c694f3e7836ac86b44eae7e4ce06c"
+    },
+    {
+      "path": "src/avorelo/capabilities/workflow-radar/render.ts",
+      "sha256": "70449ed2e1cd2bb1e13e95a1ffcd7cd10b8a837b5344b7067fd8127ebb63c6ba"
+    },
+    {
+      "path": "src/avorelo/capabilities/workflow-radar/signals.ts",
+      "sha256": "20f9a3a52abb4de92167ec538f0898f13a97b0f6803ab2557355480ed3feae39"
+    },
+    {
+      "path": "src/avorelo/capabilities/workflow-radar/types.ts",
+      "sha256": "b699714e54ffd00c15627770d0753791c1461e84ae64f458153397927983afaf"
+    },
+    {
+      "path": "src/avorelo/capabilities/workspace/monorepo.ts",
+      "sha256": "2b6b9ec821e701b70d27c5fa9954b912eb89f1000f4a4c90b678ddc9d951ed39"
+    },
+    {
+      "path": "src/avorelo/control-router/index.ts",
+      "sha256": "310a7223ba3b8a08ab2c8cfa49a598365b118651de519be13845956ea81cc9ef"
+    },
+    {
+      "path": "src/avorelo/dogfood/activation.ts",
+      "sha256": "c1117b22359a917febdbe79462452c4435ac9a3044114ed59a6c6dcc9556f4d2"
+    },
+    {
+      "path": "src/avorelo/dogfood/adapter-secret-boundary.ts",
+      "sha256": "bfb8f28f797e588372bd463b3ed18c12787a188f555a6e3bb95014996c3711a6"
+    },
+    {
+      "path": "src/avorelo/dogfood/architecture-invariants.ts",
+      "sha256": "b58109cc59ec6c750bcbfaa5ec82f6d1fbc4cd96b288c0cc455a6361ebe5a491"
+    },
+    {
+      "path": "src/avorelo/dogfood/avorelo-orchestration-e2e.ts",
+      "sha256": "c3662e52de7c038e9ce88450447748e61e5ca99cee568bf6388d45c293f7ca8e"
+    },
+    {
+      "path": "src/avorelo/dogfood/avorelo-real-execution-e2e.ts",
+      "sha256": "be4825f873214e3dd62e2c09e7b8a7f66c1b47d84e835da924c099a1c14ab27d"
+    },
+    {
+      "path": "src/avorelo/dogfood/browser-visual-qa.ts",
+      "sha256": "bd6bddea3b059ceccbfb2090d48567e6bbac9b466d244d3a7e4393578feb105e"
+    },
+    {
+      "path": "src/avorelo/dogfood/canonical-readiness.ts",
+      "sha256": "b331e6bbb1b55305c2bc5690ef3cf91ed3a8955ac418ab09bbd9ec964da1d952"
+    },
+    {
+      "path": "src/avorelo/dogfood/claude-code-adapter.ts",
+      "sha256": "f5fdc49c7ada090d6427096761a560f010fdc749061bc045b4ea251fd8f79e37"
+    },
+    {
+      "path": "src/avorelo/dogfood/codex-adapter.ts",
+      "sha256": "6d6e659187e7c9422476a63a8797cd826c3ac332c0cb76eca5156c379e457b0d"
+    },
+    {
+      "path": "src/avorelo/dogfood/company-loop.ts",
+      "sha256": "cf34a16349a80cc62bd8a157440ce941ca4533a85768640afd7a20ea6e7b71f8"
+    },
+    {
+      "path": "src/avorelo/dogfood/context-check.ts",
+      "sha256": "e1e2c57a84bd8ee1d15286ed52d9529ffc33a1ea8c77644cd2e9562debc93b42"
+    },
+    {
+      "path": "src/avorelo/dogfood/context-compiler.ts",
+      "sha256": "4dfa13390c72184f0d1e8ab7acb34de4d2b163ffedaf8165bb93585674d969a4"
+    },
+    {
+      "path": "src/avorelo/dogfood/context-efficiency.ts",
+      "sha256": "6f5d728d48b6d895854a23ee50781df8a44fa7212945a9fe010b6cfda6b85483"
+    },
+    {
+      "path": "src/avorelo/dogfood/context-engineering.ts",
+      "sha256": "e2fc6ebc9a37036e16c7e0a744dfc334ff698a27ba2bc7a7839c1d893d488f01"
+    },
+    {
+      "path": "src/avorelo/dogfood/continuity.ts",
+      "sha256": "2981214033e32c6beb4eedbd7d08e1455bc352b82d7fc8ade7133a4e6796535a"
+    },
+    {
+      "path": "src/avorelo/dogfood/control-center.ts",
+      "sha256": "d28a3201f126eb007ededa8b1e5ffb0d25d2824adf866070b7b0a044a758b4bb"
+    },
+    {
+      "path": "src/avorelo/dogfood/control-router-alignment.ts",
+      "sha256": "4e61761311ad3d6fadd4269df9f22b83eff6934bff38b4cb54580c9dccf48802"
+    },
+    {
+      "path": "src/avorelo/dogfood/control-router.ts",
+      "sha256": "c4adf93fe8ae158b79f766b5edd658eaf083bef6b6d98d65919f4a2bf1b78833"
+    },
+    {
+      "path": "src/avorelo/dogfood/core-readiness.ts",
+      "sha256": "f36688e716ef4716b4978a99b4c5175cb7c2a158f842111880906f11e6264605"
+    },
+    {
+      "path": "src/avorelo/dogfood/core.ts",
+      "sha256": "db8874608675788958123c2398d03e5cbd6256284a701792f24c356b4c4c5de8"
+    },
+    {
+      "path": "src/avorelo/dogfood/cost-benchmarking.ts",
+      "sha256": "6f08b4251d1398e6fc904cfb5441bdc036f17a28543cc887306e2cc7d4378aa1"
+    },
+    {
+      "path": "src/avorelo/dogfood/efficiency-sync.ts",
+      "sha256": "fe426a3d29a64a51367826d58f926afc12e05158da6e5b22dd7e4189af8c2582"
+    },
+    {
+      "path": "src/avorelo/dogfood/execution-verifier.ts",
+      "sha256": "7bc6de562cc5547a694147c29c827e126f75ccc90cc0d2cd0748a1bba70febf0"
+    },
+    {
+      "path": "src/avorelo/dogfood/future-executor-adapters.ts",
+      "sha256": "5a25c018e47740f66448cb7e32bbd1f57c9533f9359f24617a9d46d84276cef4"
+    },
+    {
+      "path": "src/avorelo/dogfood/generic-delegated-execution.ts",
+      "sha256": "24701bbd8ef975c7a43e6ce07ef6b0c73d7c0eb5a3673a9786b1ea37b9b4d77a"
+    },
+    {
+      "path": "src/avorelo/dogfood/github-actions-proof-adapter.ts",
+      "sha256": "f68100be3fb2db82f3583c85718ec4040315604ce9a53e8850400d41db1be14b"
+    },
+    {
+      "path": "src/avorelo/dogfood/kernel-model-routing.ts",
+      "sha256": "7364bccf21466d590077712a3fa3c3afb9ff4fe90f37f83f4d052372e9d64dc7"
+    },
+    {
+      "path": "src/avorelo/dogfood/loop-control.ts",
+      "sha256": "bc2c7f80e82c6e48b863e4615672bf7039aa3de0b00869e0fbe79c37f8848c13"
+    },
+    {
+      "path": "src/avorelo/dogfood/migration.ts",
+      "sha256": "be767506354295b6f3bdbc0c382070580473e891d1cc3a9c7a9602883e901f54"
+    },
+    {
+      "path": "src/avorelo/dogfood/model-routing-input.ts",
+      "sha256": "fc12ff6e98c1d1dbe77c995158555d709d0af60febe6a5dbf53936b3720a0b35"
+    },
+    {
+      "path": "src/avorelo/dogfood/model-routing-usage.ts",
+      "sha256": "d0680f917a8a767acc77bf466db063da030127f40f6e008513214712ecf344aa"
+    },
+    {
+      "path": "src/avorelo/dogfood/model-routing.ts",
+      "sha256": "a21546e909914d6b53fc47994cd6aaf42df99644ea603230811729b848d73360"
+    },
+    {
+      "path": "src/avorelo/dogfood/multi-agent-efficiency.ts",
+      "sha256": "e3525ef86eea1bb16bbada0d014ca4169bc321051a1fce03e861ef777dc2d0d4"
+    },
+    {
+      "path": "src/avorelo/dogfood/multi-agent-review.ts",
+      "sha256": "5a3e449758614109c5e315da912eb0d4dd9955649b65c1e040be1d24812621f5"
+    },
+    {
+      "path": "src/avorelo/dogfood/package-safety.ts",
+      "sha256": "16972ba384b8a6f74341be7d3771052e55450ad850d9c915f5d2589d9096afcd"
+    },
+    {
+      "path": "src/avorelo/dogfood/persistent-adapter-health.ts",
+      "sha256": "cb87ed6c445c38b9f132696851681cc1bf7809731e7ddba5204bdf02ff492d32"
+    },
+    {
+      "path": "src/avorelo/dogfood/phase1-foundation.ts",
+      "sha256": "fcbf187a94c2cad2fd7bb03754654dd4edef6fc9db4d6c798968a97aeb011672"
+    },
+    {
+      "path": "src/avorelo/dogfood/playwright-proof-adapter.ts",
+      "sha256": "651a567c13de9bfea88237400e301dcf45266fe06d8a0b6e6f7dc3e7f47b7e4b"
+    },
+    {
+      "path": "src/avorelo/dogfood/product-control.ts",
+      "sha256": "d98c45db8f7efc25b130d76e62e93646b9d7b14f54ca875ee919fffffd9329af"
+    },
+    {
+      "path": "src/avorelo/dogfood/proof-report.ts",
+      "sha256": "443ab933d12c4dae9318c7c424aa0e98484614c344587c354fda18bf62e8b722"
+    },
+    {
+      "path": "src/avorelo/dogfood/real-tool-execution.ts",
+      "sha256": "05184c3f14b68b03e3cd65869ac720916a1795e99bd9600c7d95288571a7ec79"
+    },
+    {
+      "path": "src/avorelo/dogfood/roadmap-closure.ts",
+      "sha256": "0b8532da21c2db0333ce497d0908683428816023f47157e887eb5f2a15fafbb9"
+    },
+    {
+      "path": "src/avorelo/dogfood/routing-efficiency.ts",
+      "sha256": "b7b16d9b9e89a991241c62bf5ebc771d0ef2183399c70df3a4fb56b867418b43"
+    },
+    {
+      "path": "src/avorelo/dogfood/runtime-flow.ts",
+      "sha256": "f78241f71d8b1d0a8323e89a915c0c24472a33d4a4e89013969920f30dab0fa2"
+    },
+    {
+      "path": "src/avorelo/dogfood/scanners.ts",
+      "sha256": "514d52bc8755e73788567875c1cd476f0c2affaf4e0b64a20223d6774f37cf7a"
+    },
+    {
+      "path": "src/avorelo/dogfood/seamless-ux.ts",
+      "sha256": "c1f333e42a5bc71271c738d77c6f2917b9526547eff95c4177542a1a3ff4a5b7"
+    },
+    {
+      "path": "src/avorelo/dogfood/secret-boundary.ts",
+      "sha256": "fd3255fe81d2ad0bf5b94d460cd519987cd3bd10868130744402206c524984d3"
+    },
+    {
+      "path": "src/avorelo/dogfood/semgrep-adapter.ts",
+      "sha256": "86ae32fa3b99fe1924acaadd779b8657d32d1f3ae14b9e7d816e920662ac5c57"
+    },
+    {
+      "path": "src/avorelo/dogfood/session-continuity.ts",
+      "sha256": "949f24eeb01ec1823f0050d55fb8d710c2f40c432cbd764bb1c36bae80c31c32"
+    },
+    {
+      "path": "src/avorelo/dogfood/settings.ts",
+      "sha256": "f0a8d32d9d403cdb2bb548d4ef890f8fd761134bb66056c906892439030a2dd4"
+    },
+    {
+      "path": "src/avorelo/dogfood/skill-adoption.ts",
+      "sha256": "353e43f9b53d4ee030e9918d238ce325830f4a2b9634cd193210adcb9079f45a"
+    },
+    {
+      "path": "src/avorelo/dogfood/skills-layer.ts",
+      "sha256": "576e4f9d10963c6c70f8d8ac071bc330d5eb0b7bd9da92a00862d49ed698b42c"
+    },
+    {
+      "path": "src/avorelo/dogfood/skills-os.ts",
+      "sha256": "d3050a660391570efe2a171b0c25b927d0539b74b3424e3d21698bdb967ccd03"
+    },
+    {
+      "path": "src/avorelo/dogfood/slice1.ts",
+      "sha256": "65f4b2e7b960e492c9306534f02ad1b8fba6e21a6b8e3aece6a0e540351ea7ae"
+    },
+    {
+      "path": "src/avorelo/dogfood/slice2.ts",
+      "sha256": "a3f6ec50c0f0eb2673a3a19a71440e2f6eab9f1f123ab40b149d3bde501ddeba"
+    },
+    {
+      "path": "src/avorelo/dogfood/slice3.ts",
+      "sha256": "3d4264719b431bd2b41d9d8555d7367ef10c642946ef75efa9c9176058c41719"
+    },
+    {
+      "path": "src/avorelo/dogfood/slice4.ts",
+      "sha256": "938f245af3e28fdbba2f42bba29643057ef718868bcea98b6a9b70d744d719c5"
+    },
+    {
+      "path": "src/avorelo/dogfood/task-queue.ts",
+      "sha256": "f56c255fba9a95e32e2b6ce4667cbc8e9d42e95336fe5850ebebe85c24c95973"
+    },
+    {
+      "path": "src/avorelo/dogfood/team-policy.ts",
+      "sha256": "0ee4e8fb0d09745f5899c5af664da6ef82ecb4abc20715b6d4a0461eda1aa79a"
+    },
+    {
+      "path": "src/avorelo/dogfood/token-cost.ts",
+      "sha256": "f6ae7431904a6f8298254fd0eef9e3340dc89e1f9611b002ab00d55a75c2d351"
+    },
+    {
+      "path": "src/avorelo/dogfood/tool-adapter-orchestration.ts",
+      "sha256": "c9b4788e01f647de90da0d7fe47fadbb6afdf1ab2ea40c4740a3e68e44921254"
+    },
+    {
+      "path": "src/avorelo/dogfood/tool-adapter-usage.ts",
+      "sha256": "8b46c0c3a62b2d4dc1437073a7c7a62574eb291f7c0853402f63927a823ed79f"
+    },
+    {
+      "path": "src/avorelo/dogfood/tool-adapters-local.ts",
+      "sha256": "d3577c0d3688c3570acf9c6943dc82fffc82d4b1ec7fdcd6a2a014399c18b9d5"
+    },
+    {
+      "path": "src/avorelo/dogfood/value-ledger.ts",
+      "sha256": "4b032e256181d8074d88acc0b0585193b355deeca2cb81ee5e8a51644b296d24"
+    },
+    {
+      "path": "src/avorelo/dogfood/work-controls.ts",
+      "sha256": "77d08127a54e036dd73a035630ad93247df5e1a438183447ab194596ca82a0c9"
+    },
+    {
+      "path": "src/avorelo/dogfood/work-intelligence.ts",
+      "sha256": "709afdc4f88e587dae8e1cfc5a758f53d50d1781c6915f9d4c252493f6e8dd46"
+    },
+    {
+      "path": "src/avorelo/dogfood/workcontract-routing.ts",
+      "sha256": "c0e9d99d6eedaafb383969dc1d50f05cbbd5a3a5853499ca55a4aca4e58d55c3"
+    },
+    {
+      "path": "src/avorelo/dogfood/workflow-radar.ts",
+      "sha256": "a8967e42895d362a87841c966606566e00dd9c641bbb96d39c4e04eb0cbe25e2"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/agent-guard.ts",
+      "sha256": "831f9b1deafa6411958273f5e91be10819c9cf12fedd8f93f413b631bcbd5cda"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/brief-compiler.ts",
+      "sha256": "0748b2191965383863ff16b72089386f6e5ee6990027c53f8a808ca2e5dd2cb5"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/budget.ts",
+      "sha256": "3f4cbd4f28c6e16969e0a46e53d958d533702b3e121538305cba600dc4d6390b"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/conflicts.ts",
+      "sha256": "a04e84122e28891408e750d8e2a8707fa605a3dc538c97d5e792d4dfc7e3564f"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/discovery.ts",
+      "sha256": "deda58f5d9407bef746b6160a2f33f06b64f4d26c68a0705cfea51743f671fff"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/index.ts",
+      "sha256": "5370a360e42230ef54156de4ce7c0e2e70583acbb78a18ba7586654c388a8d6b"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/mode-detection.ts",
+      "sha256": "868579c205b806dbe481f7a495d0c4ee40a7dbb0eb80ce581a0329496d45ba1d"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/normalization.ts",
+      "sha256": "9e3fc8d0c26ef00997be75e794d353a88615a0d66a73a1ce1549c21f498356be"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/promote-forget.ts",
+      "sha256": "ceafc7b439a6c38dd80963c9d44d8aa396069ecc9337f709f325fe575dd0394a"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/promotion.ts",
+      "sha256": "803995acb7e0da211ef0f9482f5786942c6e538e322a74c0bcd073dda61613e9"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/receipts.ts",
+      "sha256": "71e21e4ad8b72d848e23c2a5f9ec81f0822ba5ac4e0eae44309957d30e320372"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/redaction.ts",
+      "sha256": "10ccd406e7d3fb88db156ce73c04b8b96ebbca22d997154d7ecc3be31e3a348a"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/repo-preflight.ts",
+      "sha256": "17caee2f4d334be06a5f3da3361863adde5e1a3e6b646fef6f1e2d309cf65812"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/storage.ts",
+      "sha256": "a7a9793a66ce76dbf529fb2b6fd6da5de9aab395f712f36b9adb5ddeca95c3c2"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/trust.ts",
+      "sha256": "bca72fc124f81fc7e0710ac630db8abeed9e431ac009f5329c049133cec9ff95"
+    },
+    {
+      "path": "src/avorelo/kernel/context-control/types.ts",
+      "sha256": "e11c0d27113230820fd131bef454c29ab87b2cb4647bae2fa01e912fa5fede3b"
+    },
+    {
+      "path": "src/avorelo/kernel/drift-guard/index.ts",
+      "sha256": "fac5e0218f673fda9c0557cbe9f5e64ee7bc29cb7e969ad307496b5183bc73ae"
+    },
+    {
+      "path": "src/avorelo/kernel/evidence-gate/index.ts",
+      "sha256": "d1729b8864a2601ab939859f0a807334388a4955318ff065c2216dc77e7ba121"
+    },
+    {
+      "path": "src/avorelo/kernel/evidence/foundation.ts",
+      "sha256": "ffab6e4665c5f136e235389150a3d4ffe2eba72d287abbf7cdd52a330d8c2fc2"
+    },
+    {
+      "path": "src/avorelo/kernel/evidence/index.ts",
+      "sha256": "a2fe49fb05a6060c936df9f879555db458271e77041e25fc1729254daf33fa6b"
+    },
+    {
+      "path": "src/avorelo/kernel/model-routing/cascade.ts",
+      "sha256": "304ce768890d4133508c2e80bcf1eced469af3290cd19765ccd6da9cd7fe562a"
+    },
+    {
+      "path": "src/avorelo/kernel/model-routing/index.ts",
+      "sha256": "238cdc62942b6a468cc6b1112ee39df6e909e6d22bc0183b7c665ebba7226134"
+    },
+    {
+      "path": "src/avorelo/kernel/model-routing/model-registry.ts",
+      "sha256": "90bbe301a4e2ff4d4cb8ae223a05292f47e7e0f61b54966b22dc6fb1d84ac5af"
+    },
+    {
+      "path": "src/avorelo/kernel/model-routing/provider-registry.ts",
+      "sha256": "beca7e2d6106744540714c4ec168f84ff856266aec220dc947639586a12f70c3"
+    },
+    {
+      "path": "src/avorelo/kernel/model-routing/receipt.ts",
+      "sha256": "4fd06043374bb96835c207aa23a6cce08cfd11beac4a6d28fb9acd7cbed49402"
+    },
+    {
+      "path": "src/avorelo/kernel/model-routing/resolver.ts",
+      "sha256": "5584507087631fe2cbb230e1f0e8ea3ca1091fd2b9d9080079deefe24c041bb4"
+    },
+    {
+      "path": "src/avorelo/kernel/model-routing/session-memory.ts",
+      "sha256": "3c48a0646ace9e2808f05852958a09f74f8d84ab8ec698c6bcbb6ffcde4476ac"
+    },
+    {
+      "path": "src/avorelo/kernel/model-routing/types.ts",
+      "sha256": "84dd23f6e4f5e224f8cf9e55fa900fe8887b173b1980cc10f429345fcebd2d28"
+    },
+    {
+      "path": "src/avorelo/kernel/model-routing/verifier.ts",
+      "sha256": "74543d7976504d4acce50788111561634c98afbed22a0ca0b8dc551ea4808566"
+    },
+    {
+      "path": "src/avorelo/kernel/policy/index.ts",
+      "sha256": "210f599c092e34f04ce9d751ba68349c7456bfff0fde6cb76358e840ee5b4508"
+    },
+    {
+      "path": "src/avorelo/kernel/pretooluse-gate/index.ts",
+      "sha256": "834d54b79fc486f12eff3452d0479ba3756ae09ee0448fe9c7a71f27e0bddd62"
+    },
+    {
+      "path": "src/avorelo/kernel/proof-adapters/api-contract.ts",
+      "sha256": "67f16b4067d24aa9d9784c89741340a7f8700b227041e77c135f545e78e655b8"
+    },
+    {
+      "path": "src/avorelo/kernel/proof-adapters/build-test.ts",
+      "sha256": "246951a970f2d5bf2fa63da73fdfd27b8d5a610c18585578ca17bb6c512a693d"
+    },
+    {
+      "path": "src/avorelo/kernel/proof-adapters/index.ts",
+      "sha256": "7de898a2288e9c9124a10da10704f6950f78a9d94fb007039774cf83cf870d9c"
+    },
+    {
+      "path": "src/avorelo/kernel/proof-adapters/product-surface.ts",
+      "sha256": "0a7d5a47f83a64be490379d8d326c9218f8d57d77e9dbbc19ae6f4df22bd0315"
+    },
+    {
+      "path": "src/avorelo/kernel/proof-adapters/security-secrets.ts",
+      "sha256": "6e9ee86adc3f5fd093ef36a1596a517eac568af5c214f6e6f495919791849b35"
+    },
+    {
+      "path": "src/avorelo/kernel/proof-adapters/types.ts",
+      "sha256": "10046863ceaf16030708e4045b48841e7ea268beadc4479bbe0b4380f00e5176"
+    },
+    {
+      "path": "src/avorelo/kernel/proof-adapters/ui-browser.ts",
+      "sha256": "be8f1b41cc84956cdeb48487841725a5745969534109bee4778107b2b29d2bd9"
+    },
+    {
+      "path": "src/avorelo/kernel/proof-contract/index.ts",
+      "sha256": "c20e94c6fd2d416788915ea4d7f8d3a2dcca3cdefc888349d09efccbb1f1b5f6"
+    },
+    {
+      "path": "src/avorelo/kernel/receipts/eligibility.ts",
+      "sha256": "ff128c0e8f3eea92535df5a7de122b7e14ca57966252e22aca1947d5d4c6125d"
+    },
+    {
+      "path": "src/avorelo/kernel/receipts/index.ts",
+      "sha256": "44d46a572c1ea636c7a9376dbb497e00b2d4261e0d88b4fc278f337d09012f09"
+    },
+    {
+      "path": "src/avorelo/kernel/receipts/sanitize.ts",
+      "sha256": "f1ef2c7aa04072d3ba77d2a83cb21f98cc63add6ae6abd4e7c53e8ae27fdd5b5"
+    },
+    {
+      "path": "src/avorelo/kernel/receipts/validation.ts",
+      "sha256": "c7f58d704d09224193edd4c1aa4079d832090a0e22c100f62b38b5fa01584176"
+    },
+    {
+      "path": "src/avorelo/kernel/registry/index.ts",
+      "sha256": "6e59587cccd80c4ac10a83a080b1749419fc667d44a484358bf37350e8d1d7e6"
+    },
+    {
+      "path": "src/avorelo/kernel/run.ts",
+      "sha256": "ad9fae2a61893aed7d423667f52ddd20af43be35e9306cfc7137b206d54f9b2e"
+    },
+    {
+      "path": "src/avorelo/kernel/runtime-boundary/index.ts",
+      "sha256": "c757077b7fe9cbd9dca2e0ff80d3e92549b0e1659aefa90781888d3e578623dc"
+    },
+    {
+      "path": "src/avorelo/kernel/skills/index.ts",
+      "sha256": "b44250df67574391333277520e34d5a97411ec0366890bd0deebeaca3a92e154"
+    },
+    {
+      "path": "src/avorelo/kernel/state-ledger/index.ts",
+      "sha256": "bebe87b3761ab591b5ca3294fd3d176d1eff8fc18b13ce180bc1ccf377b71eba"
+    },
+    {
+      "path": "src/avorelo/kernel/stop-continue-gate/index.ts",
+      "sha256": "e636780d4db137e683280a4bb63a107644c8b9fb2ee32d572343ce783a948e2d"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/aider.ts",
+      "sha256": "36d17d0cb6de393f8335a812145318dee10a6780e7f62718e1bb2d5bc47e58d1"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/claude-code.ts",
+      "sha256": "397d78b794bf534d558bd779e2da17a9ac45d99d7a23698ed6b85a9e02a6c072"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/codex.ts",
+      "sha256": "023b041125eca59deea5dc63f82eea455c4c987797bb4c29d431760f275ef88e"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/cursor.ts",
+      "sha256": "62c756c3befd2169212c7f6c76cd6a99b56dd1fab2cb0a7dc1eaf4a7f3eacbe6"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/deterministic-local.ts",
+      "sha256": "3a67a11b776ccc3203d8ea7d743a30a81bafb08440703a1e888dad97b4585ca8"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/gemini-cli.ts",
+      "sha256": "de41a7727341a8c23db8242f77087c92ee9672f42095137beaaf97671bf15114"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/github-actions.ts",
+      "sha256": "c1f23cbeb4f9ae7b8ea2f9ca5a51b9dcc6e122e306ac9ffc33fc456609a4e071"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/manual-gate.ts",
+      "sha256": "74d1efc4c54893bda06a046030159bc145c4b3d4447dbf9c287d9ad4144c2608"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/playwright-proof.ts",
+      "sha256": "25f6b03f4eb959190d66c2eeb910981b9f99c92eead8f460e6a0f96eb7ba8c2d"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/scanner.ts",
+      "sha256": "f5c467338207d2b3d153fc9cb43a90573c4957402eccebc445870f19a59523f5"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/adapters/semgrep.ts",
+      "sha256": "4c917fc6dd606ef39b9f557346bbac664d1d98146849f6ff0d8203f37cc8f081"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/cost-benchmarking.ts",
+      "sha256": "80ab200126a6ed6c0218babd10207d8add6c62ecb0a89a5f3dea20613fdcf849"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/detect.ts",
+      "sha256": "48fba04ed2dbcb108375767c7d2ece2fe247a5bc5d24b99176f224d0097e2325"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/executor.ts",
+      "sha256": "56fb15b40db21bc474e5cff6e3c7646a7aa516fdbda57b21eaca17c605583b55"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/fixtures/playwright-proof-fixture.html",
+      "sha256": "7c3d5b458f22d30ad923c88f2ed9e6d2506cb17461488779886aa1f386df77e7"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/fixtures/semgrep-proof-rules.yml",
+      "sha256": "c6e8f6c762ce4021161b4b308ce894b6616d7559b6760edb7b8d241dc375e2ef"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/health-persistence.ts",
+      "sha256": "235f69b6e7b3376c9f0768f557605330e91fadd56c6140ed3bb07f8e5aff8fe4"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/index.ts",
+      "sha256": "ce1b60bdf557d61046e26c9af6b46516048c205f953667141d71e4ab8b164a25"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/multi-agent-review.ts",
+      "sha256": "0112c8733d83bbb548aa3f1e6ceaf3bd578a686c21c1f3f917e55324c9b22aa2"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/planner.ts",
+      "sha256": "7faddfd08bdff02c3c6a16dfbd68f15e4ff21b2b425d5dee017736c113f75feb"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/playwright-proof-runner.mjs",
+      "sha256": "8c3dc732ec01eb015b938ced8585f251e37694bf6ad4996c22827eec0f61e470"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/policies.ts",
+      "sha256": "3d3cea4db1137b4161d49e318a27498b2279a3673c13a9a8f1d04fbb6aa08a7b"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/receipt.ts",
+      "sha256": "9180b764774837d3ec58ad81ce8159bf72e0fec99eaad69cf2426432db6308a4"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/registry.ts",
+      "sha256": "f4d773447efbf1f92663a982534cca2fca5dd0eb7d718bb36efa9ce865e0aa3c"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/sandbox.ts",
+      "sha256": "a43cd430377d652fb14b7868ee68be51953db65ada0c01d94df1698773aff1df"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/task-queue.ts",
+      "sha256": "2b03b330cd15a178de25bf4132c1058d295496a72bf424465f4589870b3bcabe"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/team-policy.ts",
+      "sha256": "a0fa9afb56c988a84fe6da955d62ebd15180d82ac2945cb9b60a1a9f2fbbbdac"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/testing/fakes.ts",
+      "sha256": "e18ac16cac39cdb8c22c3646ecc75f6138dd73edd42dfced8537931699349b9c"
+    },
+    {
+      "path": "src/avorelo/kernel/tool-adapters/types.ts",
+      "sha256": "eac36390c9206ae4f636be719546c4ee5e847d42949d1ba0497e67c634df3b8e"
+    },
+    {
+      "path": "src/avorelo/kernel/verification-receipt/index.ts",
+      "sha256": "f90d3cacdb81f79800165f6061d0c7c3d10db597e7984e5b4e2a71598750fdc7"
+    },
+    {
+      "path": "src/avorelo/kernel/work-contract/index.ts",
+      "sha256": "c0973b0b2e4e5dab0b81bc4b77327170abc6ae5a7d1b0712f87badd2e2b5f836"
+    },
+    {
+      "path": "src/avorelo/kernel/work-contract/routing.ts",
+      "sha256": "b0d621175f7673c7b1f7bb5829e57ea0fefd09782734f3c75757b6d9cafcad71"
+    },
+    {
+      "path": "src/avorelo/kernel/work-contract/task-parser.ts",
+      "sha256": "be6d6b22d6c8e7fb22f00e28614c7e7917aa4874363a6c79ccd0f72594e7e8de"
+    },
+    {
+      "path": "src/avorelo/kernel/work-controls/index.ts",
+      "sha256": "00bb90f62c2de9d8951005eb8926b7447dfffb3959a0592eb2458f0ec92507a3"
+    },
+    {
+      "path": "src/avorelo/shared/redaction/index.ts",
+      "sha256": "bd839af04bb2af899408fc126d2d836647a935989fad91ff47225c71aff81186"
+    },
+    {
+      "path": "src/avorelo/shared/redaction/policy.ts",
+      "sha256": "55d44ac10c9c327119b95adb303efb00a1d3f682d5b182ade624c04b37e5c077"
+    },
+    {
+      "path": "src/avorelo/shared/safe-reference/index.ts",
+      "sha256": "6e0ec3b92be2da38c3751fc1c6aa2d7c1f228c3fefb0c76396a152eed8fb9812"
+    },
+    {
+      "path": "src/avorelo/shared/schemas/index.ts",
+      "sha256": "6b02c39c78ee10e9efe919ecf69831299846c796f277897b9eb774c4870adcd0"
+    },
+    {
+      "path": "src/avorelo/skills/skill-output-collector.ts",
+      "sha256": "79066dff2b02cc0d7aba8f91d09589d007563479aa5dd000a9a10845ba2bce45"
+    },
+    {
+      "path": "src/avorelo/skills/skill-output-contract.ts",
+      "sha256": "061f459cb5e91a02502b061d0df5bb90d333b3d7c43fc06784f6403b568db896"
+    },
+    {
+      "path": "src/avorelo/surfaces/cli/avorelo.ts",
+      "sha256": "c4a716ef56cd0142a286fabc919abb91109c5545b2af8455e1e0dc4c1aaf815b"
+    },
+    {
+      "path": "src/avorelo/surfaces/preview-server/index.ts",
+      "sha256": "a24c0c8ed8bfce64e2c277a1f188b713324f39b58b6bce6c0626dde85656e820"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/index.ts",
+      "sha256": "179640defb10879925104331d16559505158b2ed9f4671e8debb3389db8abeed"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/404.html",
+      "sha256": "8964d5497d09bb2cb03abb6c6771565749825edc4df596647891ff3e9573fd74"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/_headers",
+      "sha256": "474bd55cbae083211b77c83423df62c25ea3321a489d8250683f4baa0b9594d7"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/_redirects",
+      "sha256": "eae070731012644ef4a9081380ca722d02d317ac089660244136cb2638f2259c"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/activate-cta.js",
+      "sha256": "007d654844a4848774096375bf602ff1e012c4d2b3a08f785f3bac1adb14ff4f"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/activate.html",
+      "sha256": "a6407fab054b3eadde12df5d4be58030fdaf4f5905bb09e4573c4c6f0b0e5d18"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/api-discontinued.html",
+      "sha256": "0bb6e608055a6d954870a51ab7d0f6e26bc0fe921557aa127a071a73a0a68764"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/apple-touch-icon.png",
+      "sha256": "7ccac283be7d1eee13c7ca4a5bd1b7484fe47da568337d487bb87c0c0ae4c606"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-access.html",
+      "sha256": "20f5022e7728a1777c4ad087b6ce5ef623163c1d0a38734c79a7c47584e67760"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-activity-productivity.html",
+      "sha256": "00094c118d5448dfa17dab5f808b9ee99e650428de6a57852ba0f2cafe996353"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-agent-scope-drift.html",
+      "sha256": "02941b93d7ed8ec0d040e78499b0d473b9f98c89cf9ba28b5b1a5210e013f5de"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-agents-repeat-mistakes.html",
+      "sha256": "ae780683f49db800387e5db4ebc94c1d82bcc83606234a390bd5012feafccc00"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-code-accumulation.html",
+      "sha256": "defe4cc01034e294315910e9b824362a50073e0d2e0398c8d4644c06f1c399b1"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-gateway-vs-workflow-router.html",
+      "sha256": "19987127ea01d58320a8b7af888a4eb61ed27f2d3cf3bee2a423a0fc2b6700f3"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-generated-bug-reports-waste-time.html",
+      "sha256": "e1272030ec9992db926044f3cff4bfb96416d4d966e77e56dc5424f1eb56f947"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-native-engineering-team.html",
+      "sha256": "a5915d61383f94d42e4890019217e6fbaa748815e8e424cb2611410275f6bd17"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-productivity-measurement.html",
+      "sha256": "c7fcfba2f667881d24af2cd18551f102692329eae5394adb6622b9f0606e6534"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-review-load-reduced.html",
+      "sha256": "0bbe56fce79e725619b35525414d5ae09db581b531eefeb7729d17e47c8c7971"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-security-findings-need-evidence.html",
+      "sha256": "ab8582f4dee9da5a5ce77d95dfd6baae962d247b10309061401c099846c86901"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-skill-supply-chain-security.html",
+      "sha256": "935fc608266cee5d688bd711831f3f4b78e87405f454daa609cdb502dd7171f5"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-spend-proof.html",
+      "sha256": "9f56ae08b127949b6b6a7dd7a152ac9cf7607457e1b1e4dfea5121036bcab2c8"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-team-reports-for-engineering-leaders.html",
+      "sha256": "cf58c25a840f25d3d01cd5536259bdcc9ae05792e16fced74885ca2c76df1f11"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-token-cost.html",
+      "sha256": "4a0e06e7727de427a4b2a3c8b8385f10dec95117c0ec9e4914af18da660cfe42"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-waste.html",
+      "sha256": "6391f54a6a22d245c313d4b92df12707ac721f60b89c3ac307bde94d8c03d4e8"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-ai-workflow-hygiene.html",
+      "sha256": "1aa21c1e275e737bee10be8fce822c7f2af1e6e15eccdc5c48d636594df628af"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-approval-fatigue.html",
+      "sha256": "8676e5d5098eabb990a569c39ee148b4a1da059202b8e6076cda763bf9b733be"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-cheaper-ai-models-not-enough.html",
+      "sha256": "4dcd40dfa22b4a0522f882a93fae78b8f91b8a5e36e21a589be585b472792ecd"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-context-engineering-ai-coding.html",
+      "sha256": "3b94fb8d291cdc3cecf3e14d0b1924db45027676a4cc3df591a5059b5dd0ffbc"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-context.html",
+      "sha256": "5ab1778a1917a861fe055ddf10041ffc9c673e9d9f5ffeb191411244b0db1257"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-delete-ai-generated-code.html",
+      "sha256": "76ef2385feac282b18e90d6fc533836d041fb522ef43fe14d750d510e92dd260"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-evidence-backed-ai-coding.html",
+      "sha256": "b4ec84fcbdf1f7b3f12f603b89e2152cccb288d01e0e3921d8e7d45a5a6c8a52"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-model-routing-vs-workflow-routing.html",
+      "sha256": "548f435ec0c8b1c7db927270c3adeded58a7832ebcc5aba197b46519587046d0"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-privacy-safe-ai-team-reporting.html",
+      "sha256": "d8bc74a989d1be116ca002252a9f61e7383f2fbe4b9b3fd5664d11088fcf542c"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-project-knowledge-layer.html",
+      "sha256": "528fd9a0889e0c727ef8ce135b06cd80cdbb4bc9434cab437850a5a0e59bdd04"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-proof-receipts.html",
+      "sha256": "47e8bbf1e74ddde6bd26d991649f51302eddc13fca78aa5560ea8ed347851010"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-proof.html",
+      "sha256": "22d13bcd2d63539ad782a8f5f9a95b7a5a45d3c517155b067a7c383df1d87b60"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-rag-vs-memory-vs-project-knowledge.html",
+      "sha256": "2836a821dd2488cb15dfee78b483605dca5bc19e1e744b1f8fbbde9724c35ed9"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-reading-times.json",
+      "sha256": "4a96487b0ab4187d618cd259bdeed30af82217fe5e502c630e0765196ef913b0"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-reduce-noise-ai-code-reviews.html",
+      "sha256": "a6c0212eebf53f4978bbe98e3dac9baef3d2911a11234243708a2164b48961e8"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-route-ai-coding-workflows-safely.html",
+      "sha256": "1c447cbff4534b5941551de1397a93f8323eca0669b658d004882837927b7cd9"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-routing.html",
+      "sha256": "8dca23c5c9a017f017d49fe99f6b6d2acd01587f696db3ad91d42818b698be55"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-safe-ai-coding-agents.html",
+      "sha256": "de828665ed62e849c67c956a9b7dd90cbc6c8d2a7f11045f7a76b9abdbfd06d4"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-safe-ai-tool-exposure.html",
+      "sha256": "e9ec9cbb0a7ad9b28212492e4d97054191266f42f6243e18560062f6c58371ba"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-scope-repair-before-approval.html",
+      "sha256": "cd191293eeb922325dc8307c7fe2d54e4de576d58aeb4b4c598fb3e4865b1fa8"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-scope.html",
+      "sha256": "aa026555f91518dc74f0e440a9aad9b765734f4623a66a5350d3074881a7bb86"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-skill-governance-ai-agents.html",
+      "sha256": "6f4ae235440de415abbbc0b3bba8fc096b656f09b22506a232f1ced6abe190f0"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-stale-ai-memory-risk.html",
+      "sha256": "6af110e4274b9d4d717b04f9480fc65e350fc88950a862d502a740b6947d9a7a"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-stop-reexplaining.html",
+      "sha256": "4c049d21b2ae6439bc8d1b9d5a733bc3cef2b8f5afd3b4bac40743160c36c201"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-team-ai-value-reports.html",
+      "sha256": "5ee9a0c209284797fbe9bb22dfd1bd0c769e2dae4b68a7f334ae3cff623e7072"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-what-is-ai-slop-in-software-security.html",
+      "sha256": "bc67ebc5e2e5063e91965280952807228503254a066e85c8802f240f5942bc21"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-work-intelligence.html",
+      "sha256": "eec9a46c0ea3a84bf069a803c8a9d2f6c7682827b8fe0016f624f5f6f0702aab"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/article-workflow-health.html",
+      "sha256": "76e8d50c566cc7c2be9a407771a27d391961effade0eb26a38d8784c623f8dd8"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/articles.html",
+      "sha256": "b2d756546ca69daae4e096fee5be95c6e9a3e9187f68a3f343acc3942265d547"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/capabilities.html",
+      "sha256": "c812a3707848cd51d56309c0486afdc70537bfacfe1decaaec42cf5dc5ad58f5"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/capability-documentation-pmm-review.html",
+      "sha256": "18a84f19507b16ec6db308117cc1c6c04bb1dc4d485adcfd3b93f3eec03be36f"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/capability-launch-readiness.html",
+      "sha256": "e0edc048dd5478d5a02f73c72448895411751415a77b54c0c892b2660486b44e"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/capability-legal-compliance.html",
+      "sha256": "f6ff94e5e67a4d2649ca67fd0a214ddc86bed9778a16f664720218ed0ab2e1c3"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/capability-package-release.html",
+      "sha256": "3e043da7b045d4f429f61ef06509c031182d6b7f9ca85f5ff0edb5d202c21077"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/capability-product-specification.html",
+      "sha256": "586ea488d147fed290e59c8b7443a088559cd5a7b6492f7fbd09716ee474d901"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/capability-qa-proof-review.html",
+      "sha256": "6801740408c57a6818c519b0c39e79e274a2ecd62400d65b30018e90f72bbb5a"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/capability-release-readiness.html",
+      "sha256": "0653dff598f11e6c96141582b992aafa6716e235875f4ed3d45313b6461a3ae1"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/capability-security-review.html",
+      "sha256": "e31bbb761a754cb5ee6676339d0692c233f4ff3221f72d7457eb9027ba94ae30"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/capability-styles.css",
+      "sha256": "44e6bf88f720f80686a4ef196edd4d2676d43210cd0bcfa98af055aa5d226755"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/contact.html",
+      "sha256": "7785ee868bd709a1a415d784cba3d1a81c750842a8405886acd5bbb8c40649b7"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/dashboard.html",
+      "sha256": "2d1711da1ea24c33534b4714da87848ef1d9b122b418f0e19466d2252e2a1cd8"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/favicon-256.png",
+      "sha256": "508cdc80b6124464999feb47f50bbaaa52e77c3855606b448b931b7d6039d4c4"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/index.html",
+      "sha256": "d1a2678219302e223a21e10a7142feabda912b578331ee7e4ddc963b51cb7710"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/learn-more.html",
+      "sha256": "222d3000e53dc46714324c6b9f2070eb74272c0975ef436a8188abb55fefae9d"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/license.html",
+      "sha256": "60cea336dfcb77c15759bbbfa8d464bf1d4856d0eec8bd2070bb6f13f175ad1a"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/og-card.svg",
+      "sha256": "f2ad78891013d5c359cc3540ed3941b42fa15d10affa2fa2e302bbbf7c8858b6"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/pricing.html",
+      "sha256": "d9e63abc1b62de5a741575b44703a033a344b7955ae28fec8f673d99d83fb78a"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/privacy-policy.html",
+      "sha256": "dd853c1dcce7aea6f6c88cd4f48bc8b66b3486b4951daf09508840d232be28e2"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/refund-discontinued.html",
+      "sha256": "acefc536733fdf9454ea8f7cbe71a07153f00388f1f2c9853dc7397592393779"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/robots.txt",
+      "sha256": "4e181eb28ccd2569614539f242055bae6df3a3e469defd18c0f1a8e210183e0d"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/site.webmanifest",
+      "sha256": "bd6b1a5c06ea290744e4f999e8f1abd8e4d2569ff24a522f1f750ebb18344b18"
+    },
+    {
+      "path": "src/avorelo/surfaces/public-web/static/terms-of-service.html",
+      "sha256": "8583d3656bb8419416a3164f5b83351a6c48cd8878e65d80e81378bba9fabd05"
+    },
+    {
+      "path": "src/avorelo/validation/model-routing/index.ts",
+      "sha256": "11d812b7d07861903c56bfd5e0386b1bdf7186ef9801eb01ea803f86316293ad"
+    },
+    {
+      "path": "src/avorelo/validation/reference-skills/index.ts",
+      "sha256": "6f7b77b76fc7f19ffc73f69bcb1b9a308fb82adbf06fbff95fcdde5341d72b04"
+    },
+    {
+      "path": "src/avorelo/validation/review-skills/index.ts",
+      "sha256": "564c00e0a05d598b28161f1af78bae2772e9e3fc67e076f71ee54e9d386b9fb5"
+    },
+    {
+      "path": "src/avorelo/validation/scanners/index.ts",
+      "sha256": "e8b4fbd6ae8cf0acc5ff9e25ddec2a37150f497bdd84812a444009f964c38ae5"
+    },
+    {
+      "path": "src/avorelo/validation/skill-adoption/baseline-candidates.ts",
+      "sha256": "256cec564a93f5523bc37a4f25477991f3176a23ceda3fc912046662f32aaa44"
+    },
+    {
+      "path": "src/avorelo/validation/skill-adoption/index.ts",
+      "sha256": "316b9d4e27df1830aeacee1f469fffbf22983aeee30e36515cdba898f31babe5"
+    },
+    {
+      "path": "src/avorelo/validation/skill-operating-system/registry.ts",
+      "sha256": "2fecd4ea1b014b9b96be4e0d5405cecc15153d84cdf32b7ccee0a3a98302e2fc"
+    },
+    {
+      "path": "src/avorelo/validation/skill-operating-system/router.ts",
+      "sha256": "17150ca33610b48efedfac6363f144fcd7c10b1f0b62da04fc70e4a574d0bc0e"
+    },
+    {
+      "path": "src/avorelo/value/ai-work-economics.ts",
+      "sha256": "b248d4f5d722f6bd06b7c60ffc93f3d86c57e8952ea01bfaaeaee362bc92735c"
+    },
+    {
+      "path": "tests/activation-cli-boundary.test.ts",
+      "sha256": "2c16927e4a8c086f50434a7f5f3a68c79963e0f6addf8f3a3138da8885452ead"
+    },
+    {
+      "path": "tests/activation-init.test.ts",
+      "sha256": "c1e80d7f42f39c3feea66aa4d4e85ece4f55473012ad99a2eff57c68b8abd5d2"
+    },
+    {
+      "path": "tests/activation-linking.test.ts",
+      "sha256": "60f1ca1e4de3db4431e4ec9f590eccd692a44a4dcf7228cc7e486c2f2cb9cb20"
+    },
+    {
+      "path": "tests/activation-preflight.test.ts",
+      "sha256": "8eed6ee061d7692b914e3b26226c87ad7e1491aa4a266a86c3b769c9f7f766d2"
+    },
+    {
+      "path": "tests/browser-visual-qa-cli.test.ts",
+      "sha256": "bda09e7f9a3e207dc35249f91bebd65fe6567d65668b692fb12f96773458e537"
+    },
+    {
+      "path": "tests/browser-visual-qa.test.ts",
+      "sha256": "8756a350f54b804acb964afce797e92c1ada07081a1ea519a0d1445f72daf761"
+    },
+    {
+      "path": "tests/canonical-activation.test.ts",
+      "sha256": "9d20cb3023f08d4de655dfd635a24f4cdc3870220a46bbdacff52fdb394bfc5d"
+    },
+    {
+      "path": "tests/capability-discovery.test.ts",
+      "sha256": "795848dc84a1cf7c9dc6eb593998ebc6397712e8a322ac7bcd4720450d14471f"
+    },
+    {
+      "path": "tests/commercial-readiness-absence.test.ts",
+      "sha256": "c086561b450e5e9b54edd885411093ad1bd5a70bb6ad2f9e965a32fd65e7556b"
+    },
+    {
+      "path": "tests/community-open-model.test.ts",
+      "sha256": "d8a2d0791d50d3558c79f92545d6180c4fed982acb6706ac340e1a3ae4412c0e"
+    },
+    {
+      "path": "tests/community-package-boundary.test.ts",
+      "sha256": "4ad8232f0f4358d35f52dfb3795a571aa245a20775dbca1a9bd96f88e4e08f67"
+    },
+    {
+      "path": "tests/contact-truth.test.ts",
+      "sha256": "28e7effd9d778772b9e4b8889552823407c9840b18bfaec7b5a3bca9cd9e98ca"
+    },
+    {
+      "path": "tests/context-check.test.ts",
+      "sha256": "c2e40ae1c9fe913909c31339800b62052a910e13a9c41e80ac2da8e978120ce0"
+    },
+    {
+      "path": "tests/context-compiler.test.ts",
+      "sha256": "00c0c7fedc3d6acfa6d848c9ef9ce72477ad774b3be2a2303a1a270e9179a2be"
+    },
+    {
+      "path": "tests/context-control-v2.test.ts",
+      "sha256": "18d386fded929aefb34ce187bf7a56d24187f88ca79310427fa1d3c82dee4792"
+    },
+    {
+      "path": "tests/context-control.test.ts",
+      "sha256": "61af5d31c4f334b426ac9459406ae7ff11a3afa96d15ffe87d640f2ec75aa4ff"
+    },
+    {
+      "path": "tests/context-efficiency-cli.test.ts",
+      "sha256": "1471b0e16b7e045f59453efb380e7a19c290ede04096956838d45bea7ad80aed"
+    },
+    {
+      "path": "tests/context-efficiency.test.ts",
+      "sha256": "5906fd440c934e1c891713d584f9c8c66cf01133f641035cf89701925087b575"
+    },
+    {
+      "path": "tests/context-pack.test.ts",
+      "sha256": "684161deb8a88f78f8977f36ca67e0473129ee3ef5709a1234b2d65fdb2b9bc3"
+    },
+    {
+      "path": "tests/continuity.test.ts",
+      "sha256": "996ad54706555d21d1618760bd572b8dc5e563a268f9975004b9bb732639ea72"
+    },
+    {
+      "path": "tests/control-center.test.ts",
+      "sha256": "760512cce00a3c49ae6f9ff5297b586681da2dd4cb6079714bd7d33390be4e5b"
+    },
+    {
+      "path": "tests/cost-benchmarking.test.ts",
+      "sha256": "ccb74429a217163c8f722021c83d43546ca216ffc944ca6047158eba303766fe"
+    },
+    {
+      "path": "tests/dashboard-open-readiness.test.ts",
+      "sha256": "db176e84c77f908e4e9ebec49998bd5511dae205d28d2c3cf11b9f324a39d571"
+    },
+    {
+      "path": "tests/dco.test.ts",
+      "sha256": "9c504780396f35545a3889fa30cfb188f5242f31be4d70e631dc745956f95d17"
+    },
+    {
+      "path": "tests/dogfood-check.test.ts",
+      "sha256": "f419221d46955ceeb8096e17c63663d3ebfd560f6ad0c72992409d35a22e6fd9"
+    },
+    {
+      "path": "tests/efficiency-sync.test.ts",
+      "sha256": "8f577ae3c0983e334ee8f2cff4534b40590d4ca1effbc5523c074a3f794cd9b1"
+    },
+    {
+      "path": "tests/evidence-gate-scenarios.test.ts",
+      "sha256": "fbedb91cbe52c01b066113aa7c2561ecb152f508739ae9d0dbb2473158b5adae"
+    },
+    {
+      "path": "tests/evidence-gate.test.ts",
+      "sha256": "554d276edd4c41907883b6083258c1e7e39e11cc9153203eef59b29438088ca8"
+    },
+    {
+      "path": "tests/full-activation.test.ts",
+      "sha256": "305050511a792c1b4fc02cc4a9a970670b95a8f18f52d62f9aa7f0437ed192df"
+    },
+    {
+      "path": "tests/future-executor-adapters.test.ts",
+      "sha256": "9faacc8baa3074a8eceea38fb1baf7125654bc4c5228c014da901f3caf50130f"
+    },
+    {
+      "path": "tests/generic-adapter-orchestration.test.ts",
+      "sha256": "d686bd885f460a7767e89508875b1906f8d68d1f697b2c109bc2e98c69f4d338"
+    },
+    {
+      "path": "tests/helpers/net-trap.mjs",
+      "sha256": "33f979c349c270b4b41f52f918950ea5b3f29e29eb20c2c25e79a2c087fc7927"
+    },
+    {
+      "path": "tests/legacy-entitlement-tolerance.test.ts",
+      "sha256": "e4a7e688ccb0b3474d6a24532f53ef66c36b0d9ad675c5b78ac55279711d61f1"
+    },
+    {
+      "path": "tests/legacy-settings-tolerance.test.ts",
+      "sha256": "4d21483bfdcc8227cd9209e96f2ab49cc722f1473b022ac5017a187cf682772c"
+    },
+    {
+      "path": "tests/legal-boundary.test.ts",
+      "sha256": "b148a36e50e6de0855f31495695285e75a26d570af398c3540553a400b13932e"
+    },
+    {
+      "path": "tests/license-truth.test.ts",
+      "sha256": "4893d12c6c5d06267581a6c8384b8dd6dd8810215753c6a57185a2bfb169925a"
+    },
+    {
+      "path": "tests/live-runner.test.ts",
+      "sha256": "1b8aea1fa2389720633533bcbb1b84ab4890e09b0a72860d86a8bcbc199a8a1c"
+    },
+    {
+      "path": "tests/local-support-flow.test.ts",
+      "sha256": "ed6235239488133ae3499423726ba2bf3e67d8dc62b95212c6bcd7aca9ffa20e"
+    },
+    {
+      "path": "tests/loop-control.test.ts",
+      "sha256": "43a072d862549048a24e4bbc7442b7391bee35dd29e342e83e786b5a16ad4247"
+    },
+    {
+      "path": "tests/model-routing-input-cli.test.ts",
+      "sha256": "d4a8579037e5d2a9552a9a9e59efff6216ba8d9f7477e3495c4de3ce65b49650"
+    },
+    {
+      "path": "tests/model-routing-input.test.ts",
+      "sha256": "b943094579671b682323c5107e795e954cf1f8c536704a4d3fe5c1d67b9fb16c"
+    },
+    {
+      "path": "tests/model-routing-kernel.test.ts",
+      "sha256": "9f10b57451a63c71883bdf069d4b1af6629097fd61148878b0c79c72cd346c3c"
+    },
+    {
+      "path": "tests/model-routing-usage.test.ts",
+      "sha256": "70f38f38bd2c2bf7c6625f9c9dba0df25b66a128aacb80c7dba5d3888d9c6778"
+    },
+    {
+      "path": "tests/multi-agent-review.test.ts",
+      "sha256": "6fb80ff9bd8684b9d4b294295a1381e76827eb6b0f45e2b258d55e2bd5863721"
+    },
+    {
+      "path": "tests/outbound-boundary.test.ts",
+      "sha256": "f660ac01f22f378c88121f3b820690c0efe88ce13c878c3e3878d0473aad7ee1"
+    },
+    {
+      "path": "tests/persistent-adapter-health.test.ts",
+      "sha256": "10a280aa8f1b6140789304971f1dba652052776ff0b34458e99646603e406415"
+    },
+    {
+      "path": "tests/phase1-foundation.test.ts",
+      "sha256": "9d6acf3136d74af6b36fac5ae46eeca8d1b3c3a35509077bda283e84a5087146"
+    },
+    {
+      "path": "tests/product-journey-e2e.test.ts",
+      "sha256": "3af17e95ab2b9518894ff30e4dd8fb733444e96f1e53fcc251dbe7404a41b0e4"
+    },
+    {
+      "path": "tests/proof-adapter-pack.test.ts",
+      "sha256": "4319eeb1f9005b813fcaf0fe864fe19a63594d36b468b2812a1e9395d6e31011"
+    },
+    {
+      "path": "tests/proof-adapters.test.ts",
+      "sha256": "6d7a0d9a7cebee603e4d61d824b13b35952c25c2b775a15cfb039fa770300778"
+    },
+    {
+      "path": "tests/proof-contract.test.ts",
+      "sha256": "b36a99bc5a84f96934bcb9abfd1329d9b109a875a3f398194912db78c7c430d9"
+    },
+    {
+      "path": "tests/proof-report.test.ts",
+      "sha256": "8dee7e20271c9d2e85063c35d66ee696d0b68085ea859a2e9a5136ad09dd7ee7"
+    },
+    {
+      "path": "tests/public-export.test.ts",
+      "sha256": "89dd0862eb0a3ffa9ef2d6c72475f5436847173459f93d75d34282ec353ea303"
+    },
+    {
+      "path": "tests/public-secret-literals.test.ts",
+      "sha256": "1da26cf79d8e01ef0e21006f1e88cff6b50f74014797743d815850dfb44a6411"
+    },
+    {
+      "path": "tests/real-tool-execution.test.ts",
+      "sha256": "1ac88239b5b15bff57b34b5bee9f9bba6afccf8de516adf19f516e4671bd5af8"
+    },
+    {
+      "path": "tests/receipt-eligibility.test.ts",
+      "sha256": "b6b426d0788985f12b8bc4787af2acb3748a7f56e884e07b37afb446cf0dc452"
+    },
+    {
+      "path": "tests/receipt-sanitize.test.ts",
+      "sha256": "a4aae7be5fabe1dd74ba3f67db6be77f1e42bfc1c4f0404d8e093f62c32e428d"
+    },
+    {
+      "path": "tests/registry-freshness.test.ts",
+      "sha256": "1f9883a2a98a5242cdaa51658f15b55abf42f59afafddba3e5e92a8d5c2816a5"
+    },
+    {
+      "path": "tests/repository-boundary.test.ts",
+      "sha256": "9600966846f6911db0dafebbbc3506f8170b586e3745fa86d46202de9b77c5bb"
+    },
+    {
+      "path": "tests/runtime-flow.test.ts",
+      "sha256": "f406a4ab5b63c3c2a55c9446b3441c95af7745c4d60bda46d05be53bf5796aee"
+    },
+    {
+      "path": "tests/secret-boundary.test.ts",
+      "sha256": "175a7c8bafb398d08c7abad31b9dd6189524ac072f1352fd9b183289b03bbe82"
+    },
+    {
+      "path": "tests/seed-fixtures.test.ts",
+      "sha256": "5145f6f7028aa8e0e5923d93c8d7e2f766f92516360099d3078ba2cc28f8ea2c"
+    },
+    {
+      "path": "tests/self-validation.test.ts",
+      "sha256": "f6717685c02465441b27637cdb1731a593a885d74ad9db333374dee24581c999"
+    },
+    {
+      "path": "tests/session-continuity-cli.test.ts",
+      "sha256": "0263f1fa80160d3b680090261a2ccbd7da038b7f05ff3e724acdf3a4b6a91c6c"
+    },
+    {
+      "path": "tests/session-continuity.test.ts",
+      "sha256": "35a534b55a42cf40b81fb8937cd26e1d4c11a706a112ed667419e25f775163a7"
+    },
+    {
+      "path": "tests/site-accessibility.test.ts",
+      "sha256": "2e5b17451a7cba4635aaf1713e05c5b14c21d15098cedb0c6335510416d82133"
+    },
+    {
+      "path": "tests/site-inclusion-boundary.test.ts",
+      "sha256": "64722c628be40229a7657c4a321cbe3e5a2164b220546d94899e7ff1ecefa64e"
+    },
+    {
+      "path": "tests/site-licensing-truth.test.ts",
+      "sha256": "837626cd1d28ae9b9c8eac0d62ab253ef079f90b8d54e40f68f199f8bde92a21"
+    },
+    {
+      "path": "tests/site-navigation-contract.test.ts",
+      "sha256": "180f23934b03be2b5ec2c8004ef1e510a43d461bf50b58be8c05336410ed2ca2"
+    },
+    {
+      "path": "tests/site-seo-assets.test.ts",
+      "sha256": "2265fcecbb617a9e2b626f397b7e541db4558dd3cf33d3f5182954890a58e224"
+    },
+    {
+      "path": "tests/slice1.test.ts",
+      "sha256": "b2d9485a97764ba38e90307ef94373fb79332cd47a6a5197a4f5c1bef1f25222"
+    },
+    {
+      "path": "tests/slice2.test.ts",
+      "sha256": "9835736189a2c873fac1f5d36f71c67298f1c390830e1209747cff8d7e2a38f2"
+    },
+    {
+      "path": "tests/slice3.test.ts",
+      "sha256": "e3ab65097afa8302cee24453a927b04943322d1b6ef8dbe0ecdcb9dccc7f04ec"
+    },
+    {
+      "path": "tests/slice4-5.test.ts",
+      "sha256": "f5b1b98ed181649d660b94a4415b491d00c54550e0c231c14f40ca534e9f1330"
+    },
+    {
+      "path": "tests/slice4.test.ts",
+      "sha256": "940b33073086106d6ff1969e41c032ae4cc21fbcb833ccc0c54613ac5c929556"
+    },
+    {
+      "path": "tests/static-egress-boundary.test.ts",
+      "sha256": "030c740593f1198c8ebdec1fadad9467b17b1334ece2eabbae13646cdc697e7a"
+    },
+    {
+      "path": "tests/task-queue.test.ts",
+      "sha256": "38c26c3c8872176bba690999e17de95f398b396e455e3fc35eb07b154b6a6583"
+    },
+    {
+      "path": "tests/team-policy.test.ts",
+      "sha256": "770dc7a3624e1a3c3bb415f202cafbd92dc3330a1ab1d8f63fe2ccaa621a555d"
+    },
+    {
+      "path": "tests/telemetry-final-state.test.ts",
+      "sha256": "46ef88db3fac128f2bd5dcbc85057cfa99b0aad015d99a5c7ca37b898acbc212"
+    },
+    {
+      "path": "tests/telemetry-no-egress.test.ts",
+      "sha256": "818d7d19049e50da8ef54d25a56364a919136b1a377406623527c465e3518c4d"
+    },
+    {
+      "path": "tests/token-cost-evidence.test.ts",
+      "sha256": "ca00f866d22dd0305ed48ba002749f606cc75df0b47bc49289c75e7f357e1825"
+    },
+    {
+      "path": "tests/tool-adapter-orchestration.test.ts",
+      "sha256": "a77a8683b1eb8386a3301b7825d0f2c52c6deee63b0b89907ca8ae76cebbb735"
+    },
+    {
+      "path": "tests/update-boundary.test.ts",
+      "sha256": "629bfc06b7468eb9d8888bd366ce3661d4d56f85ba43f26b85209367f454a8b3"
+    },
+    {
+      "path": "tests/value-ledger.test.ts",
+      "sha256": "2f3ad9092bf8ef0cc56abc2de85f4ca9091dc854eb1d4d36c3b4825ad18dfdb8"
+    },
+    {
+      "path": "tests/verification-receipt.test.ts",
+      "sha256": "7232b97d8239e4d4223848ce88696e2263a2a40611113202fdbd3899e51c6443"
+    },
+    {
+      "path": "tests/work-controls.test.ts",
+      "sha256": "dbd1f39916bb4ff6a2eae36de7a27d9e36cb3eeaf33707595e1232bda205b92e"
+    },
+    {
+      "path": "tests/work-intelligence-cli.test.ts",
+      "sha256": "21846c09ecc0e4830a36d64fcd737a1fc4983edb3ca32b3990831ba87f22b5ea"
+    },
+    {
+      "path": "tests/work-intelligence.test.ts",
+      "sha256": "35c4acdf24a95f945d4c04e1b3a7304520a298e1af2447fee569df9717c725a4"
+    },
+    {
+      "path": "tests/workcontract-routing.test.ts",
+      "sha256": "fc9fd9f229027a8f396bb747ed8a6aad62a26b39172e7dfe9ec5458ddf04feb2"
+    },
+    {
+      "path": "tests/workflow-radar-cli.test.ts",
+      "sha256": "6436f90e33846203157383697f059459ef3f8084b61189d3c874ed32743e73db"
+    },
+    {
+      "path": "tests/workflow-radar.test.ts",
+      "sha256": "a8072fc13b53ce4131856e4a8deb339df16cacca338eb0a5282944bb98cb5e2c"
+    },
+    {
+      "path": "tests/zero-cost-boundary.test.ts",
+      "sha256": "e13744ec8044648846b8de27b4115e9fb504079c2fb4ae37ca88cf7af0e56c32"
+    },
+    {
+      "path": "tools/adopt-skill-batch.ts",
+      "sha256": "3a985e4fcfd99089c9a3408c6d4a9d040bbed63841845ca8d2c541d88aa86469"
+    },
+    {
+      "path": "tools/apply-release-values.ts",
+      "sha256": "8f8ce3f1611d92569869a532d7a3a43d5538203ccc8f0fc097a2cc846a0d3000"
+    },
+    {
+      "path": "tools/audit-old-core-parity.ts",
+      "sha256": "e63748db4bdb7b139dffc91e3f05d076c1ed0d49555f091eab8aa10ba63b7827"
+    },
+    {
+      "path": "tools/check-contact-truth.ts",
+      "sha256": "a5b7c09b5118e7510dd721b5f004a3436ef18c4d8d38a15c8754f75bf7affd07"
+    },
+    {
+      "path": "tools/check-dco.ts",
+      "sha256": "a9fdd73673252c39163c17dc46e21ef151990f70d4082eb48312e7270f50b8c6"
+    },
+    {
+      "path": "tools/check-docs-truth.ts",
+      "sha256": "5bb20762121f2d29852f193e776ff57470518973623a9cdedd4c6618d3875389"
+    },
+    {
+      "path": "tools/check-hosted-language.ts",
+      "sha256": "c4043406cd5026354cb4849f20b0dc9b8e688b2acacf4d8ed5566649793efeb6"
+    },
+    {
+      "path": "tools/check-legal-boundary.ts",
+      "sha256": "52db1db771e7230b7bc00abba42d235a6c3e7df5991e1a4cfc0b768c5eea764d"
+    },
+    {
+      "path": "tools/check-license-truth.ts",
+      "sha256": "d29d0e47dbf89001cc5c7110b52508ffab3fabc08d8d9652482c102652b8e700"
+    },
+    {
+      "path": "tools/check-public-secret-literals.ts",
+      "sha256": "8f43196e25fb32fbf1b763605d91f422c1fb8b12901aa1bb2a425b1b34fd1330"
+    },
+    {
+      "path": "tools/check-zero-cost.ts",
+      "sha256": "3be69dd3526b0caacbe4199940c0b46629aa96a4c2a7da651ff62366eb34379b"
+    },
+    {
+      "path": "tools/collect-skill-outputs.ts",
+      "sha256": "a31465615419c29a0803307eb281745e40b1b9e2092740d127a35e9f5c2ce3e5"
+    },
+    {
+      "path": "tools/connected-preview-check.ts",
+      "sha256": "cef5ba8b2855c25b236fa1f5b331a824f11ea5497462f4bff34374f3592d9aea"
+    },
+    {
+      "path": "tools/create-public-export.ts",
+      "sha256": "dbe9aeb6ff636107c3f953ad9b8e8498cae6e153b742712b328e5ef3eac46cf2"
+    },
+    {
+      "path": "tools/evaluate-routing-fixtures.ts",
+      "sha256": "c600bec60cc622446a7dda2df1d0a968b8796f7999af95568959238dd930ddf6"
+    },
+    {
+      "path": "tools/generate-founder.ts",
+      "sha256": "f8bde125f146437edca8df782596ea2cd95cc28ce71fbbbafa7bb50202f35474"
+    },
+    {
+      "path": "tools/legacy-reference-map.ts",
+      "sha256": "b50046eb62338515e62867e7f301c425b9e247442876480a3b617e124f7501f6"
+    },
+    {
+      "path": "tools/live-activation-dogfood-runner.ts",
+      "sha256": "9433f377703930341146f1fd40c224c00d15ddf585073b716fe26d62f6b7427b"
+    },
+    {
+      "path": "tools/measure-core.ts",
+      "sha256": "56a11c199ccba7daceb7735c46b514b37d56e4e63799c98713cf89155d0ddd91"
+    },
+    {
+      "path": "tools/measure-skills-os.ts",
+      "sha256": "345b4b6ab0572714b662ecc584b4d5fa168ab8ae95b56155b6260ae78e4bda23"
+    },
+    {
+      "path": "tools/measure-value.ts",
+      "sha256": "63ef4fce1b20dffed13bf536ae9db88161360c3d00024936213760eefa0dc709"
+    },
+    {
+      "path": "tools/naming-check.ts",
+      "sha256": "0a0934d73ec28f97e6026d1fa571bc2632695ab8a8d4d668ed1dc7ac8b21f732"
+    },
+    {
+      "path": "tools/old-repo-candidate-audit.ts",
+      "sha256": "5ab28bf8e492170637a0b657b1b10a3ac52c2a236b41530f45f63dfea5691bcb"
+    },
+    {
+      "path": "tools/review-architecture-deep.ts",
+      "sha256": "d9e79995c99758cb569ac8b0351a7499107e91aa84401ddf2f323a3ccf468a7a"
+    },
+    {
+      "path": "tools/review-core.ts",
+      "sha256": "c684c86398b7266bd856f258cce7455b08eb8925c881a51fdbe1cee5a723ca0e"
+    },
+    {
+      "path": "tools/review-references.ts",
+      "sha256": "a3b8eef7d9efdb400cc30b014f7bed93c434104296cccb8f5720580f309b3d40"
+    },
+    {
+      "path": "tools/route-primitive.ts",
+      "sha256": "0ce6f973db1911dd2af13159124483809828d32a7ec691a3b01f17a4fb2d8c1a"
+    },
+    {
+      "path": "tools/scanners-run.ts",
+      "sha256": "79465b48c65365accbff75689abb7c359fce71a95183da31cfe8eb41b119ed80"
+    },
+    {
+      "path": "tools/site-check.ts",
+      "sha256": "5a23031f63c07b8556ea2c3e409e74fe611411aa2d1a12b5571713b20b1fb6b4"
+    },
+    {
+      "path": "tools/site-truth.ts",
+      "sha256": "5ee7ee187b41e6f04f387be0dd96aade3f9b464d12b4356be48b8047f0b97bda"
+    },
+    {
+      "path": "tools/skills-registry.ts",
+      "sha256": "ee312e3525f8609bd07ef3f3eac2e3c40c4e005290f02e7ff49ceff7e494d2e1"
+    },
+    {
+      "path": "tools/skills-route.ts",
+      "sha256": "c9f06ad3d247912f7731a823fa24e6a27473dc6b0db9f354bdac81a424f64597"
+    }
+  ],
+  "excludedCategorySummary": {
+    "internal-context": 310,
+    "personal-notes": 6,
+    "legal-drafts": 21,
+    "transition-internals": 41,
+    "release-internals": 72,
+    "hosted-implementation": 20,
+    "canonical-governance-test": 5
+  },
+  "droppedCount": 1
+}

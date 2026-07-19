@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why AI agent approval fatigue makes teams less safe | Avorelo</title>
+<meta name="description" content="When every AI action triggers an approval prompt, teams learn to dismiss them quickly. Too many approvals produce a safety system that is technically present but practically ignored.">
+<link rel="canonical" href="https://avorelo.com/article-approval-fatigue.html">
+<meta property="og:title" content="Why AI agent approval fatigue makes teams less safe">
+<meta property="og:description" content="When every AI action triggers an approval prompt, teams learn to dismiss them. Too many approvals produce a safety system that is technically present but practically ignored.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://avorelo.com/article-approval-fatigue.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Why AI agent approval fatigue makes teams less safe">
+<meta name="twitter:description" content="When every AI action triggers an approval prompt, teams learn to dismiss them. Too many approvals produce a safety system that is technically present but practically ignored.">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Why AI agent approval fatigue makes teams less safe","description":"When every AI action triggers an approval prompt, teams learn to dismiss them quickly. Too many approvals produce a safety system that is technically present but practically ignored.","publisher":{"@type":"Organization","name":"Avorelo"},"url":"https://avorelo.com/article-approval-fatigue.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Articles","item":"https://avorelo.com/articles.html"},{"@type":"ListItem","position":2,"name":"Why AI agent approval fatigue makes teams less safe","item":"https://avorelo.com/article-approval-fatigue.html"}]}</script>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--warm:#EDE9E4;--warm-2:#E5E0D9;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.08);
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+  --accent:var(--teal);--accent-lt:var(--teal-lt);--accent-dk:var(--teal-dk)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.art-wrap{max-width:720px;margin:0 auto;padding:0 24px}
+h1,h2,h3,h4{font-family:var(--sans);font-weight:700;line-height:1.25;letter-spacing:-0.02em}
+h1{font-size:clamp(1.65rem,3vw,2.2rem)}
+h2{font-size:1.4rem;margin:36px 0 14px}
+h3{font-size:1.1rem;margin:24px 0 10px}
+p{font-size:1rem;line-height:1.8;color:var(--text-2);margin-bottom:18px}
+p:last-child{margin-bottom:0}
+ul,ol{padding-left:20px;margin-bottom:18px}
+li{font-size:1rem;line-height:1.75;color:var(--text-2);margin-bottom:4px}
+
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px}
+.nav-mob{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(245,244,241,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:20px 24px;flex-direction:column;gap:14px;z-index:99}
+.nav-mob.open{display:flex}
+.nav-mob a{font-size:1rem;color:var(--text-2);text-decoration:none;font-weight:500;padding:6px 0;border-bottom:1px solid var(--border)}
+.nm-cta{background:var(--indigo);color:#fff!important;text-align:center;border-radius:var(--r-sm);padding:12px!important;font-weight:600!important;border-bottom:none!important;font-family:var(--sans)}
+
+.art-header{padding:40px 0 28px}
+.art-back{font-size:0.8rem;color:var(--text-3);text-decoration:none;font-weight:500;display:inline-flex;align-items:center;gap:6px;margin-bottom:14px}
+.art-back:hover{color:var(--text-2)}
+.art-tag{display:inline-block;font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;padding:3px 9px;border-radius:40px;margin-bottom:14px}
+.art-tag-context{background:var(--teal-lt);color:var(--teal-dk)}
+.art-tag-scope,.art-tag-safety{background:var(--amber-lt);color:var(--amber)}
+.art-tag-proof,.art-tag-evidence{background:var(--indigo-lt);color:var(--indigo)}
+.art-tag-routing{background:#F0EBF8;color:#6B4FB0}
+.art-tag-access{background:#FFF3E0;color:#C55A11}
+.art-tag-waste,.art-tag-cost{background:#FBF3EE;color:#A0441A}
+.art-tag-teams,.art-tag-reporting{background:#E8F4FE;color:#1565A8}
+.art-tag-workflow{background:#EDF5E0;color:#3A7E1A}
+.art-tag-privacy{background:#F3E8FF;color:#7B2FBE}
+.art-tag-capability{background:#E8F7F1;color:#12916A}
+.art-h1{margin-top:0;margin-bottom:14px}
+.art-lead{font-size:1.1rem;line-height:1.75;color:var(--text-2);margin-bottom:0}
+.art-meta{display:flex;flex-wrap:wrap;gap:16px;margin-top:18px;padding-top:18px;border-top:1px solid var(--border)}
+.art-meta span{font-size:0.78rem;color:var(--text-3);font-weight:500}
+
+.art-body{padding:8px 0 48px}
+.callout{background:var(--warm);border-left:3px solid var(--indigo);border-radius:0 var(--r) var(--r) 0;padding:16px 20px;margin:28px 0}
+.callout p{color:var(--text-2);font-size:0.95rem;margin-bottom:0}
+.callout strong{color:var(--text)}
+
+.viz{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px;margin:28px 0}
+.viz-title{font-family:var(--sans);font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:16px}
+.viz-flow{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.viz-step{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:10px 16px;font-size:0.85rem;font-weight:600;color:var(--text);font-family:var(--sans);text-align:center;flex:1;min-width:100px}
+.viz-step.good{background:var(--teal-lt);border-color:rgba(23,168,122,.25);color:var(--teal-dk)}
+.viz-step.bad{background:#FFF5F0;border-color:rgba(217,123,26,.20);color:var(--amber)}
+.viz-step.neutral{background:var(--indigo-lt);border-color:rgba(75,80,232,.20);color:var(--indigo)}
+.viz-arrow{color:var(--text-3);font-size:1rem;flex-shrink:0}
+.viz-label{font-size:0.75rem;color:var(--text-3);text-align:center;margin-top:8px}
+
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px;text-align:center}
+.stat-val{font-family:var(--sans);font-size:1.8rem;font-weight:700;color:var(--text);line-height:1}
+.stat-val.teal{color:var(--teal)}
+.stat-val.indigo{color:var(--indigo)}
+.stat-val.amber{color:var(--amber)}
+.stat-lbl{font-size:0.75rem;color:var(--text-3);margin-top:6px;line-height:1.4}
+
+.check-list{list-style:none;padding:0;margin:0 0 18px}
+.check-list li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border);font-size:0.95rem;color:var(--text-2);line-height:1.6}
+.check-list li:last-child{border-bottom:none}
+.check-list li::before{content:"";width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:0.7rem;font-weight:700}
+.check-list li.yes::before{content:"Y";background:var(--teal-lt);color:var(--teal-dk)}
+.check-list li.no::before{content:"N";background:#FFF5F0;color:var(--amber)}
+
+.art-nav{display:flex;justify-content:space-between;gap:20px;padding:32px 0;border-top:1px solid var(--border);margin-top:32px;flex-wrap:wrap}
+.art-nav a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.art-nav a:hover{color:var(--text)}
+
+.art-related{background:var(--warm);padding:40px 0}
+.art-related h3{font-size:1.1rem;margin:0 0 20px;font-family:var(--sans)}
+.art-related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.art-related-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px;text-decoration:none;display:block;transition:box-shadow .15s}
+.art-related-card:hover{box-shadow:var(--sh-sm)}
+.arc-tag{font-size:0.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:8px}
+.arc-title{font-family:var(--sans);font-size:0.9rem;font-weight:700;color:var(--text);line-height:1.3}
+
+.art-cta{background:var(--dark);padding:52px 24px;text-align:center}
+.art-cta h3{font-family:var(--sans);font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:12px}
+.art-cta p{font-size:0.95rem;color:rgba(255,255,255,.60);max-width:480px;margin:0 auto 24px;line-height:1.7}
+.art-cta a{display:inline-block;background:var(--teal);color:#fff;padding:11px 24px;border-radius:var(--r-sm);font-size:0.9rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+
+.footer{background:var(--dark);padding:24px 0;border-top:1px solid rgba(255,255,255,.06)}
+.footer-btm{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.footer-btm p{font-size:0.8rem;color:rgba(255,255,255,.35)}
+
+@media(max-width:768px){
+  .nav-links,.nav-cta{display:none}
+  .nav-ham{display:block}
+  .art-related-grid{grid-template-columns:1fr 1fr}
+  .stat-row{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .art-related-grid{grid-template-columns:1fr}
+  .stat-row{grid-template-columns:1fr}
+  .viz-flow{flex-direction:column;gap:8px}
+  .viz-arrow{transform:rotate(90deg)}
+}
+@media(max-width:390px){.wrap{padding:0 16px}.art-wrap{padding:0 16px}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">Avorelo</a>
+    <ul class="nav-links">
+      <li><a href="index.html#how">How it works</a></li>
+      <li><a href="index.html#pricing">Pricing</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" onclick="document.getElementById('nm').classList.toggle('open')" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+<div class="nav-mob" id="nm">
+  <a href="index.html#how">How it works</a><a href="index.html#pricing">Pricing</a>
+  <a href="articles.html">Articles</a><a href="contact.html">Contact</a><a href="/activate" class="nm-cta">Explore Community Edition</a>
+</div>
+
+<main>
+<div class="art-wrap">
+  <div class="art-header">
+    <a href="articles.html" class="art-back">&larr; Articles</a>
+    <div class="art-tag art-tag-safety">Safety</div>
+    <h1 class="art-h1">Why AI agent approval fatigue makes teams less safe</h1>
+    <p class="art-lead">Approval prompts exist to give humans meaningful control over AI actions. But when approvals are too frequent, too broad, or lack useful context, they stop functioning as safety checks. Teams click through them. Decisions that should be thoughtful become habits.</p>
+    <div class="art-meta">
+      <span>Avorelo</span>
+      <span>Topic: Approval fatigue</span>
+      <span>Topic: Scope safety</span>
+      <span>Topic: AI agents</span>
+    <span class="art-reading-time">4 min read</span>
+  </div>
+  </div>
+
+  <div class="art-body">
+
+    <h2>What approval fatigue is</h2>
+    <p>Approval fatigue is what happens when the volume of approval prompts exceeds the capacity for meaningful review. It is well-documented in security contexts: when every warning requires acknowledgment, users start acknowledging without reading. When every action requires permission, users start granting permission without thinking.</p>
+
+    <p>In AI coding workflows, the same pattern appears. An agent that asks for approval before touching any file, running any command, or making any change produces a stream of prompts. Some of these are important. Most are routine. Because users cannot tell quickly which category each prompt falls into, they either slow down dramatically or start approving everything.</p>
+
+    <p>Neither outcome is good. Slowing down removes the value of the AI agent. Approving everything creates the appearance of oversight without the reality of it.</p>
+
+    <h2>Broad approvals are low-quality decisions</h2>
+    <p>An approval prompt that says "Agent wants to modify files in the project" is not a useful decision point. It does not tell the reviewer which files, what the change is, why it is needed, or what happens if it goes wrong.</p>
+
+    <p>Without context, the human cannot make a good decision. They can only make a fast one. A fast decision on a broad prompt is not oversight. It is compliance theater.</p>
+
+    <div class="viz">
+      <div class="viz-title">Approval quality vs approval volume</div>
+      <div class="viz-flow">
+        <div class="viz-step bad">High volume<br><small style="font-weight:400;font-size:0.75rem">Low quality decisions</small></div>
+        <div class="viz-arrow">&rarr;</div>
+        <div class="viz-step neutral">Medium volume<br><small style="font-weight:400;font-size:0.75rem">Some real decisions</small></div>
+        <div class="viz-arrow">&rarr;</div>
+        <div class="viz-step good">Low volume<br><small style="font-weight:400;font-size:0.75rem">High quality decisions</small></div>
+      </div>
+    </div>
+
+    <h2>How scope repair reduces approval load</h2>
+    <p>The most direct way to reduce approval fatigue is to reduce the number of things that need approval in the first place. Not by removing safety checks, but by handling the safe cases automatically.</p>
+
+    <p>When an AI agent tries to touch 14 files but the task only requires 2, that is scope drift. If the system catches this and narrows the scope to 2 files before running, the approval decision becomes: does this 2-file change make sense? That is a good question. The original 14-file version was not.</p>
+
+    <p>Scope repair is not the same as auto-approve. It is automatic narrowing followed by a smaller, better-defined decision. The human still makes a real decision. But the decision is now about a specific, bounded action rather than a broad, ambiguous one.</p>
+
+    <h2>What a good approval prompt looks like</h2>
+    <p>A useful approval prompt has four elements: what the action is, why the agent is asking, what the scope is, and what the risk level is. With these four pieces of information, a developer can make a real decision quickly.</p>
+
+    <p>Without them, the developer has to either trust the agent blindly or investigate before deciding. Investigation takes time and creates friction. Blind trust creates risk.</p>
+
+    <ul class="check-list">
+      <li class="yes">Specific files or actions the agent wants to touch</li>
+      <li class="yes">Why this action is needed for the task</li>
+      <li class="yes">Scope clearly bounded to what was requested</li>
+      <li class="yes">Risk indicator based on action type</li>
+      <li class="no">Vague "modify project" or "run commands" prompts</li>
+      <li class="no">More than 3-4 approvals per task session</li>
+      <li class="no">Approvals for work that was clearly within declared scope</li>
+    </ul>
+
+    <h2>The right default is not permissive, it is bounded</h2>
+    <p>Teams sometimes respond to approval fatigue by reducing restrictions: fewer prompts, wider permissions, more auto-approve. This solves the friction but increases risk.</p>
+
+    <p>The better response is to change what triggers an approval. Work that falls clearly within the declared task scope should not trigger an approval. Work that touches sensitive files, sensitive actions, or areas outside the declared scope should. This distinction requires the system to understand scope, not just permissions.</p>
+
+    <p>When the approval threshold is calibrated to scope and risk rather than to every action, the approvals that remain are worth taking seriously. Users learn that when a prompt appears, it is because something genuinely unusual happened. That is a safety system that works.</p>
+
+    <h2>How Avorelo helps</h2>
+    <p>Avorelo is designed around the principle that fewer, better approvals are safer than many weak ones. It narrows scope before running so that routine work does not trigger decisions. It presents approvals with context: what changed, why, and what the scope of the change is. It distinguishes between work that was clearly within the declared task and work that requires a real human decision.</p>
+
+    <p>The result is a smaller set of approval moments, each of which is worth attention. This is not less oversight. It is more effective oversight.</p>
+
+    <div class="art-nav">
+      <a href="articles.html">&larr; All articles</a>
+    </div>
+
+  </div>
+</div>
+</main>
+
+<div class="art-related">
+  <div class="art-wrap">
+    <h3>Related articles</h3>
+    <div class="art-related-grid">
+
+      <a href="article-scope.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Scope</div>
+        <div class="arc-title">Why AI coding agents drift out of scope</div>
+      </a>
+
+      <a href="article-scope-repair-before-approval.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Teams</div>
+        <div class="arc-title">Scope Repair Before Approval</div>
+      </a>
+
+      <a href="article-safe-ai-tool-exposure.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Capability</div>
+        <div class="arc-title">Why AI agents should not see every tool by default</div>
+      </a>
+
+      <a href="article-ai-waste.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">AI Waste</div>
+        <div class="arc-title">What is AI waste in software development?</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<div class="art-cta">
+  <h3>Fewer approvals that actually matter.</h3>
+  <p>Avorelo narrows scope and handles routine work so the approvals that remain are worth taking seriously. Local-first.</p>
+  <a href="/activate">Explore Community Edition</a>
+</div>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-btm">
+      <p>&copy; 2026 Avorelo. Local-first. Built with Avorelo.</p>
+      <p><a href="articles.html" style="color:rgba(255,255,255,.40);text-decoration:none">Articles</a></p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

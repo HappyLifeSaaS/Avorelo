@@ -1,0 +1,23 @@
+{
+  "name": "Avorelo",
+  "short_name": "Avorelo",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#F5F4F1",
+  "theme_color": "#0A0E1C",
+  "description": "Avorelo is a local-first tool that automates AI coding overhead: context, routing, scope, safety, proof and handoff. This site is informational.",
+  "icons": [
+    {
+      "src": "/favicon-256.png",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

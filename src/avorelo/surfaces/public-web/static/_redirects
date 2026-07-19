@@ -1,0 +1,45 @@
+# Avorelo Netlify redirects — static rules only.
+# Community Edition is local-first: there is no hosted backend to proxy to, and no
+# Netlify Function is used. Every rule below is a static redirect or a static status.
+
+# Hosted API discontinued — no proxy, no function, no backend invocation.
+/api/*            /api-discontinued.html     410!
+
+# Discontinued hosted account flows — permanent static redirects to the local workflow.
+/login            /activate                  301!
+/login.html       /activate                  301!
+/signup           /activate                  301!
+/signup.html      /activate                  301!
+
+# The hosted feedback route is gone; local support is explained on the contact page.
+/feedback         /contact                   301!
+/feedback.html    /contact                   301!
+
+# The hosted paid service is discontinued — the refund policy is no longer an active
+# service policy and is served as a static 410.
+/refund-policy      /refund-discontinued.html  410!
+/refund-policy.html /refund-discontinued.html  410!
+/refund             /refund-discontinued.html  410!
+/refund.html        /refund-discontinued.html  410!
+
+# Browsers request /favicon.ico whether or not the HTML asks for it. There is no .ico asset and
+# none is invented: the request is served the existing canonical PNG. A 200 rewrite rather than a
+# redirect, so the browser gets image bytes with the PNG's own content type.
+/favicon.ico    /favicon-256.png     200
+
+# Clean-URL rewrites for retained pages
+/dashboard      /dashboard.html      200
+/pricing        /pricing.html        200
+/contact        /contact.html        200
+/activate       /activate.html       200
+/capabilities   /capabilities.html   200
+/learn-more     /learn-more.html     200
+/articles       /articles.html       200
+
+# Legal and public route aliases
+/privacy        /privacy-policy.html     301
+/privacy.html   /privacy-policy.html     301
+/terms          /terms-of-service.html   301
+/terms.html     /terms-of-service.html   301
+/support        /contact.html            301
+/support.html   /contact.html            301

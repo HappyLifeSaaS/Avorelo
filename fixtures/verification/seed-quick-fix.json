@@ -1,0 +1,7 @@
+{
+  "description": "Quick code fix — small utility change, build+test available",
+  "changedFiles": ["src/utils/helpers.ts"],
+  "expectedWorkType": "quick_code_fix",
+  "expectedCriticalProof": ["artifact_guard", "build_pass", "tests_pass"],
+  "expectedSafeToClose": true
+}

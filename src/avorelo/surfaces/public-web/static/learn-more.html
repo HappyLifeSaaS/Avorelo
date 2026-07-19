@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Avorelo Works | Avorelo</title>
+<meta name="description" content="Avorelo handles AI coding overhead in the background: context, routing, scope, safety, proof, and handoff. Learn how it works, what it does, and why it matters.">
+<link rel="canonical" href="https://avorelo.com/learn-more.html">
+<meta property="og:title" content="How Avorelo Works">
+<meta property="og:description" content="AI coding tools are powerful, but they create overhead. Avorelo handles it in the background.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/learn-more.html">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- GA4 removed for local/dev serving -->
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--dark-2:#141828;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:var(--indigo);text-decoration:none}
+a:hover{text-decoration:underline}
+
+.nav{border-bottom:1px solid var(--border);background:rgba(245,244,241,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100}
+.nav-in{max-width:1080px;margin:0 auto;padding:14px 22px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:800;font-size:1.05rem;color:var(--text);text-decoration:none}
+.nav-links{display:flex;align-items:center;gap:16px}
+.nav-links a{font-size:0.84rem;color:var(--text-2);font-weight:500;text-decoration:none}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--indigo);color:#fff !important;padding:8px 16px;border-radius:var(--r-sm);font-weight:600;font-size:0.85rem}
+.nav-cta:hover{background:var(--indigo-dk);text-decoration:none !important}
+
+.wrap{max-width:780px;margin:0 auto;padding:0 24px}
+.section{padding:36px 0}
+.section-border{border-top:1px solid var(--border)}
+.section-white{background:var(--card);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+
+/* Hero */
+.hero{padding:48px 0 32px;text-align:center}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;font-family:var(--sans);font-size:0.60rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--teal-dk);background:var(--teal-lt);border:1px solid rgba(23,168,122,.20);padding:4px 12px;border-radius:20px;margin-bottom:14px}
+.hero-badge::before{content:'';width:5px;height:5px;background:var(--teal-dk);border-radius:50%}
+h1{font-family:var(--sans);font-size:2.1rem;font-weight:800;line-height:1.15;margin-bottom:14px;letter-spacing:-0.025em}
+.hero-sub{font-size:0.92rem;color:var(--text-2);max-width:540px;margin:0 auto 20px;line-height:1.7}
+.hero-ctas{display:flex;gap:10px;justify-content:center;align-items:center}
+.btn{font-family:var(--sans);font-weight:600;font-size:0.86rem;padding:10px 20px;border-radius:var(--r-sm);cursor:pointer;border:1px solid transparent;transition:background .12s;text-decoration:none;display:inline-block}
+.btn-primary{background:var(--indigo);color:#fff}
+.btn-primary:hover{background:var(--indigo-dk);text-decoration:none}
+.btn-ghost{background:var(--card);color:var(--text);border-color:var(--border-2)}
+.btn-ghost:hover{background:var(--bg);text-decoration:none}
+
+/* Section headers */
+.sh{font-family:var(--sans);font-size:1.25rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:4px;line-height:1.25}
+.sh-sub{font-size:0.84rem;color:var(--text-3);margin-bottom:20px;line-height:1.6}
+
+/* Timeline / How it works */
+.timeline{position:relative;padding-left:28px}
+.timeline::before{content:'';position:absolute;left:9px;top:6px;bottom:6px;width:2px;background:var(--border-2);border-radius:2px}
+.tl-phase{position:relative;margin-bottom:28px}
+.tl-phase:last-child{margin-bottom:0}
+.tl-dot{position:absolute;left:-28px;top:3px;width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.58rem;font-weight:800;color:#fff;font-family:var(--sans)}
+.tl-dot-teal{background:var(--teal)}
+.tl-dot-indigo{background:var(--indigo)}
+.tl-dot-amber{background:var(--amber)}
+.tl-label{font-family:var(--sans);font-size:0.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.tl-label-teal{color:var(--teal)}
+.tl-label-indigo{color:var(--indigo)}
+.tl-label-amber{color:var(--amber)}
+.tl-title{font-family:var(--sans);font-size:1.0rem;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.3}
+.tl-body{font-size:0.84rem;color:var(--text-2);line-height:1.7}
+.tl-details{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.tl-detail{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:10px 13px}
+.tl-detail-title{font-family:var(--sans);font-size:0.76rem;font-weight:700;color:var(--text);margin-bottom:3px}
+.tl-detail-desc{font-size:0.78rem;color:var(--text-3);line-height:1.5}
+
+/* Compact use cases */
+.uc-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.uc-item{display:flex;gap:10px;align-items:flex-start;background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px}
+.uc-check{color:var(--teal);font-weight:700;font-size:0.88rem;flex-shrink:0;margin-top:1px}
+.uc-text{font-size:0.82rem;color:var(--text-2);line-height:1.55}
+.uc-text strong{color:var(--text);font-weight:600}
+
+/* Not list */
+.not-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.not-item{display:flex;gap:9px;align-items:flex-start;padding:8px 0}
+.not-x{color:var(--text-3);font-weight:700;font-size:0.84rem;flex-shrink:0;margin-top:1px}
+.not-text{font-size:0.82rem;color:var(--text-2);line-height:1.55}
+.not-text strong{color:var(--text);font-weight:600}
+
+/* Why it matters */
+.value-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.value-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;text-align:center}
+.value-icon{font-size:1.3rem;margin-bottom:6px}
+.value-title{font-family:var(--sans);font-size:0.84rem;font-weight:700;color:var(--text);margin-bottom:4px}
+.value-desc{font-size:0.78rem;color:var(--text-2);line-height:1.55}
+
+/* Trust strip */
+.trust-strip{background:var(--teal-lt);border:1px solid rgba(23,168,122,.20);border-radius:var(--r);padding:16px 20px;display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap}
+.trust-col{flex:1;min-width:200px}
+.trust-col-title{font-family:var(--sans);font-size:0.78rem;font-weight:700;color:var(--teal-dk);margin-bottom:6px}
+.trust-col p{font-size:0.80rem;color:var(--text-2);line-height:1.6}
+
+/* Setup */
+.setup-inline{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:16px 20px;display:flex;align-items:center;gap:16px;margin-top:16px;flex-wrap:wrap}
+.setup-text{flex:1;min-width:200px}
+.setup-text strong{font-family:var(--sans);font-size:0.88rem;font-weight:700;display:block;margin-bottom:3px}
+.setup-text span{font-size:0.80rem;color:var(--text-3)}
+.cmd{font-family:var(--mono);font-size:0.84rem;background:var(--dark);color:#e2e1de;padding:9px 16px;border-radius:var(--r-sm);user-select:all;white-space:nowrap}
+
+/* Footer CTA */
+.foot-cta{text-align:center;padding:36px 0 44px}
+.foot-cta h2{font-family:var(--sans);font-size:1.3rem;font-weight:800;margin-bottom:6px;letter-spacing:-0.02em}
+.foot-cta p{font-size:0.84rem;color:var(--text-2);margin-bottom:16px}
+footer{border-top:1px solid var(--border);background:var(--card);padding:18px 0;text-align:center;color:var(--text-3);font-size:0.80rem}
+
+@media(max-width:700px){
+  h1{font-size:1.6rem}
+  .tl-details,.uc-list,.not-list{grid-template-columns:1fr}
+  .value-row{grid-template-columns:1fr}
+  .trust-strip{flex-direction:column;gap:12px}
+  .setup-inline{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo" aria-label="Avorelo home">
+      <img src="/favicon-256.png" alt="" width="24" height="24" style="border-radius:5px">
+      Avorelo
+    </a>
+    <div class="nav-links">
+      <a href="pricing.html">Pricing</a>
+      <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-badge">AI coding work control layer</div>
+    <h1>AI coding comes with overhead.<br>Avorelo handles it.</h1>
+    <p class="hero-sub">Every AI coding session involves work you manage by hand: rebuilding context, checking scope, fixing drift, removing stale instructions, trimming wasted tokens, tracking what changed. Avorelo does this automatically, across the tools you already use.</p>
+    <div class="hero-ctas">
+      <a href="/activate" class="btn btn-primary">Explore Community Edition</a>
+      <a href="pricing.html" class="btn btn-ghost">See pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- How it works: timeline -->
+<section class="section section-white">
+  <div class="wrap">
+    <div class="sh">How it works</div>
+    <div class="sh-sub">Avorelo runs in three phases around every AI coding session. You keep using your tools normally.</div>
+
+    <div class="timeline">
+      <!-- Before -->
+      <div class="tl-phase">
+        <div class="tl-dot tl-dot-teal">1</div>
+        <div class="tl-label tl-label-teal">Before the session</div>
+        <div class="tl-title">Avorelo prepares everything your AI tool needs</div>
+        <div class="tl-body">Before your agent starts, Avorelo compiles project context, removes stale instructions and noise, checks scope boundaries, and selects the right rules and skills for the task. Your AI tool gets a clean, relevant starting point instead of rebuilding from scratch.</div>
+        <div class="tl-details">
+          <div class="tl-detail">
+            <div class="tl-detail-title">Context compiled</div>
+            <div class="tl-detail-desc">Project state, file scope, and relevant history gathered automatically</div>
+          </div>
+          <div class="tl-detail">
+            <div class="tl-detail-title">Noise removed</div>
+            <div class="tl-detail-desc">Stale instructions, deprecated rules, and past-session artifacts cleared</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- During -->
+      <div class="tl-phase">
+        <div class="tl-dot tl-dot-indigo">2</div>
+        <div class="tl-label tl-label-indigo">While the session runs</div>
+        <div class="tl-title">Avorelo keeps work aligned and efficient</div>
+        <div class="tl-body">While you work with Claude, Codex, or Cursor, Avorelo watches for scope drift, keeps context lean, reduces wasted tokens where supported, and helps prevent repeated wrong turns. You get notified only when something needs your decision.</div>
+        <div class="tl-details">
+          <div class="tl-detail">
+            <div class="tl-detail-title">Drift caught early</div>
+            <div class="tl-detail-desc">Scope creep and risky file access flagged before they cause rework</div>
+          </div>
+          <div class="tl-detail">
+            <div class="tl-detail-title">Waste reduced</div>
+            <div class="tl-detail-desc">Repeated context blocks and redundant prompts trimmed where possible</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- After -->
+      <div class="tl-phase">
+        <div class="tl-dot tl-dot-amber">3</div>
+        <div class="tl-label tl-label-amber">After the session</div>
+        <div class="tl-title">Avorelo captures proof and carries forward</div>
+        <div class="tl-body">Every session produces a receipt showing what changed, what was checked, what was kept safe, and what needs review. Useful context carries forward so the next session starts with a better foundation, not from scratch.</div>
+        <div class="tl-details">
+          <div class="tl-detail">
+            <div class="tl-detail-title">Proof captured</div>
+            <div class="tl-detail-desc">Verifiable receipts of what happened, locally stored</div>
+          </div>
+          <div class="tl-detail">
+            <div class="tl-detail-title">Context carried forward</div>
+            <div class="tl-detail-desc">Next session starts where this one ended</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What you experience -->
+<section class="section section-border">
+  <div class="wrap">
+    <div class="sh">What changes for you</div>
+    <div class="sh-sub">You keep using Claude, Codex, or Cursor. Avorelo works in the background.</div>
+    <div class="uc-list">
+      <div class="uc-item">
+        <span class="uc-check">&#10003;</span>
+        <div class="uc-text"><strong>Less manual setup.</strong> Context, rules, and scope prepared automatically before each run.</div>
+      </div>
+      <div class="uc-item">
+        <span class="uc-check">&#10003;</span>
+        <div class="uc-text"><strong>Fewer repeated prompts.</strong> Instructions compiled once and reused. Stale ones removed.</div>
+      </div>
+      <div class="uc-item">
+        <span class="uc-check">&#10003;</span>
+        <div class="uc-text"><strong>Less babysitting.</strong> Scope drift caught and handled. You focus on coding, not monitoring.</div>
+      </div>
+      <div class="uc-item">
+        <span class="uc-check">&#10003;</span>
+        <div class="uc-text"><strong>Clearer proof.</strong> Every session produces a receipt. You see what was done before anything ships.</div>
+      </div>
+      <div class="uc-item">
+        <span class="uc-check">&#10003;</span>
+        <div class="uc-text"><strong>Better continuity.</strong> Context carries forward. The next session does not start from scratch.</div>
+      </div>
+      <div class="uc-item">
+        <span class="uc-check">&#10003;</span>
+        <div class="uc-text"><strong>No tool changes.</strong> Works alongside your existing AI coding tools. No new editor, no lock-in.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What Avorelo is not + Why this matters -->
+<section class="section section-white">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:28px">
+      <div>
+        <div class="sh">What Avorelo is <em>not</em></div>
+        <div class="sh-sub" style="margin-bottom:12px">Clear boundaries.</div>
+        <div class="not-list" style="grid-template-columns:1fr">
+          <div class="not-item"><span class="not-x">&times;</span><div class="not-text"><strong>Not another coding agent.</strong> Avorelo does not write code. It handles the work around AI coding.</div></div>
+          <div class="not-item"><span class="not-x">&times;</span><div class="not-text"><strong>Not replacing Claude or Codex.</strong> It works with your tools, not instead of them.</div></div>
+          <div class="not-item"><span class="not-x">&times;</span><div class="not-text"><strong>Not surveillance.</strong> No raw prompts, no code exposure, no individual rankings.</div></div>
+          <div class="not-item"><span class="not-x">&times;</span><div class="not-text"><strong>Not a heavy dashboard.</strong> Local-first background layer. Stays out of your way.</div></div>
+        </div>
+      </div>
+      <div>
+        <div class="sh">Why this matters</div>
+        <div class="sh-sub" style="margin-bottom:12px">AI coding overhead is real and growing.</div>
+        <div class="value-row" style="grid-template-columns:1fr">
+          <div class="value-card" style="text-align:left">
+            <div class="value-title">One bad session can waste hours of work</div>
+            <div class="value-desc">Repeated context, scope drift, and stale instructions add up. A single unfocused session can burn hours and hundreds of thousands of tokens.</div>
+          </div>
+          <div class="value-card" style="text-align:left">
+            <div class="value-title">The overhead scales with usage</div>
+            <div class="value-desc">The more you use AI coding tools, the more overhead you absorb: more context rebuilds, more manual checks, more scattered proof.</div>
+          </div>
+          <div class="value-card" style="text-align:left">
+            <div class="value-title">Local-first proof makes value visible</div>
+            <div class="value-desc">After every session, you can see what Avorelo handled. No claims without evidence. Proof stays on your machine.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Trust + Setup -->
+<section class="section section-border">
+  <div class="wrap">
+    <div class="trust-strip">
+      <div class="trust-col">
+        <div class="trust-col-title">Privacy</div>
+        <p>Local-first. Core data stays on your machine. No raw prompts or code sent anywhere. No cloud sync required.</p>
+      </div>
+      <div class="trust-col">
+        <div class="trust-col-title">Honesty</div>
+        <p>No fake claims about what was handled. Every receipt is verifiable. Value is visible after every session.</p>
+      </div>
+      <div class="trust-col">
+        <div class="trust-col-title">Compatibility</div>
+        <p>Works with Claude Code, Codex, and Cursor. No workflow changes. No new editor. Setup is one command.</p>
+      </div>
+    </div>
+
+    <div class="setup-inline">
+      <div class="setup-text">
+        <strong>One local command</strong>
+        <span>Detects your workspace, activates the right setup, and verifies everything works. No account, and nothing is sent anywhere. Public installation instructions will be published in the Apache-2.0 release.</span>
+      </div>
+      <code class="cmd">avorelo activate</code>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="foot-cta">
+  <div class="wrap">
+    <h2>Ready to try Avorelo?</h2>
+    <p>Free gives you real optimization and proof from your first run.</p>
+    <div class="hero-ctas">
+      <a href="/activate" class="btn btn-primary">Explore Community Edition</a>
+      <a href="pricing.html" class="btn btn-ghost">See pricing</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">&copy; 2026 Avorelo. Local-first. All proof stays on your machine.</div>
+</footer>
+<script src="activate-cta.js"></script>
+</body>
+</html>

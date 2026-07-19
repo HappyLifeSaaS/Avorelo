@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Avorelo | AI coding comes with overhead. Avorelo handles it.</title>
+<meta name="description" content="Avorelo automates the AI coding practices you manage by hand: context, routing, scope, safety, proof, and handoff, across the tools you already use. Local-first. Works in the background.">
+<link rel="canonical" href="https://avorelo.com/">
+<meta property="og:title" content="Avorelo | AI coding comes with overhead. Avorelo handles it.">
+<meta property="og:description" content="Avorelo automates context, routing, scope, safety, proof, and handoff across the AI coding tools you already use. Local-first. Works in the background.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://avorelo.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Avorelo | AI coding comes with overhead. Avorelo handles it.">
+<meta name="twitter:description" content="Context, routing, scope, safety, proof, and handoff: automated. Local-first AI coding assistant for Claude Code, Cursor, Codex, and more.">
+<meta name="twitter:image" content="https://avorelo.com/og-card.svg">
+<meta property="og:image" content="https://avorelo.com/og-card.svg">
+<link rel="icon" type="image/png" sizes="256x256" href="/favicon-256.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0A0E1C">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Avorelo",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "macOS, Linux, Windows",
+  "description": "Local-first AI coding overhead reducer. Automates context, routing, scope, safety, proof, and handoff across the AI coding tools you already use. Open Source under the Apache License 2.0.",
+  "url": "https://avorelo.com/",
+  "license": "https://www.apache.org/licenses/LICENSE-2.0",
+  "isAccessibleForFree": true,
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "sameAs": []
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Avorelo",
+  "url": "https://avorelo.com/",
+  "description": "Local-first AI coding overhead reducer."
+}
+</script>
+<style>
+/* Tokens */
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--dark-2:#141828;--dark-3:#1C2035;
+  --warm:#EDE9E4;--warm-2:#E5E0D9;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sh-sm:0 1px 3px rgba(0,0,0,.08);--sh:0 2px 8px rgba(0,0,0,.10);--sh-lg:0 4px 24px rgba(0,0,0,.13);
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+/* Layout */
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.sec{padding:80px 0}
+
+/* Type */
+h1,h2,h3,h4{font-family:var(--sans);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+h1{font-size:clamp(1.85rem,3.6vw,2.9rem)}
+h2{font-size:clamp(1.6rem,2.8vw,2.2rem)}
+h3{font-size:1.05rem;font-weight:600}
+h4{font-size:1rem;font-weight:600;letter-spacing:0}
+p{font-size:1rem;line-height:1.7;color:var(--text-2)}
+.kicker{font-family:var(--sans);font-size:0.70rem;font-weight:700;letter-spacing:0.09em;text-transform:uppercase;color:var(--text-3)}
+
+/* Nav */
+.nav{position:sticky;top:0;z-index:100;background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em;display:flex;align-items:center;gap:8px}
+.nav-logo img{width:28px;height:28px;border-radius:6px}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500;transition:color .15s}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans);transition:background .15s}
+.nav-cta:hover{background:var(--indigo-dk)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px;line-height:1}
+.nav-mob{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(245,244,241,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);padding:10px 24px 20px;z-index:99}
+.nav-mob.open{display:block}
+.nav-mob a{display:block;padding:11px 0;font-size:0.96rem;color:var(--text-2);text-decoration:none;border-bottom:1px solid var(--border);font-weight:500;transition:color .12s}
+.nav-mob a:last-child{border-bottom:none}
+.nm-cta{display:block;margin-top:12px;text-align:center;background:var(--indigo);color:#fff !important;padding:11px;border-radius:var(--r-sm);font-weight:600;font-family:var(--sans);border:none !important}
+
+/* Buttons */
+.btn{display:inline-block;text-decoration:none;font-family:var(--sans);font-weight:600;letter-spacing:-0.01em;border-radius:var(--r-sm);transition:all .15s;font-size:0.9rem}
+.btn-primary{background:var(--indigo);color:#fff;padding:11px 22px}
+.btn-primary:hover{background:var(--indigo-dk);transform:translateY(-1px)}
+.btn-ghost{color:var(--text-2);padding:11px 16px;border:1px solid var(--border-2)}
+.btn-ghost:hover{color:var(--text);border-color:var(--text-2)}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+
+/* Hero */
+.hero{padding:24px 0 44px}
+.hero-grid{display:grid;grid-template-columns:46fr 54fr;gap:44px;align-items:start}
+.hero-grid>.rv-wrap{padding-top:48px}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--teal-lt);color:var(--teal);border:1px solid rgba(23,168,122,.20);padding:5px 12px;border-radius:20px;font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px;font-family:var(--sans)}
+.hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--teal);border-radius:50%}
+.hero h1{margin-bottom:18px;color:var(--text)}
+.hero-sub{font-size:1.0rem;color:var(--text-2);line-height:1.75;margin-bottom:14px}
+.hero-support{font-size:0.875rem;font-weight:600;color:var(--text);font-family:var(--sans);line-height:1.6;padding:12px 0;border-top:1px solid var(--border-2);border-bottom:1px solid var(--border-2);margin-bottom:26px}
+.hero-activate{margin-top:16px;background:var(--warm);border:2px solid var(--border-2);border-radius:var(--r);padding:16px 18px;display:none;animation:panelReveal .35s ease}
+.hero-activate.open{display:block}
+@keyframes panelReveal{from{opacity:0;transform:translateY(-6px);border-color:var(--teal)}60%{border-color:var(--teal)}to{opacity:1;transform:translateY(0);border-color:var(--border-2)}}
+.hero-activate.open.flash{border-color:var(--teal);transition:border-color .6s ease}
+.btn-primary.wizard-open{background:var(--dark);border-color:var(--dark)}
+.hero-activate-lbl{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--text-3);font-family:var(--sans);margin-bottom:8px;display:block}
+.hero-activate-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.hero-activate-cmd{font-family:var(--mono);font-size:0.88rem;background:var(--dark);color:#e2e1de;padding:8px 16px;border-radius:var(--r-sm);letter-spacing:-0.01em;user-select:all;flex:1;min-width:240px}
+.hero-helper{font-size:0.88rem;color:var(--text-2);font-family:var(--sans);line-height:1.6;margin-bottom:20px}
+.hero-activate-copy{font-family:var(--sans);font-size:0.78rem;font-weight:600;background:var(--card);border:1px solid var(--border-2);color:var(--text);padding:7px 14px;border-radius:var(--r-sm);cursor:pointer;transition:all .15s;white-space:nowrap}
+.hero-activate-copy:hover{border-color:var(--text-3);background:var(--bg)}
+.hero-activate-feedback{font-size:0.78rem;color:var(--teal);font-weight:600;font-family:var(--sans);margin-top:8px;min-height:1.2em}
+.hero-activate-tldr{font-size:0.85rem;color:var(--text-2);font-family:var(--sans);line-height:1.6;margin:2px 0 12px}
+.hero-activate-steps{list-style:none;margin:4px 0 0;padding:0;display:grid;gap:7px;counter-reset:ha-step}
+.hero-activate-steps li{position:relative;padding-left:26px;font-size:0.82rem;color:var(--text-2);font-family:var(--sans);line-height:1.45;counter-increment:ha-step}
+.hero-activate-steps li::before{content:counter(ha-step);position:absolute;left:0;top:0;width:18px;height:18px;border-radius:50%;background:var(--teal-lt);color:var(--teal);font-size:0.62rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.btn.is-copied{background:var(--teal);border-color:var(--teal)}
+
+/* Run Visual */
+.rv{background:var(--card);border:1px solid var(--border-2);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-lg)}
+.rv-header{display:flex;align-items:center;justify-content:space-between;background:var(--card);padding:13px 18px;border-bottom:1px solid var(--border);border-top:3px solid var(--teal)}
+.rv-header-left{display:flex;align-items:center;gap:9px}
+.rv-status-dot{width:8px;height:8px;border-radius:50%;background:var(--teal);flex-shrink:0;box-shadow:0 0 0 2px rgba(23,168,122,.18)}
+.rv-title{font-family:var(--sans);font-size:0.82rem;font-weight:700;color:var(--text);letter-spacing:-0.01em}
+.rv-badge{font-size:0.59rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;background:var(--teal-lt);color:var(--teal);border:1px solid rgba(23,168,122,.24);padding:3px 9px;border-radius:20px;font-family:var(--sans);flex-shrink:0}
+.rv-status{font-size:0.70rem;color:var(--text-3);padding:6px 18px;background:var(--bg);border-bottom:1px solid var(--border)}
+
+/* Thin timeline */
+.rv-tl{padding:10px 18px 8px;border-bottom:1px solid var(--border)}
+.rv-tl-lbl{font-size:0.54rem;font-weight:700;text-transform:uppercase;letter-spacing:.10em;color:var(--text-3);margin-bottom:7px;font-family:var(--sans)}
+.rv-tl-row{display:flex;align-items:center}
+.rv-tl-step{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0}
+.rv-tl-num{width:20px;height:20px;border-radius:50%;background:var(--bg);border:1px solid var(--border-2);color:var(--text-3);font-family:var(--sans);font-size:0.50rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+.rv-tl-slbl{font-size:0.50rem;color:var(--text-3);text-align:center;line-height:1.2;white-space:nowrap}
+.rv-tl-conn{flex:1;height:1px;background:var(--border);min-width:6px}
+
+/* Signal layer */
+.rv-signals{padding:7px 18px 8px;border-bottom:1px solid var(--border);background:var(--bg)}
+.rv-signals-lbl{font-size:0.54rem;font-weight:700;text-transform:uppercase;letter-spacing:.10em;color:var(--text-3);margin-bottom:6px;font-family:var(--sans)}
+.rv-signals-row{display:flex;gap:5px;flex-wrap:wrap}
+.rv-sig{font-size:0.59rem;font-weight:700;font-family:var(--sans);padding:3px 9px;border-radius:20px;letter-spacing:.02em}
+.rv-sig-ctx{background:rgba(75,80,232,.10);color:var(--indigo);border:1px solid rgba(75,80,232,.20)}
+.rv-sig-route{background:rgba(75,80,232,.10);color:var(--indigo);border:1px solid rgba(75,80,232,.20)}
+.rv-sig-scope{background:rgba(23,168,122,.10);color:var(--teal-dk,#12916A);border:1px solid rgba(23,168,122,.22)}
+.rv-sig-checks{background:rgba(23,168,122,.10);color:var(--teal-dk,#12916A);border:1px solid rgba(23,168,122,.22)}
+.rv-sig-proof{background:rgba(217,123,26,.10);color:var(--amber);border:1px solid rgba(217,123,26,.22)}
+.rv-sig-handoff{background:rgba(217,123,26,.10);color:var(--amber);border:1px solid rgba(217,123,26,.22)}
+
+/* Handling cards -- focal point */
+.rv-handle{padding:14px 18px 0}
+.rv-handle-lbl{font-size:0.54rem;font-weight:700;text-transform:uppercase;letter-spacing:.10em;color:var(--text-3);margin-bottom:10px;font-family:var(--sans)}
+.rv-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:12px}
+.rv-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:16px 13px}
+.rv-card-prep{border-top:3px solid var(--teal)}
+.rv-card-track{border-top:3px solid var(--indigo)}
+.rv-card-cap{border-top:3px solid var(--amber)}
+.rv-card-title{font-size:0.60rem;font-weight:700;text-transform:uppercase;letter-spacing:.10em;font-family:var(--sans);margin-bottom:10px}
+.rv-card-prep .rv-card-title{color:var(--teal-dk)}
+.rv-card-track .rv-card-title{color:var(--indigo)}
+.rv-card-cap .rv-card-title{color:var(--amber)}
+.rv-card-list{list-style:none;display:flex;flex-direction:column;gap:6px}
+.rv-card-li{display:flex;align-items:flex-start;gap:5px;font-size:0.74rem;color:var(--text-2);line-height:1.45}
+.rv-card-li::before{content:'';width:4px;height:4px;border-radius:50%;flex-shrink:0;margin-top:5px;opacity:.7}
+.rv-card-prep .rv-card-li::before{background:var(--teal)}
+.rv-card-track .rv-card-li::before{background:var(--indigo)}
+.rv-card-cap .rv-card-li::before{background:var(--amber)}
+
+/* Bottom chips */
+.rv-chips{display:flex;gap:5px;flex-wrap:wrap;padding:0 18px 14px}
+.rv-chip{background:var(--indigo-lt);border:1px solid rgba(75,80,232,.16);color:var(--indigo);font-size:0.61rem;font-weight:600;padding:3px 9px;border-radius:20px;font-family:var(--sans)}
+
+/* Dogfood strip */
+.dog-strip{background:var(--warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:16px 0}
+.dog-in{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.dog-badge{background:rgba(23,168,122,.10);border:1px solid rgba(23,168,122,.20);border-radius:var(--r-sm);padding:3px 10px;font-size:0.66rem;font-weight:700;color:var(--teal);letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;font-family:var(--sans)}
+.dog-text{font-size:0.875rem;color:var(--text-2);flex:1;min-width:0}
+.dog-text strong{color:var(--text);font-weight:600}
+.dog-link{font-size:0.875rem;color:var(--indigo);text-decoration:none;font-weight:600;white-space:nowrap}
+
+/* S2 How It Works */
+.s3-radio{position:absolute;opacity:0;pointer-events:none}
+.s3-tabs{position:relative}
+.s3-nav{display:flex;border:1px solid var(--border);border-radius:var(--r);background:var(--warm);overflow:hidden;margin-bottom:24px;width:fit-content}
+.s3-nav label{padding:10px 28px;font-size:0.875rem;font-weight:600;font-family:var(--sans);cursor:pointer;color:var(--text-3);transition:all .15s;border-right:1px solid var(--border);user-select:none}
+.s3-nav label:last-child{border-right:none}
+.s3-nav label:hover{color:var(--text)}
+.s3-panel{display:none}
+#s3t1:checked~.s3-nav label[for="s3t1"],
+#s3t2:checked~.s3-nav label[for="s3t2"],
+#s3t3:checked~.s3-nav label[for="s3t3"]{background:var(--card);color:var(--text);box-shadow:var(--sh-sm)}
+#s3t1:checked~.s3-panels .s3-panel[data-tab="1"]{display:block}
+#s3t2:checked~.s3-panels .s3-panel[data-tab="2"]{display:block}
+#s3t3:checked~.s3-panels .s3-panel[data-tab="3"]{display:block}
+.s3-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+.s3-col{background:var(--warm);border-radius:var(--r);padding:20px;border:1px solid transparent}
+.s3-col.af{background:var(--card);border-color:var(--border);box-shadow:var(--sh-sm)}
+.s3-col-lbl{font-size:0.66rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:10px;font-family:var(--sans)}
+.s3-col-lbl.bef{color:var(--text-3)}
+.s3-col-lbl.aft{color:var(--teal)}
+.s3-col h4{margin-bottom:14px;line-height:1.35}
+.s3-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.s3-li{display:flex;align-items:flex-start;gap:8px;font-size:0.875rem;color:var(--text-2);line-height:1.55}
+.s3-dot{width:5px;height:5px;background:var(--text-3);border-radius:50%;flex-shrink:0;margin-top:7px}
+.s3-anns{display:flex;flex-direction:column;gap:14px}
+.s3-ann{display:flex;gap:10px;align-items:flex-start}
+.s3-ann-num{width:22px;height:22px;border-radius:50%;background:rgba(23,168,122,.12);border:1px solid rgba(23,168,122,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:0.62rem;font-weight:700;color:var(--teal);font-family:var(--sans);margin-top:1px}
+.s3-ann-t{font-weight:600;font-size:0.875rem;color:var(--text);font-family:var(--sans);margin-bottom:3px}
+.s3-ann-d{font-size:0.82rem;color:var(--text-2);line-height:1.6}
+.s3-chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
+.s3-chip{background:var(--teal-lt);color:var(--teal);border:1px solid rgba(23,168,122,.20);padding:4px 12px;border-radius:20px;font-size:0.70rem;font-weight:600;font-family:var(--sans)}
+
+/* Oh-sec carousel */
+.oh-hdr{margin-bottom:22px}
+.oh-hdr-row{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+.oh-track-wrap{position:relative}
+.oh-track-wrap::after{content:'';position:absolute;right:0;top:0;bottom:0;width:80px;background:linear-gradient(to right,transparent,var(--warm));pointer-events:none;z-index:2}
+.oh-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.oh-track::-webkit-scrollbar{display:none}
+.oh-card{flex:0 0 305px;scroll-snap-align:start;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column}
+.oh-top{background:var(--warm-2);padding:16px 18px;border-bottom:1px solid var(--border-2)}
+.oh-bot{background:var(--card);padding:16px 18px;flex:1;display:flex;flex-direction:column}
+.oh-lbl{font-size:0.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-family:var(--sans);margin-bottom:5px}
+.oh-lbl.bef{color:var(--amber)}
+.oh-lbl.aft{color:var(--teal)}
+.oh-name{font-family:var(--sans);font-size:0.90rem;font-weight:700;color:var(--text);margin-bottom:7px;letter-spacing:-0.01em}
+.oh-txt{font-size:0.82rem;color:var(--text-2);line-height:1.65}
+.oh-txt.on{color:var(--text);font-weight:500}
+.oh-result{margin-top:auto;padding-top:10px}
+.oh-chip{display:inline-block;background:var(--teal-lt);border:1px solid rgba(23,168,122,.22);color:var(--teal);font-size:0.66rem;font-weight:700;padding:3px 10px;border-radius:20px;font-family:var(--sans)}
+.oh-btn{width:34px;height:34px;border-radius:50%;border:1px solid var(--border-2);background:var(--card);color:var(--text-2);cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;transition:all .15s;flex-shrink:0}
+.oh-btn:hover{background:var(--warm);border-color:var(--text-3);color:var(--text)}
+
+/* Dashboard Preview */
+.dp-dog{background:rgba(23,168,122,.06);border:1px solid rgba(23,168,122,.14);border-radius:var(--r-sm);padding:9px 16px;font-size:0.78rem;color:var(--text-2);line-height:1.5;margin-bottom:22px}
+.dp-dog strong{color:var(--teal);font-weight:700}
+.dp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px}
+.dp-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;display:flex;flex-direction:column}
+.dp-card-tag{font-size:0.60rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--teal);margin-bottom:7px;font-family:var(--sans)}
+.dp-card-tag.amber{color:var(--amber)}
+.dp-card-tag.indigo{color:var(--indigo)}
+.dp-bigval{font-family:var(--sans);font-size:2.0rem;font-weight:700;color:var(--text);letter-spacing:-0.04em;line-height:1;margin-bottom:8px}
+.dp-bigval.amber{color:var(--amber)}
+.dp-card-vals{display:flex;flex-direction:column;gap:3px;margin-bottom:8px}
+.dp-card-val-item{font-size:0.76rem;color:var(--text-2)}
+.dp-card-desc{font-size:0.78rem;color:var(--text-3);line-height:1.6;flex:1;margin-bottom:10px}
+.dp-card-link{font-size:0.70rem;color:var(--indigo);font-weight:600;text-decoration:none;margin-top:auto}
+.dp-card-link:hover{text-decoration:underline}
+.dp-foot{font-size:0.74rem;color:var(--text-3);line-height:1.5;text-align:center;margin-bottom:14px}
+
+/* Mid CTA */
+.mid-cta{background:var(--warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 0}
+.mid-cta-inner{text-align:center}
+.mid-cta-q{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:16px;letter-spacing:-0.01em}
+.mid-cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;align-items:center}
+
+/* Workspace Safety */
+.ws-sec{background:var(--dark);padding:80px 0}
+.ws-kicker{font-family:var(--sans);font-size:0.70rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.46);margin-bottom:10px}
+.ws-head{text-align:center;margin-bottom:44px}
+.ws-head h2{color:#fff;max-width:640px;margin:0 auto 12px}
+.ws-head p{color:rgba(255,255,255,.62);max-width:540px;margin:0 auto;font-size:0.98rem;line-height:1.75}
+.ws-pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.wp{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:var(--r-lg);padding:22px;transition:border-color .15s}
+.wp:hover{border-color:rgba(23,168,122,.24)}
+.wp-ico{width:38px;height:38px;border-radius:50%;background:rgba(23,168,122,.12);border:1px solid rgba(23,168,122,.18);display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:1.0rem;color:var(--teal)}
+.wp h3{color:#fff;font-size:0.96rem;margin-bottom:7px;letter-spacing:-0.01em}
+.wp p{font-size:0.80rem;color:rgba(255,255,255,.62);line-height:1.65}
+.ws-footer{display:flex;flex-wrap:wrap;gap:8px 18px;padding-top:20px;border-top:1px solid rgba(255,255,255,.09);font-size:0.80rem;color:rgba(255,255,255,.58);line-height:1.6;justify-content:center;text-align:center}
+.ws-sep{color:rgba(255,255,255,.25)}
+
+/* Pricing */
+.pricing-sec{background:var(--warm);border-top:1px solid var(--border)}
+.pricing-header{text-align:center;margin-bottom:44px}
+.pricing-header h2{margin-bottom:10px}
+.pricing-tagline{font-size:0.94rem;color:var(--text-2);max-width:520px;margin:0 auto}
+.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:start}
+.pricing-legal{text-align:center;font-size:0.74rem;color:var(--text-3);margin-top:20px;line-height:1.5;max-width:600px;margin-left:auto;margin-right:auto}
+.pricing-legal a{color:var(--text-3);text-decoration:underline}
+.pc{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px}
+.pc.feat{border-color:var(--indigo);box-shadow:0 0 0 1px var(--indigo)}
+.pc-badge{display:inline-flex;padding:3px 10px;border-radius:20px;font-size:0.63rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-bottom:9px;font-family:var(--sans)}
+.b-teal{background:var(--teal-lt);color:var(--teal);border:1px solid rgba(23,168,122,.20)}
+.b-indigo{background:var(--indigo-lt);color:var(--indigo);border:1px solid rgba(75,80,232,.20)}
+.b-neutral{background:rgba(10,14,28,.06);color:var(--text-2);border:1px solid var(--border)}
+.pc h3{font-size:1.25rem;margin-bottom:4px}
+.pc-price{font-size:2rem;font-weight:700;font-family:var(--sans);color:var(--text);margin:4px 0 8px;letter-spacing:-0.02em}
+.pc-price-note{font-size:0.85rem;font-weight:400;color:var(--text-3)}
+.pc-pos{font-size:0.78rem;color:var(--text-3);font-style:italic;margin-bottom:10px;line-height:1.45}
+.pc-desc{font-size:0.85rem;color:var(--text-2);margin-bottom:14px;line-height:1.65}
+.pc-div{height:1px;background:var(--border);margin:14px 0}
+.pc-inc-lbl{font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:9px;font-family:var(--sans)}
+.pc-items{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:0}
+.pc-item{display:flex;align-items:flex-start;gap:7px;font-size:0.80rem;color:var(--text-2);line-height:1.55}
+.pc-ck{color:var(--teal);font-size:0.70rem;flex-shrink:0;margin-top:3px;font-weight:700}
+.pc-best-lbl{font-size:0.63rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:5px;font-family:var(--sans)}
+.pc-best{font-size:0.80rem;color:var(--text-2);line-height:1.6}
+.pc-cta{display:block;text-align:center;text-decoration:none;padding:10px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;font-family:var(--sans);transition:all .15s;margin-top:16px}
+.pc-prim{background:var(--indigo);color:#fff}
+.pc-prim:hover{background:var(--indigo-dk)}
+.pc-out{background:transparent;border:1px solid var(--border-2);color:var(--text)}
+.pc-out:hover{border-color:var(--text)}
+.pc-micro{font-size:0.70rem;color:var(--text-3);text-align:center;margin-top:7px;font-style:italic;line-height:1.4}
+.pc-coming{opacity:.88}
+
+/* Field Notes */
+.fn-sec{background:var(--bg);border-top:1px solid var(--border)}
+.fn-header{margin-bottom:24px}
+.fn-header-row{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:8px}
+.fn-header h2{margin-bottom:5px}
+.fn-header p{font-size:1rem;max-width:520px;margin:0}
+.fn-track-wrap{position:relative}
+.fn-track-wrap::after{content:'';position:absolute;right:0;top:0;bottom:4px;width:80px;background:linear-gradient(to right,transparent,var(--bg));pointer-events:none;z-index:2}
+.fn-track{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding-bottom:4px}
+.fn-track::-webkit-scrollbar{display:none}
+.fn-card{flex:0 0 290px;scroll-snap-align:start;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px;display:flex;flex-direction:column;text-decoration:none;transition:box-shadow .15s}
+.fn-card:hover{box-shadow:var(--sh)}
+.fn-tag{font-size:0.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--text-3);margin-bottom:8px;font-family:var(--sans)}
+.fn-card h4{font-size:0.94rem;margin-bottom:7px;color:var(--text);line-height:1.4;font-family:var(--sans)}
+.fn-card p{font-size:0.85rem;color:var(--text-2);line-height:1.7;flex:1}
+.fn-link{display:inline-flex;align-items:center;gap:4px;font-size:0.76rem;color:var(--indigo);font-weight:600;text-decoration:none;margin-top:12px}
+.fn-cta-row{display:flex;align-items:center;justify-content:flex-start;margin-top:20px;flex-wrap:wrap;gap:12px}
+.fn-dog{font-size:0.78rem;color:var(--text-3)}
+
+/* Footer */
+.footer{background:var(--dark);padding:40px 0 24px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-in{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:24px}
+.footer-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:rgba(255,255,255,.90);text-decoration:none;letter-spacing:-0.03em;display:block;margin-bottom:7px}
+.footer-brand p{font-size:0.76rem;color:rgba(255,255,255,.28);max-width:210px;line-height:1.5}
+.footer-links{display:flex;gap:34px;flex-wrap:wrap}
+.footer-col h5{font-size:0.62rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.26);margin-bottom:10px;font-family:var(--sans)}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:7px}
+.footer-col a{font-size:0.85rem;color:rgba(255,255,255,.40);text-decoration:none;transition:color .15s}
+.footer-col a:hover{color:rgba(255,255,255,.80)}
+.footer-btm{border-top:1px solid rgba(255,255,255,.07);padding-top:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-btm p{font-size:0.74rem;color:rgba(255,255,255,.20)}
+
+/* Responsive */
+@media(max-width:1280px){.hero-grid{gap:32px}}
+@media(max-width:1024px){
+  .ws-pillars{grid-template-columns:repeat(2,1fr);gap:12px}
+  .dp-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr;gap:32px}
+  h1{font-size:2.0rem}
+  h2{font-size:1.75rem}
+  .pricing-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}
+  .ws-pillars{grid-template-columns:repeat(2,1fr)}
+  .dp-grid{grid-template-columns:1fr 1fr}
+  .s3-grid{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .fn-card{flex:0 0 262px}
+  .oh-card{flex:0 0 276px}
+}
+@media(max-width:640px){
+  .sec{padding:56px 0}
+  .hero{padding:56px 0 40px}
+  .nav-links{display:none}
+  .nav-ham{display:block}
+  .cta-row{flex-direction:column;align-items:flex-start}
+  .dog-in{flex-direction:column;align-items:flex-start;gap:9px}
+  .ws-pillars{grid-template-columns:1fr}
+  .dp-grid{grid-template-columns:1fr}
+  .fn-card{flex:0 0 240px}
+  .oh-card{flex:0 0 252px}
+  .footer-in{flex-direction:column}
+  .footer-links{gap:22px}
+  .pricing-grid{max-width:none}
+  .oh-hdr-row{flex-direction:column;align-items:flex-start}
+  .mid-cta-row{flex-direction:column;align-items:center}
+}
+@media(max-width:480px){
+  .rv-cards{grid-template-columns:1fr}
+  .dp-grid{grid-template-columns:1fr}
+}
+@media(max-width:390px){
+  .wrap{padding:0 16px}
+  h1{font-size:1.78rem}
+  .fn-card{flex:0 0 218px}
+  .oh-card{flex:0 0 235px}
+  .rv-tl-slbl{display:none}
+}
+
+/* Respect a reduced-motion preference: the panel still opens, it just does not animate. */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;scroll-behavior:auto !important}
+  .hero-activate{animation:none}
+}
+</style>
+<!-- GA4 removed for local/dev serving. Production analytics is a separate deployment concern. -->
+</head>
+<body>
+
+<!-- Nav -->
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo" aria-label="Avorelo home"><img src="/favicon-256.png" alt="" width="28" height="28">Avorelo</a>
+    <ul class="nav-links" role="list">
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="capabilities.html">Capabilities</a></li>
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" id="navHam" onclick="toggleNav()" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+  </div>
+</nav>
+<div class="nav-mob" id="navMob" role="navigation" aria-label="Mobile navigation">
+  <a href="#how" onclick="toggleNav()">How it works</a>
+  <a href="#pricing" onclick="toggleNav()">Pricing</a>
+  <a href="capabilities.html">Capabilities</a>
+  <a href="articles.html">Articles</a>
+  <a href="contact.html">Contact</a>
+  <a href="/activate" class="nm-cta">Explore Community Edition</a>
+</div>
+
+<!-- Hero -->
+<main>
+<section class="hero" aria-labelledby="hero-h1">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <!-- Copy -->
+      <div>
+        <div class="hero-eyebrow" aria-label="Product badge">LOCAL-FIRST &bull; WORKS IN BACKGROUND</div>
+        <h1 id="hero-h1">AI coding comes with overhead. Avorelo handles it.</h1>
+        <p class="hero-sub">Avorelo automates the AI coding practices you would otherwise manage by hand: context, routing, scope, safety, proof, and handoff, across the tools you already use.</p>
+        <div class="hero-support">Runs locally in the project you are already in. Avorelo detects your AI coding workspace and works in the background. No account. No workflow switch. No prompts to rewrite. No hosted dashboard to manage.</div>
+        <div class="cta-row">
+          <a href="/activate" class="btn btn-primary">Explore Community Edition</a>
+          <button type="button" class="btn btn-ghost" id="hero-start-btn" onclick="var p=document.getElementById('hero-wizard-panel');var isOpen=p.classList.toggle('open');this.textContent=isOpen?'Close ↑':'See how activation works'">See how activation works</button>
+        </div>
+
+        <div class="hero-activate" id="hero-wizard-panel">
+          <span class="hero-activate-lbl">Activate Avorelo where you already build</span>
+          <div class="hero-activate-tldr">Avorelo works with Codex, Claude Code, Cursor, and local terminals. You run one local command in your project — there is no account to create and nothing to sign into.</div>
+          <ol class="hero-activate-steps">
+            <li><strong>Run <code style="font-family:var(--mono);font-size:0.82rem">avorelo activate</code></strong> — in the project you are working in</li>
+            <li><strong>Avorelo detects and sets up your workspace</strong> — tools, guidance, and local state</li>
+            <li><strong>Keep using your coding agent</strong> — Codex, Claude Code, Cursor, or terminal</li>
+          </ol>
+          <div style="margin-top:14px;font-size:0.80rem;color:var(--text-3);line-height:1.55">Activation runs entirely on your machine and creates local work receipts. It contacts no Avorelo service, and it does not send source code, prompts, diffs, env values, or secrets anywhere.</div>
+          <div style="margin-top:10px;font-size:0.78rem;color:var(--text-3);line-height:1.55">Public installation instructions will be published in the Apache-2.0 release.</div>
+          <a href="activate.html" style="display:inline-block;margin-top:10px;font-size:0.82rem;color:var(--text-3);text-decoration:none;font-family:var(--sans);font-weight:700">Setup details &amp; what activate does &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Run Visual -->
+      <div class="rv-wrap">
+        <div class="rv" role="img" aria-label="Avorelo active run visual showing Prepare, Keep on Track, and Capture phases">
+          <div class="rv-header">
+            <div class="rv-header-left">
+              <div class="rv-status-dot"></div>
+              <span class="rv-title">Avorelo is keeping this run on track</span>
+            </div>
+            <span class="rv-badge">Active</span>
+          </div>
+          <div class="rv-status">Context trimmed &middot; Scope checked &middot; Proof will be captured</div>
+
+          <!-- Thin timeline (secondary) -->
+          <div class="rv-tl">
+            <div class="rv-tl-lbl">Your AI Coding Run</div>
+            <div class="rv-tl-row">
+              <div class="rv-tl-step"><div class="rv-tl-num">01</div><div class="rv-tl-slbl">Start session</div></div>
+              <div class="rv-tl-conn"></div>
+              <div class="rv-tl-step"><div class="rv-tl-num">02</div><div class="rv-tl-slbl">Define task</div></div>
+              <div class="rv-tl-conn"></div>
+              <div class="rv-tl-step"><div class="rv-tl-num">03</div><div class="rv-tl-slbl">Write code</div></div>
+              <div class="rv-tl-conn"></div>
+              <div class="rv-tl-step"><div class="rv-tl-num">04</div><div class="rv-tl-slbl">Validate work</div></div>
+              <div class="rv-tl-conn"></div>
+              <div class="rv-tl-step"><div class="rv-tl-num">05</div><div class="rv-tl-slbl">End session</div></div>
+            </div>
+          </div>
+
+          <!-- Signal layer -->
+          <div class="rv-signals">
+            <div class="rv-signals-lbl">Automation layer active</div>
+            <div class="rv-signals-row">
+              <span class="rv-sig rv-sig-ctx">Context</span>
+              <span class="rv-sig rv-sig-route">Routing</span>
+              <span class="rv-sig rv-sig-scope">Scope</span>
+              <span class="rv-sig rv-sig-checks">Checks</span>
+              <span class="rv-sig rv-sig-proof">Proof</span>
+              <span class="rv-sig rv-sig-handoff">Handoff</span>
+            </div>
+          </div>
+
+          <!-- Cards: focal point -->
+          <div class="rv-handle">
+            <div class="rv-handle-lbl">What Avorelo Handles for You</div>
+            <div class="rv-cards">
+              <div class="rv-card rv-card-prep">
+                <div class="rv-card-title">Prepare</div>
+                <ul class="rv-card-list">
+                  <li class="rv-card-li">Right context selected</li>
+                  <li class="rv-card-li">Workspace understood</li>
+                  <li class="rv-card-li">Task route prepared</li>
+                  <li class="rv-card-li">Stale context reduced</li>
+                </ul>
+              </div>
+              <div class="rv-card rv-card-track">
+                <div class="rv-card-title">Keep on Track</div>
+                <ul class="rv-card-list">
+                  <li class="rv-card-li">Context kept lean</li>
+                  <li class="rv-card-li">Scope kept to the task</li>
+                  <li class="rv-card-li">Drift repaired early</li>
+                  <li class="rv-card-li">Risky actions surfaced</li>
+                </ul>
+              </div>
+              <div class="rv-card rv-card-cap">
+                <div class="rv-card-title">Capture</div>
+                <ul class="rv-card-list">
+                  <li class="rv-card-li">Proof captured</li>
+                  <li class="rv-card-li">Handoff prepared</li>
+                  <li class="rv-card-li">Next run ready</li>
+                  <li class="rv-card-li">Decisions carried forward</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="rv-chips">
+            <span class="rv-chip">Less repeated context</span>
+            <span class="rv-chip">Fewer wasted tokens</span>
+            <span class="rv-chip">Scope kept tight</span>
+            <span class="rv-chip">Proof ready</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Dogfood strip -->
+<div class="dog-strip">
+  <div class="wrap">
+    <div class="dog-in">
+      <span class="dog-badge">Dogfood</span>
+      <p class="dog-text"><strong>We build Avorelo with Avorelo.</strong> The automation layer that handles context, scope, proof, and handoff is the same layer we use to build this product every day.</p>
+      <a href="articles.html" class="dog-link">Articles &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- How it works -->
+<section class="sec" id="how" aria-labelledby="how-h2" style="background:var(--bg);padding-top:56px">
+  <div class="wrap">
+    <div style="margin-bottom:24px">
+      <div class="kicker" style="margin-bottom:10px">How it works</div>
+      <h2 id="how-h2">From setup to proof, handled in the background.</h2>
+      <p style="margin-top:12px;max-width:640px;font-size:1.0rem;line-height:1.8">Activate once, locally. Avorelo understands your workspace, AI coding tools, project context, trusted skills, and safe working boundaries. Each session starts with the right work package: context, scoped access, checks, policies, and proof expectations. As work changes, Avorelo keeps the session on track, repairs scope drift before approval, handles safe fixes automatically, and captures proof at close. You keep working normally.</p>
+    </div>
+
+    <div class="s3-tabs">
+      <input class="s3-radio" type="radio" name="s3" id="s3t1" checked>
+      <input class="s3-radio" type="radio" name="s3" id="s3t2">
+      <input class="s3-radio" type="radio" name="s3" id="s3t3">
+      <div class="s3-nav" role="tablist" aria-label="How it works tabs">
+        <label for="s3t1" role="tab">Prepare</label>
+        <label for="s3t2" role="tab">Handle</label>
+        <label for="s3t3" role="tab">Capture</label>
+      </div>
+      <div class="s3-panels">
+
+        <!-- Prepare -->
+        <div class="s3-panel" data-tab="1" role="tabpanel">
+          <div class="s3-grid">
+            <div class="s3-col">
+              <div class="s3-col-lbl bef">Without Avorelo</div>
+              <h4>AI work starts from a blank prompt</h4>
+              <ul class="s3-list">
+                <li class="s3-li"><span class="s3-dot"></span>You repeat project context again and again</li>
+                <li class="s3-li"><span class="s3-dot"></span>Agents start without clear task boundaries</li>
+                <li class="s3-li"><span class="s3-dot"></span>Skills, checks, and safety rules depend on manual prompting</li>
+                <li class="s3-li"><span class="s3-dot"></span>Tool, file, or MCP access may be broader than needed</li>
+                <li class="s3-li"><span class="s3-dot"></span>Proof is not planned before the work starts</li>
+              </ul>
+            </div>
+            <div class="s3-col af">
+              <div class="s3-col-lbl aft">With Avorelo</div>
+              <h4>Every session starts ready for the actual task.</h4>
+              <div class="s3-anns">
+                <div class="s3-ann">
+                  <div class="s3-ann-num">1</div>
+                  <div>
+                    <div class="s3-ann-t">Project context is compiled automatically</div>
+                    <div class="s3-ann-d">Avorelo understands the repo, local state, task intent, relevant files, and supported AI coding tools.</div>
+                  </div>
+                </div>
+                <div class="s3-ann">
+                  <div class="s3-ann-num">2</div>
+                  <div>
+                    <div class="s3-ann-t">The right work package is prepared</div>
+                    <div class="s3-ann-d">Avorelo prepares the context, relevant skills, checks, policies, scoped access, and proof expectations the task needs.</div>
+                  </div>
+                </div>
+                <div class="s3-ann">
+                  <div class="s3-ann-num">3</div>
+                  <div>
+                    <div class="s3-ann-t">Safe defaults are set before work starts</div>
+                    <div class="s3-ann-d">File, tool, and MCP access begin focused on the task, with safer boundaries for secrets, network access, production changes, and risky actions.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="s3-chips">
+                <span class="s3-chip">Context ready</span>
+                <span class="s3-chip">Work package prepared</span>
+                <span class="s3-chip">Scoped by default</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Handle -->
+        <div class="s3-panel" data-tab="2" role="tabpanel">
+          <div class="s3-grid">
+            <div class="s3-col">
+              <div class="s3-col-lbl bef">Without Avorelo</div>
+              <h4>Mid-session work turns into babysitting</h4>
+              <ul class="s3-list">
+                <li class="s3-li"><span class="s3-dot"></span>Context grows unmanaged as the session extends</li>
+                <li class="s3-li"><span class="s3-dot"></span>Agents drift beyond the original task</li>
+                <li class="s3-li"><span class="s3-dot"></span>Broad file, tool, or MCP access stays open by default</li>
+                <li class="s3-li"><span class="s3-dot"></span>Routine corrections turn into approval noise</li>
+                <li class="s3-li"><span class="s3-dot"></span>Duplicate work, repeated prompts, and retry loops pile up</li>
+                <li class="s3-li"><span class="s3-dot"></span>It becomes hard to know what is safe, useful, or wasteful</li>
+              </ul>
+            </div>
+            <div class="s3-col af">
+              <div class="s3-col-lbl aft">With Avorelo</div>
+              <h4>Your work continues. Avorelo keeps the session on track.</h4>
+              <div class="s3-anns">
+                <div class="s3-ann">
+                  <div class="s3-ann-num">1</div>
+                  <div>
+                    <div class="s3-ann-t">Routing adapts as the task evolves</div>
+                    <div class="s3-ann-d">The right model, tools, context, checks, and relevant skills stay aligned with the actual work, without manual prompting.</div>
+                  </div>
+                </div>
+                <div class="s3-ann">
+                  <div class="s3-ann-num">2</div>
+                  <div>
+                    <div class="s3-ann-t">Scope is repaired before approval</div>
+                    <div class="s3-ann-d">Avorelo does not make you babysit agents. If the agent drifts beyond the requested work, Avorelo brings it back to the intended scope first and asks only when your authority is actually needed.</div>
+                  </div>
+                </div>
+                <div class="s3-ann">
+                  <div class="s3-ann-num">3</div>
+                  <div>
+                    <div class="s3-ann-t">Safe fixes happen in the background</div>
+                    <div class="s3-ann-d">Routine corrections, access reduction, safe correction, validation checks, and duplicate-work prevention are handled without turning normal work into approval noise.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="s3-chips">
+                <span class="s3-chip">Session stays on track</span>
+                <span class="s3-chip">Scope repaired first</span>
+                <span class="s3-chip">Safe fixes handled</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Capture -->
+        <div class="s3-panel" data-tab="3" role="tabpanel">
+          <div class="s3-grid">
+            <div class="s3-col">
+              <div class="s3-col-lbl bef">Without Avorelo</div>
+              <h4>The session ends without usable proof</h4>
+              <ul class="s3-list">
+                <li class="s3-li"><span class="s3-dot"></span>It is unclear what changed and why</li>
+                <li class="s3-li"><span class="s3-dot"></span>Evidence is scattered across chats, commits, logs, and memory</li>
+                <li class="s3-li"><span class="s3-dot"></span>Safe fixes and blocked risks are easy to miss</li>
+                <li class="s3-li"><span class="s3-dot"></span>Follow-up work starts with missing context</li>
+                <li class="s3-li"><span class="s3-dot"></span>Teams cannot clearly see what AI work actually produced</li>
+              </ul>
+            </div>
+            <div class="s3-col af">
+              <div class="s3-col-lbl aft">With Avorelo</div>
+              <h4>Every session ends with proof you can use.</h4>
+              <div class="s3-anns">
+                <div class="s3-ann">
+                  <div class="s3-ann-num">1</div>
+                  <div>
+                    <div class="s3-ann-t">Outcomes are captured clearly</div>
+                    <div class="s3-ann-d">Avorelo records what was found, fixed, saved, proved, and what still needs attention.</div>
+                  </div>
+                </div>
+                <div class="s3-ann">
+                  <div class="s3-ann-num">2</div>
+                  <div>
+                    <div class="s3-ann-t">Evidence is tied to the work</div>
+                    <div class="s3-ann-d">Checks, changed files, relevant skills, safe fixes, blocked risks, approvals, and validation signals are connected to the final outcome.</div>
+                  </div>
+                </div>
+                <div class="s3-ann">
+                  <div class="s3-ann-num">3</div>
+                  <div>
+                    <div class="s3-ann-t">Value becomes visible</div>
+                    <div class="s3-ann-d">Individuals get clear local proof. Teams get outcome reporting on AI work, risk, savings, and completed value, without turning it into surveillance.</div>
+                  </div>
+                </div>
+              </div>
+              <div class="s3-chips">
+                <span class="s3-chip">Proof at close</span>
+                <span class="s3-chip">Clear re-entry</span>
+                <span class="s3-chip">Visible value</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What you used to manage by hand -->
+<section class="sec" id="overhead" style="background:var(--warm);border-top:1px solid var(--border);border-bottom:1px solid var(--border)" aria-labelledby="overhead-h2">
+  <div class="wrap">
+    <div class="oh-hdr">
+      <div class="kicker" style="margin-bottom:10px">What Avorelo automates</div>
+      <div class="oh-hdr-row">
+        <h2 id="overhead-h2">What you used to manage by hand.</h2>
+        <div style="display:flex;gap:8px;flex-shrink:0">
+          <button class="oh-btn" onclick="ohScroll(-1)" aria-label="Previous overhead item">&#8592;</button>
+          <button class="oh-btn" onclick="ohScroll(1)" aria-label="Next overhead item">&#8594;</button>
+        </div>
+      </div>
+      <p style="max-width:560px;font-size:1.0rem">Context, prompts, routing, access, proof, and handoff: the hidden overhead behind every AI coding run. Avorelo handles it automatically.</p>
+    </div>
+    <div class="oh-track-wrap">
+    <div class="oh-track" id="ohTrack">
+      <div class="oh-card">
+        <div class="oh-top">
+          <div class="oh-lbl bef">Manual overhead</div>
+          <div class="oh-name">Repeated context overhead</div>
+          <p class="oh-txt">The same project context gets re-explained at the start of every run. Useful patterns from past sessions get lost between them.</p>
+        </div>
+        <div class="oh-bot">
+          <div class="oh-lbl aft">Avorelo automates</div>
+          <p class="oh-txt on">Avorelo compiles useful context from previous runs and carries it forward, so the agent starts with what it actually needs.</p>
+          <div class="oh-result"><span class="oh-chip">Less repeated context</span></div>
+        </div>
+      </div>
+      <div class="oh-card">
+        <div class="oh-top">
+          <div class="oh-lbl bef">Manual overhead</div>
+          <div class="oh-name">Prompt and instruction overhead</div>
+          <p class="oh-txt">Prompt structure, task boundaries, and working instructions get written from scratch each time or manually copied between sessions.</p>
+        </div>
+        <div class="oh-bot">
+          <div class="oh-lbl aft">Avorelo automates</div>
+          <p class="oh-txt on">Avorelo structures task instructions and carries useful run patterns forward so each session builds on what worked before.</p>
+          <div class="oh-result"><span class="oh-chip">Better prompt carry-forward</span></div>
+        </div>
+      </div>
+      <div class="oh-card">
+        <div class="oh-top">
+          <div class="oh-lbl bef">Manual overhead</div>
+          <div class="oh-name">Model and tool selection overhead</div>
+          <p class="oh-txt">Choosing the right model, tools, or capabilities for each task requires manual judgment or defaults to whatever was last active.</p>
+        </div>
+        <div class="oh-bot">
+          <div class="oh-lbl aft">Avorelo automates</div>
+          <p class="oh-txt on">Avorelo routes each run to the right model and tools based on task signals, risk level, and required proof before the agent starts.</p>
+          <div class="oh-result"><span class="oh-chip">Fewer wrong-model paths</span></div>
+        </div>
+      </div>
+      <div class="oh-card">
+        <div class="oh-top">
+          <div class="oh-lbl bef">Manual overhead</div>
+          <div class="oh-name">Broad access and safety overhead</div>
+          <p class="oh-txt">AI coding tools start with more file, tool, and MCP access than the task needs. Narrowing it takes manual effort or gets skipped entirely.</p>
+        </div>
+        <div class="oh-bot">
+          <div class="oh-lbl aft">Avorelo automates</div>
+          <p class="oh-txt on">Avorelo scopes access to what the task actually needs before the run starts, and revokes it when the work is done.</p>
+          <div class="oh-result"><span class="oh-chip">Task-scoped access by default</span></div>
+        </div>
+      </div>
+      <div class="oh-card">
+        <div class="oh-top">
+          <div class="oh-lbl bef">Manual overhead</div>
+          <div class="oh-name">Proof tracking overhead</div>
+          <p class="oh-txt">Tests pass, risks get blocked, and safe fixes get made. But nothing captures it in a form that is easy to review or reuse later.</p>
+        </div>
+        <div class="oh-bot">
+          <div class="oh-lbl aft">Avorelo automates</div>
+          <p class="oh-txt on">Avorelo captures what was found, fixed, proved, and blocked at the end of each run, attached to the work that produced it.</p>
+          <div class="oh-result"><span class="oh-chip">Proof captured every run</span></div>
+        </div>
+      </div>
+      <div class="oh-card">
+        <div class="oh-top">
+          <div class="oh-lbl bef">Manual overhead</div>
+          <div class="oh-name">Handoff and re-entry overhead</div>
+          <p class="oh-txt">When one session ends and another begins, useful state is effectively lost. The next run repeats the same setup instead of building on what was done.</p>
+        </div>
+        <div class="oh-bot">
+          <div class="oh-lbl aft">Avorelo automates</div>
+          <p class="oh-txt on">Avorelo writes a clear handoff from each run so the next session starts with evidence and context, not a blank slate.</p>
+          <div class="oh-result"><span class="oh-chip">Clear re-entry</span></div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</section>
+
+<!-- Dashboard Preview -->
+<section class="sec" id="product" aria-labelledby="product-h2" style="background:var(--bg)">
+  <div class="wrap">
+    <div style="text-align:center;margin-bottom:28px">
+      <div class="kicker" style="margin-bottom:10px">Dashboard preview</div>
+      <h2 id="product-h2">Avorelo works in the background. The dashboard shows what it reduced, repaired, prevented, and proved.</h2>
+      <p style="margin-top:10px;max-width:500px;margin-left:auto;margin-right:auto;font-size:0.96rem">Open it when you want to see the value, proof, and evidence from your sessions.</p>
+    </div>
+
+    <div class="dp-dog">
+      <strong>Dogfood data shown</strong>: from internal Avorelo development sessions on this product. Your dashboard shows your own data after your first run. No fake numbers.
+    </div>
+
+    <div class="dp-grid">
+      <!-- Time Saved -->
+      <div class="dp-card">
+        <div class="dp-card-tag amber">Time Saved</div>
+        <div class="dp-bigval amber">42 min</div>
+        <div class="dp-card-vals">
+          <div class="dp-card-val-item">this session</div>
+          <div class="dp-card-val-item">Approval interruptions avoided: 1</div>
+          <div class="dp-card-val-item">Review queue reduced: 4 of 5 items</div>
+        </div>
+        <p class="dp-card-desc">Avorelo handled 4 of 5 items automatically, leaving only 1 for review.</p>
+        <a href="dashboard.html" class="dp-card-link">View review receipt &rarr;</a>
+      </div>
+
+      <!-- Scope & Safety -->
+      <div class="dp-card">
+        <div class="dp-card-tag">Scope &amp; Safety</div>
+        <div class="dp-bigval">29 files</div>
+        <div class="dp-card-vals">
+          <div class="dp-card-val-item">kept out of scope</div>
+          <div class="dp-card-val-item">31 to 2 files narrowed &middot; 94% scope reduced</div>
+          <div class="dp-card-val-item">1 scope drift repaired</div>
+          <div class="dp-card-val-item">Approval avoided before it became review noise</div>
+        </div>
+        <p class="dp-card-desc">Agent tried 31 files. Task needed 2. Avorelo narrowed scope before work started.</p>
+        <a href="dashboard.html" class="dp-card-link">View scope repair receipt &rarr;</a>
+      </div>
+
+      <!-- AI Waste Reduced -->
+      <div class="dp-card">
+        <div class="dp-card-tag">AI Waste Reduced</div>
+        <div class="dp-bigval">18.4k</div>
+        <div class="dp-card-vals">
+          <div class="dp-card-val-item">tokens avoided this session</div>
+          <div class="dp-card-val-item">6 repeated context blocks removed</div>
+          <div class="dp-card-val-item">$1.42 estimated cost avoided</div>
+        </div>
+        <p class="dp-card-desc">Avorelo reduced repeated context before it reached the model.</p>
+        <a href="dashboard.html" class="dp-card-link">View evidence &rarr;</a>
+      </div>
+    </div>
+
+    <p class="dp-foot">Illustrative example &mdash; these numbers are from our own dogfood use and are not live. There are no plans and no gated signals. Your own runs produce your own local data, on your machine.</p>
+    <div style="text-align:center">
+      <a href="dashboard.html" class="btn btn-ghost" style="font-size:0.875rem">See the local viewer &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- Reassurance line (replaces mid-CTA to avoid duplicate CTAs) -->
+<div style="text-align:center;padding:24px 0;color:var(--text-3);font-size:0.88rem;font-family:var(--sans)">
+  Already using Claude Code, Cursor, or Codex? Avorelo works alongside them - no workflow changes needed.
+</div>
+
+<!-- Workspace Safety -->
+<section class="ws-sec" id="safety" aria-labelledby="safety-h2">
+  <div class="wrap">
+    <div class="ws-head">
+      <div class="ws-kicker">Workspace Safety</div>
+      <h2 id="safety-h2">Avorelo lets AI coding agents work safely without making you babysit them.</h2>
+      <p>Avorelo can act inside your workspace, so every run stays task-scoped, reversible, and backed by local proof. It detects scope drift before approval and asks only when your authority is actually needed.</p>
+    </div>
+    <div class="ws-pillars">
+      <div class="wp">
+        <div class="wp-ico">&#9638;</div>
+        <h3>Least privilege by default</h3>
+        <p>Avorelo gives each run only the access it needs for the task. Files, tools, and MCP access stay scoped, with JIT access revoked when the work is done.</p>
+      </div>
+      <div class="wp">
+        <div class="wp-ico">&#9900;</div>
+        <h3>No silent workspace changes</h3>
+        <p>Global config, hooks, MCP settings, model keys, env values, and secrets are never changed silently. Sensitive changes require clear approval.</p>
+      </div>
+      <div class="wp">
+        <div class="wp-ico">&#8859;</div>
+        <h3>Proof stays local</h3>
+        <p>Session proof, handoff context, logs, and value signals stay on your machine unless you choose otherwise. Avorelo does not require cloud sync to prove what happened.</p>
+      </div>
+      <div class="wp">
+        <div class="wp-ico">&#9651;</div>
+        <h3>Scope drift is repaired first</h3>
+        <p>If an agent expands beyond the task, Avorelo narrows it back before asking you to approve anything. You only step in when a real authority decision remains.</p>
+      </div>
+    </div>
+    <div class="ws-footer" role="list">
+      <span role="listitem">JIT access where supported</span><span class="ws-sep" aria-hidden="true">&middot;</span>
+      <span role="listitem">Destructive commands require confirmation</span><span class="ws-sep" aria-hidden="true">&middot;</span>
+      <span role="listitem">Rollback and uninstall always available</span><span class="ws-sep" aria-hidden="true">&middot;</span>
+      <span role="listitem">No productivity scores</span><span class="ws-sep" aria-hidden="true">&middot;</span>
+      <span role="listitem">No individual surveillance</span>
+    </div>
+  </div>
+</section>
+
+<!-- Pricing -->
+<section class="sec pricing-sec" id="pricing" aria-labelledby="pricing-h2">
+  <div class="wrap">
+    <div class="pricing-header">
+      <div class="kicker" style="margin-bottom:10px">Licensing</div>
+      <h2 id="pricing-h2">Open Source under Apache-2.0. There is nothing to buy.</h2>
+      <p class="pricing-tagline">Avorelo is Open Source software under the Apache License 2.0. Personal, internal, organizational, and commercial use are all permitted &mdash; no fee and no separate license. See the <a href="license.html">license page</a>.</p>
+    </div>
+    <div class="pricing-grid">
+
+      <div class="pc">
+        <h3>Free and Open Source</h3>
+        <p class="pc-desc">Apache-2.0 grants broad rights to everyone: use, study, modify, and redistribute.</p>
+        <div class="pc-div"></div>
+        <ul class="pc-items">
+          <li class="pc-item"><span class="pc-ck">&#10003;</span>Personal, internal, and organizational use</li>
+          <li class="pc-item"><span class="pc-ck">&#10003;</span>Commercial use &mdash; permitted, at no cost</li>
+          <li class="pc-item"><span class="pc-ck">&#10003;</span>Modify and redistribute under Apache-2.0</li>
+        </ul>
+      </div>
+
+      <div class="pc">
+        <h3>Optional paid services</h3>
+        <p class="pc-desc">Support, implementation, integrations, training, and SLAs may be agreed separately &mdash; never required to use Avorelo.</p>
+        <div class="pc-div"></div>
+        <ul class="pc-items">
+          <li class="pc-item"><span class="pc-ck">&#10003;</span>Separate from the Apache-2.0 software rights</li>
+          <li class="pc-item"><span class="pc-ck">&#10003;</span>Scoped case-by-case; no public price list</li>
+          <li class="pc-item"><span class="pc-ck">&#10003;</span>Contact support@avorelo.com</li>
+        </ul>
+      </div>
+
+      <div class="pc">
+        <h3>Local by design</h3>
+        <p class="pc-desc">None of this needs a service. Avorelo runs on your machine, and the evidence it produces stays there.</p>
+        <div class="pc-div"></div>
+        <ul class="pc-items">
+          <li class="pc-item"><span class="pc-ck">&#10003;</span>No account and no hosted backend</li>
+          <li class="pc-item"><span class="pc-ck">&#10003;</span>No subscription, checkout or customer portal</li>
+          <li class="pc-item"><span class="pc-ck">&#10003;</span>No automatic telemetry</li>
+        </ul>
+      </div>
+
+    </div>
+    <p class="pricing-legal">Final licence terms have not been published and remain subject to legal review, so this summary grants no rights to use the software. See <a href="pricing.html">licensing</a> for the full picture, and the <a href="terms-of-service.html">Terms of Service</a> and <a href="privacy-policy.html">Privacy Policy</a> for how this website itself behaves.</p>
+  </div>
+</section>
+
+<!-- Field Notes -->
+<section class="sec fn-sec" id="field-notes" aria-labelledby="fn-h2">
+  <div class="wrap">
+    <div class="fn-header">
+      <div class="kicker" style="margin-bottom:9px">Field Notes</div>
+      <div class="fn-header-row">
+        <div>
+          <h2 id="fn-h2">AI coding practices, explained from the inside.</h2>
+        </div>
+        <div style="display:flex;gap:10px;align-items:center;flex-shrink:0">
+          <a href="articles.html" class="btn btn-primary" style="font-size:0.85rem;padding:8px 16px">All articles &rarr;</a>
+          <button class="oh-btn" onclick="fnScroll(-1)" aria-label="Previous note">&#8592;</button>
+          <button class="oh-btn" onclick="fnScroll(1)" aria-label="Next note">&#8594;</button>
+        </div>
+      </div>
+      <p>We use Avorelo to build Avorelo. These notes come from real runs, failures, fixes, and patterns we observed while building the product.</p>
+    </div>
+    <div class="fn-track-wrap">
+    <div class="fn-track" id="fnTrack">
+      <a href="article-context.html" class="fn-card">
+        <div class="fn-tag">Context</div>
+        <h4>Repeated context becomes hidden cost</h4>
+        <p>Across long AI coding sessions, the same task context kept getting reintroduced. Avorelo surfaced the pattern and preserved the useful parts for the next run.</p>
+        <span class="fn-link">Read note &rarr;</span>
+      </a>
+      <a href="article-scope.html" class="fn-card">
+        <div class="fn-tag">Scope</div>
+        <h4>Broad access is the unsafe default</h4>
+        <p>AI coding tools often start with more access than the task requires. Avorelo helped turn task-only access into the default instead of relying on manual correction.</p>
+        <span class="fn-link">Read note &rarr;</span>
+      </a>
+      <a href="article-proof.html" class="fn-card">
+        <div class="fn-tag">Proof</div>
+        <h4>Uncaptured proof cannot guide the next run</h4>
+        <p>When proof lives only in a past session, every review becomes reconstruction. Avorelo keeps evidence attached to the work so it can be reused later.</p>
+        <span class="fn-link">Read note &rarr;</span>
+      </a>
+      <a href="article-routing.html" class="fn-card">
+        <div class="fn-tag">Routing</div>
+        <h4>Most model choices are made too late</h4>
+        <p>Wrong routing often starts as a small context mismatch, not an obvious model mistake. Avorelo uses task signals before more AI spend happens.</p>
+        <span class="fn-link">Read note &rarr;</span>
+      </a>
+      <a href="article-access.html" class="fn-card">
+        <div class="fn-tag">Access</div>
+        <h4>Access should expire with the work</h4>
+        <p>When a run ends, broad access should not remain behind. Avorelo scopes access to the task and removes it when the work is done.</p>
+        <span class="fn-link">Read note &rarr;</span>
+      </a>
+    </div>
+    </div>
+    <div class="fn-cta-row">
+      <span class="fn-dog">Every note comes from real Avorelo development work.</span>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-in">
+      <div class="footer-brand">
+        <a href="index.html" class="footer-logo">Avorelo</a>
+        <p>Local-first AI coding overhead reducer. Automates the practices you manage by hand.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="#how">How it works</a></li>
+            <li><a href="#product">Dashboard</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="capabilities.html">Capabilities</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Resources</h5>
+          <ul>
+            <li><a href="articles.html">Articles</a></li>
+            <li><a href="dashboard.html">Dashboard preview</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="terms-of-service.html">Terms of Service</a></li>
+            <li><a href="privacy-policy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Community Edition</h5>
+          <ul>
+            <li><a href="/activate">Explore Community Edition</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <p>&copy; 2026 Avorelo. Local-first. All proof stays on your machine.</p>
+      <p>Built with Avorelo.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+function ohScroll(dir){var t=document.getElementById('ohTrack');if(!t)return;var c=t.querySelector('.oh-card');var w=c?(c.offsetWidth+16):321;t.scrollBy({left:dir*w,behavior:'smooth'});}
+function fnScroll(dir){var t=document.getElementById('fnTrack');if(!t)return;var c=t.querySelector('.fn-card');var w=c?(c.offsetWidth+16):306;t.scrollBy({left:dir*w,behavior:'smooth'});}
+function toggleNav(){
+  var m=document.getElementById('navMob');
+  var b=document.getElementById('navHam');
+  if(m){m.classList.toggle('open');b.setAttribute('aria-expanded',m.classList.contains('open').toString());}
+}
+</script>
+<script src="/activate-cta.js"></script>
+</body>
+</html>

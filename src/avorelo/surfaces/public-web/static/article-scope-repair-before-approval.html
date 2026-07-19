@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Understanding Scope + Safety | Avorelo Reports</title>
+<meta name="description" content="How to read the Scope + Safety report. What scope drift events, safe fix actions, and approvals avoided tell you about your team's AI coding discipline.">
+<link rel="canonical" href="https://avorelo.com/article-scope-repair-before-approval.html">
+<meta property="og:title" content="Scope Repair Before Approval: How to Stop Babysitting AI Agents">
+<meta property="og:description" content="Review fatigue happens when every drift becomes an approval. Avorelo narrows scope first and asks only when real authority is needed.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://avorelo.com/article-scope-repair-before-approval.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scope Repair Before Approval: How to Stop Babysitting AI Agents">
+<meta name="twitter:description" content="Review fatigue happens when every drift becomes an approval. Avorelo narrows scope first and asks only when real authority is needed.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--warm:#EDE9E4;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sh:0 2px 8px rgba(0,0,0,.10);--sh-lg:0 4px 24px rgba(0,0,0,.13);
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+  --accent:#7B3FB0
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3{font-family:var(--sans);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+p{font-size:0.925rem;line-height:1.75;color:var(--text-2)}
+
+.nav{background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px}
+
+.art-hero{padding:48px 24px 36px;max-width:720px;margin:0 auto}
+.art-breadcrumb{font-size:0.78rem;color:var(--text-3);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.art-breadcrumb a{color:var(--text-3);text-decoration:none}
+.art-tag{display:inline-block;font-size:0.72rem;font-weight:700;font-family:var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--accent);background:rgba(123,63,176,.10);padding:4px 10px;border-radius:20px;margin-bottom:14px}
+.art-hero h1{font-size:clamp(1.4rem,3vw,2rem);margin-bottom:12px}
+.art-hero .art-lede{font-size:0.975rem;color:var(--text-2);line-height:1.7;margin-bottom:16px}
+.art-meta{display:flex;gap:20px;font-size:0.78rem;color:var(--text-3);font-family:var(--sans)}
+
+.art-body{max-width:720px;margin:0 auto;padding:0 24px 64px}
+.art-body h2{font-size:1.1rem;margin:32px 0 10px;color:var(--text)}
+.art-body p{margin-bottom:14px}
+.art-body ul{padding-left:20px;margin-bottom:14px}
+.art-body ul li{font-size:0.925rem;color:var(--text-2);line-height:1.7;margin-bottom:5px}
+
+.callout{background:var(--warm);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--r);padding:14px 16px;margin:20px 0}
+.callout p{margin-bottom:0;font-size:0.875rem}
+
+.event-type{background:var(--card);border:1px solid var(--border-2);border-radius:var(--r-lg);padding:14px 18px;margin:14px 0;display:flex;align-items:flex-start;gap:12px}
+.et-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:4px}
+.et-dot.contained{background:var(--teal)}
+.et-dot.repaired{background:var(--indigo)}
+.et-dot.flagged{background:var(--amber)}
+.et-content h3{font-size:0.88rem;font-weight:700;font-family:var(--sans);margin-bottom:3px}
+.et-content p{font-size:0.82rem;margin:0;color:var(--text-3)}
+
+.report-link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);border:1px solid var(--border-2);border-radius:var(--r-lg);padding:16px 20px;margin:24px 0;text-decoration:none;box-shadow:var(--sh)}
+.report-link:hover{box-shadow:var(--sh-lg)}
+.rl-left h3{font-size:0.9rem;font-family:var(--sans);color:var(--text);margin-bottom:2px}
+.rl-left p{font-size:0.78rem;color:var(--text-3);margin:0}
+.rl-badge{font-size:0.68rem;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.04em;color:var(--amber);background:var(--amber-lt);padding:4px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+
+.art-related{background:var(--warm);border-top:1px solid var(--border);padding:32px 24px}
+.art-related-in{max-width:720px;margin:0 auto}
+.art-related h2{font-size:0.95rem;font-weight:700;font-family:var(--sans);margin-bottom:14px;color:var(--text-3)}
+.art-related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.art-related-card{background:var(--card);border:1px solid var(--border-2);border-radius:var(--r);padding:14px 16px;text-decoration:none;display:block}
+.art-related-card .arc-tag{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);margin-bottom:4px;font-family:var(--sans)}
+.art-related-card h3{font-size:0.875rem;color:var(--text);font-family:var(--sans);line-height:1.35}
+
+.footer-min{border-top:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-min p{font-size:0.74rem;color:var(--text-3)}
+.footer-min a{font-size:0.74rem;color:var(--text-3);text-decoration:none}
+
+.viz-block{background:var(--card);border:1px solid var(--border-2);border-radius:var(--r-lg);padding:24px;margin:24px 0}
+.viz-title{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);font-family:var(--sans);margin-bottom:16px}
+.viz-flow{display:flex;align-items:flex-start;gap:0;flex-wrap:wrap}
+.viz-node{flex:1;min-width:110px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;text-align:center}
+.viz-node-val{font-size:0.875rem;font-weight:700;font-family:var(--sans);color:var(--text);line-height:1.3}
+.viz-node-sub{font-size:0.72rem;color:var(--text-3);margin-top:4px;line-height:1.4}
+.viz-node.good{background:var(--teal-lt);border-color:rgba(23,168,122,.22)}
+.viz-node.good .viz-node-val{color:var(--teal-dk)}
+.viz-arrow{flex-shrink:0;color:var(--text-3);font-size:1rem;align-self:center;padding:0 10px}
+@media(max-width:640px){.art-hero,.art-body{padding-left:16px;padding-right:16px}.art-related-grid{grid-template-columns:1fr}.nav-links{display:none}.nav-ham{display:block}.viz-flow{flex-direction:column;gap:8px}.viz-arrow{transform:rotate(90deg)}}
+
+.hist-banner{background:var(--amber-lt,rgba(217,123,26,.10));border:1px solid rgba(217,123,26,.28);border-left:3px solid var(--amber,#D97B1A);border-radius:var(--r,10px);padding:12px 16px;margin:0 0 20px;font-size:0.84rem;line-height:1.6;color:var(--text-2,#4A4E5E)}
+.hist-banner strong{color:var(--text,#0A0E1C);font-family:var(--sans,sans-serif)}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Understanding Scope + Safety","description":"How to read the Scope + Safety report. What scope drift events, safe fix actions, and approvals avoided tell you about your team's AI coding discipline.","publisher":{"@type":"Organization","name":"Avorelo"},"url":"https://avorelo.com/article-scope-repair-before-approval.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Articles","item":"https://avorelo.com/articles.html"},{"@type":"ListItem","position":2,"name":"Scope Repair Before Approval","item":"https://avorelo.com/article-scope-repair-before-approval.html"}]}</script>
+</head>
+<body>
+<nav class="nav" role="navigation">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">Avorelo</a>
+    <ul class="nav-links">
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+
+<main role="main">
+<div class="art-hero">
+  <div class="art-breadcrumb"><a href="articles.html">Articles</a> <span>/</span> <span>Understanding reports</span></div>
+  <div class="art-tag">Reports</div>
+  <h1>Understanding Scope + Safety</h1>
+  <p class="art-lede">What scope drift events, safe fix actions, and approvals avoided tell you about your team's AI coding discipline.</p>
+  <div class="art-meta">
+    <span>Report guide</span>
+    <span class="art-reading-time">3 min read</span>
+  </div>
+</div>
+
+<div class="art-body">
+  <div class="hist-banner" role="note"><strong>Historical product context:</strong> this article discusses an earlier hosted version of Avorelo. The current product is local-first and is Open Source under the Apache License 2.0.</div>
+  <h2>What this report tracks</h2>
+  <p>The Scope + Safety report shows how well your team's AI runs stayed within their declared scope. It captures every event where Avorelo intervened to enforce a boundary, apply a safe fix, or flag something that needed attention before the run could proceed.</p>
+  <p>The report is designed for team leads and engineering managers who want to understand whether scope discipline is holding up across the team as AI task frequency increases.</p>
+
+  <div class="viz-block" role="img" aria-label="Scope repair flow: drift detected, boundary narrowed, approval only when scope cannot be repaired automatically">
+    <div class="viz-title">Scope repair before approval</div>
+    <div class="viz-flow">
+      <div class="viz-node">
+        <div class="viz-node-val">Scope drift detected</div>
+        <div class="viz-node-sub">Planned changes outside declared boundary</div>
+      </div>
+      <div class="viz-arrow" aria-hidden="true">&#8594;</div>
+      <div class="viz-node">
+        <div class="viz-node-val">Boundary narrowed</div>
+        <div class="viz-node-sub">Avorelo contains or repairs before the run continues</div>
+      </div>
+      <div class="viz-arrow" aria-hidden="true">&#8594;</div>
+      <div class="viz-node good">
+        <div class="viz-node-val">Approval only if needed</div>
+        <div class="viz-node-sub">Escalate only when automatic repair is not possible</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Three types of events</h2>
+
+  <div class="event-type">
+    <div class="et-dot contained"></div>
+    <div class="et-content">
+      <h3>Contained</h3>
+      <p>A scope boundary was enforced before any out-of-scope file was written. The agent's planned changes fell outside the declared boundary, Avorelo caught it, and the run continued with corrected scope. No escalation required.</p>
+    </div>
+  </div>
+  <div class="event-type">
+    <div class="et-dot repaired"></div>
+    <div class="et-content">
+      <h3>Repaired</h3>
+      <p>A safe fix was applied automatically. Unused import, whitespace normalization, or another low-risk cleanup that met the configured safe fix criteria. Applied without escalation and recorded in the receipt.</p>
+    </div>
+  </div>
+  <div class="event-type">
+    <div class="et-dot flagged"></div>
+    <div class="et-content">
+      <h3>Flagged</h3>
+      <p>Something was detected that did not meet the criteria for automatic repair, and the run could not confirm a clean exit. This appears in the task list as Review needed and requires human attention before the output is treated as done.</p>
+    </div>
+  </div>
+
+  <h2>Files kept out of scope</h2>
+  <p>This is the top-level metric: how many files were excluded from writes this period because they were outside the declared task boundary. A higher number means more active enforcement, not necessarily more problems.</p>
+  <p>Compare this number against the total file change count to understand the ratio of enforced exclusions to actual changes. A team doing a lot of complex refactoring will see this number increase naturally.</p>
+
+  <h2>Approvals avoided</h2>
+  <p>Each time a task stays within its declared scope and exits clean, it avoids a potential approval escalation. This is the most operationally significant metric in the report for teams that are trying to maintain delivery pace without introducing new review bottlenecks.</p>
+
+  <div class="callout">
+    <p>Scope + Safety is not a trust report. It is a discipline report. Higher containment events with low flagged events mean the system is working. Frequent flagged events may indicate tasks that need clearer scope declarations at the start.</p>
+  </div>
+
+  <h2>Per-member scope adherence</h2>
+  <p>The bar chart shows each member's clean exit rate: what proportion of their runs stayed within the declared scope without a flagged event. A member with a lower rate is not necessarily doing worse work. They may be running more exploratory or high-risk tasks that naturally produce more containment events.</p>
+  <p>Use this view to start a conversation, not to draw conclusions. Compare the scope adherence chart against the task list filtered by that member to understand context.</p>
+
+</div>
+
+<div class="art-related">
+  <div class="art-related-in">
+    <h2>Other report guides</h2>
+    <div class="art-related-grid">
+      <a href="article-workflow-health.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Reports</div>
+        <h3>Understanding Workflow Health</h3>
+      </a>
+      <a href="article-ai-spend-proof.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Reports</div>
+        <h3>Understanding AI Spend + Proof</h3>
+      </a>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer class="footer-min">
+  <p>&copy; 2026 Avorelo. Local-first.</p>
+  <div style="display:flex;gap:16px"><a href="privacy-policy.html">Privacy</a><a href="terms-of-service.html">Terms</a><a href="contact.html">Contact</a></div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Understanding Context Continuity | Avorelo Reports</title>
+<meta name="description" content="How to read the Context Continuity report. What re-explanation rate and receipt reuse tell you about whether your team is burning time rebuilding context that already exists.">
+<link rel="canonical" href="https://avorelo.com/article-stop-reexplaining.html">
+<meta property="og:title" content="Stop Re-Explaining Your Project to AI">
+<meta property="og:description" content="A lot of AI waste comes from rediscovery. How to build reusable context so future sessions start faster instead of from zero.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://avorelo.com/article-stop-reexplaining.html">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Stop Re-Explaining Your Project to AI">
+<meta name="twitter:description" content="A lot of AI waste comes from rediscovery. How to build reusable context so future sessions start faster instead of from zero.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@700,600,500,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F4F1;--dark:#0A0E1C;--warm:#EDE9E4;--card:#FFFFFF;
+  --indigo:#4B50E8;--indigo-dk:#3B3FD8;--indigo-lt:rgba(75,80,232,.08);
+  --teal:#17A87A;--teal-lt:#E8F7F1;--teal-dk:#12916A;
+  --amber:#D97B1A;--amber-lt:rgba(217,123,26,.10);
+  --text:#0A0E1C;--text-2:#4A4E5E;--text-3:#7A7E8E;
+  --border:rgba(10,14,28,.10);--border-2:rgba(10,14,28,.18);
+  --r-sm:6px;--r:10px;--r-lg:16px;
+  --sh:0 2px 8px rgba(0,0,0,.10);--sh-lg:0 4px 24px rgba(0,0,0,.13);
+  --sans:'Satoshi','DM Sans',sans-serif;--body:'DM Sans',sans-serif;--mono:'JetBrains Mono',monospace;
+  --accent:var(--teal)
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px}
+body{background:var(--bg);color:var(--text);font-family:var(--body);line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3{font-family:var(--sans);font-weight:700;line-height:1.2;letter-spacing:-0.02em}
+p{font-size:0.925rem;line-height:1.75;color:var(--text-2)}
+
+.nav{background:rgba(245,244,241,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;position:sticky;top:0;z-index:100}
+.nav-in{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px}
+.nav-logo{font-family:var(--sans);font-size:1.05rem;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-0.03em}
+.nav-links{display:flex;align-items:center;gap:24px;list-style:none}
+.nav-links a{font-size:0.875rem;color:var(--text-2);text-decoration:none;font-weight:500}
+.nav-cta{background:var(--indigo);color:#fff;padding:8px 18px;border-radius:var(--r-sm);font-size:0.875rem;font-weight:600;text-decoration:none;font-family:var(--sans)}
+.nav-ham{display:none;background:none;border:none;font-size:1.2rem;cursor:pointer;color:var(--text);padding:6px}
+
+.art-hero{padding:48px 24px 36px;max-width:720px;margin:0 auto}
+.art-breadcrumb{font-size:0.78rem;color:var(--text-3);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.art-breadcrumb a{color:var(--text-3);text-decoration:none}
+.art-tag{display:inline-block;font-size:0.72rem;font-weight:700;font-family:var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--teal);background:var(--teal-lt);padding:4px 10px;border-radius:20px;margin-bottom:14px}
+.art-hero h1{font-size:clamp(1.4rem,3vw,2rem);margin-bottom:12px}
+.art-hero .art-lede{font-size:0.975rem;color:var(--text-2);line-height:1.7;margin-bottom:16px}
+.art-meta{display:flex;gap:20px;font-size:0.78rem;color:var(--text-3);font-family:var(--sans)}
+
+.art-body{max-width:720px;margin:0 auto;padding:0 24px 64px}
+.art-body h2{font-size:1.1rem;margin:32px 0 10px;color:var(--text)}
+.art-body p{margin-bottom:14px}
+.art-body ul{padding-left:20px;margin-bottom:14px}
+.art-body ul li{font-size:0.925rem;color:var(--text-2);line-height:1.7;margin-bottom:5px}
+
+.callout{background:var(--warm);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:var(--r);padding:14px 16px;margin:20px 0}
+.callout p{margin-bottom:0;font-size:0.875rem}
+
+.report-link{display:flex;align-items:center;justify-content:space-between;gap:12px;background:var(--card);border:1px solid var(--border-2);border-radius:var(--r-lg);padding:16px 20px;margin:24px 0;text-decoration:none;box-shadow:var(--sh)}
+.report-link:hover{box-shadow:var(--sh-lg)}
+.rl-left h3{font-size:0.9rem;font-family:var(--sans);color:var(--text);margin-bottom:2px}
+.rl-left p{font-size:0.78rem;color:var(--text-3);margin:0}
+.rl-badge{font-size:0.68rem;font-weight:700;font-family:var(--sans);text-transform:uppercase;letter-spacing:.04em;color:var(--amber);background:var(--amber-lt);padding:4px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+
+.art-related{background:var(--warm);border-top:1px solid var(--border);padding:32px 24px}
+.art-related-in{max-width:720px;margin:0 auto}
+.art-related h2{font-size:0.95rem;font-weight:700;font-family:var(--sans);margin-bottom:14px;color:var(--text-3)}
+.art-related-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.art-related-card{background:var(--card);border:1px solid var(--border-2);border-radius:var(--r);padding:14px 16px;text-decoration:none;display:block}
+.art-related-card .arc-tag{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--text-3);margin-bottom:4px;font-family:var(--sans)}
+.art-related-card h3{font-size:0.875rem;color:var(--text);font-family:var(--sans);line-height:1.35}
+
+.footer-min{border-top:1px solid var(--border);padding:16px 24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-min p{font-size:0.74rem;color:var(--text-3)}
+.footer-min a{font-size:0.74rem;color:var(--text-3);text-decoration:none}
+
+.viz-block{background:var(--card);border:1px solid var(--border-2);border-radius:var(--r-lg);padding:24px;margin:24px 0}
+.viz-title{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);font-family:var(--sans);margin-bottom:16px}
+.viz-flow{display:flex;align-items:flex-start;gap:0;flex-wrap:wrap}
+.viz-node{flex:1;min-width:110px;background:var(--bg);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px;text-align:center}
+.viz-node-val{font-size:0.875rem;font-weight:700;font-family:var(--sans);color:var(--text);line-height:1.3}
+.viz-node-sub{font-size:0.72rem;color:var(--text-3);margin-top:4px;line-height:1.4}
+.viz-node.good{background:var(--teal-lt);border-color:rgba(23,168,122,.22)}
+.viz-node.good .viz-node-val{color:var(--teal-dk)}
+.viz-arrow{flex-shrink:0;color:var(--text-3);font-size:1rem;align-self:center;padding:0 10px}
+@media(max-width:640px){.art-hero,.art-body{padding-left:16px;padding-right:16px}.art-related-grid{grid-template-columns:1fr}.nav-links{display:none}.nav-ham{display:block}.viz-flow{flex-direction:column;gap:8px}.viz-arrow{transform:rotate(90deg)}}
+
+.hist-banner{background:var(--amber-lt,rgba(217,123,26,.10));border:1px solid rgba(217,123,26,.28);border-left:3px solid var(--amber,#D97B1A);border-radius:var(--r,10px);padding:12px 16px;margin:0 0 20px;font-size:0.84rem;line-height:1.6;color:var(--text-2,#4A4E5E)}
+.hist-banner strong{color:var(--text,#0A0E1C);font-family:var(--sans,sans-serif)}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Understanding Context Continuity","description":"How to read the Context Continuity report. What re-explanation rate and receipt reuse tell you about whether your team is burning time rebuilding context that already exists.","publisher":{"@type":"Organization","name":"Avorelo"},"url":"https://avorelo.com/article-stop-reexplaining.html"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Articles","item":"https://avorelo.com/articles.html"},{"@type":"ListItem","position":2,"name":"Stop Re-Explaining Your Project to AI","item":"https://avorelo.com/article-stop-reexplaining.html"}]}</script>
+</head>
+<body>
+<nav class="nav" role="navigation">
+  <div class="nav-in">
+    <a href="index.html" class="nav-logo">Avorelo</a>
+    <ul class="nav-links">
+      <li><a href="articles.html">Articles</a></li>
+      <li><a href="dashboard.html">Dashboard</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <button class="nav-ham" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+
+<main role="main">
+<div class="art-hero">
+  <div class="art-breadcrumb"><a href="articles.html">Articles</a> <span>/</span> <span>Understanding reports</span></div>
+  <div class="art-tag">Reports</div>
+  <h1>Understanding Context Continuity</h1>
+  <p class="art-lede">What re-explanation rate and receipt reuse tell you about whether your team is burning time rebuilding context that already exists.</p>
+  <div class="art-meta">
+    <span>Report guide</span>
+    <span class="art-reading-time">3 min read</span>
+  </div>
+</div>
+
+<div class="art-body">
+  <div class="hist-banner" role="note"><strong>Historical product context:</strong> this article discusses an earlier hosted version of Avorelo. The current product is local-first and is Open Source under the Apache License 2.0.</div>
+  <h2>The hidden cost of re-explanation</h2>
+  <p>Every time a team member starts a new AI coding task and has to re-explain what was done in a related prior task, that is waste. Not the task itself, not the code, but the overhead of reconstructing context that was already captured and then discarded.</p>
+  <p>The Context Continuity report measures this overhead across the team. It tracks how often prior session receipts are reused as starting context for the next run, and how often context is rebuilt from scratch instead.</p>
+
+  <div class="viz-block" role="img" aria-label="Context continuity flow: repeated setup replaced by reusable context package, enabling faster next session">
+    <div class="viz-title">Context continuity: from repeated setup to reusable context</div>
+    <div class="viz-flow">
+      <div class="viz-node">
+        <div class="viz-node-val">Repeated setup</div>
+        <div class="viz-node-sub">Same context re-explained at each new session start</div>
+      </div>
+      <div class="viz-arrow" aria-hidden="true">&#8594;</div>
+      <div class="viz-node">
+        <div class="viz-node-val">Reusable context</div>
+        <div class="viz-node-sub">Prior receipt carries verified context to the next run</div>
+      </div>
+      <div class="viz-arrow" aria-hidden="true">&#8594;</div>
+      <div class="viz-node good">
+        <div class="viz-node-val">Faster next session</div>
+        <div class="viz-node-sub">Start from verified context, not from a blank prompt</div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Receipts reused</h2>
+  <p>When a task starts and Avorelo finds a relevant prior receipt, it uses it. The prior run's verified output, scope record, and findings become available to the new run without re-reading the same files or re-establishing the same context.</p>
+  <p>A high receipts reused count means your team's prior work is carrying forward. A low count can mean that related tasks are not being linked through receipts, that the prior runs are producing unverified exits that cannot be safely reused, or that team members are starting new sessions instead of continuing chains.</p>
+
+  <h2>Re-explanation rate</h2>
+  <p>This is the proportion of runs that started without finding a usable prior receipt, and had to establish context from scratch. It includes both cases where no prior receipt existed and cases where a prior receipt existed but was not clean enough to reuse.</p>
+  <p>A re-explanation rate above 40% suggests that the receipt chain is not holding together. Common causes: unverified exits from prior runs, tasks that are not structured as continuations of prior work, or chains that span too many days for the receipt to remain relevant.</p>
+
+  <div class="callout">
+    <p>The re-explanation rate is also a token cost signal. Each rebuilt context uses tokens to re-establish what a reused receipt would have provided for free. The context reuse savings in the metrics section estimates what this costs over the period.</p>
+  </div>
+
+  <h2>Context reuse by source</h2>
+  <p>The table in the report shows individual handoff events: which prior receipt was reused, which task benefited from it, and whether the reuse was automatic (receipt was clean and relevant) or manual (team member explicitly referenced prior work in the task description).</p>
+  <p>Rebuilt rows are the actionable ones. Each rebuilt row is a receipt that should have been reusable but was not. Click through to see why: unverified exit from the prior run, task chain gap, or a scope mismatch between the prior run and the new task.</p>
+
+  <h2>What to improve</h2>
+  <ul>
+    <li>Reduce unverified exits (see Workflow Health report) to increase the pool of reusable receipts</li>
+    <li>Structure related tasks as explicit continuations when starting a new session on the same work area</li>
+    <li>Review the rebuilt rows for patterns: if the same area of the codebase keeps requiring context rebuilds, that area may benefit from a persistent context note</li>
+  </ul>
+
+</div>
+
+<div class="art-related">
+  <div class="art-related-in">
+    <h2>Other report guides</h2>
+    <div class="art-related-grid">
+      <a href="article-workflow-health.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Reports</div>
+        <h3>Understanding Workflow Health</h3>
+      </a>
+      <a href="article-ai-activity-productivity.html" class="art-related-card" data-related-article>
+        <div class="arc-tag">Reports</div>
+        <h3>Understanding What Got Done</h3>
+      </a>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer class="footer-min">
+  <p>&copy; 2026 Avorelo. Local-first.</p>
+  <div style="display:flex;gap:16px"><a href="privacy-policy.html">Privacy</a><a href="terms-of-service.html">Terms</a><a href="contact.html">Contact</a></div>
+</footer>
+</body>
+</html>
