@@ -27,12 +27,9 @@ async function run() {
     const routes: { name: string; path: string; mustContain?: string; mustNotContain?: string }[] = [
       { name: "/", path: "/", mustContain: "AI coding comes with overhead. Avorelo handles it." },
       { name: "/index.html", path: "/index.html", mustContain: "AI coding comes with overhead", mustNotContain: "Make your AI coding tools waste less time, context, and tokens." },
-      // The dashboard is a static illustration: it must say so, and must not reach the hosted app.
-      { name: "/dashboard.html", path: "/dashboard.html", mustContain: "Illustrative local example", mustNotContain: "app.avorelo.com" },
-      { name: "/dashboard (alias)", path: "/dashboard", mustContain: "Overview", mustNotContain: "/api/" },
-      // Pricing states there is nothing to buy; the payment provider is gone with the hosted service.
-      { name: "/pricing.html", path: "/pricing.html", mustContain: "There is nothing to buy", mustNotContain: "Lemon Squeezy" },
-      { name: "/pricing (alias)", path: "/pricing", mustContain: "There is nothing to buy", mustNotContain: "Lemon Squeezy" },
+      // The license page is the public licensing surface (Apache-2.0). No pricing, no dashboard.
+      { name: "/license.html", path: "/license.html", mustContain: "Apache License 2.0", mustNotContain: "Lemon Squeezy" },
+      { name: "/dashboard-discontinued.html", path: "/dashboard-discontinued.html", mustContain: "no hosted dashboard", mustNotContain: "app.avorelo.com" },
       { name: "/activate-cta.js", path: "/activate-cta.js", mustContain: "Avorelo" },
       { name: "/activate.html", path: "/activate.html", mustContain: "Activate Avorelo" },
       // Discontinued hosted surfaces are served as static "gone" pages (Netlify applies the
@@ -70,6 +67,8 @@ async function run() {
       "payments.html",
       "admin.html", "founder-preview.html", "settings.html", "waiting-list.html",
       "login.html", "signup.html", "refund-policy.html",
+      // Hosted-era product surfaces removed in the Apache-2.0 public correction.
+      "dashboard.html", "pricing.html",
     ]) {
       try {
         const res = await fetch(h.url + forbidden);

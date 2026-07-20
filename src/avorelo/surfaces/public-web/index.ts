@@ -11,12 +11,13 @@
 // waiting-list, login, signup, refund-policy) were removed in Milestone E1; their routes are
 // handled by static redirects / 410s in `static/_redirects`.
 
-import { mkdirSync, copyFileSync, readdirSync, existsSync, unlinkSync, writeFileSync } from "node:fs";
+import { mkdirSync, copyFileSync, readdirSync, existsSync, unlinkSync, writeFileSync, readFileSync } from "node:fs";
 import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const STATIC_DIR = join(__dirname, "static");
+const PKG_PATH = join(__dirname, "..", "..", "..", "..", "package.json");
 
 /** Named top-level pages that must exist and are always generated. */
 export const RETAINED_PAGES = [
@@ -24,8 +25,6 @@ export const RETAINED_PAGES = [
   "activate.html",
   "capabilities.html",
   "articles.html",
-  "pricing.html",
-  "dashboard.html",
   "contact.html",
   "learn-more.html",
   "privacy-policy.html",
@@ -33,6 +32,7 @@ export const RETAINED_PAGES = [
   "license.html",
   "api-discontinued.html",
   "refund-discontinued.html",
+  "dashboard-discontinued.html",
   // Netlify serves this for any unmatched path. It is generated but intentionally noindex,
   // and it is excluded from the sitemap.
   "404.html",
@@ -100,15 +100,41 @@ export function buildSite(outDir: string): BuildSiteResult {
     if (f.endsWith(".html") && !pages.includes(f)) unlinkSync(join(outDir, f));
   }
 
-  // 4. Copy only the contracted pages plus assets.
+  // 4. Copy assets verbatim; copy pages with a deterministic release marker injected into <head>
+  // so a live audit can prove avorelo.com serves the exact published commit/version.
   const assets = entries.filter((f) => !f.endsWith(".html") && (ASSET_RE.test(f) || NETLIFY_FILES.includes(f)));
-  for (const f of [...pages, ...assets]) copyFileSync(join(STATIC_DIR, f), join(outDir, f));
+  for (const f of assets) copyFileSync(join(STATIC_DIR, f), join(outDir, f));
+  const rel = releaseInfo();
+  const marker = `<meta name="avorelo-release" content="${rel.version}+${rel.commit}">`;
+  for (const f of pages) {
+    let html = readFileSync(join(STATIC_DIR, f), "utf8");
+    if (!html.includes('name="avorelo-release"')) html = html.replace("</head>", `${marker}\n</head>`);
+    writeFileSync(join(outDir, f), html);
+  }
 
   // 5. Sitemap, derived from the same page list that was just generated. There is deliberately
   // no second route inventory to drift out of sync: if a page is not built, it cannot be listed.
   writeFileSync(join(outDir, "sitemap.xml"), renderSitemap(pages));
 
+  // 6. Deterministic release manifest (no wall-clock — the commit is the identity).
+  writeFileSync(join(outDir, "release.json"), JSON.stringify(rel, null, 2) + "\n");
+
   return { ok: true, outDir, pages, indexPath: join(outDir, "index.html"), errors: [] };
+}
+
+/** Deterministic release metadata: version from package.json, commit from the build env. */
+export function releaseInfo(): { version: string; commit: string; license: string; npmDistTag: string; repository: string; homepage: string } {
+  let version = "0.0.0";
+  try { version = JSON.parse(readFileSync(PKG_PATH, "utf8")).version || version; } catch { /* ignore */ }
+  const commit = (process.env.AVORELO_RELEASE_COMMIT || "local").slice(0, 40);
+  return {
+    version,
+    commit,
+    license: "Apache-2.0",
+    npmDistTag: "next",
+    repository: "https://github.com/HappyLifeSaaS/Avorelo",
+    homepage: "https://avorelo.com",
+  };
 }
 
 export const CANONICAL_ORIGIN = "https://avorelo.com";
@@ -120,7 +146,7 @@ export const CANONICAL_ORIGIN = "https://avorelo.com";
  *     resource in a sitemap asks search engines to index a tombstone.
  * Each is marked `noindex` in its own HTML too — this list keeps the sitemap consistent with that.
  */
-export const SITEMAP_EXCLUDED = ["404.html", "api-discontinued.html", "refund-discontinued.html"] as const;
+export const SITEMAP_EXCLUDED = ["404.html", "api-discontinued.html", "refund-discontinued.html", "dashboard-discontinued.html"] as const;
 
 /** Public route for a generated page. Clean URLs mirror the 200 rewrites in `_redirects`. */
 export function publicRoute(page: string): string {
@@ -143,4 +169,4 @@ export function renderSitemap(pages: string[]): string {
   ].join("\n");
 }
 
-export const PAGE_FILES = ["index.html", "dashboard.html", "pricing.html", "capabilities.html"];
+export const PAGE_FILES = ["index.html", "capabilities.html", "license.html"];

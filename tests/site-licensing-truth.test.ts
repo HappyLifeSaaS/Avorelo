@@ -14,7 +14,7 @@ const pages = readdirSync(STATIC).filter((f) => f.endsWith(".html"));
 const all = new Map(pages.map((f) => [f, readFileSync(join(STATIC, f), "utf8")]));
 
 const CORE = [
-  "index.html", "activate.html", "pricing.html", "dashboard.html", "contact.html",
+  "index.html", "activate.html", "contact.html", "dashboard-discontinued.html",
   "privacy-policy.html", "terms-of-service.html", "license.html", "learn-more.html",
   "api-discontinued.html", "refund-discontinued.html", "404.html",
 ];
@@ -49,7 +49,7 @@ test("no active page carries the superseded restrictive licensing model", () => 
 });
 
 test("core licensing pages state Apache-2.0 and open source", () => {
-  for (const f of ["index.html", "pricing.html", "terms-of-service.html", "license.html"]) {
+  for (const f of ["index.html", "terms-of-service.html", "license.html"]) {
     const body = text(all.get(f)!);
     assert.ok(/Apache[- ]?2\.0|Apache Licen[cs]e/i.test(body), `${f}: must name Apache-2.0`);
     assert.ok(/open[- ]source/i.test(body), `${f}: must state open source`);
@@ -57,7 +57,7 @@ test("core licensing pages state Apache-2.0 and open source", () => {
 });
 
 test("licensing pages permit personal, internal, and commercial use", () => {
-  const body = text(all.get("license.html")!) + " " + text(all.get("pricing.html")!);
+  const body = text(all.get("license.html")!) + " " + text(all.get("index.html")!);
   assert.ok(/personal/i.test(body), "must mention personal use");
   assert.ok(/internal|organizational/i.test(body), "must mention internal/organizational use");
   assert.ok(/commercial/i.test(body), "must address commercial use");
@@ -73,8 +73,8 @@ test("no page falsely claims Apache Foundation endorsement or a modified Apache 
 });
 
 test("the site invites contributions under DCO (Apache, no CLA gate)", () => {
-  const body = text(all.get("pricing.html")!);
-  assert.ok(/contribut/i.test(body), "pricing/licensing should mention contributions");
+  const body = text(all.get("index.html")!) + " " + text(all.get("license.html")!);
+  assert.ok(/contribut/i.test(body), "landing/license should mention contributions");
   assert.ok(!/contributions are (?:closed|not currently accepted|not accepted)/i.test(body), "must not say contributions are closed");
 });
 

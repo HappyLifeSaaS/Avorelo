@@ -21,6 +21,8 @@ const all = new Map(pages.map((f) => [f, read(f)]));
 
 const CTA_LABEL = "Explore Community Edition";
 const CTA_HREF = "/activate";
+// Apache-2.0 correction: the landing page's primary CTA points at the public repository.
+const GITHUB_CTA_LABEL = "View on GitHub";
 
 // Pages deleted in E1A. Nothing may link to them; their routes are static redirects / 410s.
 const DELETED = ["admin", "founder-preview", "settings", "waiting-list", "login", "signup", "refund-policy"];
@@ -110,7 +112,10 @@ test("desktop and mobile navigation agree where both exist", () => {
     const mobile = b.match(/<div class="nav-mob"[^>]*>[\s\S]*?<\/div>/);
     if (!desktop || !mobile) continue;
     const d = links(desktop[0]);
-    const m = links(mobile[0]).filter((t) => t !== CTA_LABEL);
+    // The mobile block also contains the primary CTA (either the activation CTA or, on the
+    // landing page after the Apache-2.0 correction, "View on GitHub"). Desktop keeps its CTA
+    // outside the <ul>, so drop the CTA labels before comparing the navigation items.
+    const m = links(mobile[0]).filter((t) => t !== CTA_LABEL && t !== GITHUB_CTA_LABEL);
     assert.deepEqual(m, d, `${f}: mobile navigation diverges from desktop`);
   }
 });
@@ -132,7 +137,7 @@ test("every internal page link resolves to a generated page", () => {
   // Clean URLs served by the static redirect rules, plus their .html sources.
   const clean: Record<string, string> = {
     "/activate": "activate.html", "/capabilities": "capabilities.html",
-    "/pricing": "pricing.html", "/dashboard": "dashboard.html",
+    "/license": "license.html",
     "/contact": "contact.html", "/learn-more": "learn-more.html",
     "/privacy": "privacy-policy.html", "/terms": "terms-of-service.html",
   };
@@ -174,12 +179,17 @@ test("no page presents a purchasable plan or hosted origin", () => {
   }
 });
 
-test("the dashboard is a static illustration, not a live surface", () => {
-  const d = all.get("dashboard.html")!;
-  assert.ok(d.includes("Illustrative local example"), "dashboard must label its example data");
-  assert.ok(!d.includes("<script"), "dashboard must run no JavaScript");
-  for (const hosted of ["fetch(", "/api/", "credentials:", "setInterval", "createNewClaim", "not-signed-in"]) {
-    assert.ok(!d.includes(hosted), `dashboard still carries hosted behavior: ${hosted}`);
+test("no public hosted dashboard or pricing surface exists", () => {
+  // Apache-2.0 correction: the hosted dashboard and pricing pages were removed. /dashboard* is a
+  // 410 and /pricing* redirects to /license (see static/_redirects). Only a discontinued notice
+  // remains, and it must point at the LOCAL Control Center, never a hosted surface.
+  assert.equal(all.has("dashboard.html"), false, "website dashboard.html must be removed");
+  assert.equal(all.has("pricing.html"), false, "website pricing.html must be removed");
+  const gone = all.get("dashboard-discontinued.html")!;
+  assert.ok(gone.includes("no hosted dashboard"), "the gone page states there is no hosted dashboard");
+  assert.ok(gone.includes("local Control Center"), "it points at the local Control Center");
+  for (const hosted of ["fetch(", "/api/", "credentials:", "createNewClaim", "not-signed-in", "app.avorelo.com"]) {
+    assert.ok(!gone.includes(hosted), `discontinued page carries hosted behavior: ${hosted}`);
   }
 });
 
@@ -191,20 +201,22 @@ test("the CLI preview does not advertise a deleted page", () => {
   for (const dead of DELETED) {
     assert.ok(!serveBlock.includes(`${dead}.html`), `serve output advertises deleted page ${dead}.html`);
   }
-  for (const live of ["activate.html", "dashboard.html", "pricing.html"]) {
+  for (const live of ["activate.html", "license.html", "contact.html"]) {
     assert.ok(serveBlock.includes(live), `serve output should still offer ${live}`);
     assert.ok(existsSync(join(STATIC, live)), `${live} must exist`);
   }
+  // The removed hosted surfaces must not be advertised by the local preview either.
+  for (const removed of ["dashboard.html", "pricing.html"]) {
+    assert.ok(!serveBlock.includes(removed), `serve output advertises removed page ${removed}`);
+  }
 });
 
-test("pricing presents no paid price, tier, or purchase control", () => {
-  const p = all.get("pricing.html")!;
+test("the license page presents no paid price, tier, or purchase control", () => {
+  const p = all.get("license.html")!;
   // "$0" (free / Open Source) is allowed; any non-zero price is not.
-  assert.ok(!/\$\s?[1-9]\d*/.test(p), "pricing must show no paid price");
-  assert.ok(!p.includes("<script"), "pricing must run no JavaScript");
+  assert.ok(!/\$\s?[1-9]\d*/.test(p), "license page must show no paid price");
   for (const commercial of ["/ month", "/ year", "Upgrade to Pro", "pc-price", "pc-prim", "Join the waitlist", "Lemon Squeezy"]) {
-    assert.ok(!p.includes(commercial), `pricing still carries: ${commercial}`);
+    assert.ok(!p.includes(commercial), `license page still carries: ${commercial}`);
   }
-  // capabilities.html still names Lemon Squeezy in payment-capability copy. That is content,
-  // rewritten in E2B and enforced site-wide by the E3B truth gate — not asserted here.
+  assert.ok(/Apache License 2\.0/.test(p), "license page states Apache-2.0");
 });

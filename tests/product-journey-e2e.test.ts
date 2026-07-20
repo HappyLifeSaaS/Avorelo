@@ -28,10 +28,11 @@ test("Journey 1 — Landing loads with approved hero and CTAs", async () => {
     assert.equal(status, 200);
     assert.ok(body.includes("AI coding comes with overhead. Avorelo handles it."));
     assert.ok(!body.includes("Make your AI coding tools waste less time, context, and tokens."));
-    // E1B: the hosted sign-up CTA is replaced by the approved Community Edition CTA.
-    assert.ok(body.includes("Explore Community Edition"));
+    // Apache-2.0 correction: the primary CTA is "View on GitHub"; no hosted sign-up.
+    assert.ok(body.includes("View on GitHub"));
+    assert.ok(body.includes("github.com/HappyLifeSaaS/Avorelo"));
     assert.ok(!body.includes("Start free"));
-    assert.ok(body.includes("Activate Avorelo where you already build"));
+    assert.ok(!body.includes(">Sign in<"));
     assert.ok(body.includes("See how activation works"));
   } finally {
     if (h) await h.close();
@@ -51,33 +52,22 @@ test("Journey 1 — Learn more / activation page exists and links to wizard", as
   } finally { cleanup(d); }
 });
 
-// E1B: the Free/Pro/Teams tiers and the Lemon Squeezy payment provider were removed with the
-// hosted service. Pricing now states there is nothing to buy.
-test("Journey 2 — Pricing page states there are no paid plans", async () => {
+// Apache-2.0 correction: the hosted pricing page was removed; there is a License page and no
+// pricing surface. /pricing redirects to /license on Netlify (301 in _redirects).
+test("Journey 2 — no pricing page; the License page states Apache-2.0", async () => {
   const d = sandbox();
   let h: Awaited<ReturnType<typeof serve>> | null = null;
   try {
     buildSite(join(d, "site"));
     h = await serve(join(d, "site"), { port: 0 });
-    const { status, body } = await get(h.url, "/pricing.html");
-    assert.equal(status, 200);
-    assert.ok(body.includes("There is nothing to buy"));
-    assert.ok(body.includes("no paid plans"));
-    assert.ok(/Apache[- ]?2\.0|Open Source/i.test(body), "states Apache-2.0 / open source");
-    assert.ok(!body.includes("Lemon Squeezy"));
-    assert.ok(!/\$\s?[1-9]\d*/.test(body), "no paid price (\"$0\" is allowed)");
+    const pricing = await get(h.url, "/pricing.html");
+    assert.equal(pricing.status, 404, "pricing.html must be gone");
+    const lic = await get(h.url, "/license.html");
+    assert.equal(lic.status, 200);
+    assert.ok(/Apache License 2\.0/.test(lic.body), "license page states Apache-2.0");
+    assert.ok(!lic.body.includes("Lemon Squeezy"));
+    assert.ok(!/\$\s?[1-9]\d*/.test(lic.body), "no paid price");
   } finally { if (h) await h.close(); cleanup(d); }
-});
-
-test("Journey 2 — Pricing alias /pricing works", async () => {
-  const d = sandbox();
-  try {
-    buildSite(join(d, "site"));
-    const h = await serve(join(d, "site"), { port: 0 });
-    const { status } = await get(h.url, "/pricing");
-    assert.equal(status, 200);
-    await h.close();
-  } finally { cleanup(d); }
 });
 
 test("Journey 2 — Capabilities page and alias both work", async () => {
@@ -100,22 +90,21 @@ test("Journey 2 — Capabilities page and alias both work", async () => {
 // Those pages were deleted in Milestone E1A; /login and /signup are now static 301s to
 // /activate. Their absence is asserted by tests/site-inclusion-boundary.test.ts.
 
-test("Journey 5 — Dashboard routes consistent", async () => {
+test("Journey 5 — no hosted dashboard; the route is a discontinued 'Gone' page", async () => {
   const d = sandbox();
   let h: Awaited<ReturnType<typeof serve>> | null = null;
   try {
     buildSite(join(d, "site"));
     h = await serve(join(d, "site"), { port: 0 });
+    // The hosted dashboard page is removed. On Netlify /dashboard* returns 410 via _redirects;
+    // the static preview serves the discontinued target directly.
     const dash = await get(h.url, "/dashboard.html");
-    const dashAlias = await get(h.url, "/dashboard");
-    assert.equal(dash.status, 200);
-    assert.equal(dashAlias.status, 200);
-    assert.ok(dash.body.includes("Overview"));
-    assert.ok(dashAlias.body.includes("Overview"));
-    // E1B: the dashboard is a static illustration of the local viewer, not a live surface.
-    assert.ok(dash.body.includes("Illustrative local example"));
-    assert.ok(!dash.body.includes("app.avorelo.com"));
-    assert.ok(!dash.body.includes("<script"));
+    assert.equal(dash.status, 404, "dashboard.html must be gone");
+    const gone = await get(h.url, "/dashboard-discontinued.html");
+    assert.equal(gone.status, 200);
+    assert.ok(gone.body.includes("no hosted dashboard"));
+    assert.ok(gone.body.includes("local Control Center"));
+    assert.ok(!gone.body.includes("app.avorelo.com"));
   } finally {
     if (h) await h.close();
     cleanup(d);
@@ -205,7 +194,7 @@ test("No fake MRR/revenue in any canonical page", async () => {
   try {
     buildSite(join(d, "site"));
     const h = await serve(join(d, "site"), { port: 0 });
-    for (const page of ["/", "/dashboard.html", "/pricing.html"]) {
+    for (const page of ["/", "/license.html", "/contact.html"]) {
       const { body } = await get(h.url, page);
       assert.ok(!/\$\s?\d[\d,]*\s*(MRR|revenue)\b/i.test(body), `fake MRR/revenue in ${page}`);
     }
@@ -219,7 +208,7 @@ test("No GA4 tracking in any page", async () => {
     buildSite(join(d, "site"));
     const h = await serve(join(d, "site"), { port: 0 });
     // login/signup were deleted in E1A; article-analytics.js (the gtag consumer) in E1B.
-    for (const page of ["/", "/dashboard.html", "/pricing.html", "/articles.html", "/article-context.html"]) {
+    for (const page of ["/", "/license.html", "/articles.html", "/article-context.html"]) {
       const { body } = await get(h.url, page);
       assert.ok(!body.includes("googletagmanager"), `GA4 in ${page}`);
       assert.ok(!body.includes("G-BW9LQSWSD9"), `GA4 ID in ${page}`);

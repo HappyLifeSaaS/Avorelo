@@ -15,6 +15,15 @@
 /feedback         /contact                   301!
 /feedback.html    /contact                   301!
 
+# The hosted dashboard is discontinued. Avorelo has only a LOCAL receipts viewer via the CLI —
+# there is no hosted dashboard to serve, so these routes are permanently Gone.
+/dashboard        /dashboard-discontinued.html   410!
+/dashboard.html   /dashboard-discontinued.html   410!
+
+# There is no product to price (Apache-2.0 Open Source). The pricing route redirects to the license.
+/pricing          /license                       301!
+/pricing.html     /license                       301!
+
 # The hosted paid service is discontinued — the refund policy is no longer an active
 # service policy and is served as a static 410.
 /refund-policy      /refund-discontinued.html  410!
@@ -28,13 +37,12 @@
 /favicon.ico    /favicon-256.png     200
 
 # Clean-URL rewrites for retained pages
-/dashboard      /dashboard.html      200
-/pricing        /pricing.html        200
 /contact        /contact.html        200
 /activate       /activate.html       200
 /capabilities   /capabilities.html   200
 /learn-more     /learn-more.html     200
 /articles       /articles.html       200
+/license        /license.html        200
 
 # Legal and public route aliases
 /privacy        /privacy-policy.html     301

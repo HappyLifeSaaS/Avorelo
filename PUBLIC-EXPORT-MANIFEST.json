@@ -1,8 +1,8 @@
 {
-  "canonicalCommit": "0fd7ba02db367ae759d76a1c62ccb74a3bb5f219",
+  "canonicalCommit": "6fb417394f97f9a3276a84a624d6da1685a5caa5",
   "mode": "final",
   "generatorVersion": "1.0.0",
-  "fileCount": 572,
+  "fileCount": 571,
   "paths": [
     ".github/CODEOWNERS",
     ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -431,13 +431,12 @@
     "src/avorelo/surfaces/public-web/static/capability-security-review.html",
     "src/avorelo/surfaces/public-web/static/capability-styles.css",
     "src/avorelo/surfaces/public-web/static/contact.html",
-    "src/avorelo/surfaces/public-web/static/dashboard.html",
+    "src/avorelo/surfaces/public-web/static/dashboard-discontinued.html",
     "src/avorelo/surfaces/public-web/static/favicon-256.png",
     "src/avorelo/surfaces/public-web/static/index.html",
     "src/avorelo/surfaces/public-web/static/learn-more.html",
     "src/avorelo/surfaces/public-web/static/license.html",
     "src/avorelo/surfaces/public-web/static/og-card.svg",
-    "src/avorelo/surfaces/public-web/static/pricing.html",
     "src/avorelo/surfaces/public-web/static/privacy-policy.html",
     "src/avorelo/surfaces/public-web/static/refund-discontinued.html",
     "src/avorelo/surfaces/public-web/static/robots.txt",
@@ -2024,7 +2023,7 @@
     },
     {
       "path": "src/avorelo/surfaces/cli/avorelo.ts",
-      "sha256": "c4a716ef56cd0142a286fabc919abb91109c5545b2af8455e1e0dc4c1aaf815b"
+      "sha256": "dd52c3808def90841bf7603596140df84c601740b7ba99bc1c6c82ced1e84ff0"
     },
     {
       "path": "src/avorelo/surfaces/preview-server/index.ts",
@@ -2032,11 +2031,11 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/index.ts",
-      "sha256": "179640defb10879925104331d16559505158b2ed9f4671e8debb3389db8abeed"
+      "sha256": "23c29e4c4a2e12ccf1c92787ee81e0bee3fd8a4f825d5a7c1926461806087bbd"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/404.html",
-      "sha256": "8964d5497d09bb2cb03abb6c6771565749825edc4df596647891ff3e9573fd74"
+      "sha256": "21d8dcedafc07e58306804158a7e74b7f1b5e9bc826ae061bc0f7b59d4f7dda3"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/_headers",
@@ -2044,7 +2043,7 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/_redirects",
-      "sha256": "eae070731012644ef4a9081380ca722d02d317ac089660244136cb2638f2259c"
+      "sha256": "40258aced0146e62ddb7ec4ab6c39d7f17aeded84c326c74ed057be2ee4fca75"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/activate-cta.js",
@@ -2052,7 +2051,7 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/activate.html",
-      "sha256": "a6407fab054b3eadde12df5d4be58030fdaf4f5905bb09e4573c4c6f0b0e5d18"
+      "sha256": "29db3f1eec570a05b5a1034b57560e2e6a7da7cf17953b26d8a2d7b15842cada"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/api-discontinued.html",
@@ -2064,119 +2063,119 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-access.html",
-      "sha256": "20f5022e7728a1777c4ad087b6ce5ef623163c1d0a38734c79a7c47584e67760"
+      "sha256": "d08943c7434a552b56ca168c12b2698ab76eccaceebff4e2ca3f89187e5301c6"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-activity-productivity.html",
-      "sha256": "00094c118d5448dfa17dab5f808b9ee99e650428de6a57852ba0f2cafe996353"
+      "sha256": "067f01ac4a46a988719d98c28ad3db345b5263c0b9669eebc8eced06df71c847"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-agent-scope-drift.html",
-      "sha256": "02941b93d7ed8ec0d040e78499b0d473b9f98c89cf9ba28b5b1a5210e013f5de"
+      "sha256": "f7a9994891d9817ff18000a4a109bd4bfa81457d0f9567820b292b4546c0cd8b"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-agents-repeat-mistakes.html",
-      "sha256": "ae780683f49db800387e5db4ebc94c1d82bcc83606234a390bd5012feafccc00"
+      "sha256": "fbd3a4b172200e4372e054aecc8fa38aa3f6d31e44f023dfba243256f5644981"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-code-accumulation.html",
-      "sha256": "defe4cc01034e294315910e9b824362a50073e0d2e0398c8d4644c06f1c399b1"
+      "sha256": "0938b0b29e0017c3bd7880edb091910d28280d76d9f51eafe13a05315713a3ef"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-gateway-vs-workflow-router.html",
-      "sha256": "19987127ea01d58320a8b7af888a4eb61ed27f2d3cf3bee2a423a0fc2b6700f3"
+      "sha256": "f602f0da4252cbaeeef68e8664abe3445692e9f15d807d644955dacd3f6bdbcc"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-generated-bug-reports-waste-time.html",
-      "sha256": "e1272030ec9992db926044f3cff4bfb96416d4d966e77e56dc5424f1eb56f947"
+      "sha256": "aba5f12146cc213e41ddd95d5650d12b951cf86ac0558b066ea6d3baf4366568"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-native-engineering-team.html",
-      "sha256": "a5915d61383f94d42e4890019217e6fbaa748815e8e424cb2611410275f6bd17"
+      "sha256": "4c0e07a39eddd1aedd8383d20a36494e93ae16eb92ddda1bdc269159ffe0d25d"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-productivity-measurement.html",
-      "sha256": "c7fcfba2f667881d24af2cd18551f102692329eae5394adb6622b9f0606e6534"
+      "sha256": "f6d9305f11b920673a998485e01783ddbff21f4c7cf3cc7a62a8b782471c160b"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-review-load-reduced.html",
-      "sha256": "0bbe56fce79e725619b35525414d5ae09db581b531eefeb7729d17e47c8c7971"
+      "sha256": "b84cef7c95cf7b7ba41c2f457cc22923c7864effcbc8cfe8628947e24a0343de"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-security-findings-need-evidence.html",
-      "sha256": "ab8582f4dee9da5a5ce77d95dfd6baae962d247b10309061401c099846c86901"
+      "sha256": "084494ebb78fa2deee7dff98015aff1a74ffb669ca01c714fcc9c49df6ab6914"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-skill-supply-chain-security.html",
-      "sha256": "935fc608266cee5d688bd711831f3f4b78e87405f454daa609cdb502dd7171f5"
+      "sha256": "77d0fa55ca01c0f539702d278e3dd7a42ac76998d0e89f2f838c09db30d70507"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-spend-proof.html",
-      "sha256": "9f56ae08b127949b6b6a7dd7a152ac9cf7607457e1b1e4dfea5121036bcab2c8"
+      "sha256": "f40335935c615dfac42361e2012cd82dee80034f0193601b33a02e384713a02e"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-team-reports-for-engineering-leaders.html",
-      "sha256": "cf58c25a840f25d3d01cd5536259bdcc9ae05792e16fced74885ca2c76df1f11"
+      "sha256": "86711977a48b49cacbd5815bbda29041a1a36632a023a0a90167abafc8a1c2ab"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-token-cost.html",
-      "sha256": "4a0e06e7727de427a4b2a3c8b8385f10dec95117c0ec9e4914af18da660cfe42"
+      "sha256": "d2087f8cd1f33385537a387092e49a165ab62ef25f98325ef15ccd9401f41c53"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-waste.html",
-      "sha256": "6391f54a6a22d245c313d4b92df12707ac721f60b89c3ac307bde94d8c03d4e8"
+      "sha256": "f0c174096af8423610867f7d6878aac780be4d50be52ddc95d33e33b61319fea"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-ai-workflow-hygiene.html",
-      "sha256": "1aa21c1e275e737bee10be8fce822c7f2af1e6e15eccdc5c48d636594df628af"
+      "sha256": "e77e2a53264443a689750a487d4ca06ce3b3888c190c931f7b056caf8a070dd8"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-approval-fatigue.html",
-      "sha256": "8676e5d5098eabb990a569c39ee148b4a1da059202b8e6076cda763bf9b733be"
+      "sha256": "ce5626c71bcd34ab8059a62384f29746ed2967920b9dd9fd5eb73877136ff5da"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-cheaper-ai-models-not-enough.html",
-      "sha256": "4dcd40dfa22b4a0522f882a93fae78b8f91b8a5e36e21a589be585b472792ecd"
+      "sha256": "b1791c530972605c2fef30ea1925436e06abd6d2870c589137d5a1f755b6fd40"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-context-engineering-ai-coding.html",
-      "sha256": "3b94fb8d291cdc3cecf3e14d0b1924db45027676a4cc3df591a5059b5dd0ffbc"
+      "sha256": "ac729d090b6b345a82443b59f31290c47f235f495766bb8286005806e5174a9e"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-context.html",
-      "sha256": "5ab1778a1917a861fe055ddf10041ffc9c673e9d9f5ffeb191411244b0db1257"
+      "sha256": "3667ccef20368d89209b040842de4171a13527a81e163994812e50e8ecafa720"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-delete-ai-generated-code.html",
-      "sha256": "76ef2385feac282b18e90d6fc533836d041fb522ef43fe14d750d510e92dd260"
+      "sha256": "5e0ec195238f31e9b49c1e2c54faa8ad28aa30e648b7a395f2b6208f5d413d1a"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-evidence-backed-ai-coding.html",
-      "sha256": "b4ec84fcbdf1f7b3f12f603b89e2152cccb288d01e0e3921d8e7d45a5a6c8a52"
+      "sha256": "1a278bfa67f777813c4c9d0c8532fd19d58bfd3cdee99dc29e3537b59d993d6e"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-model-routing-vs-workflow-routing.html",
-      "sha256": "548f435ec0c8b1c7db927270c3adeded58a7832ebcc5aba197b46519587046d0"
+      "sha256": "9b06747f3f912a386d432f71b250ac6f32be876b7e94a5575b49fffe9dbcc56d"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-privacy-safe-ai-team-reporting.html",
-      "sha256": "d8bc74a989d1be116ca002252a9f61e7383f2fbe4b9b3fd5664d11088fcf542c"
+      "sha256": "e3410fbcdf39e484f2a329be86b4b0211185528c806569da9f7224a3c395b02f"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-project-knowledge-layer.html",
-      "sha256": "528fd9a0889e0c727ef8ce135b06cd80cdbb4bc9434cab437850a5a0e59bdd04"
+      "sha256": "0ac950ce82a3969429950509aab23b900e93a208d5feca746c702eb14fb419b0"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-proof-receipts.html",
-      "sha256": "47e8bbf1e74ddde6bd26d991649f51302eddc13fca78aa5560ea8ed347851010"
+      "sha256": "60c355dd06e1fc49fbebf437a723a5e142c9a0175cd638417e5927b0b0901184"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-proof.html",
-      "sha256": "22d13bcd2d63539ad782a8f5f9a95b7a5a45d3c517155b067a7c383df1d87b60"
+      "sha256": "69e50a303230cd0a4fcb83895305e4c40390adc612bc5b72016cbf951442fbb6"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-rag-vs-memory-vs-project-knowledge.html",
-      "sha256": "2836a821dd2488cb15dfee78b483605dca5bc19e1e744b1f8fbbde9724c35ed9"
+      "sha256": "c6ff52f8bea90274764d9e9654c01dead68d6e43528d896750dc9a15cab50823"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-reading-times.json",
@@ -2184,67 +2183,67 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-reduce-noise-ai-code-reviews.html",
-      "sha256": "a6c0212eebf53f4978bbe98e3dac9baef3d2911a11234243708a2164b48961e8"
+      "sha256": "5987364ddabbfb560dde7c36ca4586057aaf3565e3b5abb5f762fc1e9a54c24c"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-route-ai-coding-workflows-safely.html",
-      "sha256": "1c447cbff4534b5941551de1397a93f8323eca0669b658d004882837927b7cd9"
+      "sha256": "2b192a7cdf61592b60d67ac6d924d58cb18d2b69bccfad731f5e38fd4f39467c"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-routing.html",
-      "sha256": "8dca23c5c9a017f017d49fe99f6b6d2acd01587f696db3ad91d42818b698be55"
+      "sha256": "d5a3ce863deb08a6927f35ed7a3041037dc320b8ddb21c6c95d5b0c26d54733b"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-safe-ai-coding-agents.html",
-      "sha256": "de828665ed62e849c67c956a9b7dd90cbc6c8d2a7f11045f7a76b9abdbfd06d4"
+      "sha256": "5f7f953b29ed4a1311e60b5fa37a5575c10a05868eac231ada049618eb530157"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-safe-ai-tool-exposure.html",
-      "sha256": "e9ec9cbb0a7ad9b28212492e4d97054191266f42f6243e18560062f6c58371ba"
+      "sha256": "6abab7a2ff46b5a72a35bf59784f5aa8bf1c5ffde462ac6a61937049be6552cb"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-scope-repair-before-approval.html",
-      "sha256": "cd191293eeb922325dc8307c7fe2d54e4de576d58aeb4b4c598fb3e4865b1fa8"
+      "sha256": "92d956f1f3a7a12b477144b9c87c992b2cc60256a344024185cae0281119f68d"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-scope.html",
-      "sha256": "aa026555f91518dc74f0e440a9aad9b765734f4623a66a5350d3074881a7bb86"
+      "sha256": "e307735ad4cb01e0da9e0aff138593fa5fe2e968db92ba320d5e5c9e4835e063"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-skill-governance-ai-agents.html",
-      "sha256": "6f4ae235440de415abbbc0b3bba8fc096b656f09b22506a232f1ced6abe190f0"
+      "sha256": "b3e764ea406c776e17d766780c2818e536cd3db975a4312deea33e143ca4b2cc"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-stale-ai-memory-risk.html",
-      "sha256": "6af110e4274b9d4d717b04f9480fc65e350fc88950a862d502a740b6947d9a7a"
+      "sha256": "15aab4a223b2943dce45700fe0b0dd18b707829037d50a998e42e271c80b7fbf"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-stop-reexplaining.html",
-      "sha256": "4c049d21b2ae6439bc8d1b9d5a733bc3cef2b8f5afd3b4bac40743160c36c201"
+      "sha256": "7c3a56eff12451eb05b59ed9ccf1ae09c76a466c4f1ed6a790a182e51302c5f8"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-team-ai-value-reports.html",
-      "sha256": "5ee9a0c209284797fbe9bb22dfd1bd0c769e2dae4b68a7f334ae3cff623e7072"
+      "sha256": "c1ea38844ddd0e7a0d4ea85a5f9dd5f0ffd837ff766ef9194357cc41e2f43248"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-what-is-ai-slop-in-software-security.html",
-      "sha256": "bc67ebc5e2e5063e91965280952807228503254a066e85c8802f240f5942bc21"
+      "sha256": "0cb9adbf63f5a4670acc9a14e955bcb23aac8544b0aa1c1ccb221ee122a1f8cb"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-work-intelligence.html",
-      "sha256": "eec9a46c0ea3a84bf069a803c8a9d2f6c7682827b8fe0016f624f5f6f0702aab"
+      "sha256": "df27c417dc9c69ac59a4ce68ac91b943bf72e4e55b61f7f2304fa1a5b38adb74"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/article-workflow-health.html",
-      "sha256": "76e8d50c566cc7c2be9a407771a27d391961effade0eb26a38d8784c623f8dd8"
+      "sha256": "7b4b76383c5065f18ef17b5fda470d34d30fb148d0d150ed9966fef4faf568a5"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/articles.html",
-      "sha256": "b2d756546ca69daae4e096fee5be95c6e9a3e9187f68a3f343acc3942265d547"
+      "sha256": "eec8eb430df58232f8696de65c1c1cc33b3d959b19b34909fb186a28e6df0a37"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/capabilities.html",
-      "sha256": "c812a3707848cd51d56309c0486afdc70537bfacfe1decaaec42cf5dc5ad58f5"
+      "sha256": "6e212ce491d41a93cc14e6ad14c5c2096c2b6e0f2d1fb56377e13e4927df49e7"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/capability-documentation-pmm-review.html",
@@ -2284,11 +2283,11 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/contact.html",
-      "sha256": "7785ee868bd709a1a415d784cba3d1a81c750842a8405886acd5bbb8c40649b7"
+      "sha256": "abfcdb2a0fbc89c6b934c8a3df8e90737f0b8e7eab95b2eb9f65349e48423b05"
     },
     {
-      "path": "src/avorelo/surfaces/public-web/static/dashboard.html",
-      "sha256": "2d1711da1ea24c33534b4714da87848ef1d9b122b418f0e19466d2252e2a1cd8"
+      "path": "src/avorelo/surfaces/public-web/static/dashboard-discontinued.html",
+      "sha256": "98d9d7adeda5283244b0c416370d4b827cef201eda2fd3d491bc4f8b44efbce1"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/favicon-256.png",
@@ -2296,31 +2295,27 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/index.html",
-      "sha256": "d1a2678219302e223a21e10a7142feabda912b578331ee7e4ddc963b51cb7710"
+      "sha256": "e246ea9bfc06e6228bcf6de6352e0ef8ed11024f76f9b43cf5a89d2e667faa7b"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/learn-more.html",
-      "sha256": "222d3000e53dc46714324c6b9f2070eb74272c0975ef436a8188abb55fefae9d"
+      "sha256": "3fdb9dd7a77d73418af97eb77b95c82c8289ce3f0cacb492a7cf4b1409f44382"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/license.html",
-      "sha256": "60cea336dfcb77c15759bbbfa8d464bf1d4856d0eec8bd2070bb6f13f175ad1a"
+      "sha256": "ac39e00744c3426d2a539ff79aad174b7a2bd300520198fd03418de6f414ff87"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/og-card.svg",
       "sha256": "f2ad78891013d5c359cc3540ed3941b42fa15d10affa2fa2e302bbbf7c8858b6"
     },
     {
-      "path": "src/avorelo/surfaces/public-web/static/pricing.html",
-      "sha256": "d9e63abc1b62de5a741575b44703a033a344b7955ae28fec8f673d99d83fb78a"
-    },
-    {
       "path": "src/avorelo/surfaces/public-web/static/privacy-policy.html",
-      "sha256": "dd853c1dcce7aea6f6c88cd4f48bc8b66b3486b4951daf09508840d232be28e2"
+      "sha256": "607fb7502aa73f8060c1184e765dfd2852135ec4b25b91a45906e2024034342e"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/refund-discontinued.html",
-      "sha256": "acefc536733fdf9454ea8f7cbe71a07153f00388f1f2c9853dc7397592393779"
+      "sha256": "c693047c6eaec67245398ae54429bc44089c9f4d50b74bbf1a092b845d77e428"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/robots.txt",
@@ -2332,7 +2327,7 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/terms-of-service.html",
-      "sha256": "8583d3656bb8419416a3164f5b83351a6c48cd8878e65d80e81378bba9fabd05"
+      "sha256": "a7b2781d8440ca25aad555fe9852e03388918aba99bd82c7f5829910868a076e"
     },
     {
       "path": "src/avorelo/validation/model-routing/index.ts",
@@ -2460,7 +2455,7 @@
     },
     {
       "path": "tests/dashboard-open-readiness.test.ts",
-      "sha256": "db176e84c77f908e4e9ebec49998bd5511dae205d28d2c3cf11b9f324a39d571"
+      "sha256": "11cfb947b238ff732ef2cc5080255f944ecf5e1ce9daeffc7d48273c49ab2b46"
     },
     {
       "path": "tests/dco.test.ts",
@@ -2560,7 +2555,7 @@
     },
     {
       "path": "tests/product-journey-e2e.test.ts",
-      "sha256": "3af17e95ab2b9518894ff30e4dd8fb733444e96f1e53fcc251dbe7404a41b0e4"
+      "sha256": "6f59e9dbaa1045bd8512bfbf142613d3f17689dff59b58c3860877cf8c63e882"
     },
     {
       "path": "tests/proof-adapter-pack.test.ts",
@@ -2640,11 +2635,11 @@
     },
     {
       "path": "tests/site-licensing-truth.test.ts",
-      "sha256": "837626cd1d28ae9b9c8eac0d62ab253ef079f90b8d54e40f68f199f8bde92a21"
+      "sha256": "e6e142884c3a41e662b293162965372e970f772373f45d0a551a71959c3ee8a6"
     },
     {
       "path": "tests/site-navigation-contract.test.ts",
-      "sha256": "180f23934b03be2b5ec2c8004ef1e510a43d461bf50b58be8c05336410ed2ca2"
+      "sha256": "2b35e508a2734f30d4f64eaa1e02dbf3c01fc6713635bfed2f326035f65374e3"
     },
     {
       "path": "tests/site-seo-assets.test.ts",
@@ -2852,11 +2847,11 @@
     },
     {
       "path": "tools/site-check.ts",
-      "sha256": "5a23031f63c07b8556ea2c3e409e74fe611411aa2d1a12b5571713b20b1fb6b4"
+      "sha256": "6f4dfa134139d1b0e561dd528651bc06ad1e9b8a8cce80481466f996e1be8bcf"
     },
     {
       "path": "tools/site-truth.ts",
-      "sha256": "5ee7ee187b41e6f04f387be0dd96aade3f9b464d12b4356be48b8047f0b97bda"
+      "sha256": "48d49b59d912f9c378f8e363fac0da9e6d8db39590191dfdf1b5fd828c1cd78b"
     },
     {
       "path": "tools/skills-registry.ts",
@@ -2872,9 +2867,9 @@
     "personal-notes": 6,
     "legal-drafts": 21,
     "transition-internals": 41,
-    "release-internals": 72,
+    "release-internals": 75,
     "hosted-implementation": 20,
     "canonical-governance-test": 5
   },
-  "droppedCount": 1
+  "droppedCount": 2
 }

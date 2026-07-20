@@ -32,7 +32,7 @@ function text(html: string): string {
 
 /** Pages allowed to describe the discontinued hosted service in the past tense. */
 const DISCONTINUED_PAGES = new Set([
-  "api-discontinued.html", "refund-discontinued.html", "pricing.html",
+  "api-discontinued.html", "refund-discontinued.html", "dashboard-discontinued.html",
   "terms-of-service.html", "privacy-policy.html", "contact.html",
 ]);
 
@@ -127,7 +127,7 @@ const LICENSING_CLAIMS: Array<{ rule: string; re: RegExp }> = [
 const NEGATED = /a^/; // never matches
 
 /** Core pages where the Apache-2.0 licensing must be stated consistently. */
-const LICENSING_PAGES = ["index.html", "pricing.html", "terms-of-service.html", "license.html"];
+const LICENSING_PAGES = ["index.html", "license.html", "terms-of-service.html"];
 const REQUIRED_LICENSING = [
   { name: "Apache-2.0 named", re: /Apache[- ]?2\.0|Apache Licen[cs]e/i },
   { name: "open source stated", re: /open[- ]source/i },

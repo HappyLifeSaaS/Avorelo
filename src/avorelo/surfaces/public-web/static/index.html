@@ -35,8 +35,9 @@
   "url": "https://avorelo.com/",
   "license": "https://www.apache.org/licenses/LICENSE-2.0",
   "isAccessibleForFree": true,
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "sameAs": []
+  "codeRepository": "https://github.com/HappyLifeSaaS/Avorelo",
+  "downloadUrl": "https://www.npmjs.com/package/avorelo",
+  "sameAs": ["https://github.com/HappyLifeSaaS/Avorelo", "https://www.npmjs.com/package/avorelo"]
 }
 </script>
 <script type="application/ld+json">
@@ -413,22 +414,24 @@ p{font-size:1rem;line-height:1.7;color:var(--text-2)}
     <a href="index.html" class="nav-logo" aria-label="Avorelo home"><img src="/favicon-256.png" alt="" width="28" height="28">Avorelo</a>
     <ul class="nav-links" role="list">
       <li><a href="#how">How it works</a></li>
-      <li><a href="#pricing">Pricing</a></li>
       <li><a href="capabilities.html">Capabilities</a></li>
       <li><a href="articles.html">Articles</a></li>
+      <li><a href="/license">License</a></li>
+      <li><a href="https://github.com/HappyLifeSaaS/Avorelo" rel="noopener">GitHub</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <a href="/activate" class="nav-cta">Explore Community Edition</a>
+    <a href="https://github.com/HappyLifeSaaS/Avorelo" class="nav-cta" rel="noopener">View on GitHub</a>
     <button class="nav-ham" id="navHam" onclick="toggleNav()" aria-label="Open menu" aria-expanded="false">&#9776;</button>
   </div>
 </nav>
 <div class="nav-mob" id="navMob" role="navigation" aria-label="Mobile navigation">
   <a href="#how" onclick="toggleNav()">How it works</a>
-  <a href="#pricing" onclick="toggleNav()">Pricing</a>
   <a href="capabilities.html">Capabilities</a>
   <a href="articles.html">Articles</a>
+  <a href="/license">License</a>
+  <a href="https://github.com/HappyLifeSaaS/Avorelo" rel="noopener">GitHub</a>
   <a href="contact.html">Contact</a>
-  <a href="/activate" class="nm-cta">Explore Community Edition</a>
+  <a href="https://github.com/HappyLifeSaaS/Avorelo" class="nm-cta" rel="noopener">View on GitHub</a>
 </div>
 
 <!-- Hero -->
@@ -442,11 +445,12 @@ p{font-size:1rem;line-height:1.7;color:var(--text-2)}
         <div class="hero-eyebrow" aria-label="Product badge">LOCAL-FIRST &bull; WORKS IN BACKGROUND</div>
         <h1 id="hero-h1">AI coding comes with overhead. Avorelo handles it.</h1>
         <p class="hero-sub">Avorelo automates the AI coding practices you would otherwise manage by hand: context, routing, scope, safety, proof, and handoff, across the tools you already use.</p>
-        <div class="hero-support">Runs locally in the project you are already in. Avorelo detects your AI coding workspace and works in the background. No account. No workflow switch. No prompts to rewrite. No hosted dashboard to manage.</div>
+        <div class="hero-support">Open Source under Apache-2.0. Runs locally in the project you are already in, and works in the background. No account. No hosted backend. No cloud database. No subscription. No automatic telemetry. No hosted dashboard to manage.</div>
         <div class="cta-row">
-          <a href="/activate" class="btn btn-primary">Explore Community Edition</a>
+          <a href="https://github.com/HappyLifeSaaS/Avorelo" class="btn btn-primary" rel="noopener">View on GitHub</a>
           <button type="button" class="btn btn-ghost" id="hero-start-btn" onclick="var p=document.getElementById('hero-wizard-panel');var isOpen=p.classList.toggle('open');this.textContent=isOpen?'Close ↑':'See how activation works'">See how activation works</button>
         </div>
+        <div class="hero-install" style="margin-top:14px;font-family:var(--mono,monospace);font-size:0.86rem;color:var(--text-2)"><code>npm install -g avorelo@next</code> &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/avorelo" rel="noopener">npm</a> · <a href="/license">Apache-2.0</a> · <a href="https://github.com/HappyLifeSaaS/Avorelo/blob/main/CONTRIBUTING.md" rel="noopener">Contributing (DCO)</a></div>
 
         <div class="hero-activate" id="hero-wizard-panel">
           <span class="hero-activate-lbl">Activate Avorelo where you already build</span>
@@ -827,68 +831,6 @@ p{font-size:1rem;line-height:1.7;color:var(--text-2)}
   </div>
 </section>
 
-<!-- Dashboard Preview -->
-<section class="sec" id="product" aria-labelledby="product-h2" style="background:var(--bg)">
-  <div class="wrap">
-    <div style="text-align:center;margin-bottom:28px">
-      <div class="kicker" style="margin-bottom:10px">Dashboard preview</div>
-      <h2 id="product-h2">Avorelo works in the background. The dashboard shows what it reduced, repaired, prevented, and proved.</h2>
-      <p style="margin-top:10px;max-width:500px;margin-left:auto;margin-right:auto;font-size:0.96rem">Open it when you want to see the value, proof, and evidence from your sessions.</p>
-    </div>
-
-    <div class="dp-dog">
-      <strong>Dogfood data shown</strong>: from internal Avorelo development sessions on this product. Your dashboard shows your own data after your first run. No fake numbers.
-    </div>
-
-    <div class="dp-grid">
-      <!-- Time Saved -->
-      <div class="dp-card">
-        <div class="dp-card-tag amber">Time Saved</div>
-        <div class="dp-bigval amber">42 min</div>
-        <div class="dp-card-vals">
-          <div class="dp-card-val-item">this session</div>
-          <div class="dp-card-val-item">Approval interruptions avoided: 1</div>
-          <div class="dp-card-val-item">Review queue reduced: 4 of 5 items</div>
-        </div>
-        <p class="dp-card-desc">Avorelo handled 4 of 5 items automatically, leaving only 1 for review.</p>
-        <a href="dashboard.html" class="dp-card-link">View review receipt &rarr;</a>
-      </div>
-
-      <!-- Scope & Safety -->
-      <div class="dp-card">
-        <div class="dp-card-tag">Scope &amp; Safety</div>
-        <div class="dp-bigval">29 files</div>
-        <div class="dp-card-vals">
-          <div class="dp-card-val-item">kept out of scope</div>
-          <div class="dp-card-val-item">31 to 2 files narrowed &middot; 94% scope reduced</div>
-          <div class="dp-card-val-item">1 scope drift repaired</div>
-          <div class="dp-card-val-item">Approval avoided before it became review noise</div>
-        </div>
-        <p class="dp-card-desc">Agent tried 31 files. Task needed 2. Avorelo narrowed scope before work started.</p>
-        <a href="dashboard.html" class="dp-card-link">View scope repair receipt &rarr;</a>
-      </div>
-
-      <!-- AI Waste Reduced -->
-      <div class="dp-card">
-        <div class="dp-card-tag">AI Waste Reduced</div>
-        <div class="dp-bigval">18.4k</div>
-        <div class="dp-card-vals">
-          <div class="dp-card-val-item">tokens avoided this session</div>
-          <div class="dp-card-val-item">6 repeated context blocks removed</div>
-          <div class="dp-card-val-item">$1.42 estimated cost avoided</div>
-        </div>
-        <p class="dp-card-desc">Avorelo reduced repeated context before it reached the model.</p>
-        <a href="dashboard.html" class="dp-card-link">View evidence &rarr;</a>
-      </div>
-    </div>
-
-    <p class="dp-foot">Illustrative example &mdash; these numbers are from our own dogfood use and are not live. There are no plans and no gated signals. Your own runs produce your own local data, on your machine.</p>
-    <div style="text-align:center">
-      <a href="dashboard.html" class="btn btn-ghost" style="font-size:0.875rem">See the local viewer &rarr;</a>
-    </div>
-  </div>
-</section>
-
 <!-- Reassurance line (replaces mid-CTA to avoid duplicate CTAs) -->
 <div style="text-align:center;padding:24px 0;color:var(--text-3);font-size:0.88rem;font-family:var(--sans)">
   Already using Claude Code, Cursor, or Codex? Avorelo works alongside them - no workflow changes needed.
@@ -934,12 +876,12 @@ p{font-size:1rem;line-height:1.7;color:var(--text-2)}
   </div>
 </section>
 
-<!-- Pricing -->
-<section class="sec pricing-sec" id="pricing" aria-labelledby="pricing-h2">
+<!-- Licensing -->
+<section class="sec pricing-sec" id="licensing" aria-labelledby="licensing-h2">
   <div class="wrap">
     <div class="pricing-header">
       <div class="kicker" style="margin-bottom:10px">Licensing</div>
-      <h2 id="pricing-h2">Open Source under Apache-2.0. There is nothing to buy.</h2>
+      <h2 id="licensing-h2">Open Source under Apache-2.0. There is nothing to buy.</h2>
       <p class="pricing-tagline">Avorelo is Open Source software under the Apache License 2.0. Personal, internal, organizational, and commercial use are all permitted &mdash; no fee and no separate license. See the <a href="license.html">license page</a>.</p>
     </div>
     <div class="pricing-grid">
@@ -972,13 +914,13 @@ p{font-size:1rem;line-height:1.7;color:var(--text-2)}
         <div class="pc-div"></div>
         <ul class="pc-items">
           <li class="pc-item"><span class="pc-ck">&#10003;</span>No account and no hosted backend</li>
-          <li class="pc-item"><span class="pc-ck">&#10003;</span>No subscription, checkout or customer portal</li>
+          <li class="pc-item"><span class="pc-ck">&#10003;</span>No subscription and no account</li>
           <li class="pc-item"><span class="pc-ck">&#10003;</span>No automatic telemetry</li>
         </ul>
       </div>
 
     </div>
-    <p class="pricing-legal">Final licence terms have not been published and remain subject to legal review, so this summary grants no rights to use the software. See <a href="pricing.html">licensing</a> for the full picture, and the <a href="terms-of-service.html">Terms of Service</a> and <a href="privacy-policy.html">Privacy Policy</a> for how this website itself behaves.</p>
+    <p class="pricing-legal">Avorelo is licensed under the Apache License 2.0; the authoritative terms are the LICENSE and NOTICE files in the <a href="https://github.com/HappyLifeSaaS/Avorelo" rel="noopener">repository</a>. See the <a href="/license">license page</a>, and the <a href="terms-of-service.html">Terms of Service</a> and <a href="privacy-policy.html">Privacy Policy</a> for how this website itself behaves.</p>
   </div>
 </section>
 
@@ -1053,29 +995,33 @@ p{font-size:1rem;line-height:1.7;color:var(--text-2)}
           <h5>Product</h5>
           <ul>
             <li><a href="#how">How it works</a></li>
-            <li><a href="#product">Dashboard</a></li>
-            <li><a href="pricing.html">Pricing</a></li>
             <li><a href="capabilities.html">Capabilities</a></li>
+            <li><a href="/license">License (Apache-2.0)</a></li>
+            <li><a href="articles.html">Articles</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Resources</h5>
+          <h5>Open Source</h5>
           <ul>
-            <li><a href="articles.html">Articles</a></li>
-            <li><a href="dashboard.html">Dashboard preview</a></li>
+            <li><a href="https://github.com/HappyLifeSaaS/Avorelo" rel="noopener">GitHub repository</a></li>
+            <li><a href="https://www.npmjs.com/package/avorelo" rel="noopener">npm package</a></li>
+            <li><a href="https://github.com/HappyLifeSaaS/Avorelo/releases" rel="noopener">Releases</a></li>
+            <li><a href="https://github.com/HappyLifeSaaS/Avorelo/blob/main/CONTRIBUTING.md" rel="noopener">Contributing (DCO)</a></li>
           </ul>
         </div>
         <div class="footer-col">
           <h5>Company</h5>
           <ul>
             <li><a href="contact.html">Contact</a></li>
+            <li><a href="https://github.com/HappyLifeSaaS/Avorelo/security/policy" rel="noopener">Security</a></li>
             <li><a href="terms-of-service.html">Terms of Service</a></li>
             <li><a href="privacy-policy.html">Privacy Policy</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h5>Community Edition</h5>
+          <h5>Get Avorelo</h5>
           <ul>
+            <li><a href="https://github.com/HappyLifeSaaS/Avorelo" rel="noopener">View on GitHub</a></li>
             <li><a href="/activate">Explore Community Edition</a></li>
           </ul>
         </div>

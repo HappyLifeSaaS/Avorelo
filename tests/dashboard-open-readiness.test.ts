@@ -48,22 +48,20 @@ describe("dashboard-open-readiness", () => {
     assert.ok(html.includes("local work proof"));
   });
 
-  it("source dashboard.html remains valid", () => {
+  // Apache-2.0 correction: the hosted website dashboard + pricing pages were removed. The LOCAL
+  // dashboard is a CLI viewer (open()), which the rest of this suite exercises.
+  it("website dashboard.html is removed (no public hosted dashboard surface)", () => {
     const staticDashPath = join(
       import.meta.dirname, "..", "src", "avorelo", "surfaces", "public-web", "static", "dashboard.html",
     );
-    if (existsSync(staticDashPath)) {
-      const staticHtml = readFileSync(staticDashPath, "utf8");
-      assert.ok(!staticHtml.includes("__AVORELO_GATE__"), "no entitlement gate hook in CE dashboard");
-      assert.ok(staticHtml.length > 100, "dashboard html present");
-    }
+    assert.ok(!existsSync(staticDashPath), "website dashboard.html must be removed");
   });
 
-  it("no pricing.html changes (static file check)", () => {
+  it("website pricing.html is removed (no public pricing surface)", () => {
     const pricingPath = join(
       import.meta.dirname, "..", "src", "avorelo", "surfaces", "public-web", "static", "pricing.html",
     );
-    assert.ok(existsSync(pricingPath), "pricing.html exists");
+    assert.ok(!existsSync(pricingPath), "website pricing.html must be removed");
   });
 
   it("no Teams checkout in generated dashboard", () => {

@@ -770,8 +770,8 @@ function cmdServe(args: string[]): number {
     .then((h) => {
       process.stdout.write(["", "Avorelo preview is running.", "", "Open:",
         `  Landing:      ${h.url}`, `  Activate:     ${h.url}activate.html`,
-        `  Capabilities: ${h.url}capabilities.html`, `  Local viewer: ${h.url}dashboard.html`,
-        `  Pricing:      ${h.url}pricing.html`, `  Articles:     ${h.url}articles.html`,
+        `  Capabilities: ${h.url}capabilities.html`, `  License:      ${h.url}license.html`,
+        `  Contact:      ${h.url}contact.html`, `  Articles:     ${h.url}articles.html`,
         "", "Press Ctrl+C to stop.", ""].join("\n"));
       const stop = () => h.close().then(() => process.exit(0));
       process.on("SIGINT", stop); process.on("SIGTERM", stop);
