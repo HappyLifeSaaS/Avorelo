@@ -55,8 +55,16 @@ function run() {
     !raw(TOK, dTok) && !dTok.displayTask.includes(TOK) && dTok.contract.safetyBoundary.secretRiskCodes.includes("SEC_GH_TOKEN") && dTok.gate !== "allow",
     `gate=${dTok.gate} display=${dTok.displayTask.slice(0, 40)}`);
 
+  // The routing-claim guard must hold on whatever documentation actually ships. The internal
+  // routing note is canonical-only (docs/internal/ is excluded from the public export), so the
+  // public-safe documentation is scanned too — otherwise this gate would have no input in the
+  // public repository and fail there for the wrong reason.
   let docs = "";
-  for (const p of ["docs/internal/enriched-workcontract-safe-routing.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
+  for (const p of [
+    "docs/internal/enriched-workcontract-safe-routing.md", // canonical-only; absent in the public export
+    "README.md",
+    "docs/public/security-and-privacy.md",
+  ]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase() + "\n"; } catch {} }
   const NEG = /\b(no|not|never|without|cannot|n't|non-goal)\b/;
   const affirmative = docs.split(/[.!?\n|]+/).filter((x) => !NEG.test(x)).join(" . ");
   g("docs_do_not_claim_autonomous_prod_deploy", docs.length > 0 && !/autonomous(ly)? (deploy|deploys|deployment) to production|automatically deploys? to prod/.test(affirmative));
