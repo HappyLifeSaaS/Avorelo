@@ -4,7 +4,9 @@
 import { runContextCheck, renderHuman, renderJson, buildContextCheckReceipt, toEvidenceArtifacts, persistContextCheckResult } from "../capabilities/context-check/index.ts";
 import { scanSources, getAdapterCapabilities } from "../capabilities/context-check/scanner.ts";
 import { buildControlCenter } from "../capabilities/control-center/index.ts";
-import { existsSync } from "node:fs";
+import { existsSync, mkdtempSync, writeFileSync, rmSync } from "node:fs";
+import { join } from "node:path";
+import { tmpdir } from "node:os";
 
 const DIR = process.cwd();
 
@@ -25,8 +27,20 @@ function run() {
   g("risk_level_is_valid", ["none", "low", "medium", "high"].includes(result.riskLevel));
   g("sources_checked_positive", result.sourcesChecked > 0, `found ${result.sourcesChecked} sources`);
 
-  // Gate 3: Should detect CLAUDE.md in this repo
-  g("detects_claude_md", result.sources.some(s => s.path === "CLAUDE.md"), `sources: ${result.sources.map(s => s.path).join(", ")}`);
+  // Gate 3: CLAUDE.md detection. The canonical repo carries its own CLAUDE.md, but that file is
+  // internal agent context and is excluded from the public export — so asserting against this
+  // repo's own file would fail in the public repository for lack of input rather than for a real
+  // defect. Detection is therefore proven against a synthetic workspace fixture, which exercises
+  // the same code path deterministically in both repositories.
+  const fx = mkdtempSync(join(tmpdir(), "avorelo-ctxcheck-"));
+  try {
+    writeFileSync(join(fx, "CLAUDE.md"), "# Project instructions\n\nUse the local workflow.\n");
+    const fixture = runContextCheck({ repoRoot: fx, mode: "generic", outputPreference: "json" });
+    g("detects_claude_md", fixture.sources.some(s => s.path === "CLAUDE.md"),
+      `sources: ${fixture.sources.map(s => s.path).join(", ")}`);
+  } finally {
+    rmSync(fx, { recursive: true, force: true });
+  }
 
   // Gate 4: Evidence is populated
   g("evidence_populated", result.evidence.scanDurationMs >= 0 && result.evidence.totalContextSizeBytes > 0);

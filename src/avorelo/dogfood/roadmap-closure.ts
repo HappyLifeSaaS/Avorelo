@@ -86,7 +86,6 @@ const testFiles = [
   "tests/proof-report.test.ts",
   "tests/value-ledger.test.ts",
   "tests/efficiency-sync.test.ts",
-  "tests/canonical-readiness.test.ts",
   "tests/proof-adapter-pack.test.ts",
   "tests/context-pack.test.ts",
   "tests/multi-agent-review.test.ts",
@@ -99,6 +98,17 @@ const testFiles = [
 for (const tf of testFiles) {
   check(`test_exists_${tf.split("/").pop()!.replace(".test.ts", "")}`, fileExists(tf), tf);
 }
+
+// Canonical-readiness coverage. tests/canonical-readiness.test.ts is a maintainer-repository
+// governance test (it asserts internal docs/readiness state) and is deliberately excluded from the
+// public export, so requiring the file outright would fail publicly for a file that must not ship.
+// Coverage is asserted instead: the governance test in the canonical repo, or the dogfood that
+// exercises the same capability and ships in both.
+check(
+  "canonical_readiness_covered",
+  fileExists("tests/canonical-readiness.test.ts") || fileExists("src/avorelo/dogfood/canonical-readiness.ts"),
+  "governance test (canonical) or canonical-readiness dogfood (both repositories)",
+);
 
 const dogfoodFiles = [
   "src/avorelo/dogfood/tool-adapter-orchestration.ts",

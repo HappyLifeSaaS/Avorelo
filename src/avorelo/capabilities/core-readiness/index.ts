@@ -92,7 +92,14 @@ export function buildCoreReadiness(opts?: { now?: number; root?: string }): Core
 
   // Dogfood + external-dogfood pack present.
   const dogfoodTiers = has(root, "package.json") && /dogfood:all/.test(readFileSync(join(root, "package.json"), "utf8")) && /dogfood:extended/.test(readFileSync(join(root, "package.json"), "utf8"));
-  const externalPack = has(root, "docs/internal/dogfood/external-dogfood-guide.md") && has(root, "docs/internal/dogfood/tester-pack-v1.md");
+  // External-tester onboarding. The canonical repo carries the internal tester pack; the public
+  // repository ships the contributor equivalent instead (docs/internal/ is excluded from the
+  // export). Either satisfies the intent: a newcomer has documented instructions for running the
+  // product and its checks. Requiring only the internal pack would fail publicly for lack of a
+  // file that intentionally does not ship.
+  const internalPack = has(root, "docs/internal/dogfood/external-dogfood-guide.md") && has(root, "docs/internal/dogfood/tester-pack-v1.md");
+  const publicContributorPack = has(root, "CONTRIBUTING.md") && has(root, "docs/development");
+  const externalPack = internalPack || publicContributorPack;
 
   const checks: CoreCheck[] = [
     { id: "safety_invariants_hold", label: "Safety/privacy invariants hold (no secret/source/prompt/diff/env leak; metadata-only sync; no fake savings)", ok: safetyHolds },
