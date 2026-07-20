@@ -1,5 +1,5 @@
 {
-  "canonicalCommit": "6fb417394f97f9a3276a84a624d6da1685a5caa5",
+  "canonicalCommit": "e464b461e1939c21e6b213aed8db548f8b1c1bf5",
   "mode": "final",
   "generatorVersion": "1.0.0",
   "fileCount": 571,
@@ -923,11 +923,11 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "2b02181c0ef942a15a03711182af388a4626478d9d7c31859957689002fc614c"
+      "sha256": "b415adeb023c777da24d956a7895cabb22586dd812c718b10f5ae067444f7ff3"
     },
     {
       "path": "package.json",
-      "sha256": "2e1b29000d4568670a5aa123cc8b28befab689059dce72b92fa014a72ed9fbe6"
+      "sha256": "a938845f6d357e03b0e2a784c9c37e8aef84fd9ce7b62f02464a767417b1886c"
     },
     {
       "path": "src/avorelo/adapters/adapter-interface.ts",
@@ -1135,7 +1135,7 @@
     },
     {
       "path": "src/avorelo/capabilities/core-readiness/index.ts",
-      "sha256": "1247b4806baaeb9139e1350a1aa41e984d7e2c3e5336a3e1f51672b2ba2d7693"
+      "sha256": "f72c1f952ed28a459aa227c58dcdc6b539f0b95613dcf32d3b653b3776d5651f"
     },
     {
       "path": "src/avorelo/capabilities/efficiency-sync/index.ts",
@@ -1419,7 +1419,7 @@
     },
     {
       "path": "src/avorelo/dogfood/canonical-readiness.ts",
-      "sha256": "b331e6bbb1b55305c2bc5690ef3cf91ed3a8955ac418ab09bbd9ec964da1d952"
+      "sha256": "bf0d85431e59fbbd95c453b3aa503467c8ee2986bbae0b9b3dcb3644ba699f4b"
     },
     {
       "path": "src/avorelo/dogfood/claude-code-adapter.ts",
@@ -1435,11 +1435,11 @@
     },
     {
       "path": "src/avorelo/dogfood/context-check.ts",
-      "sha256": "e1e2c57a84bd8ee1d15286ed52d9529ffc33a1ea8c77644cd2e9562debc93b42"
+      "sha256": "416b46ec9f3ecbfde6ee0f687a4dc30da99ded2eac0db6b22c4d48c6b55b4040"
     },
     {
       "path": "src/avorelo/dogfood/context-compiler.ts",
-      "sha256": "4dfa13390c72184f0d1e8ab7acb34de4d2b163ffedaf8165bb93585674d969a4"
+      "sha256": "7079f83fbf4b47e3f533c4b45b1a32c485985184090c1fa70fc81a3ab3b0e456"
     },
     {
       "path": "src/avorelo/dogfood/context-efficiency.ts",
@@ -1451,7 +1451,7 @@
     },
     {
       "path": "src/avorelo/dogfood/continuity.ts",
-      "sha256": "2981214033e32c6beb4eedbd7d08e1455bc352b82d7fc8ade7133a4e6796535a"
+      "sha256": "2800b3f343da1f13812adcfa722a637014ee73f060d756335fb2152b0630bf15"
     },
     {
       "path": "src/avorelo/dogfood/control-center.ts",
@@ -1479,7 +1479,7 @@
     },
     {
       "path": "src/avorelo/dogfood/efficiency-sync.ts",
-      "sha256": "fe426a3d29a64a51367826d58f926afc12e05158da6e5b22dd7e4189af8c2582"
+      "sha256": "86f087444b36a05e597e63cb39c8be364d8cc9f0c1dfd5c9c1c14d16778ef43f"
     },
     {
       "path": "src/avorelo/dogfood/execution-verifier.ts",
@@ -1551,7 +1551,7 @@
     },
     {
       "path": "src/avorelo/dogfood/proof-report.ts",
-      "sha256": "443ab933d12c4dae9318c7c424aa0e98484614c344587c354fda18bf62e8b722"
+      "sha256": "d8219aadecdf43aed94f95a37eaf289d9d14c8682ce42e28b98b58155ac2d8a3"
     },
     {
       "path": "src/avorelo/dogfood/real-tool-execution.ts",
@@ -1559,7 +1559,7 @@
     },
     {
       "path": "src/avorelo/dogfood/roadmap-closure.ts",
-      "sha256": "0b8532da21c2db0333ce497d0908683428816023f47157e887eb5f2a15fafbb9"
+      "sha256": "a2ed335b8dd1d459e0d65762d549cdffabee8e1426393390ad0f7a9e331edf8d"
     },
     {
       "path": "src/avorelo/dogfood/routing-efficiency.ts",
@@ -1631,7 +1631,7 @@
     },
     {
       "path": "src/avorelo/dogfood/token-cost.ts",
-      "sha256": "f6ae7431904a6f8298254fd0eef9e3340dc89e1f9611b002ab00d55a75c2d351"
+      "sha256": "883d06ad918004227bc542421aac46bab77e2fad6b1373760cd0f7a7af78fe9f"
     },
     {
       "path": "src/avorelo/dogfood/tool-adapter-orchestration.ts",
@@ -1647,7 +1647,7 @@
     },
     {
       "path": "src/avorelo/dogfood/value-ledger.ts",
-      "sha256": "4b032e256181d8074d88acc0b0585193b355deeca2cb81ee5e8a51644b296d24"
+      "sha256": "e85e26677dc3616beaf451e8f45c75298baf5daaef1a9ebf2849317c5affc676"
     },
     {
       "path": "src/avorelo/dogfood/work-controls.ts",
@@ -1659,7 +1659,7 @@
     },
     {
       "path": "src/avorelo/dogfood/workcontract-routing.ts",
-      "sha256": "c0e9d99d6eedaafb383969dc1d50f05cbbd5a3a5853499ca55a4aca4e58d55c3"
+      "sha256": "49d00ce1b3cd5c049aca5609703f7bebc669a32f4649eea937f419f6a732a7e7"
     },
     {
       "path": "src/avorelo/dogfood/workflow-radar.ts",
@@ -2031,7 +2031,7 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/index.ts",
-      "sha256": "23c29e4c4a2e12ccf1c92787ee81e0bee3fd8a4f825d5a7c1926461806087bbd"
+      "sha256": "107b72ddfe2dbf09a4f98f557f9e3fb306fef2cf102419d780713b21dc2a3458"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/404.html",
@@ -2051,11 +2051,11 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/activate.html",
-      "sha256": "29db3f1eec570a05b5a1034b57560e2e6a7da7cf17953b26d8a2d7b15842cada"
+      "sha256": "5ac3e7934f3cd3b3b01449ea00c71e306713b8945689c98c01ebaf337ac24856"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/api-discontinued.html",
-      "sha256": "0bb6e608055a6d954870a51ab7d0f6e26bc0fe921557aa127a071a73a0a68764"
+      "sha256": "8d24208a7d9d315f9c8618bb70f71430e3ef1f7f732bf473be868c592c8f375c"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/apple-touch-icon.png",
@@ -2295,7 +2295,7 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/index.html",
-      "sha256": "e246ea9bfc06e6228bcf6de6352e0ef8ed11024f76f9b43cf5a89d2e667faa7b"
+      "sha256": "d81e2e3a3251a2133db2a324c401f7f8869e556baa5870627e8124897ea64030"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/learn-more.html",

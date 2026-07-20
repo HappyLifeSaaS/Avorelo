@@ -131,7 +131,7 @@ export function releaseInfo(): { version: string; commit: string; license: strin
     version,
     commit,
     license: "Apache-2.0",
-    npmDistTag: "next",
+    npmDistTag: "latest",
     repository: "https://github.com/HappyLifeSaaS/Avorelo",
     homepage: "https://avorelo.com",
   };
