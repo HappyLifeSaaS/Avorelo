@@ -64,7 +64,7 @@ function run() {
   g("cloud_eligible_semantics_are_explicit", cc("update the README").cloudEligible === true && projDocs.redacted === true);
 
   let docs = "";
-  for (const p of ["docs/internal/context-compiler-lite.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
+  for (const p of ["docs/internal/context-compiler-lite.md", "docs/public/security-and-privacy.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
   const NEG = /\b(no|not|never|without|cannot|n't|non-goal|forbidden)\b/;
   const affirmative = docs.split(/[.!?\n|]+/).filter(x => !NEG.test(x)).join(" . ");
   g("docs_do_not_claim_token_savings", docs.length > 0 && !/saves? tokens|token savings|cost savings|reduces? (your )?tokens/.test(affirmative));

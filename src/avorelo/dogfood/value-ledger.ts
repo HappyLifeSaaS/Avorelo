@@ -47,7 +47,7 @@ function run() {
   g("dogfood_is_local_only", true);
 
   let docs = "";
-  for (const p of ["docs/internal/value-ledger-compact-surface.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
+  for (const p of ["docs/internal/value-ledger-compact-surface.md", "docs/public/security-and-privacy.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
   const NEG = /\b(no|not|never|without|cannot|n't|non-goal|forbidden)\b/;
   const aff = docs.split(/[.!?\n|]+/).filter((x) => !NEG.test(x)).join(" . ");
   g("docs_do_not_claim_roi", docs.length > 0 && !/\broi\b|return on investment/.test(aff));

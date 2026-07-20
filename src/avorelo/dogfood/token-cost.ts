@@ -54,7 +54,7 @@ function run() {
   g("dogfood_is_local_only", true);
 
   let docs = "";
-  for (const p of ["docs/internal/token-cost-evidence.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
+  for (const p of ["docs/internal/token-cost-evidence.md", "docs/public/security-and-privacy.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
   const NEG = /\b(no|not|never|without|cannot|n't|non-goal|forbidden)\b/;
   const aff = docs.split(/[.!?\n|]+/).filter((x) => !NEG.test(x)).join(" . ");
   g("docs_do_not_claim_token_savings", docs.length > 0 && !/saves? tokens|token savings/.test(aff));

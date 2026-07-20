@@ -51,7 +51,7 @@ function run() {
   g("full_continuity_packet_not_synced", clean.contract === "avorelo.nextRunContinuity.v1" && proj.contract === "avorelo.nextRunContinuity.sync.v1");
 
   let docs = "";
-  for (const p of ["docs/internal/next-run-continuity.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
+  for (const p of ["docs/internal/next-run-continuity.md", "docs/public/security-and-privacy.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
   const NEG = /\b(no|not|never|without|cannot|n't|non-goal|forbidden)\b/;
   const affirmative = docs.split(/[.!?\n|]+/).filter(x => !NEG.test(x)).join(" . ");
   g("docs_do_not_claim_memory_dump", docs.length > 0 && !/memory dump|stores? (raw )?(prompts?|transcripts?|source)/.test(affirmative));

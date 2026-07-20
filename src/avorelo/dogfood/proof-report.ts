@@ -45,7 +45,7 @@ function run() {
   g("no_terminal_log_or_git_diff_in_report", !JSON.stringify(withUnsafe).includes("diff --git") && !JSON.stringify(withUnsafe).includes("ERROR boom"));
 
   let docs = "";
-  for (const p of ["docs/internal/proof-and-savings-report.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
+  for (const p of ["docs/internal/proof-and-savings-report.md", "docs/public/security-and-privacy.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
   const NEG = /\b(no|not|never|without|cannot|n't|non-goal|forbidden|refus|only when)\b/;
   const aff = docs.split(/[.!?\n|]+/).filter((x) => !NEG.test(x)).join(" . ");
   g("docs_do_not_claim_savings_without_evidence", docs.length > 0 && !/guaranteed savings|saves? you|token savings|cost savings/.test(aff));

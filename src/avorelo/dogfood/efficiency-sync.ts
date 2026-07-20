@@ -45,7 +45,7 @@ function run() {
   g("projection_only_and_validate", envOk.syncPolicy.projectionOnly === true && validateEfficiencyMetadataSyncEnvelope(envOk).valid === true);
 
   let docs = "";
-  for (const p of ["docs/internal/sanitized-efficiency-cloud-sync.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
+  for (const p of ["docs/internal/sanitized-efficiency-cloud-sync.md", "docs/public/security-and-privacy.md"]) { try { docs += readFileSync(join(import.meta.dirname, "..", "..", "..", p), "utf8").toLowerCase(); } catch {} }
   const NEG = /\b(no|not|never|without|cannot|n't|non-goal|forbidden|only)\b/;
   const aff = docs.split(/[.!?\n|]+/).filter((x) => !NEG.test(x)).join(" . ");
   g("docs_do_not_claim_full_artifact_sync", docs.length > 0 && !/sync(s|ed)? full (reports?|artifacts?|ledger)/.test(aff));
