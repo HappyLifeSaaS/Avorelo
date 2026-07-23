@@ -1,8 +1,8 @@
 {
-  "canonicalCommit": "77b9e54e266b4a625ae3824244582b1d311aacff",
+  "canonicalCommit": "77ea81f13885186290e312b13543267fdad74490",
   "mode": "final",
   "generatorVersion": "1.0.0",
-  "fileCount": 572,
+  "fileCount": 573,
   "paths": [
     ".github/CODEOWNERS",
     ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -436,6 +436,7 @@
     "src/avorelo/surfaces/public-web/static/index.html",
     "src/avorelo/surfaces/public-web/static/learn-more.html",
     "src/avorelo/surfaces/public-web/static/license.html",
+    "src/avorelo/surfaces/public-web/static/og-card.png",
     "src/avorelo/surfaces/public-web/static/og-card.svg",
     "src/avorelo/surfaces/public-web/static/privacy-policy.html",
     "src/avorelo/surfaces/public-web/static/refund-discontinued.html",
@@ -2296,7 +2297,7 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/index.html",
-      "sha256": "3d66fd0f2326cd80f1e91bfcfa68d8fc26aa5133a47a763c6b5e252b98f05bf2"
+      "sha256": "f3cf18371d5c03995ca184275adea985e6c52cd3a2c4734a87c48691fc81b6f2"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/learn-more.html",
@@ -2307,8 +2308,12 @@
       "sha256": "ac39e00744c3426d2a539ff79aad174b7a2bd300520198fd03418de6f414ff87"
     },
     {
+      "path": "src/avorelo/surfaces/public-web/static/og-card.png",
+      "sha256": "a44d06031589b30cdb9221887978dbd7a4bd6de4aec76514d08b2458ee28f234"
+    },
+    {
       "path": "src/avorelo/surfaces/public-web/static/og-card.svg",
-      "sha256": "f2ad78891013d5c359cc3540ed3941b42fa15d10affa2fa2e302bbbf7c8858b6"
+      "sha256": "3a4f358ee9d8425a726d2753c630fa38687333d62a7998607d8980172328241e"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/privacy-policy.html",
