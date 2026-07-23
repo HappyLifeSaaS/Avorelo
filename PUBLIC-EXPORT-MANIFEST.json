@@ -1,5 +1,5 @@
 {
-  "canonicalCommit": "81e87ba32153cc3a46c21aa83c6ffc8707aa1c35",
+  "canonicalCommit": "102f423b74ed6835bd5bf679caab8f1471615271",
   "mode": "final",
   "generatorVersion": "1.0.0",
   "fileCount": 572,
@@ -924,11 +924,11 @@
     },
     {
       "path": "package-lock.json",
-      "sha256": "b415adeb023c777da24d956a7895cabb22586dd812c718b10f5ae067444f7ff3"
+      "sha256": "14a497ecedb93a833a478882716c684c227b337f48bd7a738074edfee442c75d"
     },
     {
       "path": "package.json",
-      "sha256": "00f616c069d2aa872def0eef5dac04c30715d4ee8a2581d66f8797453a8383bc"
+      "sha256": "11aa6c8e52449e92f47b1aa2409f01209f4a7213b41a1555522dbd2628864567"
     },
     {
       "path": "src/avorelo/adapters/adapter-interface.ts",
