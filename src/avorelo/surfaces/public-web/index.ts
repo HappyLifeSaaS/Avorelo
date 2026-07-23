@@ -117,6 +117,11 @@ export function buildSite(outDir: string): BuildSiteResult {
   // Pages that handle color-scheme themselves (the discontinued pages support light+dark) are left alone.
   const colorScheme = `<meta name="color-scheme" content="only light">`;
   const themeColorLight = `<meta name="theme-color" content="#F5F4F1">`;
+  // Belt-and-suspenders in CSS as well as the meta: some in-app webviews read the CSS
+  // `color-scheme` property but not the meta, and force-dark can paint a transparent <html>
+  // backdrop dark — so pin an explicit light background on html/body too. Loaded last in <head>
+  // so it wins. This is the strongest combination a page can use to stay light in a hostile webview.
+  const lightLock = `<style id="avorelo-light-lock">:root{color-scheme:only light}html,body{background:#F5F4F1}</style>`;
   for (const f of pages) {
     let html = readFileSync(join(STATIC_DIR, f), "utf8");
     if (!html.includes('name="avorelo-release"')) html = html.replace("</head>", `${marker}\n</head>`);
@@ -125,6 +130,7 @@ export function buildSite(outDir: string): BuildSiteResult {
       html = /<meta name="theme-color"[^>]*>/i.test(html)
         ? html.replace(/<meta name="theme-color"[^>]*>/i, themeColorLight)
         : html.replace("</head>", `${themeColorLight}\n</head>`);
+      if (!html.includes('id="avorelo-light-lock"')) html = html.replace("</head>", `${lightLock}\n</head>`);
     }
     writeFileSync(join(outDir, f), html);
   }
