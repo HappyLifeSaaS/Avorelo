@@ -106,9 +106,16 @@ export function buildSite(outDir: string): BuildSiteResult {
   for (const f of assets) copyFileSync(join(STATIC_DIR, f), join(outDir, f));
   const rel = releaseInfo();
   const marker = `<meta name="avorelo-release" content="${rel.version}+${rel.commit}">`;
+  // The content pages are a deliberate fixed light design (with a few intentional dark bands).
+  // Without an explicit color-scheme, mobile browsers (Chrome Android "Auto Dark Theme",
+  // Samsung Internet, in-app webviews) algorithmically force-darken them, which inverts the
+  // light sections and wrecks contrast. Declaring light opts out of that. Pages that already
+  // handle color-scheme themselves (the discontinued pages support light+dark) are left alone.
+  const colorScheme = `<meta name="color-scheme" content="light">`;
   for (const f of pages) {
     let html = readFileSync(join(STATIC_DIR, f), "utf8");
     if (!html.includes('name="avorelo-release"')) html = html.replace("</head>", `${marker}\n</head>`);
+    if (!/color-scheme/i.test(html)) html = html.replace("</head>", `${colorScheme}\n</head>`);
     writeFileSync(join(outDir, f), html);
   }
 

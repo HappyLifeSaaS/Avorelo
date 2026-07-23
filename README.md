@@ -6,7 +6,7 @@ work focused, keeps secrets out of the model, and saves proof of what actually h
 > **Status.** Avorelo is **Open Source** under the **Apache License 2.0**, local-first by design. The
 > earlier hosted service (accounts, cloud sync, billing) was **discontinued** — the CLI needs no account,
 > no billing, and no cloud backend. Personal, internal, organizational, and commercial use are all
-> permitted under Apache-2.0 (see [License](#license)). Release candidate `1.0.0-rc.1`.
+> permitted under Apache-2.0 (see [License](#license)). Stable release `1.0.0`.
 
 ## What it is
 
@@ -16,7 +16,7 @@ All state is local JSON under `.avorelo/` in your project.
 ## Install
 
 ```
-npm install -g avorelo@next
+npm install -g avorelo
 avorelo --help
 ```
 

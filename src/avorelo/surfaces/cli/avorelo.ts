@@ -147,7 +147,7 @@ function buildFixture(name: Fixture): { artifacts: EvidenceArtifact[]; content?:
 
 function help(): number {
   process.stdout.write([
-    "avorelo â€” AI Work Control",
+    "avorelo — AI Work Control",
     "",
     "  init [--target <dir>] [--json] [--reset]                          Initialize a local workspace (first run; no signup)",
     "  dogfood-check [--target <dir>] [--json]                           Read-only local readiness check (for dogfood testers)",
@@ -582,8 +582,8 @@ function cmdStatus(args: string[]): number {
       `  workspace:    local-only Â· cloud not claimed`,
       `  last run:     ${latest ? `${latest.status} (${latest.runtimeSessionId})` : "none yet"}`,
       `  routing:      seamless model routing active (local-first, no credentials required)`,
-      `  control ctr:  available â€” avorelo control-center --target .`,
-      `  next:         ${contract.firstRunRecommended.command} â€” ${contract.firstRunRecommended.reason}`,
+      `  control ctr:  available — avorelo control-center --target .`,
+      `  next:         ${contract.firstRunRecommended.command} — ${contract.firstRunRecommended.reason}`,
       "",
     ].join("\n"));
     return 0;
@@ -596,8 +596,8 @@ function cmdStatus(args: string[]): number {
       `  target:       ${target}`,
       "  initialized:  no",
       "  workspace:    local-only Â· cloud not claimed",
-      "  next:         avorelo init --target . â€” initialize the local workspace (no signup, no cloud)",
-      "  (optional)    avorelo activate --target . â€” install AI-tool hooks for live session control",
+      "  next:         avorelo init --target . — initialize the local workspace (no signup, no cloud)",
+      "  (optional)    avorelo activate --target . — install AI-tool hooks for live session control",
       "",
     ].join("\n"));
     return 0;
@@ -800,7 +800,7 @@ function cmdLifecycleHook(args: string[]): number {
   const cwd = String(ccEvent.cwd ?? process.cwd());
 
   // PostToolUse (Phase 2 Secret Boundary): redact tool output BEFORE it reaches model context, and write a
-  // redacted secret-boundary receipt. Additive â€” PreToolUse behavior below is unchanged.
+  // redacted secret-boundary receipt. Additive — PreToolUse behavior below is unchanged.
   if (event === "PostToolUse") {
     const toolOutput = ccEvent.tool_response ?? ccEvent.tool_output ?? (ccEvent as Record<string, unknown>).output ?? "";
     const sourceLabel = String(ccEvent.tool_name ?? "").toLowerCase().includes("mcp") ? "tool_output" : "tool_output";
@@ -810,7 +810,7 @@ function cmdLifecycleHook(args: string[]): number {
       // The receipt is already coded/redacted; defense-in-depth redact again before writing.
       appendFileSync(join(dir, "receipts.jsonl"), JSON.stringify(redact(r.receipt).value) + "\n");
     } catch {}
-    // Emit redacted output (updatedToolOutput / updatedMcpToolOutput) â€” adapter wires these where supported.
+    // Emit redacted output (updatedToolOutput / updatedMcpToolOutput) — adapter wires these where supported.
     process.stdout.write(JSON.stringify({
       event: "PostToolUse",
       decision: r.decision,
@@ -897,7 +897,7 @@ function cmdRunTask(args: string[]): number {
   // Context â†’ Continuity â†’ Token/Cost Evidence â†’ Proof â†’ Value Ledger â†’ Efficiency Sync (dry-run).
   // The orchestrator consumes each capability; it never reimplements one, never invents numbers, never
   // claims savings, and performs no network I/O. The raw `task` is only used in-memory for routing /
-  // secret detection â€” only the REDACTED displayTask is printed, persisted, or passed downstream.
+  // secret detection — only the REDACTED displayTask is printed, persisted, or passed downstream.
   const { record, gate, displayTask } = runRuntimeSession({ task, dir: target });
   const c = record;
   const contractLine = `  Contract:   ${record.routingSummary}`;
@@ -905,7 +905,7 @@ function cmdRunTask(args: string[]): number {
   if (gate === "blocked") {
     process.stderr.write([
       "",
-      `Blocked: ${record.route === "blocked" ? "secret-exfiltration / unsafe task" : "policy"} â€” route=${record.route}.`,
+      `Blocked: ${record.route === "blocked" ? "secret-exfiltration / unsafe task" : "policy"} — route=${record.route}.`,
       contractLine,
       `  Safety:     boundary=${c.safetyBoundary.secretBoundaryDecision} safeRun=${c.safetyBoundary.safeRunDecision} risk=${c.safetyBoundary.secretRiskCodes.join(",") || "none"}`,
       "  Use a SafeReference (avorelo secret-boundary scan); never print raw secrets.",
@@ -977,7 +977,7 @@ function cmdReadiness(args: string[]): number {
     `  Phases:     ${s.phasesImplemented}/${s.phasesTotal} implemented`,
     `  Old-repo:   ${report.oldRepoCapabilityCoverage.filter((c) => c.canonicalEvidence.length > 0).length}/${report.oldRepoCapabilityCoverage.length} capabilities with canonical evidence`,
     `  Invariants: ${Object.values(report.invariants).filter(Boolean).length}/${Object.keys(report.invariants).length} holding`,
-    `  Blockers:   ${report.blockers.length}${report.blockers.length ? " â€” " + report.blockers.join("; ") : ""}`,
+    `  Blockers:   ${report.blockers.length}${report.blockers.length ? " — " + report.blockers.join("; ") : ""}`,
     `  Limitations: ${report.limitations.length}`,
     ...report.limitations.map((l) => `    - ${l}`),
     "  Next track:",
@@ -1171,8 +1171,8 @@ function cmdValue(args: string[]): number {
     const cards = buildCompactValueCards(loadValueLedgerEntries(target));
     if (asJson) { process.stdout.write(JSON.stringify(cards, null, 2) + "\n"); return 0; }
     process.stdout.write(["", "Avorelo Value Cards (compact, confidence-labelled)", "",
-      ...cards.map((c) => `  ${c.title}: ${c.status} â€” ${c.valueLabel}`),
-      "", "  (value aggregated from evidence; never invented â€” no ROI, no fake savings)", ""].join("\n"));
+      ...cards.map((c) => `  ${c.title}: ${c.status} — ${c.valueLabel}`),
+      "", "  (value aggregated from evidence; never invented — no ROI, no fake savings)", ""].join("\n"));
     return 0;
   }
 
@@ -1201,16 +1201,16 @@ function cmdReport(args: string[]): number {
   const sv = sec.savedOrAvoided;
   const lines = [
     "", `Avorelo Proof Report (${report.contract})`, "",
-    `  Found:          ${sec.found.length}${sec.found.length ? " â€” " + sec.found.map(i => i.code).join(", ") : ""}`,
-    `  Protected:      ${sec.protected.length}${sec.protected.length ? " â€” " + sec.protected.map(i => i.code).join(", ") : ""}`,
+    `  Found:          ${sec.found.length}${sec.found.length ? " — " + sec.found.map(i => i.code).join(", ") : ""}`,
+    `  Protected:      ${sec.protected.length}${sec.protected.length ? " — " + sec.protected.map(i => i.code).join(", ") : ""}`,
     `  Fixed/Prepared: ${sec.fixedOrPrepared.length}`,
     `  Verified:       ${sec.verified.length}`,
-    `  Needs attention: ${sec.needsAttention.length}${sec.needsAttention.length ? " â€” " + sec.needsAttention.map(i => i.summary).join("; ") : ""}`,
-    `  Next:           ${sec.next.length}${sec.next.length ? " â€” " + sec.next.map(i => i.summary).join("; ") : ""}`,
+    `  Needs attention: ${sec.needsAttention.length}${sec.needsAttention.length ? " — " + sec.needsAttention.map(i => i.summary).join("; ") : ""}`,
+    `  Next:           ${sec.next.length}${sec.next.length ? " — " + sec.next.map(i => i.summary).join("; ") : ""}`,
     "",
     `  Token/cost evidence: ${report.evidenceSummary.tokenCostEvidenceCount} (measured=${report.evidenceSummary.measuredCount} imported=${report.evidenceSummary.importedCount} estimated=${report.evidenceSummary.estimatedCount} inferred=${report.evidenceSummary.inferredCount} unavailable=${report.evidenceSummary.unavailableCount})`,
     `  Cost evidence:  ${report.evidenceSummary.canShowCostSummary ? "available (" + (sv.costSummary?.confidence) + ")" : "unavailable"}`,
-    `  Saved or avoided: ${sv.savingsClaimAllowed ? `${sv.savingsAmount} ${sv.savingsCurrency}` : "unavailable â€” " + sv.refusalReason}`,
+    `  Saved or avoided: ${sv.savingsClaimAllowed ? `${sv.savingsAmount} ${sv.savingsCurrency}` : "unavailable — " + sv.refusalReason}`,
     "  (savings require eligible comparative evidence; never invented)",
     "",
   ];
@@ -1238,7 +1238,7 @@ function cmdTokenCost(args: string[]): number {
     try { parsed = JSON.parse(readFileSync(file, "utf8")); } catch { process.stderr.write("Invalid JSON file.\n"); return 1; }
     const result = importTokenCostEvidence(parsed);
     if (!result.ok) {
-      // Report rejected FIELD NAMES only â€” never raw values.
+      // Report rejected FIELD NAMES only — never raw values.
       const payload = { ok: false, rejectedFields: result.rejectedFields, reasons: result.reasons };
       if (asJson) { process.stdout.write(JSON.stringify(payload, null, 2) + "\n"); return 1; }
       process.stdout.write(["", "Import REJECTED (raw values never shown).", result.rejectedFields.length ? `  Forbidden fields: ${result.rejectedFields.join(", ")}` : "", `  Reasons: ${result.reasons.join(", ")}`, ""].filter(Boolean).join("\n"));
@@ -1247,7 +1247,7 @@ function cmdTokenCost(args: string[]): number {
     if (sub === "validate") {
       const v = validateTokenCostEvidence(result.evidence);
       if (asJson) { process.stdout.write(JSON.stringify(v, null, 2) + "\n"); return v.valid ? 0 : 1; }
-      process.stdout.write(`\nToken/Cost Evidence valid: ${v.valid}${v.valid ? "" : " â€” " + v.reasons.join(", ")}\n\n`);
+      process.stdout.write(`\nToken/Cost Evidence valid: ${v.valid}${v.valid ? "" : " — " + v.reasons.join(", ")}\n\n`);
       return v.valid ? 0 : 1;
     }
     try { writeTokenCostEvidence(target, result.evidence); } catch {}
@@ -1331,7 +1331,7 @@ function printContinuity(packet: ReturnType<typeof prepareContinuity>, asJson: b
     packet.openQuestions.length ? `  Decide:     ${packet.openQuestions.join("; ")}` : "",
     packet.riskFlags.length ? `  Risk flags: ${packet.riskFlags.join(", ")}` : "",
     `  Expires:    ${packet.expiresAt}`,
-    "  (redacted carry-forward â€” no raw prompts/secrets/source/logs/diffs)",
+    "  (redacted carry-forward — no raw prompts/secrets/source/logs/diffs)",
     "",
   ].filter(Boolean).join("\n"));
   return 0;
@@ -1761,13 +1761,13 @@ function cmdContext(args: string[]): number {
     `  Objective:  ${packet.objective}`,
     `  Routing:    risk=${packet.riskClass} route=${packet.route} proof=${packet.proofTier} approval=${packet.approvalPolicy}`,
     `  Budget:     ${packet.contextBudget.targetSize} (cost=${packet.contextBudget.estimatedContextCost})`,
-    `  Selected:   ${packet.selectedRefs.length} ref(s)${packet.selectedRefs.length ? " â€” " + packet.selectedRefs.map(r => `${r.label}[${r.includeMode}/${r.safety}]`).join(", ") : ""}`,
-    `  Excluded:   ${packet.excludedRefs.length}${packet.excludedRefs.length ? " â€” " + packet.excludedRefs.map(r => r.label).join(", ") : ""}`,
+    `  Selected:   ${packet.selectedRefs.length} ref(s)${packet.selectedRefs.length ? " — " + packet.selectedRefs.map(r => `${r.label}[${r.includeMode}/${r.safety}]`).join(", ") : ""}`,
+    `  Excluded:   ${packet.excludedRefs.length}${packet.excludedRefs.length ? " — " + packet.excludedRefs.map(r => r.label).join(", ") : ""}`,
     `  SafeRefs:   ${packet.safeReferences.length}`,
     packet.riskFlags.length ? `  Risk flags: ${packet.riskFlags.join(", ")}` : "",
     packet.proofNeeded.length ? `  Proof:      ${packet.proofNeeded.join("; ")}` : "",
     `  Cloud eligible: ${packet.cloudEligible}`,
-    "  (bounded, source-aware, secret-safe â€” values are never included)",
+    "  (bounded, source-aware, secret-safe — values are never included)",
     "",
   ].filter(Boolean).join("\n"));
   return 0;
@@ -1998,7 +1998,7 @@ function cmdSecretBoundary(args: string[]): number {
         `Secret Boundary scan: ${r.decision.toUpperCase()}`,
         `  Findings: ${r.findings.length}${r.findings.length ? " (" + r.findings.map(f => f.code).join(", ") + ")" : ""}`,
         `  Cloud eligible: ${r.cloudEligible}`,
-        "  (values are never shown â€” coded findings + safe references only)",
+        "  (values are never shown — coded findings + safe references only)",
         "",
       ].join("\n"));
     }
@@ -2011,7 +2011,7 @@ function cmdSecretBoundary(args: string[]): number {
     if (asJson) {
       process.stdout.write(JSON.stringify({ decision: r.decision, remediation: plan, findings: r.findings.map(f => f.code) }, null, 2) + "\n");
     } else if (!plan) {
-      process.stdout.write("\nNo secrets found â€” no remediation needed.\n\n");
+      process.stdout.write("\nNo secrets found — no remediation needed.\n\n");
     } else {
       process.stdout.write(["", "Recommended remediation (no auto-rotation; manual steps only):", ...plan.steps.map((s, i) => `  ${i + 1}. ${s}`), ""].join("\n"));
     }
@@ -2121,7 +2121,7 @@ function cmdPrompt(args: string[]): number {
   const resumePacket = loadLatestResumePacket(target);
 
   const lines = [
-    "# Avorelo â€” AI Work Control",
+    "# Avorelo — AI Work Control",
     "",
     "This project uses Avorelo for AI work control.",
     "",
@@ -2137,7 +2137,7 @@ function cmdPrompt(args: string[]): number {
     lines.push("", "## Current session", "");
     lines.push(`Objective: ${sessionStatus.objective}`);
     lines.push(`Status: ${sessionStatus.status}`);
-    if (sessionStatus.driftSignals > 0) lines.push(`Drift signals: ${sessionStatus.driftSignals} â€” check avorelo explain`);
+    if (sessionStatus.driftSignals > 0) lines.push(`Drift signals: ${sessionStatus.driftSignals} — check avorelo explain`);
   }
 
   if (resumePacket) {
@@ -2513,7 +2513,7 @@ function cmdLoop(args: string[]): number | Promise<number> {
       "  Continuation plan:",
       ...plan.map(p => `    - ${p}`),
       "",
-      "  (display only â€” does not execute)",
+      "  (display only — does not execute)",
       "",
     ].join("\n"));
     return 0;
@@ -2524,10 +2524,10 @@ function cmdLoop(args: string[]): number | Promise<number> {
     const ok: string[] = [];
 
     if (existsSync(join(target, ".git"))) { ok.push("Git repository detected"); }
-    else { issues.push("Not a git repository â€” loop needs git for drift detection"); }
+    else { issues.push("Not a git repository — loop needs git for drift detection"); }
 
     if (claudeCodeLoopAdapter.isAvailable()) { ok.push("Claude Code CLI available"); }
-    else { issues.push("Claude Code CLI not found â€” install it or ensure `claude` is on PATH"); }
+    else { issues.push("Claude Code CLI not found — install it or ensure `claude` is on PATH"); }
 
     const testDir = join(target, ".avorelo", "loops");
     try {
@@ -2536,7 +2536,7 @@ function cmdLoop(args: string[]): number | Promise<number> {
       writeFileSync(testFile, "probe");
       unlinkSync(testFile);
       ok.push("Storage writable (.avorelo/loops/)");
-    } catch { issues.push("Cannot write to .avorelo/loops/ â€” check permissions"); }
+    } catch { issues.push("Cannot write to .avorelo/loops/ — check permissions"); }
 
     const detected = detectCheckCommands(target);
     if (detected.length > 0) { ok.push(`Auto-detected checks: ${detected.map(c => c.label).join(", ")}`); }
@@ -2545,7 +2545,7 @@ function cmdLoop(args: string[]): number | Promise<number> {
     const nodeVersion = process.versions.node;
     const major = parseInt(nodeVersion.split(".")[0], 10);
     if (major >= 24) { ok.push(`Node.js ${nodeVersion}`); }
-    else { issues.push(`Node.js ${nodeVersion} â€” version 24+ recommended`); }
+    else { issues.push(`Node.js ${nodeVersion} — version 24+ recommended`); }
 
     if (asJson) { process.stdout.write(JSON.stringify({ ok, issues, ready: issues.length === 0 }, null, 2) + "\n"); return 0; }
     process.stdout.write([
@@ -2689,7 +2689,7 @@ async function cmdProve(args: string[]): Promise<number> {
 function avoreloVersion(): string {
   // Read AVORELO's own package version. Works both from source (src/avorelo/surfaces/cli) and from the
   // bundled dist (node_modules/avorelo/dist). Try the NEAREST package.json first and ONLY accept the one
-  // named "avorelo" â€” when installed as a dependency, a deeper ancestor package.json belongs to the
+  // named "avorelo" — when installed as a dependency, a deeper ancestor package.json belongs to the
   // CONSUMER project and must never be mistaken for ours (that returned the wrong --version before).
   for (const rel of ["../package.json", "../../package.json", "../../../package.json", "../../../../package.json"]) {
     try {

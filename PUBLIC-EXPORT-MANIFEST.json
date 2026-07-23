@@ -1,8 +1,8 @@
 {
-  "canonicalCommit": "e464b461e1939c21e6b213aed8db548f8b1c1bf5",
+  "canonicalCommit": "f078372340bb53722a04cbc9d56f07a791298ddc",
   "mode": "final",
   "generatorVersion": "1.0.0",
-  "fileCount": 571,
+  "fileCount": 572,
   "paths": [
     ".github/CODEOWNERS",
     ".github/ISSUE_TEMPLATE/bug_report.yml",
@@ -476,6 +476,7 @@
     "tests/dashboard-open-readiness.test.ts",
     "tests/dco.test.ts",
     "tests/dogfood-check.test.ts",
+    "tests/e2e-value-proof.test.ts",
     "tests/efficiency-sync.test.ts",
     "tests/evidence-gate-scenarios.test.ts",
     "tests/evidence-gate.test.ts",
@@ -607,7 +608,7 @@
     },
     {
       "path": ".gitignore",
-      "sha256": "03f49afa2c35f3b9a9b97ccd6175c09b5de4ff2329fb64ff6be6593f5ae79f2b"
+      "sha256": "65660755dad6fbeffb214a353a1787b61f25a9ea720799df91ec492fd8b8e3ce"
     },
     {
       "path": ".node-version",
@@ -655,7 +656,7 @@
     },
     {
       "path": "README.md",
-      "sha256": "d430d2d04ebcc1b64d1974819e67b6d6fe115a1f422f5d034a3c00af637a8791"
+      "sha256": "645c1df467740799faac1393c3574956ab6cf21ca49099a7910e0bc11994884c"
     },
     {
       "path": "SECURITY.md",
@@ -927,7 +928,7 @@
     },
     {
       "path": "package.json",
-      "sha256": "a938845f6d357e03b0e2a784c9c37e8aef84fd9ce7b62f02464a767417b1886c"
+      "sha256": "00f616c069d2aa872def0eef5dac04c30715d4ee8a2581d66f8797453a8383bc"
     },
     {
       "path": "src/avorelo/adapters/adapter-interface.ts",
@@ -1019,7 +1020,7 @@
     },
     {
       "path": "src/avorelo/capabilities/browser-visual-qa/render.ts",
-      "sha256": "63d46fea5de7aa80f4771db2e0e23010a8f4d23c89dd9b2f2fd48688875e8eb1"
+      "sha256": "09cc48116661c28dd5b95f28e2c56421c033d5bcecffe007502add4979d68fff"
     },
     {
       "path": "src/avorelo/capabilities/browser-visual-qa/runner.ts",
@@ -2023,7 +2024,7 @@
     },
     {
       "path": "src/avorelo/surfaces/cli/avorelo.ts",
-      "sha256": "dd52c3808def90841bf7603596140df84c601740b7ba99bc1c6c82ced1e84ff0"
+      "sha256": "fcbdfd065edd15af75e1145b9f99f04202d72cd8a149692404bf23ad456e07b9"
     },
     {
       "path": "src/avorelo/surfaces/preview-server/index.ts",
@@ -2031,7 +2032,7 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/index.ts",
-      "sha256": "107b72ddfe2dbf09a4f98f557f9e3fb306fef2cf102419d780713b21dc2a3458"
+      "sha256": "7d7b864f5083963f1a367d1e2927775be744bbcfe9f5bcef1d503a4dba4f3c01"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/404.html",
@@ -2466,6 +2467,10 @@
       "sha256": "f419221d46955ceeb8096e17c63663d3ebfd560f6ad0c72992409d35a22e6fd9"
     },
     {
+      "path": "tests/e2e-value-proof.test.ts",
+      "sha256": "735fe43a4c7ca9f598293d745e7c70c238252a2fdc27fc16d534543a833e9cdb"
+    },
+    {
       "path": "tests/efficiency-sync.test.ts",
       "sha256": "8f577ae3c0983e334ee8f2cff4534b40590d4ca1effbc5523c074a3f794cd9b1"
     },
@@ -2867,7 +2872,7 @@
     "personal-notes": 6,
     "legal-drafts": 21,
     "transition-internals": 41,
-    "release-internals": 75,
+    "release-internals": 77,
     "hosted-implementation": 20,
     "canonical-governance-test": 5
   },

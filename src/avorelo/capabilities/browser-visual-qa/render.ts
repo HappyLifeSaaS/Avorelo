@@ -10,7 +10,7 @@ export function renderBrowserQaSummary(artifact: BrowserQaArtifact): string {
     `  Screens:    ${artifact.screenshotPolicy} (persisted=${artifact.screenshotsPersisted}, blocked=${artifact.unsafeCapturesBlocked})`,
   ];
   for (const finding of artifact.topFindings.slice(0, 5)) {
-    lines.push(`  ${finding.severity.toUpperCase()}: ${finding.route} ${finding.reasonCode} â€” ${finding.safeSummary}`);
+    lines.push(`  ${finding.severity.toUpperCase()}: ${finding.route} ${finding.reasonCode} — ${finding.safeSummary}`);
   }
   lines.push(`  Next:       ${artifact.nextSafeAction}`, "");
   return lines.join("\n");
@@ -31,7 +31,7 @@ export function renderBrowserQaExplain(artifact: BrowserQaArtifact): string {
     );
   }
   for (const finding of artifact.findings.slice(0, 8)) {
-    lines.push(`  ${finding.severity.toUpperCase()}: ${finding.route} â€” ${finding.safeSummary}`);
+    lines.push(`  ${finding.severity.toUpperCase()}: ${finding.route} — ${finding.safeSummary}`);
   }
   lines.push(`  Next:       ${artifact.nextSafeAction}`, "");
   return lines.join("\n");

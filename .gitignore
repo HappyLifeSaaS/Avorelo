@@ -12,3 +12,6 @@ dist/
 .env.local
 .env.production
 .netlify/
+
+# Generated E2E value-proof evidence (regenerated on demand by the test)
+release/evidence/e2e-value-proof/

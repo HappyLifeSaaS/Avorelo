@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": false,
   "license": "Apache-2.0",
-  "description": "Avorelo â€” AI Work Control. One command. Keep using your AI coding tool. Avorelo quietly keeps the work focused and saves proof.",
+  "description": "Avorelo — AI Work Control. One command. Keep using your AI coding tool. Avorelo quietly keeps the work focused and saves proof.",
   "type": "module",
   "repository": {
     "type": "git",
@@ -35,6 +35,7 @@
     "test:phase": "node --test tests/phase1-foundation.test.ts tests/secret-boundary.test.ts tests/workcontract-routing.test.ts tests/context-compiler.test.ts tests/context-check.test.ts tests/continuity.test.ts tests/token-cost-evidence.test.ts tests/proof-report.test.ts tests/value-ledger.test.ts tests/efficiency-sync.test.ts tests/canonical-readiness.test.ts tests/proof-adapter-pack.test.ts tests/context-pack.test.ts tests/multi-agent-review.test.ts tests/future-executor-adapters.test.ts tests/persistent-adapter-health.test.ts tests/cost-benchmarking.test.ts tests/team-policy.test.ts tests/task-queue.test.ts",
     "test:all": "npm run test:local",
     "test:full": "node --test",
+    "test:e2e-value": "npm run build && node --test --test-concurrency=1 tests/e2e-value-proof.test.ts",
     "test:ci": "npm run build && npm run naming-check && npm run test:local && npm run dogfood:all && npm run readiness:local",
     "readiness:local": "node src/avorelo/surfaces/cli/avorelo.ts readiness --target .",
     "cli:local": "node src/avorelo/surfaces/cli/avorelo.ts",
