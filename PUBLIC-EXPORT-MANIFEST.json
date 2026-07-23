@@ -1,5 +1,5 @@
 {
-  "canonicalCommit": "35354e3cdb5c634a06041e35147a285f83c84f46",
+  "canonicalCommit": "89b53b78939e55fa8d4ef5b51ba918e011808129",
   "mode": "final",
   "generatorVersion": "1.0.0",
   "fileCount": 572,
@@ -2032,7 +2032,7 @@
     },
     {
       "path": "src/avorelo/surfaces/public-web/index.ts",
-      "sha256": "7d7b864f5083963f1a367d1e2927775be744bbcfe9f5bcef1d503a4dba4f3c01"
+      "sha256": "7c77b801b87c1f3c629f1971b9d4327fe0f19aff39e99656c12b5c6e30153f42"
     },
     {
       "path": "src/avorelo/surfaces/public-web/static/404.html",

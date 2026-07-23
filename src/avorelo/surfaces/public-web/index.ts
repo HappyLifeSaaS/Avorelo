@@ -107,15 +107,25 @@ export function buildSite(outDir: string): BuildSiteResult {
   const rel = releaseInfo();
   const marker = `<meta name="avorelo-release" content="${rel.version}+${rel.commit}">`;
   // The content pages are a deliberate fixed light design (with a few intentional dark bands).
-  // Without an explicit color-scheme, mobile browsers (Chrome Android "Auto Dark Theme",
-  // Samsung Internet, in-app webviews) algorithmically force-darken them, which inverts the
-  // light sections and wrecks contrast. Declaring light opts out of that. Pages that already
-  // handle color-scheme themselves (the discontinued pages support light+dark) are left alone.
-  const colorScheme = `<meta name="color-scheme" content="light">`;
+  // Two mobile-only failure modes darken them and must be opted out of:
+  //   1) Content force-darkening: Chrome Android "Auto Dark Theme", Samsung Internet and in-app
+  //      webviews (e.g. the LinkedIn browser) algorithmically invert light pages. `color-scheme:
+  //      only light` is the strongest opt-out (the `only` keyword forbids UA color adjustment).
+  //   2) Chrome tinting: a dark `theme-color` paints the in-app browser's top bar navy, which frames
+  //      the page in dark and reads as "dark mode" on a phone even when the page itself is light.
+  //      Force a light theme-color that matches the page background (--bg #F5F4F1).
+  // Pages that handle color-scheme themselves (the discontinued pages support light+dark) are left alone.
+  const colorScheme = `<meta name="color-scheme" content="only light">`;
+  const themeColorLight = `<meta name="theme-color" content="#F5F4F1">`;
   for (const f of pages) {
     let html = readFileSync(join(STATIC_DIR, f), "utf8");
     if (!html.includes('name="avorelo-release"')) html = html.replace("</head>", `${marker}\n</head>`);
-    if (!/color-scheme/i.test(html)) html = html.replace("</head>", `${colorScheme}\n</head>`);
+    if (!/color-scheme/i.test(html)) {
+      html = html.replace("</head>", `${colorScheme}\n</head>`);
+      html = /<meta name="theme-color"[^>]*>/i.test(html)
+        ? html.replace(/<meta name="theme-color"[^>]*>/i, themeColorLight)
+        : html.replace("</head>", `${themeColorLight}\n</head>`);
+    }
     writeFileSync(join(outDir, f), html);
   }
 
