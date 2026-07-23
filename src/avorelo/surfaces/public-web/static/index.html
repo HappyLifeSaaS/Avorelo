@@ -109,12 +109,12 @@ p{font-size:1rem;line-height:1.7;color:var(--text-2)}
 .hero{padding:24px 0 44px}
 .hero-grid{display:grid;grid-template-columns:46fr 54fr;gap:44px;align-items:start}
 .hero-grid>.rv-wrap{padding-top:48px}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--teal-lt);color:var(--teal);border:1px solid rgba(23,168,122,.20);padding:5px 12px;border-radius:20px;font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:18px;font-family:var(--sans)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:var(--teal-lt);color:var(--teal);border:1px solid rgba(23,168,122,.20);padding:5px 12px;border-radius:20px;font-size:0.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px;font-family:var(--sans)}
 .hero-eyebrow::before{content:'';width:6px;height:6px;background:var(--teal);border-radius:50%}
-.hero h1{margin-bottom:18px;color:var(--text)}
+.hero h1{margin-bottom:14px;color:var(--text)}
 .hero-sub{font-size:1.1rem;color:var(--text-2);line-height:1.65;margin-bottom:16px}
 .hero-sub strong{color:var(--text);font-weight:700}
-.hero-support{font-size:0.78rem;font-weight:400;color:var(--text-3);font-family:var(--sans);line-height:1.55;padding:10px 0 0;border-top:1px solid var(--border);margin-bottom:24px}
+.hero-support{font-size:0.78rem;font-weight:400;color:var(--text-3);font-family:var(--sans);line-height:1.55;padding:12px 0 0;border-top:1px solid var(--border);margin-top:18px}
 .hero-activate{margin-top:16px;background:var(--warm);border:2px solid var(--border-2);border-radius:var(--r);padding:16px 18px;display:none;animation:panelReveal .35s ease}
 .hero-activate.open{display:block}
 @keyframes panelReveal{from{opacity:0;transform:translateY(-6px);border-color:var(--teal)}60%{border-color:var(--teal)}to{opacity:1;transform:translateY(0);border-color:var(--border-2)}}
@@ -372,7 +372,7 @@ p{font-size:1rem;line-height:1.7;color:var(--text-2)}
 }
 @media(max-width:640px){
   .sec{padding:56px 0}
-  .hero{padding:56px 0 40px}
+  .hero{padding:32px 0 40px}
   .nav-links{display:none}
   .nav-ham{display:block}
   .cta-row{flex-direction:column;align-items:flex-start}
@@ -446,12 +446,12 @@ p{font-size:1rem;line-height:1.7;color:var(--text-2)}
         <div class="hero-eyebrow" aria-label="Product badge">LOCAL-FIRST &bull; WORKS IN BACKGROUND</div>
         <h1 id="hero-h1">AI coding comes with overhead. Avorelo handles it.</h1>
         <p class="hero-sub">Avorelo works seamlessly around your AI coding tool, handling what you would otherwise manage by hand. It <strong>keeps every run secure</strong>: secrets stay out of the model, prompt injection and exfiltration are blocked, and every file, network, and secret access passes a least-privilege boundary. It <strong>keeps context lean</strong>: feeding the model only what each task needs, so you spend fewer tokens. And it <strong>saves verifiable proof</strong> of exactly what changed, all automatic and in the background, across the tools you already use.</p>
-        <div class="hero-support">Open Source (Apache-2.0) &middot; Runs locally, in the background &middot; No account, backend, database, subscription, or telemetry.</div>
         <div class="cta-row">
           <a href="https://github.com/HappyLifeSaaS/Avorelo" class="btn btn-primary" rel="noopener">View on GitHub</a>
           <button type="button" class="btn btn-ghost" id="hero-start-btn" onclick="var p=document.getElementById('hero-wizard-panel');var isOpen=p.classList.toggle('open');this.textContent=isOpen?'Close ↑':'See how activation works'">See how activation works</button>
         </div>
         <div class="hero-install" style="margin-top:14px;font-family:var(--mono,monospace);font-size:0.86rem;color:var(--text-2)"><code>npm install -g avorelo</code> &nbsp;·&nbsp; <a href="https://www.npmjs.com/package/avorelo" rel="noopener">npm</a> · <a href="/license">Apache-2.0</a> · <a href="https://github.com/HappyLifeSaaS/Avorelo/blob/main/CONTRIBUTING.md" rel="noopener">Contributing (DCO)</a></div>
+        <div class="hero-support">Open Source (Apache-2.0) &middot; Runs locally, in the background &middot; No account, backend, database, subscription, or telemetry.</div>
 
         <div class="hero-activate" id="hero-wizard-panel">
           <span class="hero-activate-lbl">Activate Avorelo where you already build</span>

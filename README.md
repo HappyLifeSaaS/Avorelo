@@ -1,17 +1,26 @@
 # Avorelo
 
-**AI Work Control.** Avorelo runs *around* your AI coding tool. It does not generate code — it keeps the
-work focused, keeps secrets out of the model, and saves proof of what actually happened, locally.
+**AI Work Control for your coding agent.** Avorelo works seamlessly around the AI coding tool you already
+use (Claude Code, Cursor, Codex, or a local terminal). It does not write code. It makes every run
+**secure, lean, and provable**, automatically and on your own machine.
 
-> **Status.** Avorelo is **Open Source** under the **Apache License 2.0**, local-first by design. The
-> earlier hosted service (accounts, cloud sync, billing) was **discontinued** — the CLI needs no account,
-> no billing, and no cloud backend. Personal, internal, organizational, and commercial use are all
-> permitted under Apache-2.0 (see [License](#license)). Stable release.
+- **Keeps every run secure.** Your API keys and secrets never reach the model. Prompt injection and data
+  exfiltration are blocked, unsafe actions are stopped, and every file, network, and secret access passes a
+  least-privilege boundary. Avorelo does not rely on the platform sandbox to enforce this.
+- **Keeps context lean.** It feeds the model only the context each task actually needs instead of your
+  whole repo, so you spend fewer tokens, and it carries context forward so the next session resumes safely.
+- **Saves verifiable proof.** Every run leaves a local, redacted receipt of exactly what changed. Cost and
+  savings are labelled by confidence, and Avorelo refuses to claim a saving it cannot back with evidence.
+
+> **Status.** Open Source under the **Apache License 2.0**, local-first by design. No account, no hosted
+> backend, no cloud database, no subscription, no telemetry. Personal, internal, organizational,
+> and commercial use are all permitted (see [License](#license)). Stable release.
 
 ## What it is
 
-A bundled Node CLI that runs entirely on your machine. No signup, no account, no database, no server.
-All state is local JSON under `.avorelo/` in your project.
+A single bundled Node CLI that runs entirely on your machine, wrapped around whatever AI coding tool you
+already use. No signup, no account, no database, no server. All state is local JSON under `.avorelo/` in
+your project, and nothing is uploaded.
 
 ## Install
 
