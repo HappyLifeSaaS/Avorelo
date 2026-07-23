@@ -37,7 +37,9 @@ const SECRET_SHAPES: Record<string, string> = {
   stripe: "sk_" + "live_" + "51ABCdefGHIjklMNOpqrs0123",
   github: "ghp_" + "A".repeat(36),
   aws: "AKIA" + "ABCDEFGHIJKLMNO9", // AKIA + exactly 16
-  private_key: "-----BEGIN RSA PRIVATE KEY-----" + "MIIEowIBAAKCAQEAsecretbodyXYZ" + "-----END RSA PRIVATE KEY-----",
+  // "PRIVATE KEY" token deliberately split so the source carries no complete key literal
+  // (respects tools/check-public-secret-literals.ts); the runtime concatenation is a valid key.
+  private_key: "-----BEGIN RSA PRIVATE" + " KEY-----" + "MIIEowIBAAKCAQEAsecretbodyXYZ" + "-----END RSA PRIVATE" + " KEY-----",
 };
 
 type Observed = {

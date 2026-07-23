@@ -1,5 +1,5 @@
 {
-  "canonicalCommit": "f078372340bb53722a04cbc9d56f07a791298ddc",
+  "canonicalCommit": "35354e3cdb5c634a06041e35147a285f83c84f46",
   "mode": "final",
   "generatorVersion": "1.0.0",
   "fileCount": 572,
@@ -2468,7 +2468,7 @@
     },
     {
       "path": "tests/e2e-value-proof.test.ts",
-      "sha256": "735fe43a4c7ca9f598293d745e7c70c238252a2fdc27fc16d534543a833e9cdb"
+      "sha256": "7b63cc9218710a0403b4c60690aa2904549ba89e8dbc541840086fff2ac76f0e"
     },
     {
       "path": "tests/efficiency-sync.test.ts",
